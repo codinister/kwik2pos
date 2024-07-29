@@ -1,0 +1,109 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.registeration-box {
+  background-color: white;
+  width: 30rem;
+  padding: 2em;
+  box-shadow: 0.4rem 0.4rem 2rem 0rem rgba(0, 0, 0, 0.1);
+  margin-bottom: 5em;
+  margin-top: 1.2em;
+}
+.form-control {
+  position: relative;
+}
+.form-control label {
+  position: absolute;
+  left: 0.7rem;
+  top: 2.5rem;
+  font-size: 1.4rem;
+  color: #888;
+  pointer-events: none;
+}
+.form-control > input {
+  width: 100%;
+  padding: 0.4em;
+  color: #888;
+  font-size: 1.4rem;
+  margin-top: 1.3em;
+}
+
+.showpass{
+  padding-right: 2rem!important;
+}
+.togglepass{
+  position: absolute; 
+  top: 2rem;
+  right: .6rem;
+  z-index: 9;
+  cursor: pointer;
+  
+}
+
+input:focus + label {
+  top: 0;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+input:not(:placeholder-shown) + label {
+  top: 0;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+select {
+  width: 100%;
+  padding: 0.4em;
+  color: #888;
+  font-size: 1.4rem;
+  margin-top: 1.3em;
+}
+h2 {
+  text-align: center;
+  color: #888;
+  font-size: 2rem;
+}
+
+button {
+  background-color: #888;
+  color: white;
+  width: 100%;
+  padding: 0.4em;
+  text-align: center;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+.register-btn {
+  display: none;
+}
+.register-btn.show {
+  display: block;
+}
+.error {
+  border: solid 0.1rem hsl(0, 86%, 66%);
+  padding: 1em;
+  color: hsl(0, 86%, 66%);
+  font-size: 1.4rem;
+  margin-bottom: 1.3em;
+  text-align: center;
+}
+
+.error > h4 {
+  font-size: 1.6rem !important;
+}
+.success {
+  border: solid 0.1rem hsl(144, 95%, 38%);
+  padding: 1em;
+  color: hsl(144, 95%, 38%);
+  font-size: 1.4rem;
+  margin-bottom: 1.3em;
+  text-align: center;
+}
+.allrequired {
+  text-align: center;
+  color: red;
+}

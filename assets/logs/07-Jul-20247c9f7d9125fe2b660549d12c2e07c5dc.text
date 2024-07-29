@@ -1,0 +1,28 @@
+
+Date: 07 Jul 2024
+Time: 19:21:50
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '*),0) as total FROM settings as t JOIN users as u ON t.code = u.code  WHERE t...' at line 1
+ SQL ERROR:
+SELECT IFNULL(t.users,0) - IFNULL(COUNT(u.*),0) as total FROM settings as t JOIN users as u ON t.code = u.code  WHERE t.code = ?
+
+
+Date: 07 Jul 2024
+Time: 19:20:21
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '.u),0) as total FROM settings as t JOIN users as u ON t.code = u.code  WHERE ...' at line 1
+ SQL ERROR:
+SELECT IFNULL(t.users,0) - IFNULL(COUNT(*.u),0) as total FROM settings as t JOIN users as u ON t.code = u.code  WHERE t.code = ?
+
+
+Date: 07 Jul 2024
+Time: 19:19:12
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '*),0) as total FROM settings as t JOIN users as u ON t.code = u.code  WHERE t...' at line 1
+ SQL ERROR:
+SELECT IFNULL(t.users,0) - IFNULL(COUNT(u.*),0) as total FROM settings as t JOIN users as u ON t.code = u.code  WHERE t.code = ?
+
+
+Date: 07 Jul 2024
+Time: 19:13:26
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '*) as total FROM settings as t JOIN users as u ON t.code = u.code  WHERE t.co...' at line 1
+ SQL ERROR:
+SELECT t.users - COUNT(u.*) as total FROM settings as t JOIN users as u ON t.code = u.code  WHERE t.code = ?
+

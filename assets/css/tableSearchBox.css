@@ -1,0 +1,38 @@
+@media (min-width: 35em) {
+  .tablesearchbox {
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    gap: 1.4em;
+    padding: 1em 1em 0 1em;
+  }
+
+  .tablesearchbox div input {
+    width: 40rem;
+  }
+
+  .tablesearchbox div {
+    flex-basis: 6rem 1 1;
+  }
+}
+
+
+@media (max-width: 35em) {
+  .tablesearchbox {
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    padding-inline: 1em;
+    padding-block: 1.5em;
+  }
+
+  .tablesearchbox div input {
+    width: 40rem;
+  }
+
+  .tablesearchbox div {
+    flex-basis: 6rem 1 1;
+  }
+}

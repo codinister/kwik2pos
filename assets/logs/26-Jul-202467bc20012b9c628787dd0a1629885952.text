@@ -1,0 +1,42 @@
+
+Date: 26 Jul 2024
+Time: 18:53:41
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'low_stocks_reminder_days' in 'field list'
+ SQL ERROR:
+SELECT low_stocks_reminder_days,low_stocks_date,activate_low_stocks FROM settings WHERE code = ?
+
+
+Date: 26 Jul 2024
+Time: 18:52:26
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'low_stocks_reminder_days' in 'field list'
+ SQL ERROR:
+SELECT low_stocks_reminder_days,low_stocks_date,activate_low_stocks FROM settings WHERE code = ?
+
+
+Date: 26 Jul 2024
+Time: 18:52:25
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'low_stocks_reminder_days' in 'field list'
+ SQL ERROR:
+SELECT low_stocks_reminder_days,low_stocks_date,activate_low_stocks FROM settings WHERE code = ?
+
+
+Date: 26 Jul 2024
+Time: 18:30:11
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'low_stocks_reminder_days' in 'field list'
+ SQL ERROR:
+SELECT low_stocks_reminder_days,low_stocks_date,activate_low_stocks FROM settings WHERE code = ?
+
+
+Date: 26 Jul 2024
+Time: 18:29:56
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'low_stocks_reminder_days' in 'field list'
+ SQL ERROR:
+SELECT low_stocks_reminder_days,low_stocks_date,activate_low_stocks FROM settings WHERE code = ?
+
+
+Date: 26 Jul 2024
+Time: 18:29:00
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'low_stocks_reminder_days' in 'field list'
+ SQL ERROR:
+SELECT low_stocks_reminder_days,low_stocks_date,activate_low_stocks FROM settings WHERE code = ?
+

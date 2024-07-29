@@ -1,0 +1,17 @@
+
+Date: 25 Jun 2024
+Time: 10:03:58
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '?,?,?,?,?) ON DUPLICATE KEY UPDATE 
+                prod_id = VALUES(prod_id)...' at line 7
+ SQL ERROR:
+INSERT INTO product_qty(
+                qty_id, 
+                prod_id,
+                prod_qty,
+                createdAt,
+                code
+            ) VALUES (?,?,?,?,?) ON DUPLICATE KEY UPDATE 
+                prod_id = VALUES(prod_id),
+                prod_qty = VALUES(prod_qty),
+                createdAt = VALUES(createdAt)
+

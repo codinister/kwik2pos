@@ -1,0 +1,33 @@
+@import 'reset.css';
+@import 'utils.css';
+@import 'font-awesome.min.css';
+@import 'settings.css';
+@import 'nav.css';
+@import 'login.css';
+@import 'pos.css';
+@import 'inputs.css';
+@import 'widgets.css';
+@import 'users.css';
+@import 'lists.css';
+@import 'searchBox.css';
+@import 'detailsbox.css';
+@import 'buttons.css';
+@import 'modalbox.css';
+@import 'accordion.css';
+@import 'tabs.css';
+@import 'sidebar.css';
+@import 'table.css';
+@import 'products.css';
+@import 'imageupload.css';
+@import 'datalist.css';
+@import 'tableSearchBox.css';
+@import 'toastnotification.css';
+@import 'help.css';
+@import 'monthlyreport.css';
+@import 'socialicons.css';
+@import 'sms.css';
+@import 'service-provider.css';
+@import 'emailWhatsappReminder.css';
+@import 'spinner.css';
+
+

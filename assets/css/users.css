@@ -1,0 +1,139 @@
+.note-table-top,
+.note-table-bottom {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.display-note > div {
+  height: 20rem;
+  overflow-y: scroll;
+}
+
+.view-note {
+  cursor: pointer;
+}
+
+.note-table-top > li:nth-of-type(1),
+.note-table-bottom > li:nth-of-type(1) {
+  flex: 10rem 1 0;
+}
+
+.note-table-top > li:nth-of-type(2),
+.note-table-bottom > li:nth-of-type(2) {
+  flex: 20rem 1 0;
+}
+
+.note-table-top > li:nth-of-type(3),
+.note-table-bottom > li:nth-of-type(3) {
+  flex: 12rem 0 1;
+  display: flex;
+  gap: 3.2rem;
+  align-items: center;
+}
+
+.note-table-bottom:nth-of-type(even) {
+  background-color: #f2f2f2;
+}
+
+.savenote-wrapper > span,
+.saveuser-wrapper > span {
+  color: red;
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+.note-header {
+  font-size: 1.6rem;
+  background-color: #f2f2f2;
+  text-align: left;
+  padding-inline: 0.8rem;
+  margin-bottom: 1.2rem;
+  color: #444;
+}
+
+@media (min-width: 35em) {
+  .addUserPrevileges {
+    font-size: 1rem;
+  }
+
+  .addUserPrevileges,
+  .usersDetails {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.6rem;
+  }
+
+  .addUserPrevileges div,
+  .usersDetails div {
+    flex: 13rem 1 1;
+  }
+
+  .role {
+    border: solid 0.1rem var(--muted);
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.2rem;
+    align-items: center;
+
+    padding: 1.6rem;
+  }
+  .role label {
+    margin-left: -1rem !important;
+    margin-right: 2rem !important;
+    margin-top: 0.2rem !important;
+  }
+  .role h6 {
+    margin-bottom: 0.4rem;
+    margin-top: 0;
+    padding-left: 0.4rem;
+  }
+
+  .role > div:nth-of-type(1) {
+    flex: 11rem 1 0;
+  }
+
+  .role > div:nth-of-type(2) {
+    flex: 10rem 0 1;
+  }
+
+  .role .checkinpt-wrapper > div {
+    display: flex;
+  }
+
+  .userdetailsbox {
+    display: flex;
+  }
+
+  .userdetailsbox {
+    width: 50rem;
+  }
+
+  .userdetailsbox li {
+    flex-shrink: 1;
+    flex-grow: 1;
+  }
+
+  .userdetailsbox li:nth-of-type(1) {
+    flex-basis: 3rem !important;
+  }
+
+  .userdetailsbox li:nth-of-type(2) {
+    flex-basis: 22rem !important;
+  }
+}
+
+@media (max-width: 35em) {
+  .addNote,
+  .usernotesarear {
+    display: none !important;
+  }
+  .usersidebar {
+    padding-inline: 1.2em;
+    height: 30rem;
+    overflow-y: scroll;
+  }
+  .addUser {
+    margin-block: 2em;
+    margin-left: 1em;
+  }
+}

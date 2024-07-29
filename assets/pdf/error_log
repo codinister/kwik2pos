@@ -1,0 +1,666 @@
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Undefined array key "edfghl" in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 5
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  file_get_contents(../uploads/invoice--.json): Failed to open stream: No such file or directory in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 5
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 7
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 7
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 24
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 24
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 25
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 25
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 26
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 26
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 27
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 27
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 28
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 28
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 29
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 29
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 30
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 30
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 32
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 32
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 33
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 33
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 34
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 34
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 36
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 36
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 37
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 37
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 38
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 38
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 38
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 38
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 40
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 40
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 41
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 41
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 42
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 42
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 43
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 43
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 44
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 44
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 45
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 45
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 46
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 46
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 69
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 69
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 70
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 70
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 71
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 71
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 72
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 72
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 73
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 73
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 74
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 74
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 75
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 75
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 76
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 76
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 77
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 77
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 78
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 78
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 79
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 79
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 80
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 80
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 81
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 81
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 82
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 82
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 83
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 83
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 84
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 84
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 85
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 85
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 86
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 86
+[25-Jul-2023 10:24:40 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 88
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Undefined array key "edfghl" in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 5
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  file_get_contents(../uploads/invoice--.json): Failed to open stream: No such file or directory in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 5
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 7
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 7
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 24
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 24
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 25
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 25
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 26
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 26
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 27
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 27
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 28
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 28
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 29
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 29
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 30
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 30
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 32
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 32
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 33
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 33
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 34
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 34
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 36
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 36
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 37
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 37
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 38
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 38
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 38
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 38
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 40
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 40
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 41
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 41
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 42
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 42
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 43
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 43
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 44
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 44
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 45
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 45
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 46
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 46
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 69
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 69
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 70
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 70
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 71
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 71
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 72
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 72
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 73
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 73
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 74
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 74
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 75
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 75
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 76
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 76
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 77
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 77
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 78
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 78
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 79
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 79
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 80
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 80
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 81
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 81
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 82
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 82
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 83
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 83
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 84
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 84
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 85
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 85
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 86
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 86
+[31-Jul-2023 19:58:17 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 88
+[07-Aug-2023 20:57:56 Africa/Accra] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/lybrndwh/kwikpos.shop/assets/pdf/library/include/tcpdf_static.php:353) in /home/lybrndwh/kwikpos.shop/assets/pdf/library/tcpdf.php on line 7705
+[15-Aug-2023 16:44:39 Africa/Accra] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/lybrndwh/kwikpos.shop/assets/pdf/library/include/tcpdf_static.php:353) in /home/lybrndwh/kwikpos.shop/assets/pdf/library/tcpdf.php on line 7705
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Undefined array key "edfghl" in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 84
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  file_get_contents(../uploads/receipt--.json): Failed to open stream: No such file or directory in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 84
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 86
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 86
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 103
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 103
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 104
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 104
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 105
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 105
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 106
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 106
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 107
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 107
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 108
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 108
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 109
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 109
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 110
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 110
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 111
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 111
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 112
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 112
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 113
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 113
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 114
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 114
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 115
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 115
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 117
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 117
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 117
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 117
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 119
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 119
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 122
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 122
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 123
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 123
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 124
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 124
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 125
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 125
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 126
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 126
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 127
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 127
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 128
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 128
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 129
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 129
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 130
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 130
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 134
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 134
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 135
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 135
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 136
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 136
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 137
+[19-Aug-2023 13:59:54 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 137
+[25-Aug-2023 07:24:38 Africa/Accra] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/lybrndwh/kwikpos.shop/assets/pdf/library/include/tcpdf_static.php:353) in /home/lybrndwh/kwikpos.shop/assets/pdf/library/tcpdf.php on line 7705
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Undefined array key "edfghl" in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 5
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  file_get_contents(../uploads/invoice--.json): Failed to open stream: No such file or directory in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 5
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 7
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 7
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 24
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 24
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 25
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 25
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 26
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 26
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 27
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 27
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 28
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 28
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 29
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 29
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 30
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 30
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 32
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 32
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 33
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 33
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 34
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 34
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 36
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 36
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 37
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 37
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 38
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 38
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 38
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 38
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 40
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 40
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 41
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 41
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 42
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 42
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 43
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 43
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 44
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 44
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 45
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 45
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 46
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 46
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 69
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 69
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 70
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 70
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 71
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 71
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 72
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 72
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 73
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 73
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 74
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 74
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 75
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 75
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 76
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 76
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 77
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 77
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 78
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 78
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 79
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 79
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 80
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 80
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 81
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 81
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 82
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 82
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 83
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 83
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 84
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 84
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 85
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 85
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 86
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 86
+[31-Aug-2023 12:20:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 88
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Undefined array key "edfghl" in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 5
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  file_get_contents(../uploads/invoice--.json): Failed to open stream: No such file or directory in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 5
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 7
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 7
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 24
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 24
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 25
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 25
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 26
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 26
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 27
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 27
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 28
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 28
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 29
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 29
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 30
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 30
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 32
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 32
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 33
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 33
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 34
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 34
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 36
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 36
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 37
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 37
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 38
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 38
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 38
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 38
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 40
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 40
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 41
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 41
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 42
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 42
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 43
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 43
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 44
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 44
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 45
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 45
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 46
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 46
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 69
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 69
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 70
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 70
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 71
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 71
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 72
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 72
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 73
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 73
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 74
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 74
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 75
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 75
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 76
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 76
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 77
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 77
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 78
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 78
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 79
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 79
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 80
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 80
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 81
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 81
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 82
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 82
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 83
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 83
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 84
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 84
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 85
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 85
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 86
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 86
+[06-Sep-2023 14:53:33 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/invoice.php on line 88
+[08-Sep-2023 15:51:00 Africa/Accra] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/lybrndwh/kwikpos.shop/assets/pdf/library/include/tcpdf_static.php:353) in /home/lybrndwh/kwikpos.shop/assets/pdf/library/tcpdf.php on line 7705
+[09-Sep-2023 19:44:35 Africa/Accra] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/lybrndwh/kwikpos.shop/assets/pdf/library/include/tcpdf_static.php:353) in /home/lybrndwh/kwikpos.shop/assets/pdf/library/tcpdf.php on line 7705
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Undefined array key "edfghl" in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 84
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  file_get_contents(../uploads/receipt--.json): Failed to open stream: No such file or directory in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 84
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 86
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 86
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 103
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 103
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 104
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 104
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 105
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 105
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 106
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 106
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 107
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 107
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 108
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 108
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 109
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 109
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 110
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 110
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 111
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 111
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 112
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 112
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 113
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 113
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 114
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 114
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 115
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 115
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 117
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 117
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 117
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 117
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 119
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 119
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 122
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 122
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 123
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 123
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 124
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 124
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 125
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 125
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 126
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 126
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 127
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 127
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 128
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 128
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 129
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 129
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 130
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 130
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 134
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 134
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 135
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 135
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 136
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 136
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 137
+[09-Sep-2023 19:44:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/lybrndwh/kwikpos.shop/assets/pdf/receipt.php on line 137
+[05-Mar-2024 18:37:15 Africa/Accra] PHP Warning:  Undefined variable $pay_type in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 128
+[05-Mar-2024 18:37:15 Africa/Accra] PHP Warning:  Undefined variable $tax_id in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 151
+[05-Mar-2024 18:37:15 Africa/Accra] PHP Warning:  Undefined variable $payment in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 162
+[05-Mar-2024 18:37:15 Africa/Accra] PHP Warning:  Undefined variable $pay_type in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 7
+[05-Mar-2024 18:37:15 Africa/Accra] PHP Warning:  Undefined variable $balance in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 10
+[05-Mar-2024 18:37:15 Africa/Accra] PHP Warning:  Undefined variable $balance in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 14
+[05-Mar-2024 18:37:15 Africa/Accra] PHP Warning:  Undefined variable $rec_date in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 59
+[05-Mar-2024 18:37:15 Africa/Accra] PHP Warning:  Undefined variable $cust_name in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 81
+[05-Mar-2024 18:37:15 Africa/Accra] PHP Warning:  Undefined variable $payment in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 98
+[05-Mar-2024 18:37:15 Africa/Accra] PHP Warning:  Undefined variable $balance in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 115
+[05-Mar-2024 18:37:15 Africa/Accra] PHP Warning:  Undefined variable $profile in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 119
+[05-Mar-2024 18:41:20 Africa/Accra] PHP Warning:  Undefined variable $pay_type in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 128
+[05-Mar-2024 18:41:20 Africa/Accra] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: int + string in /home/kwikexyg/public_html/model/utils.php:137
+Stack trace:
+#0 /home/kwikexyg/public_html/assets/pdf/receipt.php(134): inv_num()
+#1 {main}
+  thrown in /home/kwikexyg/public_html/model/utils.php on line 137
+[05-Mar-2024 18:42:21 Africa/Accra] PHP Warning:  Undefined variable $pay_type in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 128
+[05-Mar-2024 18:42:21 Africa/Accra] PHP Warning:  Undefined variable $tax_id in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 151
+[05-Mar-2024 18:42:21 Africa/Accra] PHP Warning:  Undefined variable $payment in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 162
+[05-Mar-2024 18:42:21 Africa/Accra] PHP Warning:  Undefined variable $pay_type in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 7
+[05-Mar-2024 18:42:21 Africa/Accra] PHP Warning:  Undefined variable $balance in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 10
+[05-Mar-2024 18:42:21 Africa/Accra] PHP Warning:  Undefined variable $balance in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 14
+[05-Mar-2024 18:42:21 Africa/Accra] PHP Warning:  Undefined variable $rec_date in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 59
+[05-Mar-2024 18:42:21 Africa/Accra] PHP Warning:  Undefined variable $cust_name in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 81
+[05-Mar-2024 18:42:21 Africa/Accra] PHP Warning:  Undefined variable $payment in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 98
+[05-Mar-2024 18:42:21 Africa/Accra] PHP Warning:  Undefined variable $balance in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 115
+[05-Mar-2024 18:42:21 Africa/Accra] PHP Warning:  Undefined variable $profile in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 119
+[05-Mar-2024 18:43:23 Africa/Accra] PHP Warning:  Undefined variable $pay_type in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 128
+[05-Mar-2024 18:43:23 Africa/Accra] PHP Warning:  Undefined variable $tax_id in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 151
+[05-Mar-2024 18:43:23 Africa/Accra] PHP Warning:  Undefined variable $payment in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 162
+[05-Mar-2024 18:43:23 Africa/Accra] PHP Warning:  Undefined variable $pay_type in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 7
+[05-Mar-2024 18:43:23 Africa/Accra] PHP Warning:  Undefined variable $balance in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 10
+[05-Mar-2024 18:43:23 Africa/Accra] PHP Warning:  Undefined variable $balance in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 14
+[05-Mar-2024 18:43:23 Africa/Accra] PHP Warning:  Undefined variable $rec_date in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 59
+[05-Mar-2024 18:43:23 Africa/Accra] PHP Warning:  Undefined variable $cust_name in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 81
+[05-Mar-2024 18:43:23 Africa/Accra] PHP Warning:  Undefined variable $payment in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 98
+[05-Mar-2024 18:43:23 Africa/Accra] PHP Warning:  Undefined variable $balance in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 115
+[05-Mar-2024 18:43:23 Africa/Accra] PHP Warning:  Undefined variable $profile in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 119
+[10-Mar-2024 23:13:45 Africa/Accra] PHP Warning:  file_get_contents(../uploads/allstocks-1.json): Failed to open stream: No such file or directory in /home/kwikexyg/public_html/assets/pdf/stocks.php on line 16
+[10-Mar-2024 23:13:45 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/stocks.php on line 19
+[10-Mar-2024 23:13:45 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/stocks.php on line 20
+[10-Mar-2024 23:13:45 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/stocks.php on line 21
+[10-Mar-2024 23:13:45 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/stocks.php on line 22
+[10-Mar-2024 23:13:45 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/stocks.php on line 23
+[10-Mar-2024 23:13:45 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/stocks.php on line 24
+[10-Mar-2024 23:13:45 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/stocks.php on line 25
+[10-Mar-2024 23:13:45 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/stocks.php on line 26
+[10-Mar-2024 23:13:45 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/stocks.php on line 27
+[10-Mar-2024 23:13:45 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/stocks.php on line 27
+[10-Mar-2024 23:13:45 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/stocks.php on line 28
+[10-Mar-2024 23:13:45 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/stocks.php on line 28
+[10-Mar-2024 23:13:45 Africa/Accra] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in /home/kwikexyg/public_html/assets/pdf/stocks.php:31
+Stack trace:
+#0 {main}
+  thrown in /home/kwikexyg/public_html/assets/pdf/stocks.php on line 31
+[10-Mar-2024 23:13:48 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/customers.php on line 19
+[10-Mar-2024 23:13:48 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/customers.php on line 20
+[10-Mar-2024 23:13:48 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/customers.php on line 21
+[10-Mar-2024 23:13:48 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/customers.php on line 22
+[10-Mar-2024 23:13:48 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/customers.php on line 23
+[10-Mar-2024 23:13:48 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/customers.php on line 24
+[10-Mar-2024 23:13:48 Africa/Accra] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in /home/kwikexyg/public_html/assets/pdf/customers.php:28
+Stack trace:
+#0 {main}
+  thrown in /home/kwikexyg/public_html/assets/pdf/customers.php on line 28
+[10-Mar-2024 23:13:48 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 21
+[10-Mar-2024 23:13:48 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 22
+[10-Mar-2024 23:13:48 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 23
+[10-Mar-2024 23:13:48 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 24
+[10-Mar-2024 23:13:48 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 25
+[10-Mar-2024 23:13:48 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 26
+[10-Mar-2024 23:13:48 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 27
+[10-Mar-2024 23:13:48 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 74
+[10-Mar-2024 23:13:48 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 74
+[10-Mar-2024 23:13:48 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 74
+[10-Mar-2024 23:13:48 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 75
+[10-Mar-2024 23:13:48 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 75
+[10-Mar-2024 23:13:48 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 75
+[10-Mar-2024 23:13:48 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 76
+[10-Mar-2024 23:13:48 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 76
+[10-Mar-2024 23:13:48 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 76
+[10-Mar-2024 23:13:48 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 110
+[10-Mar-2024 23:13:48 Africa/Accra] PHP Warning:  foreach() argument must be of type array|object, null given in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 110
+[10-Mar-2024 23:13:48 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 136
+[10-Mar-2024 23:13:48 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 220
+[10-Mar-2024 23:13:48 Africa/Accra] PHP Warning:  foreach() argument must be of type array|object, null given in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 220
+[10-Mar-2024 23:13:48 Africa/Accra] PHP Warning:  Undefined variable $rows2 in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 248
+[11-Mar-2024 02:13:56 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/stocks.php on line 19
+[11-Mar-2024 02:13:56 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/stocks.php on line 20
+[11-Mar-2024 02:13:56 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/stocks.php on line 21
+[11-Mar-2024 02:13:56 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/stocks.php on line 22
+[11-Mar-2024 02:13:56 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/stocks.php on line 23
+[11-Mar-2024 02:13:56 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/stocks.php on line 24
+[11-Mar-2024 02:13:56 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/stocks.php on line 25
+[11-Mar-2024 02:13:56 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/stocks.php on line 26
+[11-Mar-2024 02:13:56 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/stocks.php on line 27
+[11-Mar-2024 02:13:56 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/stocks.php on line 27
+[11-Mar-2024 02:13:56 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/stocks.php on line 28
+[11-Mar-2024 02:13:56 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/stocks.php on line 28
+[11-Mar-2024 02:13:56 Africa/Accra] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in /home/kwikexyg/public_html/assets/pdf/stocks.php:31
+Stack trace:
+#0 {main}
+  thrown in /home/kwikexyg/public_html/assets/pdf/stocks.php on line 31
+[11-Mar-2024 02:14:53 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/customers.php on line 19
+[11-Mar-2024 02:14:53 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/customers.php on line 20
+[11-Mar-2024 02:14:53 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/customers.php on line 21
+[11-Mar-2024 02:14:53 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/customers.php on line 22
+[11-Mar-2024 02:14:53 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/customers.php on line 23
+[11-Mar-2024 02:14:53 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/customers.php on line 24
+[11-Mar-2024 02:14:53 Africa/Accra] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in /home/kwikexyg/public_html/assets/pdf/customers.php:28
+Stack trace:
+#0 {main}
+  thrown in /home/kwikexyg/public_html/assets/pdf/customers.php on line 28
+[11-Mar-2024 02:15:01 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 21
+[11-Mar-2024 02:15:01 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 22
+[11-Mar-2024 02:15:01 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 23
+[11-Mar-2024 02:15:01 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 24
+[11-Mar-2024 02:15:01 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 25
+[11-Mar-2024 02:15:01 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 26
+[11-Mar-2024 02:15:01 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 27
+[11-Mar-2024 02:15:01 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 74
+[11-Mar-2024 02:15:01 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 74
+[11-Mar-2024 02:15:01 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 74
+[11-Mar-2024 02:15:01 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 75
+[11-Mar-2024 02:15:01 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 75
+[11-Mar-2024 02:15:01 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 75
+[11-Mar-2024 02:15:01 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 76
+[11-Mar-2024 02:15:01 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 76
+[11-Mar-2024 02:15:01 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 76
+[11-Mar-2024 02:15:01 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 110
+[11-Mar-2024 02:15:01 Africa/Accra] PHP Warning:  foreach() argument must be of type array|object, null given in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 110
+[11-Mar-2024 02:15:01 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 136
+[11-Mar-2024 02:15:01 Africa/Accra] PHP Warning:  Trying to access array offset on value of type null in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 220
+[11-Mar-2024 02:15:01 Africa/Accra] PHP Warning:  foreach() argument must be of type array|object, null given in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 220
+[11-Mar-2024 02:15:01 Africa/Accra] PHP Warning:  Undefined variable $rows2 in /home/kwikexyg/public_html/assets/pdf/accstatement.php on line 248
+[12-Mar-2024 11:03:50 Africa/Accra] PHP Warning:  Undefined variable $pay_type in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 128
+[12-Mar-2024 11:03:50 Africa/Accra] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: int + string in /home/kwikexyg/public_html/model/utils.php:137
+Stack trace:
+#0 /home/kwikexyg/public_html/assets/pdf/receipt.php(134): inv_num()
+#1 {main}
+  thrown in /home/kwikexyg/public_html/model/utils.php on line 137
+[12-Mar-2024 11:03:53 Africa/Accra] PHP Warning:  Undefined variable $pay_type in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 128
+[12-Mar-2024 11:03:53 Africa/Accra] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: int + string in /home/kwikexyg/public_html/model/utils.php:137
+Stack trace:
+#0 /home/kwikexyg/public_html/assets/pdf/receipt.php(134): inv_num()
+#1 {main}
+  thrown in /home/kwikexyg/public_html/model/utils.php on line 137
+[12-Mar-2024 11:04:24 Africa/Accra] PHP Warning:  Undefined variable $pay_type in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 128
+[12-Mar-2024 11:04:24 Africa/Accra] PHP Warning:  Undefined variable $tax_id in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 151
+[12-Mar-2024 11:04:24 Africa/Accra] PHP Warning:  Undefined variable $payment in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 162
+[12-Mar-2024 11:04:24 Africa/Accra] PHP Warning:  Undefined variable $pay_type in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 7
+[12-Mar-2024 11:04:24 Africa/Accra] PHP Warning:  Undefined variable $balance in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 10
+[12-Mar-2024 11:04:24 Africa/Accra] PHP Warning:  Undefined variable $balance in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 14
+[12-Mar-2024 11:04:24 Africa/Accra] PHP Warning:  Undefined variable $rec_date in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 59
+[12-Mar-2024 11:04:24 Africa/Accra] PHP Warning:  Undefined variable $cust_name in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 81
+[12-Mar-2024 11:04:24 Africa/Accra] PHP Warning:  Undefined variable $payment in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 98
+[12-Mar-2024 11:04:24 Africa/Accra] PHP Warning:  Undefined variable $balance in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 115
+[12-Mar-2024 11:04:24 Africa/Accra] PHP Warning:  Undefined variable $profile in /home/kwikexyg/public_html/assets/pdf/spagency/receipt.php on line 119
+[12-Mar-2024 12:20:41 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwikexyg/public_html/assets/pdf/spagency/invoice.php on line 188
+[12-Mar-2024 12:20:41 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwikexyg/public_html/assets/pdf/spagency/invoice.php on line 335
+[12-Mar-2024 12:28:43 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwikexyg/public_html/assets/pdf/spagency/invoice.php on line 188
+[12-Mar-2024 12:28:43 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwikexyg/public_html/assets/pdf/spagency/invoice.php on line 335
+[12-Mar-2024 12:30:03 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwikexyg/public_html/assets/pdf/invoice.php on line 59
+[12-Mar-2024 12:30:03 Africa/Accra] PHP Warning:  Undefined variable $signatures in /home/kwikexyg/public_html/assets/pdf/spagency/invoice.php on line 3
+[12-Mar-2024 12:30:03 Africa/Accra] PHP Warning:  Undefined variable $fullname in /home/kwikexyg/public_html/assets/pdf/spagency/invoice.php on line 3
+[12-Mar-2024 12:30:03 Africa/Accra] PHP Warning:  Undefined variable $trans_type in /home/kwikexyg/public_html/assets/pdf/spagency/invoice.php on line 7
+[12-Mar-2024 12:30:03 Africa/Accra] PHP Warning:  Undefined variable $site_location in /home/kwikexyg/public_html/assets/pdf/spagency/invoice.php on line 19
+[12-Mar-2024 12:30:03 Africa/Accra] PHP Warning:  Undefined variable $invoice_date in /home/kwikexyg/public_html/assets/pdf/spagency/invoice.php on line 51
+[12-Mar-2024 12:30:03 Africa/Accra] PHP Warning:  Undefined variable $profile in /home/kwikexyg/public_html/assets/pdf/spagency/invoice.php on line 56
+[12-Mar-2024 12:30:03 Africa/Accra] PHP Warning:  Undefined variable $cust_name in /home/kwikexyg/public_html/assets/pdf/spagency/invoice.php on line 64
+[12-Mar-2024 12:30:03 Africa/Accra] PHP Warning:  Undefined variable $cust_phone in /home/kwikexyg/public_html/assets/pdf/spagency/invoice.php on line 66
+[12-Mar-2024 12:30:03 Africa/Accra] PHP Warning:  Undefined variable $cust_location in /home/kwikexyg/public_html/assets/pdf/spagency/invoice.php on line 68
+[12-Mar-2024 12:30:03 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwikexyg/public_html/assets/pdf/spagency/invoice.php on line 188
+[12-Mar-2024 12:30:03 Africa/Accra] PHP Warning:  Undefined variable $subtotal in /home/kwikexyg/public_html/assets/pdf/spagency/invoice.php on line 229
+[12-Mar-2024 12:30:03 Africa/Accra] PHP Warning:  Undefined variable $discount in /home/kwikexyg/public_html/assets/pdf/spagency/invoice.php on line 235
+[12-Mar-2024 12:30:03 Africa/Accra] PHP Warning:  Undefined variable $subtotal in /home/kwikexyg/public_html/assets/pdf/spagency/invoice.php on line 236
+[12-Mar-2024 12:30:03 Africa/Accra] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in /home/kwikexyg/public_html/assets/pdf/spagency/invoice.php:236
+Stack trace:
+#0 /home/kwikexyg/public_html/assets/pdf/invoice.php(201): include()
+#1 {main}
+  thrown in /home/kwikexyg/public_html/assets/pdf/spagency/invoice.php on line 236
+[12-Mar-2024 12:30:28 Africa/Accra] PHP Warning:  Undefined variable $pay_type in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 128
+[12-Mar-2024 12:30:28 Africa/Accra] PHP Warning:  Undefined variable $receipt_type in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 138
+[12-Mar-2024 12:30:28 Africa/Accra] PHP Warning:  Undefined variable $tax_id in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 151
+[12-Mar-2024 12:30:28 Africa/Accra] PHP Warning:  Undefined variable $payment in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 162
+[12-Mar-2024 12:30:28 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 166
+[12-Mar-2024 12:30:28 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 170
+[12-Mar-2024 12:30:28 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 174
+[12-Mar-2024 12:30:28 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 178
+[12-Mar-2024 12:30:28 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 184
+[12-Mar-2024 12:30:28 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 193
+[12-Mar-2024 12:30:28 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 202
+[12-Mar-2024 12:30:28 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 211
+[12-Mar-2024 12:30:28 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 220
+[12-Mar-2024 12:30:28 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 230
+[12-Mar-2024 12:30:28 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 240
+[12-Mar-2024 12:30:28 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 249
+[12-Mar-2024 12:30:28 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwikexyg/public_html/assets/pdf/receipt.php on line 258
+[12-Mar-2024 12:31:08 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwikexyg/public_html/assets/pdf/spagency/invoice.php on line 188
+[12-Mar-2024 12:31:08 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwikexyg/public_html/assets/pdf/spagency/invoice.php on line 335
+[12-Mar-2024 15:01:13 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwikexyg/public_html/assets/pdf/spagency/invoice.php on line 200
+[12-Mar-2024 15:01:13 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwikexyg/public_html/assets/pdf/spagency/invoice.php on line 335
+[12-Mar-2024 15:02:16 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwikexyg/public_html/assets/pdf/spagency/invoice.php on line 200
+[12-Mar-2024 15:02:16 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwikexyg/public_html/assets/pdf/spagency/invoice.php on line 335

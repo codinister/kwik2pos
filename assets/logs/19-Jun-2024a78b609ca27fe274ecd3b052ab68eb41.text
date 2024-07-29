@@ -1,0 +1,42 @@
+
+Date: 19 Jun 2024
+Time: 18:11:08
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'trans_type' in 'where clause'
+ SQL ERROR:
+SELECT * FROM sales WHERE code = ? AND trans_type = 'invoice'
+
+
+Date: 19 Jun 2024
+Time: 18:09:27
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'trans_type' in 'where clause'
+ SQL ERROR:
+SELECT * FROM sales WHERE code = ? AND trans_type = 'invoice'
+
+
+Date: 19 Jun 2024
+Time: 18:07:39
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'trans_type' in 'where clause'
+ SQL ERROR:
+SELECT * FROM sales WHERE code = ? AND trans_type = 'invoice'
+
+
+Date: 19 Jun 2024
+Time: 18:06:12
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'trans_type' in 'where clause'
+ SQL ERROR:
+SELECT * FROM sales WHERE code = ? AND trans_type = 'invoice'
+
+
+Date: 19 Jun 2024
+Time: 18:02:42
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'trans_type' in 'where clause'
+ SQL ERROR:
+SELECT * FROM sales WHERE code = ? AND trans_type = 'invoice'
+
+
+Date: 19 Jun 2024
+Time: 18:01:09
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'trans_type' in 'where clause'
+ SQL ERROR:
+SELECT * FROM sales WHERE code = ? AND trans_type = 'invoice'
+

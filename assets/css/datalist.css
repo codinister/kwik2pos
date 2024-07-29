@@ -1,0 +1,32 @@
+
+  .data-list {
+    position: relative;
+  }
+
+  .data-list-container {
+    list-style: none;
+    font-size: 1.2rem;
+    display: none;
+    position: absolute;
+    top: 3rem;
+    left: 0;
+    z-index: 7;
+    background-color: #eee;
+    padding: 1.6rem;
+    color: var(--muted);
+    line-height: 2rem;
+    overflow-y: scroll;
+    overflow-x: none;
+    height: 22rem;
+    width: 25rem;
+  }
+
+  .data-list-container li a {
+    color: hsl(var(--black));
+    font-size: 1rem;
+  }
+
+  .data-list-container.showmodal {
+    display: block;
+  }
+

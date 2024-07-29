@@ -1,0 +1,175 @@
+/*
+Animate input field
+*/
+
+
+.form-group span{
+font-size: 1.2rem; 
+color: red;
+margin-top: -1rem;
+display: block;
+}
+
+.bank_acc_number {
+  padding: 0.5rem;
+  margin-top: 3rem;
+  border-radius: 3rem;
+  width: 100%;
+}
+
+.checkbox-group {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.2em;
+  position: relative;
+}
+
+.checkbox-group input {
+  accent-color: red;
+  height: 1.7rem;
+  width: 1.7rem;
+}
+
+.checkbox-group label {
+  color: hsl(var(--black));
+}
+
+/* .input-animate input:not(:valid){
+    color: red;
+  } */
+
+.input-animate input:not(:placeholder-shown) + label {
+  top: -1.9em;
+  left: 0.8rem;
+  font-size: 1rem !important;
+  font-weight: bold;
+}
+
+.input-animate label {
+  position: absolute;
+  top: 0.5em;
+  left: 1.3rem;
+  transition: 0.3s;
+  pointer-events: none;
+  font-size: 1.2rem;
+}
+
+.input-animate input:focus + label {
+  top: -1.7em;
+  left: 0.8rem;
+  font-size: 1rem !important;
+  font-weight: bold;
+}
+
+.button-rounded {
+  border-radius: 2rem;
+  font-size: 1.4rem;
+  width: 100% !important;
+  background-color: #222;
+  padding: 0.6rem;
+  display: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.button-rounded:hover {
+  background-color: #fff !important;
+  color: #222 !important;
+  border: none;
+}
+
+.fa-spin {
+  font-size: 3rem;
+  margin-inline: auto;
+  margin: 0.3rem;
+  color: #000;
+}
+.results {
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+.form-title {
+  background-color: #ededed;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  padding: 0.7em;
+  border-radius: 1rem;
+  margin-block: 1.6em;
+  color: #666;
+}
+
+.err-messg {
+  color: red !important;
+}
+
+.select-inpt {
+  position: relative;
+  margin-bottom: 2.5rem;
+  height: 3rem;
+}
+
+.select-inpt label {
+  top: -1.7em;
+  left: 0.8rem;
+  font-size: 1rem !important;
+  font-weight: bold;
+  position: absolute;
+}
+
+.select-inpt select {
+  border-radius: 4rem;
+  font-size: 1.2rem;
+  height: 3.2rem;
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.selectinpt {
+  position: relative;
+}
+
+.selectinpt select {
+  border-radius: 4rem;
+  font-size: 1.2rem;
+  height: 3.2rem;
+  width: 100%;
+  padding-inline: 1em;
+  margin-bottom: 2.5rem;
+}
+
+.alert-success {
+  padding: 0.5em;
+  background-color: hsl(var(--success));
+}
+
+@media (max-width: 35em) {
+  .input-animate input {
+    border-radius: 4rem;
+    font-size: 1.2rem;
+    padding: 0.5em;
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+  .input-animate {
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (min-width: 35em) {
+  .input-animate input {
+    border-radius: 4rem;
+    font-size: 1.2rem;
+    padding: 0.5em;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+  .input-animate {
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+}
