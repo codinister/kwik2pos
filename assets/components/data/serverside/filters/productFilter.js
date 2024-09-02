@@ -132,11 +132,11 @@ const retailsFilter = (product, sale) => {
         {
           prod_id: v.prod_id,
           qty_id: v.qty_id,
-          prod_qty: v.prod_qty,
+          prod_qty: Number(v.prod_qty),
           createdAt: v.qty_date,
         },
       ],
-      pq: v.prod_qty,
+      pq: Number(v.prod_qty),
       prod_qty: Number(v.prod_qty),
     }))
     .reduce((a, b) => {
@@ -165,7 +165,7 @@ const retailsFilter = (product, sale) => {
     };
   });
 
-  return stocks;
+  return { stocks, product };
 };
 
 export { rentalsFilter, retailsFilter, roofingFilter, serviceFilter };

@@ -1,10 +1,14 @@
 import { ymd } from '../../utils/DateFormats.js';
 import { textInput } from '../../utils/InputFields.js';
 import { classSelector } from '../../utils/Selectors.js';
-import rentedList from '../rentals/rentedList.js';
+import retailList from './productsList2.js';
 
-const filterProductsByDates = (rented) => {
+const filterProductsByDates = (retail) => {
+
+
+
   document.addEventListener('change', (e) => {
+
     if (e.target.matches('.filtdt')) {
       const { name, value } = e.target;
 
@@ -34,21 +38,19 @@ const filterProductsByDates = (rented) => {
         const st = new Date(start_date).getTime();
         const end = new Date(end_date).getTime();
 
-        const searchresult = Object.values(rented).filter((v) => {
+        const searchresult = Object.values(retail).filter((v) => {
 
-          const sdate = new Date(v.createdAt).getTime();
+          const qtydate = new Date(v.qty_date).getTime();
 
-          const edate = new Date(v.exp_date).getTime();
-
-    
-
-           return sdate < st && edate < end;
+           return qtydate < st && qtydate < end;
         });
 
         classSelector('products-table-body-inner').innerHTML =
-          rentedList(searchresult);
+          retailList(searchresult);
       }
     }
+
+
   });
 
   return `

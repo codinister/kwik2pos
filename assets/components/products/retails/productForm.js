@@ -51,7 +51,7 @@ const productForm = (categories) => {
 
       const obj = JSON.parse(localStorage.getItem('prodlocalstorage'));
 
-      if (id === 'pqt') {
+      if (e.target.matches('.prod_qty')) {
         const newobj = {
           ...obj,
           prod_qty_arr: {
@@ -179,17 +179,21 @@ const productForm = (categories) => {
       })
         .then((resp) => resp.text())
         .then((data) => {
-          displayToast('lightgreen', data);
+          if (data.indexOf('error') != -1) {
+            return displayToast('bgdanger', data);
+          } else {
+            displayToast('lightgreen', data);
+            localStorage.removeItem('prodlocalstorage');
 
-          localStorage.removeItem('prodlocalstorage');
-          if (
-            classSelector('prod-img-inpt').files &&
-            classSelector('prod-img-inpt').files[0]
-          ) {
-            classSelector('prod-img-inpt').files = null;
+            if (
+              classSelector('prod-img-inpt').files &&
+              classSelector('prod-img-inpt').files[0]
+            ) {
+              classSelector('prod-img-inpt').files = null;
+            }
+            document.body.style.overflow = 'scroll';
+            localStorage.setItem('rend', 2);
           }
-          document.body.style.overflow = 'scroll';
-          localStorage.setItem('rend', 2);
         });
     }
   });
@@ -214,7 +218,9 @@ const productForm = (categories) => {
         <span>
         <input type="number" id="pqt" name="prod_qty${
           v.qty_id
-        }"  required value="${v.prod_qty}" class="prod_qty_inpt prod-inpt" />
+        }"  required value="${
+            v.prod_qty
+          }" class="prod_qty prod_qty_inpt prod-inpt" />
         </span>
         <span>${formatDate(v.createdAt)}</span>
         <span>
@@ -273,7 +279,6 @@ const productForm = (categories) => {
           name: 'prod_qty',
           required: true,
           label: 'Quantity',
-          id: 'pqt',
         })}
 
         ${textInput({

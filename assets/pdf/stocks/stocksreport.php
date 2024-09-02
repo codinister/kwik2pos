@@ -72,18 +72,24 @@ $pdf->writeHTMLCell(190,10,'','',$invoice_header,0,1);
 
 
 $total = 0; 
+
+$amount = 0; 
 $cnt = COUNT($products); 
 for($i = 0; $i < $cnt; $i++){
 
     $total += $products[$i]['prod_qty'];
+    $amount += $products[$i]['selling_price'];
 
 }
+
+$grand_total = $total * $amount;
 
 $title_box = '
     <table border="1" cellpadding="10">
         <tr>
         <td><h2>'.$products[0]['type'].'</h2></td>
-        <td><h2> List Total: '.$total.'</h2></td>
+        <td><h2> Total Qty: '.$total.'</h2></td>
+        <td><h2> Amount: '.number_format($grand_total, 2, '.', ',').'</h2></td>
         </tr>
     </table>
     
@@ -96,11 +102,10 @@ $table_header = '
 <br /><br />
     <table border="1">
     <tr>
-    <td style="width: 223px;">Product Name</td>
-    <td style="width: 80px;">Size</td>
+    <td style="width: 283px;">Product Name</td>
+    <td style="width: 80px;">Unit Price</td>
     <td style="width: 70px;">Qty</td>
-    <td style="width: 80px;">Start Date</td>
-    <td style="width: 80px;">End Date</td>
+    <td style="width: 100px;">Created on</td>
     </tr>
     </table>
     <style>
@@ -117,15 +122,23 @@ $pdf->writeHTMLCell(190,5,'','',$table_header,'',1);
 //TABLE BODY 
 $rows = '';
 foreach($products as $k => $v){
+    $dates = date('d M Y', strtotime($v['createdAt']));
+
+    if($dates === '01 Jan 1970'){
+        $date = '---';
+    }
+    else{
+        $date = $dates;
+    }
+
     $rows .='
     <tr>
-    <td style="width: 223px;">
+    <td style="width: 283px;">
     <a style="color: black; text-decoration: none;" href="http://localhost/kwikpos/product.html?p='.$v['prod_id'].'">'.$v['prod_name'].'</a>
     </td>
-    <td style="width: 80px;">'.$v['prod_size'].'</td>
+    <td style="width: 80px;">'.$v['selling_price'].'</td>
     <td style="width: 70px;">'.$v['prod_qty'].'</td>
-    <td style="width: 80px;">'.date('d M Y', strtotime($v['createdAt'])).'</td>
-    <td style="width: 80px;">'.date('d M Y', strtotime($v['exp_date'])).'</td>
+    <td style="width: 100px;">'.$date.'</td>
     </tr>
     ';
 }

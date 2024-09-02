@@ -96,11 +96,10 @@ $table_header = '
 <br /><br />
     <table border="1">
     <tr>
-    <td style="width: 223px;">Product Name</td>
-    <td style="width: 80px;">Size</td>
+    <td style="width: 263px;">Product Name</td>
+    <td style="width: 100px;">Size</td>
+    <td style="width: 100px;">Category</td>
     <td style="width: 70px;">Qty</td>
-    <td style="width: 80px;">Start Date</td>
-    <td style="width: 80px;">End Date</td>
     </tr>
     </table>
     <style>
@@ -119,18 +118,15 @@ $rows = '';
 foreach($products as $k => $v){
     $rows .='
     <tr>
-    <td style="width: 223px;">
+    <td style="width: 263px;">
     <a style="color: black; text-decoration: none;" href="http://localhost/kwikpos/product.html?p='.$v['prod_id'].'">'.$v['prod_name'].'</a>
     </td>
-    <td style="width: 80px;">'.$v['prod_size'].'</td>
+    <td style="width: 100px;">'.$v['prod_size'].'</td>
+    <td style="width: 100px;">'.$v['cat_name'].'</td>
     <td style="width: 70px;">'.$v['prod_qty'].'</td>
-    <td style="width: 80px;">'.date('d M Y', strtotime($v['createdAt'])).'</td>
-    <td style="width: 80px;">'.date('d M Y', strtotime($v['exp_date'])).'</td>
     </tr>
     ';
 }
-
-
 
 
 // <a href="https://app.kwik2pos.com/product.html?p='.$v['prod_id'].'">'.$v['prod_name'].'</a>

@@ -11,7 +11,7 @@ const productReducer = (e) => {
 
     const obj = getProductsLocalstorage();
 
-    if (id === 'pqt') {
+    if (e.target.matches('.prod_qty')) {
       const newobj = {
         ...obj,
         prod_qty_arr: {

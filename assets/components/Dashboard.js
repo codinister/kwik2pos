@@ -8,6 +8,7 @@ import { formatMonth, month, year } from './utils/DateFormats.js';
 import Customerswhowe from './widgets/Customerswhowe.js';
 import format_number from './utils/format_number.js';
 import { textInput } from './utils/InputFields.js';
+import getIndustry from './utils/getIndustry.js';
 
 const Dashboard = () => {
   productsprofile((products) => {
@@ -18,9 +19,27 @@ const Dashboard = () => {
         ).length;
         const total_users = users.length;
 
-        const Available = products?.rentals.availables.reduce((a, b) => {
-          return Number(b.remaining) + a;
-        }, 0);
+        const industry = getIndustry();
+
+        let Available = [];
+
+        if (industry === 'rentals') {
+          Available = products?.rentals.availables.reduce((a, b) => {
+            return Number(b.remaining) + a;
+          }, 0);
+        }
+
+        if (industry === 'retails') {
+          Available = products?.retails.reduce((a, b) => {
+            return Number(b.remaining) + a;
+          }, 0);
+        }
+
+        if (industry === 'service provider') {
+        }
+
+        if (industry === 'roofing company') {
+        }
 
         const dt = new Date();
         const receipts = customers
@@ -147,11 +166,8 @@ const Dashboard = () => {
               )
               .join(' ');
 
-
-              document.querySelector('.arrears-table-row').innerHTML = res
+            document.querySelector('.arrears-table-row').innerHTML = res;
           }
-
-
         });
 
         const page = `

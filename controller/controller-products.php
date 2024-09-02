@@ -49,6 +49,7 @@ class products{
             $qry = DB::get_row('SELECT cat_id FROM category WHERE cat_name = ?  AND code = ? ', array($cat_name,$this->code()));
             if($qry){
                 output('Category already exists!');
+                exit;
             }
 
             DB::query("INSERT INTO category(cat_name,ref,createdAt,code) VALUES(?,'product',?,?)", array($cat_name,$date,$this->code()));
@@ -145,9 +146,10 @@ class products{
         }
         
         //CHECK IF PRODUCT NAME EXISTS
-        $qry = DB::get_row('SELECT prod_name FROM products WHERE prod_name = ? AND prod_id != ? ', array($prod_name,$prod_id));
+        $qry = DB::get_row('SELECT prod_name FROM products WHERE prod_name = ? AND prod_id != ? AND code = ? ', array($prod_name,$prod_id,$this->code()));
         if($qry){
             output($prod.' name already exists!');
+            exit;
         }
 
         //BEGIN VALIDATION 
@@ -256,6 +258,7 @@ class products{
         }
         else{
             output($prod.'An error occured!');
+            exit;
         }
   
     }

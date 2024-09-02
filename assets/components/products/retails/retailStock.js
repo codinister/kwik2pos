@@ -7,15 +7,15 @@ import { textInput } from '../../utils/InputFields.js';
 import Buttons from '../../utils/Buttons.js';
 import googlemap from '../../utils/googlemap.js';
 import categoriesComponent from '../utils/categoriesComponent.js';
+import defaultProductsLocalstorage from '../../data/clientside/localstorage/default/defaultProductsLocalstorage.js';
+import filterProductsByDates from './filterProductsByDates.js';
 
-const retailretails = ( data ) => {
+const retailStock = ( data ) => {
 
 
-  const retails = data.retails
 
-
-  console.log(retails)
-
+  const retails = data?.retails.stocks
+  const allproducts = data?.retails.product
 
 
   const categories = Object.values(
@@ -122,7 +122,7 @@ const retailretails = ( data ) => {
         localStorage.removeItem('prodlocalstorage');
       }
 
-      productsLocalstorage();
+      defaultProductsLocalstorage();
 
       classSelector('modalboxone').classList.add('show');
       document.body.style.overflow = 'hidden';
@@ -180,7 +180,7 @@ const retailretails = ( data ) => {
   const prod_title = `<span>Stock</span> <span>${total_retails}</span>`;
   classSelector('top-box-left').innerHTML = productTitle(prod_title);
 
-
+  classSelector('other-box').innerHTML = filterProductsByDates(allproducts);
 
   classSelector('top-box-middle').innerHTML = productSearchBox(
     'Search Products',
@@ -217,4 +217,4 @@ const retailretails = ( data ) => {
 
 };
 
-export default retailretails;
+export default retailStock
