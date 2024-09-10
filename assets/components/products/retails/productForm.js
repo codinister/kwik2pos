@@ -124,9 +124,12 @@ const productForm = (categories) => {
       if (Object.values(obj?.prod_qty_arr).length < 1) {
         return displayToast('bgdanger', 'Product quantity required!');
       }
-      if (obj?.prod_size.length < 1) {
-        return displayToast('bgdanger', 'Product size required!');
-      }
+
+
+      // if (obj?.prod_size.length < 1) {
+      //   return displayToast('bgdanger', 'Product size required!');
+      // }
+
       if (obj?.selling_price.length < 1) {
         return displayToast('bgdanger', 'Unit price required!');
       }
@@ -285,7 +288,7 @@ const productForm = (categories) => {
           type: 'text',
           classname: 'prod_size prod-inpt',
           name: 'prod_size',
-          required: true,
+          required: false,
           label: 'Product size',
           value: obj?.prod_size,
         })}

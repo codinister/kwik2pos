@@ -9,7 +9,6 @@ import Spinner from '../../utils/Spinner.js';
 
 const addCustomer = (customersData) => {
   const referrerIteratorFunc = (v) => {
-
     return `
       <li>
       <a href="javascript:void(0);" 
@@ -18,8 +17,10 @@ const addCustomer = (customersData) => {
       data-phone="${v.phone}"
       data-location="${v.location}"
       data-email="${v.email}"
-      data-funds="${v.funds}"
+      data-type="${v.type}"
+      data-cust_id="${v.cust_id}"
       data-ref_type="${v.ref_type}"
+      data-ref="${v.ref}"
       >
       ${v.fullname}
       </a>
@@ -39,10 +40,10 @@ const addCustomer = (customersData) => {
             cfullname: '',
             clocation: '',
             cphone: '',
-
             custname: '',
-            ref_type: 'Customer',
             rphone: '',
+            ref_id: '',
+            ref_type: ''
           })
         );
       const getobj = JSON.parse(localStorage.getItem('custinp'));
@@ -55,9 +56,7 @@ const addCustomer = (customersData) => {
     if (e.target.matches('.referrerinptclass')) {
       const val = e.target.value;
 
-      const reffererData = Object.values(customersData).filter(
-        (v) => v.type === 'referrer'
-      );
+      const reffererData = Object.values(customersData);
 
       const searchres = Object.values(reffererData)
         .filter((v) =>
@@ -73,9 +72,7 @@ const addCustomer = (customersData) => {
     if (e.target.matches('.referrerinptclass')) {
       const val = e.target.value;
 
-      const reffererData = Object.values(customersData).filter(
-        (v) => v.type === 'referrer'
-      );
+      const reffererData = Object.values(customersData);
 
       const searchres = Object.values(reffererData)
         .filter((v) =>
@@ -87,9 +84,7 @@ const addCustomer = (customersData) => {
     }
 
     if (e.target.matches('.refererlink')) {
-      const { phone, ref_type } = e.target.dataset;
-      classSelector('rphone').value = phone;
-      classSelector('ref_type').value = ref_type;
+      const { phone, cust_id, ref_type, ref } = e.target.dataset;
 
       if (!localStorage.getItem('custinp'))
         localStorage.setItem(
@@ -100,17 +95,24 @@ const addCustomer = (customersData) => {
             clocation: '',
             cphone: '',
             custname: '',
-            ref_type: 'Customer',
             rphone: '',
+            ref_id: '',
+            ref_type: ''
           })
         );
       const getobj = JSON.parse(localStorage.getItem('custinp'));
       const newobj = {
         ...getobj,
-        [phone]: phone,
-        [ref_type]: ref_type,
+        rphone: phone,
+        ref_id: cust_id,
+        ref_type,
+        ref,
       };
       localStorage.setItem('custinp', JSON.stringify(newobj));
+      const obj = JSON.parse(localStorage.getItem('custinp'));
+
+      classSelector('ref_type').value = obj?.ref_type;
+      classSelector('rphone').value = obj?.rphone;
     }
 
     if (e.target.matches('.referrercheckbox')) {
@@ -125,16 +127,27 @@ const addCustomer = (customersData) => {
       e.stopImmediatePropagation();
       salesLocalstorage();
 
+
+      if(!localStorage.getItem('custinp')){
+        return displayToast('bgdanger', 'Valid fullname field required!');
+      }
+
       const data = JSON.parse(localStorage.getItem('custinp'));
 
       const obj = data ? data : {};
 
-      const val = Object.entries(obj).map(([k, v]) => {
-        return v;
-      });
+      if (obj?.cfullname.length < 2) {
+        return displayToast('bgdanger', 'Valid fullname field required!');
+      }
 
-      if (val < 2) {
-        return displayToast('bgdanger', 'Fullname field required!');
+      if (obj?.custname.length > 0) {
+        if (obj?.rphone.length < 1) {
+          return displayToast('bgdanger', 'Referrer phone required!');
+        }
+
+        if (obj?.ref_type.length < 1) {
+          return displayToast('bgdanger', 'Referrer type field required!!');
+        }
       }
 
       Spinner('savecustomerspin');
@@ -147,6 +160,7 @@ const addCustomer = (customersData) => {
       })
         .then((resp) => resp.text())
         .then((data) => {
+
           if (data.indexOf('errors') != -1) {
             displayToast('bgdanger', data);
             classSelector('savecustomerspin').innerHTML = '';
@@ -159,13 +173,13 @@ const addCustomer = (customersData) => {
             const info = res[0];
             const cust_id = res[1];
 
-            const txx = JSON.parse(localStorage.getItem('taxes'));
+            const txx = JSON.parse(localStorage.getItem('sales'));
             txx['cust_id'] = cust_id;
             txx['cust_name'] = obj?.cfullname;
-             txx['cust_phone'] = obj?.cphone;
-             txx['cust_email'] = obj?.cemail;
+            txx['cust_phone'] = obj?.cphone;
+            txx['cust_email'] = obj?.cemail;
             // txx['cust_location'] = obj?.clocation;
-            localStorage.setItem('taxes', JSON.stringify(txx));
+            localStorage.setItem('sales', JSON.stringify(txx));
 
             displayToast('lightgreen', info);
             classSelector('modalboxtwo').classList.remove('show');
@@ -187,24 +201,30 @@ const addCustomer = (customersData) => {
       Spinner('addcustomersspin');
 
       const refoptRoofing = `
-        <option>Agent</option>
-        <option>Carpenter</option>
-        <option>Foreman</option>
-        <option>Friend</option>
-        <option>Family</option>
-        <option>Other</option>
+        <option value="agent">Agent</option>
+        <option  value="carpenter">Carpenter</option>
+        <option  value="foreman">Foreman</option>
+        <option  value="friend">Friend</option>
+        <option  value="family">Family</option>
+        <option  value="other">Other</option>
       `;
 
       const refoptOther = `
-        <option>Customer</option>
-        <option>Friend</option>
-        <option>Family</option>
-        <option>Agent</option>
-        <option>Other</option>
+        <option  value="customer">Customer</option>
+        <option  value="friend">Friend</option>
+        <option  value="family">Family</option>
+        <option  value="agent">Agent</option>
+        <option  value="other">Other</option>
       `;
 
       const referrer_options =
         industry === 'roofing company' ? refoptRoofing : refoptOther;
+
+      const obj = JSON.parse(localStorage.getItem('custinp'));
+
+      setTimeout(() => {
+        classSelector('ref_type').value = obj?.type;
+      }, 1000);
 
       classSelector('addcustomerwrapper').innerHTML = `
       <h2>Add New Customer</h2>
@@ -215,6 +235,7 @@ const addCustomer = (customersData) => {
           name: 'cfullname',
           required: true,
           label: 'Fullname',
+          value: obj?.cfullname,
         })}
       ${textInput({
         type: 'text',
@@ -222,6 +243,7 @@ const addCustomer = (customersData) => {
         name: 'cphone',
         required: false,
         label: 'Phone',
+        value: obj?.cphone,
       })}
       </div>
       <div class="customer-flex-bx">
@@ -231,6 +253,7 @@ const addCustomer = (customersData) => {
         name: 'clocation',
         required: false,
         label: 'Location',
+        value: obj?.clocation,
       })}
 
     ${textInput({
@@ -239,6 +262,7 @@ const addCustomer = (customersData) => {
       name: 'cemail',
       required: false,
       label: 'Email',
+      value: obj?.cemail,
     })}
     </div>
 
@@ -260,9 +284,10 @@ const addCustomer = (customersData) => {
       name: 'rphone',
       required: true,
       label: 'Referrer Phone',
+      value: obj?.rphone,
     })}
     <div class="selectinpt">	
-      <select class="ref_type custinp"  name="ref_type" value="">
+      <select class="ref_type custinp"  name="ref_type" >
 
         ${referrer_options}
 

@@ -1,4 +1,32 @@
 <?php 
+
+
+
+if(empty($cashier)){
+    $bill_fullname = $fullname;
+    $bill_server = '';
+    $bill_cash_signatures = $signature;
+}
+else{
+
+    $bill_fullname = $cashier;
+    $bill_server = $server;
+    $bill_cash_signatures =  $cash_signatures;
+}
+
+
+$bserver = ''; 
+if(!empty($bill_server)){
+    $bserver = '
+        <tr>
+        <td style="width: 120px;">SERVER</td>
+        <td style="width: 120px;">'.$bill_server.'</td>
+        </tr>
+    ';
+}
+
+
+
 $invoice_header = '
 <table>
 <tr>
@@ -22,10 +50,10 @@ $other_details = '
 CASHIER
 </td>
 <td style="width: 120px;">
-'.$fullname.'
+'.$bill_fullname .'
 </td>
 </tr>
-
+'.$bserver.'
 <tr>
 <td style="width: 120px;">
 DATE
@@ -37,7 +65,7 @@ DATE
 
 <tr>
 <td style="width: 120px;">
-RECEIPT NO#
+RECEIPT #
 </td>
 <td style="width: 120px;">
 '.$rec_no.'
@@ -193,11 +221,24 @@ $balance_due = '';
 if($balance > 0){
     $balance_due = '
     <tr>
-    <td style="width: 180px;">BALANCE DUE ('.$cur.')</td>
+    <td style="width: 180px;">AMOUNT DUE ('.$cur.')</td>
     <td style="width: 60px;">'.number_format($balance, 2, '.', ',').'</td>
     </tr>
     ';
 }
+
+
+
+
+$thanks = '
+<br /><br />
+<tr>
+<td style="width: 240px; text-align: center;"><strong>Thank you!</strong></td>
+</tr>
+<tr>
+<td style="width: 240px; text-align: center;"><strong>Please come again</strong></td>
+</tr>
+';
 
 
 $trans = '
@@ -212,6 +253,7 @@ $trans = '
 '.$payments.'
 '.$changes.'
 '.$balance_due.'
+'.$thanks.'
 </table>
 ';
 $pdf->writeHTMLCell(190,0,'','',$trans,'',1);

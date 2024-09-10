@@ -503,6 +503,7 @@ extract($tax);
 		createdAt,
 		cust_id,
 		user_id,
+		prepared_by,
 		note,
 		code,
 		withholdingtax, 
@@ -513,7 +514,7 @@ extract($tax);
 		covid_rate,
 		withholdingtax_rate
 	)
-	VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) 
+	VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) 
 	ON DUPLICATE KEY UPDATE 
 	vat	= VALUES(vat),
 	nhil = VALUES(nhil),
@@ -530,6 +531,7 @@ extract($tax);
 	createdAt = VALUES(createdAt),
 	cust_id = VALUES(cust_id),
 	user_id = VALUES(user_id),
+	prepared_by = VALUES(prepared_by),
 	note = VALUES(note),
 	code = VALUES(code),
 	withholdingtax = VALUES(withholdingtax),
@@ -556,6 +558,7 @@ extract($tax);
 		date('Y-m-d H:i:s', strtotime($invoice_date)),
 		$cust_id,
 		$user_id,
+		$prepared_by,
 		$note,
 		$code,
 		$withholdingtax, 

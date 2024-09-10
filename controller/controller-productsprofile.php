@@ -19,7 +19,7 @@ class productsprofile{
 			c.cat_name 
 			FROM category as c 
 			JOIN products as p ON c.cat_id = p.cat_id 
-			JOIN product_qty as pr ON p.prod_id = pr.prod_id 
+			LEFT JOIN product_qty as pr ON p.prod_id = pr.prod_id 
 			WHERE p.code = ?
 		",array(getCode($_SESSION['edfghl']))); 
 		$this->response($qry);

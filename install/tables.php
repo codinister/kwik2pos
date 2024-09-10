@@ -157,7 +157,8 @@ function tables($conn){
 	user_id INT(11) NOT NULL,
 	type VARCHAR(255) NOT NULL,
 	ref_id INT(11) NOT NULL,
-	ref_type VARCHAR(255) NOT NULL,
+	ref_type VARCHAR(100) NOT NULL,
+	ref VARCHAR(100) NOT NULL,
 	FOREIGN KEY fkuss1(user_id) REFERENCES users(user_id)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE,
@@ -193,6 +194,7 @@ function tables($conn){
 	updatedAt DATETIME,
 	cust_id INT(11) NOT NULL,
 	user_id INT(11) NOT NULL,
+	prepared_by  INT(11) NOT NULL,
 	note TEXT NOT NULL,
 	FOREIGN KEY fkcid(cust_id) REFERENCES customers(cust_id)
 	ON DELETE CASCADE

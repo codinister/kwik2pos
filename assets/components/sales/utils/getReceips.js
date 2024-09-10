@@ -5,10 +5,7 @@ import displayToast from '../../utils/displayToast.js';
 import deleteAccessControl from './deleteAccessControl.js';
 import sendReceiptWhatsapp from '../../sales/utils/customers/sendReceiptWhatsapp.js'
 
-
-
-
-const getReceipts = async (allreceipts, cust_id) => {
+const getReceipts = async (allreceipts) => {
   if (allreceipts) {
 
     let receipts = allreceipts
@@ -21,7 +18,6 @@ const getReceipts = async (allreceipts, cust_id) => {
     //RECEIPT DATA
     const data = Object.values(
       receipts
-        .filter((v) => v.cust_id === cust_id)
         .reduce((a, b) => {
           if (a[b.pay_id]) {
             a[b.pay_id].pay_id = b.pay_id;
@@ -49,6 +45,10 @@ const getReceipts = async (allreceipts, cust_id) => {
         sendReceiptWhatsapp(e);
       }
 
+
+
+
+
       if (e.target.matches('.save-receipt-btn')) {
         e.stopImmediatePropagation();
         const fd = new FormData();
@@ -71,6 +71,7 @@ const getReceipts = async (allreceipts, cust_id) => {
         })
           .then((resp) => resp.text())
           .then((data) => {
+
             displayToast('lightgreen', data);
             localStorage.removeItem('editreceipts');
 
@@ -94,6 +95,15 @@ const getReceipts = async (allreceipts, cust_id) => {
             classSelector(`editamount${pay_id}`).innerHTML = payment;
           });
       }
+
+
+
+
+
+
+
+
+
 
       if (e.target.matches('.deletepay')) {
         e.stopImmediatePropagation();

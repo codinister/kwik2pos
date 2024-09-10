@@ -5,8 +5,8 @@ const setBalance = (val) => {
     const sumpayment = Number(val?.previouspayment) + Number(val?.newpayment);
     const balance = Number(val?.total) - Number(sumpayment);
     val['balance'] = balance;
-    localStorage.setItem('taxes', JSON.stringify(val));
-    const vl = JSON.parse(localStorage.getItem('taxes'));
+    localStorage.setItem('sales', JSON.stringify(val));
+    const vl = JSON.parse(localStorage.getItem('sales'));
     return format_number(vl.balance);
   }
 };

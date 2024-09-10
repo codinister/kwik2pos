@@ -3,7 +3,7 @@ import format_number from '../../utils/format_number.js';
 
 const setSubtotalValue = () => {
   const obj = JSON.parse(localStorage.getItem('prozdlist'));
-  const tx = JSON.parse(localStorage.getItem('taxes'));
+  const tx = JSON.parse(localStorage.getItem('sales'));
 
   if (obj) {
     const trimed = obj
@@ -38,8 +38,11 @@ const setSubtotalValue = () => {
       if (classSelector('tax-inpt')) {
         classSelector('tax-inpt').checked = false;
       }
+
+      tx['total'] = 0
+      localStorage.setItem('sales', JSON.stringify(tx));
     } else {
-      localStorage.setItem('taxes', JSON.stringify(tx));
+      localStorage.setItem('sales', JSON.stringify(tx));
     }
   } else {
     classSelector('sub_total').value = 0;

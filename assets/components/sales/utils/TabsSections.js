@@ -5,22 +5,17 @@ import { Tabs, tabContent, tabMenu } from '../../utils/Tabs.js';
 const TabsSections = () => {
   const industry = getIndustry();
   const set = JSON.parse(localStorage.getItem('sinpt'));
-  let proforma = industry === 'retailing' ? 'Estimates' : 'Proforma';
+  let proforma = industry === 'retails' ? 'Estimates' : 'Proforma';
 
   let tabMenuObj;
 
-  if (set?.receipt_type === 'THERMNAL') {
-    tabMenuObj = [
-      { name: proforma, active: 'active', tabTarget: 'tab1' },
-      { name: 'Receipt', active: '', tabTarget: 'tab3' },
-    ];
-  } else {
+
     tabMenuObj = [
       { name: proforma, active: 'active', tabTarget: 'tab1' },
       { name: 'Sales Invoice', active: '', tabTarget: 'tab2' },
       { name: 'Receipt', active: '', tabTarget: 'tab3' },
     ];
-  }
+  
 
   let tabContentObj = [
     {

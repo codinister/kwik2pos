@@ -1,7 +1,7 @@
 import Buttons from '../../utils/Buttons.js';
 
 const saveInvoiceBtn = () => {
-  const tx = JSON.parse(localStorage.getItem('taxes'));
+  const tx = JSON.parse(localStorage.getItem('sales'));
 
   if (tx?.trans_type) {
     return `

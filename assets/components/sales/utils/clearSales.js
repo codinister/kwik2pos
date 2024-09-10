@@ -2,7 +2,7 @@ import { classSelector } from '../../utils/Selectors.js';
 
 const clearSales = () => {
   localStorage.removeItem('prozdlist');
-  localStorage.removeItem('taxes');
+  localStorage.removeItem('sales');
 
   if (classSelector('pos-sales-output')) {
     classSelector('pos-sales-output').innerHTML = '';
@@ -19,7 +19,7 @@ const clearSales = () => {
   }
 
   if (classSelector('top_total')) {
-    classSelector('top_total').innerHTML = '';
+    classSelector('top_total').textContent = '';
   }
 };
 

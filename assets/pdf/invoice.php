@@ -30,7 +30,7 @@ if($sett){
 
 
 //GET TAXES
-$txs = DB::get_row("SELECT t.*,t.createdAt as invoice_date,c.location as custloc , c.* FROM tax as t JOIN customers as c ON t.cust_id = c.cust_id WHERE t.tax_id = ? AND t.code = ?",array($tax_id,getCode($usserid))); 
+$txs = DB::get_row("SELECT t.*,t.user_id as usid, t.createdAt as invoice_date,c.location as custloc , c.* FROM tax as t JOIN customers as c ON t.cust_id = c.cust_id WHERE t.tax_id = ? AND t.code = ?",array($tax_id,getCode($usserid))); 
 if($txs){
     $invoice_date = $txs['invoice_date'];
     $cust_name = $txs['fullname'];
@@ -52,13 +52,14 @@ if($txs){
     $note  = $txs['note'];
     $tax_id  = $txs['tax_id'];
     $trans_type  = $txs['trans_type'];
-    $user_id  = $txs['user_id'];
+    $user_id  = $txs['usid'];
     $addbank = $txs['addbank'];
     $nhilx = $txs['nhil_rate'];
     $withholdingtaxx = $txs['withholdingtax_rate'];
     $getfundx = $txs['getfund_rate'];	
     $vatx = $txs['vat_rate'];
     $covidx = $txs['covid_rate'];
+    $prepared_by = $txs['prepared_by'];
 }
 
 
@@ -73,6 +74,21 @@ if($user_id){
         $fullname = '';
     }
 }
+
+if($prepared_by){
+    $us = DB::get_row("SELECT signature,firstname,lastname FROM users WHERE user_id = ?",array($prepared_by));
+    if($us){
+        $cash_signatures = $us['signature'];
+        $cashier = $us['firstname'].' '.$us['lastname'];
+        $server = $fullname;
+    }
+    else{
+        $cash_signatures = '';
+        $cashier = '';
+        $server = '';
+    }
+}
+
 
 //GET PRODUCTS
  $array = DB::query("SELECT 
@@ -209,7 +225,7 @@ switch($industry){
         }
     break;
 
-    case 'retailing':
+    case 'retails':
         if($receipt_type === 'THERMNAL'){
             include('thermnal/invoice.php');
         }

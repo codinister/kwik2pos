@@ -5,9 +5,6 @@ class customer{
 	private function code(){
 		return getCode($_SESSION['edfghl']);
 	}
-
-
-
 	
 	public function update_cust_description(){
 		$cust_id = $_POST['cust_id']; 
@@ -42,29 +39,28 @@ class customer{
 		$phone,
 		$email,
 		$location,
-		$ref_id,
-		$user_id
+		$user_id,
+		$ref_id
 	){
-		$date = getCurrentDateTime();
+	
 
 		DB::query("INSERT INTO customers(
 			fullname,
 			phone,
 			email,
 			location,
-			ref_id,
 			type,
 			user_id,
+			ref_id,
 			createdAt,
 			code
-		) VALUES(?,?,?,?,?,'customer',?,?,?)",array(
+		) VALUES(?,?,?,?,'customer',?,?,now(),?)",array(
 			$fullname,
 			$phone,
 			$email,
 			$location,
-			$ref_id,
 			$user_id,
-			$date,
+			$ref_id,
 			$this->code()
 		));
 
@@ -76,30 +72,43 @@ class customer{
 	private function addReferrersToDatabase(
 		$ref_fullname,
 		$ref_phone,
-		$ref_type,
 		$user_id,
-		$ref_id
+		$ref_id, 
+		$ref_type
 	){
 		//$date = getCurrentDateTime();
 
+		if(!empty($ref_id)){
+			DB::query("UPDATE customers SET ref='1', ref_type = ? WHERE cust_id = ?",array($ref_type,$ref_id));
+
+			return $ref_id;
+		}
+		elseif(!empty($ref_fullname)){
+		
 			DB::query("INSERT INTO customers(
 				fullname,
 				phone,
-				ref_type,
 				type,
 				user_id,
 				createdAt,
-				code
-			) VALUES(?,?,?,'referrer',?,now(),?)",array(
+				code, 
+				ref_type,
+        		ref
+			) VALUES(?,?,'customer',?,now(),?,?, 1)",array(
 				$ref_fullname,
 				$ref_phone,
-				$ref_type,
 				$user_id,
-				$this->code()
+				$this->code(), 
+				$ref_type
 			));
 
 			$cust_id = DB::get_row("SELECT cust_id FROM customers WHERE fullname =?",array($ref_fullname));
 			return $cust_id['cust_id'];
+
+			}
+			else{
+				return '';
+			}
 	}
 
 	public function add_customer(){
@@ -130,6 +139,7 @@ class customer{
 		$cust = DB::query("SELECT fullname FROM customers WHERE fullname = ? AND code =?", array($cfullname,$this->code()));
 		if($cust){
 			output('Customer name already exists!');
+			exit;
 		}
 
 		if($cphone){
@@ -137,6 +147,7 @@ class customer{
 			if($cust){
 				$fname = $cust['fullname'];
 				output('Phone number is in use by '.$fname);
+				exit;
 			}
 		}
 
@@ -147,40 +158,14 @@ class customer{
 
 		//Begin referrer validation
 
-		if(!empty($custname)){
 
-			validation::empty_validation(
-				array(
-				'Referrer Name'=>$custname,
-				'Referrer Phone'=> $rphone,
-				'Referrer Type' => $ref_type
-				)
-			);
-
-			validation::phone_validation(array('Referrer Phone'=>$rphone));
-
-			validation::string_validation(
-				array(
-				'Referrer Name'=>$custname
-				)
-			);
-	
-			$ref_id = $this->addReferrersToDatabase(
-				$custname,
-				$rphone,
-				$ref_type,
-				$_SESSION['edfghl'],
-				$cust_id
-			);
-			
-		}
-		else{
-			$ref_id = 0;
-		}
-
-		//End referrer validation
-
-
+		$ref_id = $this->addReferrersToDatabase(
+			$custname,
+			$rphone,
+			$_SESSION['edfghl'],
+			$ref_id,
+			$ref_type
+		);
 
 
 		$cust_id = $this->addCustomersToDatabase(
@@ -188,12 +173,14 @@ class customer{
 			$cphone,
 			$cemail,
 			$clocation,
-			$ref_id,
-			$_SESSION['edfghl']
+			$_SESSION['edfghl'], 
+			$ref_id
 		);
 
-		$activity="Added customer  ".$cfullname."";
-		history($_SESSION['edfghl'],'',$activity);
+		//End referrer validation
+
+		// $activity="Added customer  ".$cfullname."";
+		// history($_SESSION['edfghl'],'',$activity);
 
 		echo 'Customer added successfully!-'.$cust_id;
 

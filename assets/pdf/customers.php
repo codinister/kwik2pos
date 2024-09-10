@@ -9,7 +9,15 @@ $pdf->AddPage();
 
 $pdf->SetFont('helvetica', '', 10);
 
-$code = getCode($_GET['u']);
+
+if(isset($_GET['u'])){
+    $code = getCode($_GET['u']);
+    $user_id = $_GET['u'];
+}
+elseif(isset($_GET['c'])){
+    $code = $_GET['c'];
+}
+
 
 $data = DB::get_row('SELECT * FROM settings WHERE code = ?',array($code));
 
@@ -22,8 +30,18 @@ $comp_email = $data['comp_email'];
 $comp_website = $data['comp_website'];
 
 
-$custs = DB::query("SELECT * FROM customers WHERE code = ?",array($code));
-$cnt = COUNT($custs);
+
+
+
+
+if(isset($_GET['u'])){
+    $custs = DB::query("SELECT * FROM customers WHERE user_id = ?",array($user_id));
+    $cnt = COUNT($custs);
+}
+elseif(isset($_GET['c'])){
+    $custs = DB::query("SELECT * FROM customers WHERE code = ?",array($code));
+    $cnt = COUNT($custs);
+}
 
 //LOGO
 $logo = '<img style="margin-top: 33px;" src="../uploads/'.$comp_logo.'" alt="logo" width="160" height="80" />';

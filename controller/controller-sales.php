@@ -63,8 +63,8 @@ class sales{
     public function save_sales(){
 
         $payment = flatten(json_decode($_POST['payment'],TRUE));
-        $tax = json_decode($_POST['tax'],TRUE);
-        $sales = flatten(json_decode($_POST['sales'],TRUE));
+        $tax = json_decode($_POST['sales'],TRUE);
+        $sales = flatten(json_decode($_POST['items'],TRUE));
         
         extract($tax);
 
@@ -161,6 +161,7 @@ class sales{
         t.user_id,	
         t.addbank,
         t.note,
+        T.prepared_by,
         t.vat_rate,
         t.nhil_rate,
         t.getfund_rate,
@@ -184,6 +185,7 @@ class sales{
             'transportation' => $tx?  $tx['transportation'] : 0,
             'installation' => $tx?  $tx['installation'] : 0,
             'location' => $tx?  $tx['site_location'] : '',
+            'prepared_by'  => $tx?  $tx['prepared_by'] : '',
             'previouspayment' => isset($_POST['duplicate']) ? '' : sumPayments($tax_id),
             'newpayment' => 0,
             'balance' => isset($_POST['duplicate']) ? '' :getBalance($tax_id),
@@ -363,8 +365,8 @@ class sales{
         //Update payment history 
         DB::query("UPDATE payment_history SET payment = ?,createdAt = ? WHERE pay_id = ?",array($payment,$date,$pay_id));
 
-        $activity="Updated".$fullname." receipt with the amount of ".$payment."";
-        history($_SESSION['edfghl'],'',$activity);
+        // $activity="Updated".$fullname." receipt with the amount of ".$payment."";
+        // history($_SESSION['edfghl'],'',$activity);
 
         echo 'Receipt updated successfully!';
     }

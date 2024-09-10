@@ -25,7 +25,7 @@ const productsMobile = (product) => {
     if (
       industry === 'service provider' ||
       industry === 'rentals' ||
-      industry === 'retailing'
+      industry === 'retails'
     ) {
       if (v.prod_qty > 0) {
         rowqty = v.prod_qty;
@@ -37,7 +37,7 @@ const productsMobile = (product) => {
     }
 
     let proddesc = v.prod_name;
-    if (industry === 'retailing' || industry === 'rentals') {
+    if (industry === 'retails' || industry === 'rentals') {
       proddesc = v.prodsize + ' ' + v.prod_name;
     }
 
@@ -89,7 +89,7 @@ const productsMobile = (product) => {
     .join('');
 
   let rowqty = '';
-  if (industry === 'service provider' || industry === 'retailing') {
+  if (industry === 'service provider' || industry === 'retails') {
     rowqty = '<li>Qty</li>';
   }
   if (industry === 'rentals') {

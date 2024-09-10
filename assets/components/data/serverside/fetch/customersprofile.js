@@ -103,7 +103,7 @@ const customersprofile = (callback) => {
                 phone: b.phone,
                 tax_id: b.tax_id,
                 exp_date: b.exp_date,
-                profile: b.profile
+                profile: b.profile,
               };
             } else {
             }

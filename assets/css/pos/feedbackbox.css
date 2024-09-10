@@ -1,0 +1,88 @@
+
+
+
+.feedbackwrapper {
+  padding: 2em;
+
+position: absolute;
+width: 100%;
+  box-shadow: 0.4rem 0.4rem 1.2rem rgba(0, 0, 0, 0.2);
+}
+
+.feedbackwrapper > div:nth-of-type(1) {
+  display: flex;
+  gap: 2.4rem;
+  justify-content: center;
+}
+
+.feedbackwrapper > div:nth-of-type(2) {
+  margin-top: 3em;
+  display: flex;
+  justify-content: center;
+  gap: 2.4rem;
+}
+
+.feedbackwrapper > div:nth-of-type(3) {
+  margin-top: 3.2em;
+}
+
+.feedbackwrapper > div:nth-of-type(4) {
+  margin-top: 3.2em;
+}
+
+.feedbackwrapper > div:nth-of-type(1) > .previewpdf {
+  display: block;
+  border: solid 0.1rem #333;
+  color: #333;
+  width: 10rem;
+  height: 3.5rem;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feedbackwrapper > div:nth-of-type(2) > a {
+  background-color: #444;
+  width: 100%;
+  display: block;
+  color: white;
+  margin-top: 1em;
+  text-align: center;
+  padding: 0.5em;
+  font-size: 1.2rem;
+  display: none;
+}
+
+.whatsapp-small {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  overflow: hidden;
+}
+
+.feedbackwrapper > div:nth-of-type(1) > .whatsappbx > img {
+  width: 4rem;
+  height: 4rem;
+}
+
+.feedbackwrapper > div:nth-of-type(1) > .closebx {
+  display: block;
+  background-color: rgb(210, 30, 45);
+  color: white;
+  width: 10rem;
+  height: 3.5rem;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feedbackwrapper div:nth-of-type(1) a:nth-of-type(1):hover {
+  background-color: #333;
+  color: white;
+}
+
+.invoicenote{
+  width: 100%;
+}

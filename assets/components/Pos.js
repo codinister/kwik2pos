@@ -14,18 +14,20 @@ import customersprofile from './data/serverside/fetch/customersprofile.js';
 import getIndustry from './utils/getIndustry.js';
 import { ymd } from './utils/DateFormats.js';
 import availableStockData from './products/utils/availableStockData.js';
+import format_number from './utils/format_number.js';
 
 const Pos = () => {
   const industry = getIndustry();
 
   setTimeout(() => {
-    const set = JSON.parse(localStorage.getItem('taxes'));
-    if (set?.invoice_date.length > 0) {
-      if (classSelector('invoice_date')) {
-        const date = set?.invoice_date;
-        classSelector('invoice_date').valueAsDate = new Date(ymd(date));
-      }
+    const set = JSON.parse(localStorage.getItem('sales'));
+
+
+    if (classSelector('top_total')) {
+      classSelector('top_total').textContent = set?.total ?  format_number(set?.total) : '0.00'
     }
+
+
   }, 3000);
 
   //SET AVAILABLE PRODUCTS
@@ -37,7 +39,7 @@ const Pos = () => {
 
     if (industry === 'retails') {
       availables = prod.filter((v) => v.remaining > 0).map((v) => v);
-    } else {
+    } else if (industry === 'rentals') {
       availables = prod.filter((v) => v.prod_qty > 0).map((v) => v);
     }
 
@@ -61,17 +63,23 @@ const Pos = () => {
   });
 
   customersprofile((cust) => {
+
+
+    
     const customers = cust
       .map((v) => ({
         cust_id: v.cust_id,
         fullname: v.fullname,
         phone: v.phone,
+        code: v.code,
         email: v.email,
         location: v.location,
         user_id: v.user_id,
         debt: v.totdebt,
         type: v.type,
         ref_type: v.ref_type,
+        ref: v.ref, 
+        ref_id: v.ref_id,
         description: v.description,
         firstname: v.firstname,
         lastname: v.lastname,
@@ -100,7 +108,12 @@ const Pos = () => {
     );
   });
 
-  const tax = JSON.parse(localStorage.getItem('taxes'));
+
+
+
+  if(localStorage.getItem('sales')){
+  const tax = JSON.parse(localStorage.getItem('sales')) 
+
 
   if (tax?.cust_name) {
     if (classSelector('customerhiddeninpt')) {
@@ -114,20 +127,15 @@ const Pos = () => {
     }, 1000);
   }
 
+}
+
   const page = `
-
     <div class="pos-container">
-
         <div class="pos-products-wrapper">
         <div class="pos-sales"></div>
         <div class="pos-products"></div>
         </div>
-
-
     </div>
-
-
-
 
     ${Modalboxtwo('', `<div class="addcustomerwrapper"></div>`)}
 

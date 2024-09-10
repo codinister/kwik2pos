@@ -1,6 +1,6 @@
 const checkWithholdingtax = () => {
   const sess = JSON.parse(localStorage.getItem('sinpt'));
-  const obj = JSON.parse(localStorage.getItem('taxes'));
+  const obj = JSON.parse(localStorage.getItem('sales'));
 
   if (sess?.withholdingtax) {
     if (obj?.withholdingchecked) {

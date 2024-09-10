@@ -57,7 +57,7 @@ const Login = () => {
             if (sess !== JSON.stringify(data)) {
               return ErrorResult('output1', 'Access denied!');
             } else {
-              localStorage.removeItem('taxes');
+              localStorage.removeItem('sales');
               localStorage.removeItem('prozdlist');
               window.location = 'index.html?page=dashboard';
             }

@@ -4,8 +4,9 @@ import { formatDate } from '../../utils/DateFormats.js';
 import deleteAccessControl from '../utils/deleteAccessControl.js';
 import getInvoiceDetails from './getInvoiceDetails.js';
 import sendInvoiceWhatsapp from '../../sales/utils/customers/sendInvoiceWhatsapp.js';
+import roleAccess from '../../utils/roleAccess.js';
 
-const getSalesinvoice = async (allinvoicess, cust_id) => {
+const getSalesinvoice = async (allinvoicess) => {
   if (allinvoicess) {
     let allinvoices = allinvoicess;
     const arr = JSON.parse(localStorage.getItem('deletedinvoices'));
@@ -52,7 +53,7 @@ const getSalesinvoice = async (allinvoicess, cust_id) => {
         getInvoiceDetails(cust_id, tax_id, user_id, '', (data) => {
           const { products, taxes } = data;
           localStorage.setItem('prozdlist', JSON.stringify(products));
-          localStorage.setItem('taxes', JSON.stringify(taxes));
+          localStorage.setItem('sales', JSON.stringify(taxes));
           localStorage.setItem('rend', 3);
           classSelector('noreload').classList.remove('show');
           document.body.style.overflow = 'scroll';
@@ -61,20 +62,20 @@ const getSalesinvoice = async (allinvoicess, cust_id) => {
     });
 
     const data = Object.values(
-      allinvoices
-        .filter((v) => v.cust_id === cust_id)
-        .reduce((a, b) => {
-          if (a[b.tax_id]) {
-            a[b.tax_id].tax_id = b.tax_id;
-          } else {
-            a[b.tax_id] = b;
-          }
-          return a;
-        }, {})
+      allinvoices.reduce((a, b) => {
+        if (a[b.tax_id]) {
+          a[b.tax_id].tax_id = b.tax_id;
+        } else {
+          a[b.tax_id] = b;
+        }
+        return a;
+      }, {})
     );
 
     const invoiceHTMLList = (v) => {
-      const { user_id } = JSON.parse(localStorage.getItem('zsdf'));
+      const { user_id, role_id } = JSON.parse(localStorage.getItem('zsdf'));
+
+      const role = roleAccess(role_id);
 
       let hide_if_balance_is_zero = '';
       if (v.balance <= 0) {
@@ -88,7 +89,9 @@ const getSalesinvoice = async (allinvoicess, cust_id) => {
       </a>
       `;
 
-      if (user_id === v.user_id) {
+      const us = user_id === v.user_id ? true : false;
+
+      if (role || us) {
         editInvoice = `<a href="javascript:void(0);">
         <i class="fa fa-pencil editthissalesinvoice" 
         data-cust_id = "${v.cust_id}" 
@@ -115,10 +118,7 @@ const getSalesinvoice = async (allinvoicess, cust_id) => {
 
         <li class="salesicons">
         <div class="salesiconsinner ${hide_if_balance_is_zero}">
-
         ${editInvoice}
-
-
         <a href="javascript:void(0);"     class="whatsapp-small">
             <img 
               class="whatsapp-invoice"

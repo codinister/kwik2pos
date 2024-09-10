@@ -57,7 +57,7 @@ const Products = () => {
     if (e.target.matches('.generatepreview')) {
       let arr = [];
       document.querySelectorAll('.checkmark').forEach((v) => {
-        console.log(v)
+
         if (v.checked) {
           arr.push({
             prod_id: v.dataset.prod_id,
@@ -68,7 +68,8 @@ const Products = () => {
             type: v.dataset?.type,
             rented: v.dataset?.rented ? v.dataset?.rented : '',
             sold: v.dataset?.sold ? v.dataset?.sold : '',
-            availsble: v.dataset?.available ? v.dataset?.available : '',
+            available: v.dataset?.available ? v.dataset?.available : '',
+       
             exp_date: v.dataset?.exp_date ? v.dataset?.exp_date : '',
             createdAt: v.dataset?.createdat ? v.dataset?.createdat : '',
 

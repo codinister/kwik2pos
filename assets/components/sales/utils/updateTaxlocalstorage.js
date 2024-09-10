@@ -1,8 +1,8 @@
 const updateTaxlocalstorage = (name, val) => {
-  if (localStorage.getItem('taxes')) {
-    const tx = JSON.parse(localStorage.getItem('taxes'));
+  if (localStorage.getItem('sales')) {
+    const tx = JSON.parse(localStorage.getItem('sales'));
     tx[name] = val;
-    localStorage.setItem('taxes', JSON.stringify(tx));
+    localStorage.setItem('sales', JSON.stringify(tx));
   }
 };
 

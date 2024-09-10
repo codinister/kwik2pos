@@ -1,9 +1,9 @@
 import { ymd } from '../../utils/DateFormats.js';
 import { textInput } from '../../utils/InputFields.js';
 import { classSelector } from '../../utils/Selectors.js';
-import retailList from './productsList2.js';
+import stocksList from './productsList2.js';
 
-const filterProductsByDates = (retail) => {
+const filterProductsByDates = (stocks,sales) => {
 
 
 
@@ -38,7 +38,7 @@ const filterProductsByDates = (retail) => {
         const st = new Date(start_date).getTime();
         const end = new Date(end_date).getTime();
 
-        const searchresult = Object.values(retail).filter((v) => {
+        const searchresult = Object.values(stocks).filter((v) => {
 
           const qtydate = new Date(v.qty_date).getTime();
 
@@ -46,7 +46,7 @@ const filterProductsByDates = (retail) => {
         });
 
         classSelector('products-table-body-inner').innerHTML =
-          retailList(searchresult);
+          stocksList(searchresult);
       }
     }
 

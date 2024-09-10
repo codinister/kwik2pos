@@ -16,8 +16,11 @@ const productsList = (obj) => {
         data-prod_size="${v.prod_size}" 
         data-stock="${v.stock}"
         data-sold="${v.sold}"
-        data-prod_qty="${v.remaining}"
+        data-prod_qty="${v.prod_qty}"
+        data-available="${v.remaining}"
         data-cat_name="${v.cat_name}"
+        data-selling_price = "${v.selling_price}"
+
         data-type="Stocks"
         class="checkmark" />
         </span>

@@ -1,11 +1,17 @@
 import { expdate_left } from '../../../utils/DateFormats.js';
 
+
+
+
+
 const rentalsFilter = (product, sale) => {
+  const prods = product || []
+  const trans = sale || []
+
   /*
    * ALL PRODUCTS
    */
-  const products = product
-    .map((v) => ({
+  const products = prods.map((v) => ({
       ...v,
       prod_qty_arr: [
         {
@@ -34,9 +40,7 @@ const rentalsFilter = (product, sale) => {
   /*
    * ALL SALES
    */
-  const sales = sale
-    .filter((v) => expdate_left(v.exp_date) > 0)
-    .map((v) => ({ ...v, qty: Number(v.qty) }))
+  const sales = trans.filter((v) => expdate_left(v.exp_date) > 0)?.map((v) => ({ ...v, qty: Number(v.qty) }))
     .reduce((a, b) => {
       if (a[b.prod_id]) {
         a[b.prod_id].qty += Number(b.qty);
@@ -49,11 +53,13 @@ const rentalsFilter = (product, sale) => {
   /*
    * BEGIN STOCK
    */
+
   const stocks = Object.values(products);
 
   /*
    * BEGIN RENTED
    */
+
   const rented = Object.values(sales)
     .map((v) => {
       const prd = products[v.prod_id] ? products[v.prod_id] : false;
@@ -96,6 +102,16 @@ const rentalsFilter = (product, sale) => {
   return { stocks, rented, availables };
 };
 
+
+
+
+
+
+
+
+
+
+
 const serviceFilter = (products) => {
   return products;
 };
@@ -105,7 +121,11 @@ const roofingFilter = (roofing) => {
 };
 
 const retailsFilter = (product, sale) => {
-  const sales = [...sale]
+  const allsales = sale || []
+  const prod = product || []
+
+
+  const sales = [... allsales]
     .map((v) => {
       return {
         ...v,
@@ -125,7 +145,9 @@ const retailsFilter = (product, sale) => {
   /*
    * ALL PRODUCTS
    */
-  const products = [...product]
+
+
+  const products = [...prod]
     .map((v) => ({
       ...v,
       prod_qty_arr: [
@@ -165,7 +187,7 @@ const retailsFilter = (product, sale) => {
     };
   });
 
-  return { stocks, product };
+  return { stocks, prod,sales };
 };
 
 export { rentalsFilter, retailsFilter, roofingFilter, serviceFilter };

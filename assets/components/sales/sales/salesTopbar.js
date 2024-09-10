@@ -9,8 +9,45 @@ import getIndustry from '../../utils/getIndustry.js';
 import { ymd } from '../../utils/DateFormats.js';
 import updateTaxlocalstorage from '../utils/updateTaxlocalstorage.js';
 import getPrevilleges from '../utils/getPrevilleges.js';
+import usersprofile from '../../data/serverside/fetch/usersprofile.js';
 
 const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
+  usersprofile((data) => {
+    const users = data.map((v) => ({
+      user_id: v.user_id,
+      fullname: v.firstname + ' ' + v.lastname,
+    }));
+
+    document.addEventListener('click', (e) => {
+      if (e.target.matches('.userwrapperinpt')) {
+        if (users) {
+          const usersdata = users.map((v) => usersIteratorFunc(v)).join('');
+          classSelector('userwrapper').innerHTML = usersdata;
+        }
+      }
+    });
+
+
+    document.addEventListener('keyup', (e) => {
+      if (e.target.matches('.userwrapperinpt')) {
+        const val = e.target.value;
+        if (users) {
+          const usersdata = users
+            .filter((v) =>
+              Object.values(v).join('').toLowerCase().includes(val.toLowerCase())
+            )
+            .map((v) => usersIteratorFunc(v))
+            .join('');
+          classSelector('userwrapper').innerHTML = usersdata
+        }
+      }
+    });
+
+
+
+
+  });
+
   const industry = getIndustry();
   const { role_id, user_id } = JSON.parse(localStorage.getItem('zsdf'));
 
@@ -33,8 +70,13 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
     }
   });
 
+
+
+
+
+
   const customerIteratorFunc = (v) => {
-    if (v.fullname !== 'Anonymous') {
+
       return `
       <li>
       <a href="javascript:void(0);" 
@@ -50,47 +92,43 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
       </a>
       </li>
     `;
-    }
+    
   };
 
-  //GET ANONYMOUS CUSTOMER
-  const getAnonymousCustomer = async () => {
-    const fch = await fetch(
-      'router.php?controller=customer&task=getAnonymousCustomer'
-    );
-    const v = await fch.json();
 
-    if (customersData) {
-      const anonymous = customersData.filter(
-        (v) => v.fullname === 'Anonymous'
-      )[0];
 
-      if (industry === 'retailing') {
-        if (anonymous?.cust_id > 0) {
-          const tax = JSON.parse(localStorage.getItem('taxes'));
 
-          if (classSelector('cust_id')) {
-            classSelector('cust_id').value = Number(anonymous?.cust_id);
-          }
 
-          if (classSelector('customerinptclass')) {
-            salesLocalstorage();
-            const txx = JSON.parse(localStorage.getItem('taxes'));
-            if (txx) {
-              if (txx['cust_id'] < 1) {
-                txx['cust_id'] = Number(v['cust_id']);
-              }
 
-              txx['anonymous_cust'] = Number(v['cust_id']);
-              localStorage.setItem('taxes', JSON.stringify(txx));
-            }
-          }
-        }
-      }
-    }
+
+  
+
+  const usersIteratorFunc = (v) => {
+
+      return `
+      <li>
+      <a href="javascript:void(0);" 
+      class="userlink" 
+      data-fullname="${v.fullname}"
+      data-user_id="${v.user_id}"
+      >
+      ${v.fullname}
+      </a>
+      </li>
+    `;
+    
   };
 
-  getAnonymousCustomer();
+
+
+
+
+
+
+
+
+
+
 
   document.addEventListener('keyup', (e) => {
     if (e.target.matches('.customerinptclass')) {
@@ -111,14 +149,19 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
   document.addEventListener('click', (e) => {
     if (e.target.matches('.customerinptclass')) {
       if (customersData) {
-        const searchres = customersData
+        const searchres = customersData.filter((v) => v.type === 'customer')
           .map((v) => customerIteratorFunc(v))
           .join('');
         classSelector('customerwrapper').innerHTML = searchres;
       }
     }
 
+
+
+
+    
     if (e.target.matches('.addrows')) {
+
       e.stopImmediatePropagation();
       salesLocalstorage();
 
@@ -148,24 +191,29 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
         classSelector('pos-sales-output').innerHTML = displayProductList();
       }
 
-      if (localStorage.getItem('taxes')) {
-        const tx = JSON.parse(localStorage.getItem('taxes'));
+      if (localStorage.getItem('sales')) {
+        const tx = JSON.parse(localStorage.getItem('sales'));
 
-        console.log('MEET');
         if (tx['invoice_date'].length < 1) {
           const date = new Date();
           const value = ymd(date);
           tx['invoice_date'] = value;
           tx['receipt_date'] = value;
-          localStorage.setItem('taxes', JSON.stringify(tx));
+          localStorage.setItem('sales', JSON.stringify(tx));
         }
       }
     }
+
+
+
+
+
+
+
+
   });
 
-  const showbtn = getPrevilleges('addrowsbutton')
-    ? 'show'
-    : 'hide';
+  const showbtn = getPrevilleges('addrowsbutton') ? 'show' : 'hide';
 
   const endDate = `
   ${textInput({
@@ -204,6 +252,21 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
     <div class="flex custbtns">
       ${addCustomer(customersData)}
       ${viewcustomers(customersData, receipts, proforma, invoice)}
+    </div>
+    </div>
+
+
+
+    <div>
+    <div>
+    ${dataListDropdown(
+      textInput,
+      'userwrapperinpt',
+      'Assign to',
+      '',
+      'userlink',
+      'userwrapper'
+    )}
     </div>
     </div>
 

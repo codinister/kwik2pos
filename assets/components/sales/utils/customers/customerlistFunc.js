@@ -1,19 +1,21 @@
 import deleteAccessControl from '../deleteAccessControl.js';
 
-const customerlistFunc = (v) => {
+const customerlistFunc = (v,desc) => {
+
+
   return `
   <div class="cust-list-box">
-
-
   <div class="custfullnamebx">
     <a href="javascript:void(0);" 
     data-cust_id="${v.cust_id}" 
     data-fullname = "${v.fullname}"
     data-phone = "${v.phone}"
     data-email = "${v.email}"
+        data-ref_type = "${v.ref_type}"
     data-location = "${v.location}"
     data-description = "${v.description}"
-    data-type = "${v.typee}"
+    data-type = "${v.type}"
+    data-desc="${desc}"
     data-user_id = "${v.user_id}"
     class="displaycustdetails" title= "Assigned to: ${v.firstname} ${
     v.lastname
@@ -30,7 +32,8 @@ const customerlistFunc = (v) => {
     data-fullname = "${v.fullname}"
     data-phone = "${v.phone}"
     data-email = "${v.email}"
-    data-type = "${v.type}"
+        data-type = "${v.type}"
+    data-ref_type = "${v.ref_type}"
     data-location = "${v.location}"
     data-debt = "${v.debt}"
   ></i>

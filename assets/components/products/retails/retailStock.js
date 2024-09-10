@@ -6,16 +6,18 @@ import productsList from './productsList.js';
 import { textInput } from '../../utils/InputFields.js';
 import Buttons from '../../utils/Buttons.js';
 import googlemap from '../../utils/googlemap.js';
-import categoriesComponent from '../utils/categoriesComponent.js';
+import categoriesComponent from './categoriesComponent.js';
 import defaultProductsLocalstorage from '../../data/clientside/localstorage/default/defaultProductsLocalstorage.js';
 import filterProductsByDates from './filterProductsByDates.js';
 
-const retailStock = ( data ) => {
+const retailStock = (data) => {
+  const retails = data?.retails.stocks;
 
 
 
-  const retails = data?.retails.stocks
-  const allproducts = data?.retails.product
+
+  const allproducts = data?.retails.prod
+  const allsales = data?.retails.sales
 
 
   const categories = Object.values(
@@ -34,8 +36,6 @@ const retailStock = ( data ) => {
     else if (a.cat_name < b.cat_name) return -1;
     return 0;
   });
-
-
 
   document.addEventListener('click', (e) => {
     if (e.target.matches('.showprod')) {
@@ -180,7 +180,7 @@ const retailStock = ( data ) => {
   const prod_title = `<span>Stock</span> <span>${total_retails}</span>`;
   classSelector('top-box-left').innerHTML = productTitle(prod_title);
 
-  classSelector('other-box').innerHTML = filterProductsByDates(allproducts);
+  // classSelector('other-box').innerHTML = filterProductsByDates(retails,allsales);
 
   classSelector('top-box-middle').innerHTML = productSearchBox(
     'Search Products',
@@ -209,12 +209,6 @@ const retailStock = ( data ) => {
       btnname: 'ADD PRODUCT',
     },
   ]);
-
-
-
-
-
-
 };
 
-export default retailStock
+export default retailStock;

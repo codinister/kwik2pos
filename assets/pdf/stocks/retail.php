@@ -79,37 +79,40 @@ for($i = 0; $i < $cnt; $i++){
 
 }
 
+
+
+/*-------------------------------------
+BEGIN STOCK
+-------------------------------------*/
+
 $title_box = '
     <table border="1" cellpadding="10">
         <tr>
-        <td><h2>'.$products[0]['type'].'</h2></td>
-        <td><h2> Stock Total: '.$total.'</h2></td>
+        <td><h2>STOCKS</h2></td>
+
         </tr>
     </table>
     
 ';
 $pdf->writeHTMLCell(190,10,'','',$title_box,0,1);
 
-
-
 $table_header = '
 <br /><br />
     <table border="1">
     <tr>
-    <td style="width: 263px;">Product Name</td>
-    <td style="width: 150px;">Size</td>
-    <td style="width: 120px;">Qty</td>
+    <td style="width: 194px;">ITEMS/DESCRIPTION</td>
+    <td style="width: 100px;">CATEGORY</td>
+    <td style="width: 80px;">STOCK</td>
+    <td style="width: 80px;">SOLD</td>
+    <td style="width: 80px;">TOTAL</td>
     </tr>
     </table>
     <style>
     table{
-        background-color: #cccccc;
         padding: 6px;
     }
     </style>
     ';
-
-
 $pdf->writeHTMLCell(190,5,'','',$table_header,'',1);
 
 //TABLE BODY 
@@ -117,19 +120,17 @@ $rows = '';
 foreach($products as $k => $v){
     $rows .='
     <tr>
-    <td style="width: 263px;">
-    <a style="color: black; text-decoration: none;" href="http://localhost/kwikpos/product.html?p='.$v['prod_id'].'">'.$v['prod_name'].'</a>
+    <td style="width: 194px;">
+    '.$v['prod_name'].'
     </td>
-    <td style="width: 150px;">'.$v['prod_size'].'</td>
-    <td style="width: 120px;">'.$v['prod_qty'].'</td>
+    <td style="width: 100px;">'.$v['cat_name'].'</td>
+    <td style="width: 80px;">'.$v['prod_qty'].'</td>
+        <td style="width: 80px;">'.$v['sold'].'</td>
+            <td style="width: 80px;">'.$v['available'].'</td>
     </tr>
     ';
 }
 
-
-// <a href="https://app.kwik2pos.com/product.html?p='.$v['prod_id'].'">'.$v['prod_name'].'</a>
-
-// <a href="http://localhost/kwikpos/product.html?p='.$v['prod_id'].'">'.$v['prod_name'].'</a>
 
 
 $row = '<table border="1">'.$rows.'</table>
@@ -140,8 +141,110 @@ $row = '<table border="1">'.$rows.'</table>
     </style>
 ';
 
+$pdf->writeHTMLCell(190,0,'','',$row,'',1);
+
+
+/*-------------------------------------
+END STOCK
+-------------------------------------*/
+
+
+
+
+
+
+
+
+/*-------------------------------------
+BEGIN STOCK
+-------------------------------------*/
+
+$title_box = '
+<br /> <br />  <br /> <br /><br /> <br />
+    <table border="1" cellpadding="10">
+        <tr>
+        <td><h2>SALES</h2></td>
+
+        </tr>
+    </table>
+    
+';
+$pdf->writeHTMLCell(190,10,'','',$title_box,0,1);
+
+$table_header = '
+<br /><br />
+    <table border="1">
+    <tr>
+    <td style="width: 194px;">ITEMS/DESCRIPTION</td>
+    <td style="width: 100px;">CATEGORY</td>
+    <td style="width: 80px;">TOTAL SALES</td>
+    <td style="width: 80px;">UNIT PRICE</td>
+    <td style="width: 80px;">AMOUNT</td>
+    </tr>
+    </table>
+    <style>
+    table{
+        padding: 6px;
+    }
+    </style>
+    ';
+$pdf->writeHTMLCell(190,5,'','',$table_header,'',1);
+
+//TABLE BODY 
+$rows = '';
+$plus = 0; 
+foreach($products as $k => $v){
+    $total = $v['selling_price'] * $v['sold']; 
+
+    $plus += $total;
+
+    $rows .='
+    <tr>
+    <td style="width: 194px;">
+    '.$v['prod_name'].'
+    </td>
+    <td style="width: 100px;">'.$v['cat_name'].'</td>
+    <td style="width: 80px;">'.$v['sold'].'</td>
+        <td style="width: 80px;">'.$v['selling_price'].'</td>
+            <td style="width: 80px;">'.number_format($total, 2, '.', ',').'</td>
+    </tr>
+    ';
+}
+
+
+
+$row = '<table border="1">'.$rows.'</table>
+    <style>
+    table{
+        padding: 6px;
+    }
+    </style>
+';
 
 $pdf->writeHTMLCell(190,0,'','',$row,'',1);
+
+
+
+$grandtotal = '
+<br /><br />
+    <table>
+    <tr>
+    <td style="width: 454px; text-align: right;">Total sales GHs</td>
+    <td style="width: 80px;">'.number_format($plus, 2, '.', ',').'</td>
+    </tr>
+    </table>
+    <style>
+    table{
+        padding: 6px;
+    }
+    </style>
+    ';
+$pdf->writeHTMLCell(190,5,'','',$grandtotal,'',1);
+
+
+/*-------------------------------------
+END STOCK
+-------------------------------------*/
 
 
 //TABLE FOOTER 

@@ -120,7 +120,7 @@ class user{
 		validation::phone_validation(array('Phone'=>$phone));
 
 		//Check if username already exists
-		$userExists = DB::query("SELECT username FROM users WHERE username = ? AND user_id != ? ", array($username,$user_id));
+		$userExists = DB::query("SELECT username FROM users WHERE username = ? AND user_id != ? AND code = ? ", array($username,$user_id,$this->code()));
 		if($userExists) {
 			output('Username is already in use!');
 		}

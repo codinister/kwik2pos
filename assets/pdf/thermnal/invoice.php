@@ -1,4 +1,38 @@
 <?php 
+
+
+
+
+
+if(empty($cashier)){
+    $bill_fullname = $fullname;
+    $bill_server = '';
+    $bill_cash_signatures = $signature;
+}
+else{
+
+    $bill_fullname = $cashier;
+    $bill_server = $server;
+    $bill_cash_signatures =  $cash_signatures;
+}
+
+
+$bserver = ''; 
+if(!empty($bill_server)){
+    $bserver = '
+        <tr>
+        <td style="width: 120px;">SERVER</td>
+        <td style="width: 120px;">'.$bill_server.'</td>
+        </tr>
+    ';
+}
+
+
+
+
+
+
+
 $invoice_header = '
 <table>
 <tr>
@@ -15,6 +49,7 @@ $invoice_header = '
 </tr>
 
 </table>
+<br />
 ';
 $pdf->writeHTMLCell(190,10,'','',$invoice_header,0,1);
 
@@ -25,10 +60,10 @@ $other_details = '
 CASHIER
 </td>
 <td style="width: 120px;">
-'.$fullname.'
+'.$bill_fullname .'
 </td>
 </tr>
-
+'.$bserver.'
 <tr>
 <td style="width: 120px;">
 DATE
@@ -40,7 +75,7 @@ DATE
 
 <tr>
 <td style="width: 120px;">
-ESTIMATE NO#
+ESTIMATE #
 </td>
 <td style="width: 120px;">
 '.$invoice_no.'
@@ -160,6 +195,17 @@ $totals = '
 ';
 
 
+$thanks = '
+<br /><br />
+<tr>
+<td style="width: 240px; text-align: center;"><strong>Thank you!</strong></td>
+</tr>
+<tr>
+<td style="width: 240px; text-align: center;"><strong>Please come again</strong></td>
+</tr>
+';
+
+
 $trans = '
 <br /><br />
 <table>
@@ -169,6 +215,7 @@ $trans = '
 '.$getfunds.'
 '.$vats.'
 '.$totals.'
+'.$thanks.'
 </table>
 ';
 $pdf->writeHTMLCell(190,0,'','',$trans,'',1);

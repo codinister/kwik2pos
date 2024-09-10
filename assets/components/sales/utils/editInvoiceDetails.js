@@ -4,12 +4,12 @@ import editInvoiceAcessControl from './editInvoiceAccessControl.js';
 import { unitprice, invoicedesc } from '../utils/activateInvoiceinputs.js';
 
 const editInvoiceDetails = (data, trans_type = '') => {
-  const { products, taxes } = data;
+  const { products, sales } = data;
 
   if (trans_type === 'proforma') {
-    taxes['trans_type'] = 'proforma';
+    sales['trans_type'] = 'proforma';
   } else {
-    taxes['trans_type'] = 'invoice';
+    sales['trans_type'] = 'invoice';
   }
 
   let numbering = 1;
@@ -63,33 +63,33 @@ const editInvoiceDetails = (data, trans_type = '') => {
   const prods = products.map((v, k) => productsListItems(v, k)).join('');
 
   const subtotal =
-    Number(taxes?.transportation) +
-    Number(taxes?.installation) +
-    Number(taxes?.sub_total);
+    Number(sales?.transportation) +
+    Number(sales?.installation) +
+    Number(sales?.sub_total);
 
-  const discount = Number(subtotal) - Number(taxes?.discount);
-  const withholdtax = Number(discount) - Number(taxes?.withholdingtax);
-  const checktax = taxes?.total > withholdtax ? true : false;
+  const discount = Number(subtotal) - Number(sales?.discount);
+  const withholdtax = Number(discount) - Number(sales?.withholdingtax);
+  const checktax = sales?.total > withholdtax ? true : false;
 
-  const subt = Number(taxes?.total) - Number(taxes?.withholdingtax);
+  const subt = Number(sales?.total) - Number(sales?.withholdingtax);
 
-  const withholdchecked = taxes?.total > subt;
+  const withholdchecked = sales?.total > subt;
 
   if (classSelector('pos-sales-output')) {
     classSelector('pos-sales-output').innerHTML = prods;
 
-    if (!taxes?.pay_type) {
-      taxes['pay_type'] = 'Cash';
+    if (!sales?.pay_type) {
+      sales['pay_type'] = 'Cash';
     }
 
     if (classSelector('balance')) {
-      classSelector('balance').value = taxes?.balance;
+      classSelector('balance').value = sales?.balance;
     }
-    //classSelector('payment').value = taxes?.payment;
-    classSelector('total').value = taxes?.total;
+    //classSelector('payment').value = sales?.payment;
+    classSelector('total').value = sales?.total;
 
     if (classSelector('top_total')) {
-      classSelector('top_total').textContent = taxes?.total;
+      classSelector('top_total').textContent = sales?.total;
     }
 
     if (classSelector('tax-inpt')) {
@@ -98,33 +98,33 @@ const editInvoiceDetails = (data, trans_type = '') => {
 
     if (classSelector('with-tax-inpt')) {
       classSelector('with-tax-inpt').checked = withholdchecked;
-      taxes['withholdingchecked'] = withholdchecked;
+      sales['withholdingchecked'] = withholdchecked;
     }
 
     if (classSelector('estimatorinptclass')) {
-      classSelector('estimatorinptclass').value = taxes?.est_name;
+      classSelector('estimatorinptclass').value = sales?.est_name;
     }
 
-    classSelector('customerinptclass').value = taxes?.cust_name;
-    classSelector('customerhiddeninpt').value = taxes?.cust_id;
-    classSelector('sub_total').value = taxes?.sub_total;
-    classSelector('discount').value = taxes?.discount;
-    classSelector('pay_type').value = taxes?.pay_type || 'Cash';
-    classSelector('profile').value = taxes?.profile;
+    classSelector('customerinptclass').value = sales?.cust_name;
+    classSelector('customerhiddeninpt').value = sales?.cust_id;
+    classSelector('sub_total').value = sales?.sub_total;
+    classSelector('discount').value = sales?.discount;
+    classSelector('pay_type').value = sales?.pay_type || 'Cash';
+    classSelector('profile').value = sales?.profile;
 
     if (classSelector('location')) {
-      classSelector('location').value = taxes?.location;
+      classSelector('location').value = sales?.location;
     }
 
     if (classSelector('transportation')) {
-      classSelector('transportation').value = taxes?.transportation;
+      classSelector('transportation').value = sales?.transportation;
     }
 
     if (classSelector('installation')) {
-      classSelector('installation').value = taxes?.installation;
+      classSelector('installation').value = sales?.installation;
     }
 
-    localStorage.setItem('taxes', JSON.stringify(taxes));
+    localStorage.setItem('sales', JSON.stringify(sales));
     localStorage.setItem('prozdlist', JSON.stringify(products));
   }
 };

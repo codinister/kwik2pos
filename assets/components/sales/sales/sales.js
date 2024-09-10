@@ -14,17 +14,18 @@ import Spinner from '../../utils/Spinner.js';
 import { ymd } from '../../utils/DateFormats.js';
 import durationConverter from '../../utils/durationConverter.js';
 import getPrevilleges from '../utils/getPrevilleges.js';
+import posTableclasses from '../../utils/posTableclasses.js';
 
 const sales = (customersdata, receipts, proforma, invoice) => {
   const industry = getIndustry();
-  const taxx = JSON.parse(localStorage.getItem('taxes'));
+  const taxx = JSON.parse(localStorage.getItem('sales'));
   const sett = JSON.parse(localStorage.getItem('sinpt'));
 
   // if (taxx) {
   //   taxChecker();
   // }
 
-  const tx = JSON.parse(localStorage.getItem('taxes'));
+  const tx = JSON.parse(localStorage.getItem('sales'));
 
   const sumItems = (e) => {
     const obj = JSON.parse(localStorage.getItem('prozdlist'));
@@ -128,7 +129,7 @@ const sales = (customersdata, receipts, proforma, invoice) => {
 
   document.addEventListener('change', (e) => {
     if (e.target.matches('.setsalesinvoice')) {
-      const taxx = JSON.parse(localStorage.getItem('taxes'));
+      const taxx = JSON.parse(localStorage.getItem('sales'));
       if (e.target.checked) {
         taxx['trans_type'] = 'invoice';
         taxx['newpayment'] = 0;
@@ -139,17 +140,17 @@ const sales = (customersdata, receipts, proforma, invoice) => {
         taxx['trans_type'] = 'proforma';
         classSelector('invoicestatus').innerHTML = 'PROFORMA INVOICE';
       }
-      localStorage.setItem('taxes', JSON.stringify(taxx));
+      localStorage.setItem('sales', JSON.stringify(taxx));
     }
 
     if (e.target.matches('.enablebankdetails')) {
-      const taxx = JSON.parse(localStorage.getItem('taxes'));
+      const taxx = JSON.parse(localStorage.getItem('sales'));
       if (e.target.checked) {
         taxx['addbank'] = 1;
       } else {
         taxx['addbank'] = 0;
       }
-      localStorage.setItem('taxes', JSON.stringify(taxx));
+      localStorage.setItem('sales', JSON.stringify(taxx));
     }
 
     if (e.target.matches('.sumitems')) {
@@ -159,29 +160,29 @@ const sales = (customersdata, receipts, proforma, invoice) => {
 
     if (e.target.matches('.tax-inpt')) {
       e.stopImmediatePropagation();
-      const taxObj = JSON.parse(localStorage.getItem('taxes'));
+      const taxObj = JSON.parse(localStorage.getItem('sales'));
 
       if (e.target.checked) {
         taxObj['taxchecked'] = true;
-        localStorage.setItem('taxes', JSON.stringify(taxObj));
+        localStorage.setItem('sales', JSON.stringify(taxObj));
         calculateTransactions(e);
       } else {
         taxObj['taxchecked'] = false;
-        localStorage.setItem('taxes', JSON.stringify(taxObj));
+        localStorage.setItem('sales', JSON.stringify(taxObj));
         calculateTransactions(e);
       }
     }
 
     if (e.target.matches('.with-tax-inpt')) {
       e.stopImmediatePropagation();
-      const taxObj = JSON.parse(localStorage.getItem('taxes'));
+      const taxObj = JSON.parse(localStorage.getItem('sales'));
       if (e.target.checked) {
         taxObj['withholdingchecked'] = true;
-        localStorage.setItem('taxes', JSON.stringify(taxObj));
+        localStorage.setItem('sales', JSON.stringify(taxObj));
         calculateTransactions(e);
       } else {
         taxObj['withholdingchecked'] = false;
-        localStorage.setItem('taxes', JSON.stringify(taxObj));
+        localStorage.setItem('sales', JSON.stringify(taxObj));
         calculateTransactions(e);
       }
     }
@@ -205,28 +206,35 @@ const sales = (customersdata, receipts, proforma, invoice) => {
     ? 'paymentdiplay show'
     : 'paymentdiplay hide';
 
-
-
-
-
-
-
   const salesSummaryBar = () => {
-    
     document.addEventListener('click', (e) => {
       salesLocalstorage();
-      const txx = JSON.parse(localStorage.getItem('taxes'));
+      const txx = JSON.parse(localStorage.getItem('sales'));
+
+      if (e.target.matches('.userlink')) {
+        if (localStorage.getItem('sales')) {
+          const { user_id } = e.target.dataset;
+          const obj = JSON.parse(localStorage.getItem('sales'));
+
+          const prepareby = obj?.user_id;
+          obj['user_id'] = user_id;
+          obj['prepared_by'] = prepareby;
+          localStorage.setItem('sales', JSON.stringify(obj));
+        }
+      }
 
       if (e.target.matches('.customerlink')) {
         e.stopImmediatePropagation();
         const { id, name, phone, location, email } = e.target.dataset;
+
+        console.log(name);
 
         if (txx) {
           txx['cust_id'] = id;
           txx['cust_name'] = name;
           txx['cust_phone'] = phone;
           txx['cust_email'] = email;
-          localStorage.setItem('taxes', JSON.stringify(txx));
+          localStorage.setItem('sales', JSON.stringify(txx));
         }
       }
 
@@ -276,45 +284,15 @@ const sales = (customersdata, receipts, proforma, invoice) => {
       }
     });
 
-    const vv = JSON.parse(localStorage.getItem('taxes'));
+    const vv = JSON.parse(localStorage.getItem('sales'));
 
     return transactionInputs(vv, privilege);
   };
 
-
-
-
-
-
-
-
-
-  const estimatorIteratorFunc = (v) => {
-    return `
-    <li>
-    <a href="javascript:void(0);" class="estimatorlink" 
-    data-name="${v.fullname}"
-    data-id="${v.user_id}">${v.fullname}</a>
-    </li>
-  `;
-  };
-
   const showbtn = getPrevilleges('addrowsbutton') ? ' show' : 'hide';
 
-  let lengthLi = '';
-  let salestableclass = '';
-  if (industry === 'roofing company') {
-    lengthLi = `<li>Length</li>`;
-    salestableclass = 'sales-table';
-  } else if (industry === 'service provider') {
-    lengthLi = `<li>Duration</li>`;
-    salestableclass = 'sales-table';
-  } else if (industry === 'rentals') {
-    lengthLi = `<li>Duration</li>`;
-    salestableclass = 'sales-table';
-  } else if (industry === 'retailing') {
-    salestableclass = 'prod-sales-table';
-  }
+  const { table_class, length_duration } = posTableclasses();
+
 
   if (taxx) {
     if (taxx?.trans_type === 'invoice') {
@@ -323,14 +301,14 @@ const sales = (customersdata, receipts, proforma, invoice) => {
       }, 0);
     } else {
       taxx['trans_type'] = 'proforma';
-      localStorage.setItem('taxes', JSON.stringify(taxx));
+      localStorage.setItem('sales', JSON.stringify(taxx));
     }
   }
 
   if (taxx) {
     if (!taxx?.trans_type) {
       taxx['trans_type'] = 'proforma';
-      localStorage.setItem('taxes', JSON.stringify(taxx));
+      localStorage.setItem('sales', JSON.stringify(taxx));
     }
   }
 
@@ -342,7 +320,7 @@ const sales = (customersdata, receipts, proforma, invoice) => {
   let displaysalesinchkbx = ` <input type="hidden" ${checkinvoice} class="setsalesinvoice"  />`;
   let enablebankdetails = ` <input type="hidden"  class="enablebankdetails"  />`;
 
-  if (industry !== 'retailing') {
+  if (industry !== 'retails') {
     displaysalesinchkbx = `
     <input type="checkbox" ${checkinvoice} class="setsalesinvoice" /> CREATE SALES INVOICE`;
 
@@ -351,20 +329,25 @@ const sales = (customersdata, receipts, proforma, invoice) => {
   }
 
   setTimeout(() => {
-    const taxes = JSON.parse(localStorage.getItem('taxes'));
 
-    if (taxes?.addbank > 0) {
+
+
+
+
+    const sales = JSON.parse(localStorage.getItem('sales'));
+
+    if (sales?.addbank > 0) {
       classSelector('enablebankdetails').checked = true;
     }
-    if (taxes?.taxchecked) {
+    if (sales?.taxchecked) {
       classSelector('tax-inpt').checked = true;
     }
 
-    if (taxes?.pay_type === 'Cheque') {
+    if (sales?.pay_type === 'Cheque') {
       classSelector('pay_type').value = 'Cheque';
 
       const data =
-        taxes?.bank_acc_number.length > 0 ? taxes?.bank_acc_number : '';
+        sales?.bank_acc_number.length > 0 ? sales?.bank_acc_number : '';
       document.querySelector('.chequenumber').innerHTML = `
       <input type="text" class="bank_acc_number" value="${data}"  placeholder="Enter cheque number" />
       `;
@@ -391,11 +374,11 @@ const sales = (customersdata, receipts, proforma, invoice) => {
         
         ${Table(
           `
-          <ul class="${salestableclass}" id="table-top-id">
+          <ul class="${table_class}" id="table-top-id">
             <li>#</li>
             <li>Qty</li>
             <li>Description</li>
-            ${lengthLi}
+            ${length_duration}
             <li><span class="hide-on-mobile">Unit</span>Price</li>
             <li>Total</li>
             <li></li>

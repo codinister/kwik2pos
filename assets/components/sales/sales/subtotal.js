@@ -24,7 +24,7 @@ const subtotal = (vv) => {
   }
 
   const { user_id } = JSON.parse(localStorage.getItem('zsdf'));
-  const tx = JSON.parse(localStorage.getItem('taxes'));
+  const tx = JSON.parse(localStorage.getItem('sales'));
 
   const trans_type = tx?.trans_type;
   const usid = tx?.user_id;

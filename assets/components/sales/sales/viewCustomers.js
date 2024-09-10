@@ -3,6 +3,7 @@ import { classSelector } from '../../utils/Selectors.js';
 import Spinner from '../../utils/Spinner.js';
 import displayToast from '../../utils/displayToast.js';
 import getIndustry from '../../utils/getIndustry.js';
+import roleAccess from '../../utils/roleAccess.js';
 import searchBox from '../../utils/searchBox.js';
 import TabsSections from '../utils/TabsSections.js';
 import customerData from '../utils/customers/customerData.js';
@@ -22,37 +23,48 @@ const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
   document.addEventListener('click', (e) => {
     if (e.target.matches('.show-customers')) {
       const res = customers.filter((v) => v.type === 'customer');
-      classSelector('allcustomers-list').innerHTML = listOfallcustomers(res);
+      classSelector('allcustomers-list').innerHTML = listOfallcustomers(res,'customer');
     }
 
     if (e.target.matches('.show-referrers')) {
-      const res = customers.filter((v) => v.type === 'referrer');
-      classSelector('allcustomers-list').innerHTML = listOfallcustomers(res);
+      const res = customers.filter((v) => v.ref === '1');
+      classSelector('allcustomers-list').innerHTML = listOfallcustomers(res,'referrer');
     }
 
     if (e.target.matches('.viewcustomers')) {
-      localStorage.removeItem('editreceipts')
+      if (localStorage.getItem('editreceipts')) {
+        localStorage.removeItem('editreceipts');
+      }
+
       if (customers) {
-        const user_id = customers[0].user_id
+        const { user_id, code } = JSON.parse(localStorage.getItem('zsdf'));
         Spinner('hide-on-mobilespin');
         classSelector('viewcustomerwrapper').innerHTML = `
 
         <div class="viewcust-sidebar">
-          ${searchBox('customersearch-class', 'Search Customers')}
-          <div class="side-box-container">
-                <button data-user_id="${user_id}" class="cust-rep-btn">CUSTOMERS REPORT</button>
+
+            ${searchBox('customersearch-class', 'Search Customers')}
+
+            <div class="side-box-container">
+              <button data-user_id="${user_id}" data-code="${code}" class="cust-rep-btn">CUSTOMERS REPORT</button>
             </div>
+
             <div class="referer-conteiner">
+
               <button class="show-customers">
               Show only customers
               </button>
+
               <button class="show-referrers">
               Show only referrers
               </button>
+
             </div>
+
+
             <div class="allcustomers-list">
             ${listOfallcustomers(
-              customers.filter((v) => v.type === 'customer')
+              customers.filter((v) => v.type === 'customer'),'customer'
             )}
             </div>
         </div>
@@ -64,38 +76,67 @@ const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
         classSelector('noreload').classList.add('show');
         document.body.style.overflow = 'hidden';
         classSelector('hide-on-mobilespin').innerHTML = '';
+
         TabsSections();
       }
     }
 
     if (e.target.matches('.cust-rep-btn')) {
-      const {user_id} = e.target.dataset
-      window.location = `assets/pdf/customers.php?u=${user_id}`;
+      const { role_id } = JSON.parse(localStorage.getItem('zsdf'));
+      const { user_id, code } = e.target.dataset;
+
+      const roleaccess = roleAccess(role_id);
+
+      if (roleaccess) {
+        window.location = `assets/pdf/customers.php?c=${code}`;
+      } else {
+        window.location = `assets/pdf/customers.php?u=${user_id}`;
+      }
     }
 
     if (e.target.matches('.displaycustdetails')) {
-      const { cust_id, user_id } = e.target.dataset;
+      const { cust_id, user_id, desc } = e.target.dataset;
+
       const usid = JSON.parse(localStorage.getItem('zsdf')).user_id;
 
-      const invoice_exist = allinvoices.some(v => v.cust_id === cust_id)
+      //To display or hide account statement button
+      const invoice_exist = allinvoices.some((v) => v.cust_id === cust_id);
+      displayCustomerProfile(customers, user_id, usid, cust_id, invoice_exist);
 
-      displayCustomerProfile(customers, user_id, usid, cust_id,invoice_exist);
+      let prof = [];
+      let invs = [];
+      let rec = [];
+
+      if (desc === 'customer') {
+        prof = allproforma.filter((v) => v.cust_id === cust_id);
+        invs = allinvoices.filter((v) => v.cust_id === cust_id);
+        rec = receipts.filter((v) => v.cust_id === cust_id);
+      } else if (desc === 'referrer') {   
+        const filtered = customer
+          .filter((v) => cust_id === v.ref_id)
+          .map((v) => v.cust_id);
+        prof = allproforma.filter((v) => filtered.includes(v.cust_id));
+        invs = allinvoices.filter((v) => filtered.includes(v.cust_id));
+        rec = receipts.filter((v) => filtered.includes(v.cust_id));
+      }
+
+ 
+
 
       TabsSections();
-      getProformas(allproforma, cust_id);
-      getSalesinvoice(allinvoices, cust_id);
-      getReceipts(receipts, cust_id);
+      getProformas(prof);
+      getSalesinvoice(invs);
+      getReceipts(rec);
     }
 
     if (e.target.matches('.editcust')) {
       const obj = e.target.dataset;
 
-      const invoice_exist = allinvoices.some(v => v.cust_id === obj?.cust_id)
+      const invoice_exist = allinvoices.some((v) => v.cust_id === obj?.cust_id);
       classSelector('top-part').innerHTML = customerProfile({
         ...obj,
         invoice_exist,
         editing: true,
-
       });
       delete obj['debt'];
       localStorage.setItem('custinfo', JSON.stringify(obj));
@@ -108,6 +149,7 @@ const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
     }
 
     if (e.target.matches('.delt-cust')) {
+      e.stopImmediatePropagation()
       if (confirm('Are you sure you want to delete ')) {
         const { cust_id, fullname } = e.target.dataset;
 
@@ -120,7 +162,6 @@ const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
         })
           .then((resp) => resp.text())
           .then((data) => {
-            console.log(data);
             if (data.indexOf('errors') != -1) {
               displayToast('bgdanger', data);
             } else {
@@ -158,11 +199,13 @@ const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
           } else {
             displayToast('lightgreen', data);
             const details = JSON.parse(localStorage.getItem('custinfo'));
-            const invoice_exist = allinvoices.some(v => v.cust_id === details?.cust_id)
+            const invoice_exist = allinvoices.some(
+              (v) => v.cust_id === details?.cust_id
+            );
             classSelector('top-part').innerHTML = customerProfile({
               ...details,
               editing: false,
-              invoice_exist
+              invoice_exist,
             });
 
             setTimeout(() => {
@@ -180,10 +223,10 @@ const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
         const res = customers.filter((v) =>
           Object.values(v).join(' ').toLowerCase().includes(value.toLowerCase())
         );
-        classSelector('allcustomers-list').innerHTML = listOfallcustomers(res);
+        classSelector('allcustomers-list').innerHTML = listOfallcustomers(res,'customer');
       } else {
         classSelector('allcustomers-list').innerHTML =
-          listOfallcustomers(customers);
+          listOfallcustomers(customers,'customer');
       }
     }
   });
@@ -195,7 +238,6 @@ const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
       btnname: 'CUSTOMERS ACCOUNTS',
     },
   ])}
-
 
   ${Buttons([
     {

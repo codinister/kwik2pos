@@ -106,7 +106,7 @@ if($sett){
 }
 
 //GET TAXES
-$txs = DB::get_row("SELECT t.*,c.location as custloc , c.*,p.createdAt as rec_date, p.* FROM tax as t JOIN payment_history as p ON p.tax_id = t.tax_id JOIN customers as c ON t.cust_id = c.cust_id WHERE p.pay_id = ? AND t.code = ?",array($pay_id,getCode($usserid))); 
+$txs = DB::get_row("SELECT t.*,t.user_id as usid,c.location as custloc , c.*,p.createdAt as rec_date, p.* FROM tax as t JOIN payment_history as p ON p.tax_id = t.tax_id JOIN customers as c ON t.cust_id = c.cust_id WHERE p.pay_id = ? AND t.code = ?",array($pay_id,getCode($usserid))); 
 if($txs){
     $rec_date = $txs['rec_date'];
     $cust_name = $txs['fullname'];
@@ -123,13 +123,14 @@ if($txs){
     $pay_id = $txs['pay_id'];
     $payment = getPayment($pay_id);
     $balance = getBalance($tax_id);
-    $user_id = $txs['user_id'];
+    $user_id = $txs['usid'];
     $addbank = $txs['addbank'];
     $nhilx = $txs['nhil_rate'];
     $withholdingtaxx = $txs['withholdingtax_rate'];
     $getfundx = $txs['getfund_rate'];	
     $vatx = $txs['vat_rate'];
     $covidx = $txs['covid_rate'];
+    $prepared_by = $txs['prepared_by'];
 }
 
 
@@ -166,6 +167,25 @@ else{
     $fullname = '';
     $signatures = '';
 }
+
+
+
+if($prepared_by){
+    $us = DB::get_row("SELECT signature,firstname,lastname FROM users WHERE user_id = ?",array($prepared_by));
+    if($us){
+        $cash_signatures = $us['signature'];
+        $cashier = $us['firstname'].' '.$us['lastname'];
+        $server = $fullname;
+    }
+    else{
+        $cash_signatures = '';
+        $cashier = '';
+        $server = '';
+    }
+}
+
+
+
 
 $obj = new toWords($payment);
 
@@ -207,7 +227,7 @@ switch($industry){
         }
     break;
 
-    case 'retailing':
+    case 'retails':
         if($receipt_type === 'THERMNAL'){
             include('thermnal/receipt.php');
         }

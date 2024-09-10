@@ -9,8 +9,11 @@ const availableStockData = (data) => {
   if (industry === 'retails') {
     return data?.retails.stocks;
   }
-  if (industry === 'service provider' || industry === 'roofing company') {
+  if (industry === 'service provider') {
     return data.service
+  }
+  if (industry === 'roofing company') {
+    return data?.roofing
   }
 };
 

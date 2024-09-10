@@ -7,7 +7,7 @@ const taxChecker = () => {
     covid_rate,
     getfund_rate,
     withholdingtax_rate,
-  } = JSON.parse(localStorage.getItem('taxes'));
+  } = JSON.parse(localStorage.getItem('sales'));
 
   const subtotal = Number(sub_total) - Number(discount);
 

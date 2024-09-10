@@ -2,7 +2,7 @@ import displayToast from '../../utils/displayToast.js';
 import getCode from '../../utils/getCode.js';
 
 const paymentValidation = () => {
-  const tx = JSON.parse(localStorage.getItem('taxes'));
+  const tx = JSON.parse(localStorage.getItem('sales'));
 
   if (tx) {
     const { user_id } = JSON.parse(localStorage.getItem('zsdf'));

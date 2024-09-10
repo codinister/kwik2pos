@@ -13,9 +13,9 @@ const Contract = (fullname, tax_id, cust_id, fullpayment) => {
   const three = fn[2]?.slice(0, 1);
   const four = fn[3]?.slice(0, 1);
 
-  const taxes = JSON.parse(localStorage.getItem('taxes'));
+  const sales = JSON.parse(localStorage.getItem('sales'));
 
-  if (taxes?.contract) {
+  if (sales?.contract) {
 
     const {
       cont_id,
@@ -26,7 +26,7 @@ const Contract = (fullname, tax_id, cust_id, fullpayment) => {
       otherinfo,
       tax_id,
       cust_id,
-    } = taxes?.contract;
+    } = sales?.contract;
 
     localStorage.setItem(
       'contract',
@@ -98,10 +98,10 @@ const Contract = (fullname, tax_id, cust_id, fullpayment) => {
       st['otherinfo'] = CKEDITOR.instances.otherinfo.getData();
       localStorage.setItem('contract', JSON.stringify(st));
 
-      const taxes = JSON.parse(localStorage.getItem('taxes'));
+      const sales = JSON.parse(localStorage.getItem('sales'));
 
 
-      const  otherinfo1 = taxes?.contract?.otherinfo
+      const  otherinfo1 = sales?.contract?.otherinfo
       const  otherinfo2 = JSON.parse(localStorage.getItem('contract'))?.otherinfo
       const  touched = JSON.parse(localStorage.getItem('contract'))?.touched
 
@@ -134,7 +134,7 @@ const Contract = (fullname, tax_id, cust_id, fullpayment) => {
 
           if (data !== 'error') {
             console.log('Cleard');
-            localStorage.removeItem('taxes');
+            localStorage.removeItem('sales');
             localStorage.removeItem('prozdlist');
             localStorage.removeItem('contract');
             window.location = `assets/pdf/contract.php?inv=${btoa(data)}`;

@@ -22,23 +22,30 @@ const Dashboard = () => {
         const industry = getIndustry();
 
         let Available = [];
+        let prod_desc = '';
 
         if (industry === 'rentals') {
+          prod_desc = 'Available Products';
           Available = products?.rentals.availables.reduce((a, b) => {
             return Number(b.remaining) + a;
           }, 0);
         }
 
         if (industry === 'retails') {
-          Available = products?.retails.reduce((a, b) => {
+          prod_desc = 'Total Products';
+          Available = products?.retails.stocks.reduce((a, b) => {
             return Number(b.remaining) + a;
           }, 0);
         }
 
         if (industry === 'service provider') {
+          prod_desc = 'Total Services';
+          Available = products?.service.length;
         }
 
         if (industry === 'roofing company') {
+          prod_desc = 'Total products';
+          Available = products?.roofing.length;
         }
 
         const dt = new Date();
@@ -176,7 +183,7 @@ const Dashboard = () => {
               <div class="total-wrapper">
                 ${Totalbox('Total Customers', customers_total)}
                 ${Totalbox('Total Users', total_users)}
-                ${Totalbox('Available Products', Available)}
+                ${Totalbox(prod_desc, Available)}
               </div>
             </div>
             <div class="dashboard-container">

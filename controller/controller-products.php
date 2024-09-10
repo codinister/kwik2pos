@@ -322,27 +322,6 @@ class products{
         DB::query("UPDATE settings SET app_status = 'expired' WHERE code = ? ",array($this->code()));
     }
     
-    public function getLowStocksAlert(){
-        $code = $this->code();
-        $settns = DB::get_row('SELECT low_stocks_reminder_days,low_stocks_date,activate_low_stocks FROM settings WHERE code = ?',array($code));
 
-        if($settns['activate_low_stocks']){
-            if(date('Y-m-d', strtotime($settns['low_stocks_date'])) !== date('Y-m-d')){
-                $rmdys = date('Y-m-d', strtotime('-'.$settns['low_stocks_reminder_days'].' DAY')); 
-
-                if(date('Y-m-d', strtotime($settns['low_stocks_date'])) <=  $rmdys){
-                    $jsn = lowStocksProducts($code);
-                    $user = DB::get_row('SELECT phone FROM users WHERE role_id = "111" AND code = ?',array($code));
-                    if($user){
-                        if($user['phone']){
-                            sendSmsApi($user['phone'],$jsn,$_SESSION['edfghl']);
-                        }
-                    
-                    }
-                    DB::query('UPDATE settings SET low_stocks_date = CURDATE() WHERE code = ?',array($code));
-                }
-            }
-        }
-    }
 
 }

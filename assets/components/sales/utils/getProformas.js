@@ -6,7 +6,7 @@ import getIndustry from '../../utils/getIndustry.js';
 import getInvoiceDetails from '../../sales/utils/getInvoiceDetails.js';
 import sendInvoiceWhatsapp from '../../sales/utils/customers/sendInvoiceWhatsapp.js';
 
-const getProformas = async (proformadatas, cust_id) => {
+const getProformas = async (proformadatas) => {
   const industry = getIndustry();
 
   if (proformadatas) {
@@ -42,19 +42,29 @@ const getProformas = async (proformadatas, cust_id) => {
         }
       }
 
+
+
+
+
       if (e.target.matches('.dup-btn')) {
         e.stopImmediatePropagation();
         const { cust_id, tax_id, user_id } = e.target.dataset;
 
         getInvoiceDetails(cust_id, tax_id, user_id, 'duplicate', (data) => {
+
           const { products, taxes } = data;
           localStorage.setItem('prozdlist', JSON.stringify(products));
-          localStorage.setItem('taxes', JSON.stringify(taxes));
+          localStorage.setItem('sales', JSON.stringify(taxes));
           localStorage.setItem('rend', 3);
           classSelector('noreload').classList.remove('show');
           document.body.style.overflow = 'scroll';
         });
       }
+
+
+
+
+
 
       //VIEW PROFORMA INVOICE
       if (e.target.matches('.viewthisproforma')) {
@@ -70,13 +80,18 @@ const getProformas = async (proformadatas, cust_id) => {
         getInvoiceDetails(cust_id, tax_id, user_id, '', (data) => {
           const { products, taxes } = data;
           localStorage.setItem('prozdlist', JSON.stringify(products));
-          localStorage.setItem('taxes', JSON.stringify(taxes));
+          localStorage.setItem('sales', JSON.stringify(taxes));
           localStorage.setItem('rend', 3);
           classSelector('noreload').classList.remove('show');
           document.body.style.overflow = 'scroll';
         });
       }
     });
+
+
+
+
+
 
     const invoiceHTMLList = (v) => {
       const user = v.firstname + ' ' + v.lastname;
@@ -93,7 +108,6 @@ const getProformas = async (proformadatas, cust_id) => {
         <li>${formatDate(v.createdAt)}</li>
 
         <li class="salesicons">
-  
         <a href="javascript:void(0);">
         <i class="fa fa-pencil editthisproforma" 
         data-cust_id = "${v.cust_id}" 
@@ -134,7 +148,6 @@ const getProformas = async (proformadatas, cust_id) => {
 
     const proformaLists = Object.values(
       proformadata
-        .filter((v) => v.cust_id === cust_id)
         .reduce((a, b) => {
           if (a[b.tax_id]) {
             a[b.tax_id].tax_id = b.tax_id;

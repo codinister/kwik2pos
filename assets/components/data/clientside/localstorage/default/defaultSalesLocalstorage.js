@@ -1,8 +1,12 @@
+import { ymd } from '../../../../utils/DateFormats.js';
+
 const defaultSalesLocalstorage = () => {
   if (!localStorage.getItem('sales')) {
     const sess = JSON.parse(localStorage.getItem('zsdf'));
 
     const sett = JSON.parse(localStorage.getItem('sinpt'));
+
+    const newdate = new Date();
 
     const sales = {
       vat: 0,
@@ -30,8 +34,9 @@ const defaultSalesLocalstorage = () => {
       tax_id: 0,
       trans_type: 'proforma',
       pay_type: 'Cash',
+      prepared_by: '',
       note: '',
-      invoice_date: '',
+      invoice_date: ymd(newdate),
       addbank: '',
       receipt_date: '',
       vat_rate: sett?.vat,

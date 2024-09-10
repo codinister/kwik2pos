@@ -15,9 +15,9 @@ const payment = (vv, privilege) => {
     if (e.target.matches('.bank_acc_number')) {
       e.stopImmediatePropagation();
       const { value } = e.target;
-      const tx = JSON.parse(localStorage.getItem('taxes'));
+      const tx = JSON.parse(localStorage.getItem('sales'));
       tx['bank_acc_number'] = value;
-      localStorage.setItem('taxes', JSON.stringify(tx));
+      localStorage.setItem('sales', JSON.stringify(tx));
     }
 
     if (e.target.matches('.pay_type')) {
@@ -29,18 +29,18 @@ const payment = (vv, privilege) => {
         document.querySelector('.chequenumber').innerHTML = `
         <input type="text" class="bank_acc_number" placeholder="Enter cheque number" />
         `;
-        const tx = JSON.parse(localStorage.getItem('taxes'));
+        const tx = JSON.parse(localStorage.getItem('sales'));
         tx['bank_acc_number'] = '';
-        localStorage.setItem('taxes', JSON.stringify(tx));
+        localStorage.setItem('sales', JSON.stringify(tx));
       } else {
         document.querySelector('.chequenumber').innerHTML = '';
-        const tx = JSON.parse(localStorage.getItem('taxes'));
-        localStorage.setItem('taxes', JSON.stringify(tx));
+        const tx = JSON.parse(localStorage.getItem('sales'));
+        localStorage.setItem('sales', JSON.stringify(tx));
       }
 
-      const tx = JSON.parse(localStorage.getItem('taxes'));
+      const tx = JSON.parse(localStorage.getItem('sales'));
       tx['pay_type'] = value;
-      localStorage.setItem('taxes', JSON.stringify(tx));
+      localStorage.setItem('sales', JSON.stringify(tx));
     }
   });
 

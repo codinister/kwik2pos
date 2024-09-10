@@ -1,9 +1,9 @@
 import customerlistFunc from "./customerlistFunc.js";
 
-const listOfallcustomers = (customers) => {
+const listOfallcustomers = (customers,desc) => {
   return customers
   .map((v) => {
-    return customerlistFunc(v);
+    return customerlistFunc(v,desc);
   })
   .join('');
 }

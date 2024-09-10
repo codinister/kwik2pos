@@ -16,8 +16,8 @@ const customerProfile = ({ ...obj }) => {
     phone = '',
     email = '',
     location = '',
-    type = '',
-    debt = '',
+    ref_type = '',
+    debt = 0,
     editing = false,
     cust_id = '',
     invoice_exist = false
@@ -40,21 +40,23 @@ const customerProfile = ({ ...obj }) => {
     ? `<input type="text"  class="updatecust" name="location" value="${location}" />`
     : location;
 
-  const debt_row = debt ? debt : '';
+  const debt_row = debt > 0 ? debt : 0;
+
 
   const referrer_type =
-    type === 'customer'
+    ref_type === 'customer'
       ? ''
       : `<span>Referrer type:</span><span>${
           editing
             ? `<select>   
+                 <option hidden></option>
           <option>Customer</option>
           <option>Friend</option>
           <option>Family</option>
           <option>Agent</option>
           <option>Other</option>
           </select>`
-            : type
+            : ref_type
         }</span><span></span>`;
 
   return `

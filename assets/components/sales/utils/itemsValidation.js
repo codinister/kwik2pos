@@ -1,5 +1,5 @@
 const itemsValidation = () => {
-  const { invoice_date, code } = JSON.parse(localStorage.getItem('taxes'));
+  const { invoice_date, code } = JSON.parse(localStorage.getItem('sales'));
   const prods = JSON.parse(localStorage.getItem('prozdlist'));
 
   if (prods) {

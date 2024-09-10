@@ -12,7 +12,7 @@ import sumTaxes from './tax/sumTaxes.js';
 
 const calculateTransactions = (e, callback = (d) => null) => {
   getSettings((data) => {
-    const taxObj = JSON.parse(localStorage.getItem('taxes'));
+    const taxObj = JSON.parse(localStorage.getItem('sales'));
 
     if (taxObj) {
       const { name, value } = e.target;
@@ -62,11 +62,11 @@ const calculateTransactions = (e, callback = (d) => null) => {
       }
 
       //Save changes to local storage
-      localStorage.setItem('taxes', JSON.stringify(taxObj));
+      localStorage.setItem('sales', JSON.stringify(taxObj));
     }
 
     //Get updated values from local storage
-    const v = JSON.parse(localStorage.getItem('taxes'));
+    const v = JSON.parse(localStorage.getItem('sales'));
 
     if (v) {
       const calculatevat = calculateVAT(
@@ -90,16 +90,16 @@ const calculateTransactions = (e, callback = (d) => null) => {
         v
       );
 
-      //SET TAXES
+      //SET sales
       v['nhil'] = calculateNHIL(calculateSubtotal(v), v);
       v['getfund'] = calculateGETFUND(calculateSubtotal(v), v);
       v['covid'] = calculateCovid(calculateSubtotal(v), v);
 
       v['vat'] = calculatevat;
 
-      localStorage.setItem('taxes', JSON.stringify(v));
+      localStorage.setItem('sales', JSON.stringify(v));
 
-      const val = JSON.parse(localStorage.getItem('taxes'));
+      const val = JSON.parse(localStorage.getItem('sales'));
       classSelector('total').value = setTotal(val);
       classSelector('balance').value = setBalance(val);
 

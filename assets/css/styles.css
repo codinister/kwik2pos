@@ -29,5 +29,8 @@
 @import 'service-provider.css';
 @import 'emailWhatsappReminder.css';
 @import 'spinner.css';
-
-
+@import 'pos/rental.css';
+@import 'pos/retail.css';
+@import 'pos/roofing.css';
+@import 'pos/service.css';
+@import 'pos/feedbackbox.css';
