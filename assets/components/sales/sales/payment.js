@@ -1,11 +1,8 @@
-import { textInput } from '../../utils/InputFields.js';
-import setInputValue from '../utils/setInputValue.js';
-import format_number from '../../utils/format_number.js';
 import { classSelector } from '../../utils/Selectors.js';
-import { ymd } from '../../utils/DateFormats.js';
 import updateTaxlocalstorage from '../utils/updateTaxlocalstorage.js';
+import paymentUtil from './paymentUtil.js';
 
-const payment = (vv, privilege) => {
+const payment = (privilege) => {
   document.addEventListener('change', (e) => {
     if (e.target.matches('.receipt_date')) {
       const { value } = e.target;
@@ -44,55 +41,15 @@ const payment = (vv, privilege) => {
     }
   });
 
-  setTimeout(() => {
-    if (classSelector('receipt_date')) {
-      classSelector('receipt_date').valueAsDate = new Date();
-    }
-  }, 1000);
+
 
   return `
-    <div class="${privilege}">
+    <div class="receipt-fields-container ${privilege}">
 
 
-    ${textInput({
-      type: 'date',
-      classname: 'receipt_date',
-      required: true,
-      label: 'Receipt date',
-    })}
+    ${paymentUtil()}
 
 
-      ${textInput({
-        type: 'number',
-        classname: 'payment trans',
-        required: true,
-        name: 'payment',
-        label: 'Make Payment',
-        value: setInputValue(format_number(vv?.newpayment || '')),
-      })}
-
-
-      ${textInput({
-        type: 'text',
-        classname: 'balance',
-        required: true,
-        label: 'Balance',
-        disabled: 'disabled',
-        value: setInputValue(format_number(vv?.balance || '')),
-      })}
-
-      <div class="select-inpt">
-      <label>Payment Type</label>
-      <br>
-        <select class="pay_type">
-        <option>Cash</option>
-        <option>Cheque</option>
-        <option>Bank Transfer</option>
-        <option>Mobile Money</option>
-        </select>
-  
-        <div class="chequenumber"></div>
-      </div>
     </div>
   `;
 };

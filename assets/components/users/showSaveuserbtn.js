@@ -7,7 +7,7 @@ const showSaveuserbtn = () => {
 
   const length = Object.values(obj).filter(Boolean).length;
 
-  if (length > 14) {
+  if (length > 13) {
     classSelector('saveuser-wrapper').innerHTML = Buttons([
       {
         btnclass: 'saveuserbtn',

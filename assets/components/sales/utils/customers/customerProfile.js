@@ -43,10 +43,7 @@ const customerProfile = ({ ...obj }) => {
   const debt_row = debt > 0 ? debt : 0;
 
 
-  const referrer_type =
-    ref_type === 'customer'
-      ? ''
-      : `<span>Referrer type:</span><span>${
+  const referrer_type =  `<span>Referrer type:</span><span>${
           editing
             ? `<select>   
                  <option hidden></option>

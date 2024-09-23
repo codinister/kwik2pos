@@ -79,9 +79,7 @@ class toWords
     }
 }
 
-
 $pay_id = base64_decode($_GET['rec']);
-
 
 $usid = DB::get_row("SELECT user_id FROM payment_history WHERE pay_id = ?", array($pay_id));
 if($usid){
@@ -102,6 +100,7 @@ if($sett){
     $comp_bank = $sett['comp_bank'];
     $acc_name = $sett['acc_name'];
     $cur = $sett['currency'];
+    $digitaladdress = $sett['digitaladdress'];
     $receipt_type = $sett['receipt_type'];
 }
 
@@ -131,6 +130,7 @@ if($txs){
     $vatx = $txs['vat_rate'];
     $covidx = $txs['covid_rate'];
     $prepared_by = $txs['prepared_by'];
+    $uuid = $txs['uuid'];
 }
 
 

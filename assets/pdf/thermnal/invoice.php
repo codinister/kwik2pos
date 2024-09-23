@@ -1,36 +1,22 @@
 <?php 
 
-
-
-
-
-if(empty($cashier)){
-    $bill_fullname = $fullname;
-    $bill_server = '';
-    $bill_cash_signatures = $signature;
-}
-else{
-
-    $bill_fullname = $cashier;
-    $bill_server = $server;
-    $bill_cash_signatures =  $cash_signatures;
-}
-
-
 $bserver = ''; 
-if(!empty($bill_server)){
+if(!empty($server['fullname'])){
     $bserver = '
         <tr>
         <td style="width: 120px;">SERVER</td>
-        <td style="width: 120px;">'.$bill_server.'</td>
+        <td style="width: 120px;">'.$server['fullname'].'</td>
         </tr>
     ';
 }
 
 
+$cashiername = $cashier['fullname'] ? $cashier['fullname'] : $server['fullname'];
 
-
-
+$digaddress = '';
+if(!empty($digitaladdress)){
+$digaddress ='GPS: '.$digitaladdress;
+}
 
 
 $invoice_header = '
@@ -41,6 +27,8 @@ $invoice_header = '
 <span>'.$comp_location.'</span>
 <br />
 <span>&nbsp;&nbsp;'.$comp_phone.'</span>
+<br />
+<span>&nbsp;&nbsp;'.$digaddress.'</span>
 <br />
 <strong style="font-size: 14px;">ESTIMATE</strong>
 
@@ -60,7 +48,7 @@ $other_details = '
 CASHIER
 </td>
 <td style="width: 120px;">
-'.$bill_fullname .'
+'.$cashiername.'
 </td>
 </tr>
 '.$bserver.'
@@ -115,6 +103,7 @@ $qry = DB::query('SELECT prod_name,qty,unit_price,total FROM sales WHERE tax_id 
 $row='';
 
 foreach($qry as $v){ 
+    if(!empty($v['qty'])){
     $row .='
     <tr>
     <td style="width: 80px;">'.$v['prod_name'].'</td>
@@ -123,6 +112,7 @@ foreach($qry as $v){
     <td style="width: 60px;">'.number_format($v['total'], 2, '.', ',').'</td>
     </tr>
     ';
+    }
 }
 
 $rows = '<table>'.$row.'</table>';

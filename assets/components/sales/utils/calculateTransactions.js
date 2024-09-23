@@ -9,6 +9,7 @@ import calculateVAT from './tax/calculateVAT.js';
 import setBalance from './tax/setBalance.js';
 import setTotal from './tax/setTotal.js';
 import sumTaxes from './tax/sumTaxes.js';
+import paymentUtil from '../sales/paymentUtil.js';
 
 const calculateTransactions = (e, callback = (d) => null) => {
   getSettings((data) => {
@@ -22,7 +23,7 @@ const calculateTransactions = (e, callback = (d) => null) => {
           taxObj['newpayment'] = value;
 
           if (value) {
-            if (classSelector('setsalesinvoice').checked) {
+            if (classSelector('setsalesinvoice')?.checked) {
               classSelector('setsalesinvoice').checked = false;
             }
             taxObj['trans_type'] = 'invoice';
@@ -106,6 +107,15 @@ const calculateTransactions = (e, callback = (d) => null) => {
       if (classSelector('top_total')) {
         classSelector('top_total').textContent = setTotal(val);
       }
+
+      if (val?.tax_id > 0) {
+        setTimeout(() => {
+          if (classSelector('receipt-fields-container')) {
+            classSelector('receipt-fields-container').innerHTML = paymentUtil();
+          }
+        }, 5000);
+      }
+
       callback(val);
     }
   });

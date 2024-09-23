@@ -16,11 +16,12 @@ const Settings = () => {
   const sett = JSON.parse(localStorage.getItem('sinpt'));
   const industry = getIndustry();
 
+
+
   document.addEventListener('click', (e) => {
+    
     if (e.target.matches('.save_setting')) {
       const obj = JSON.parse(localStorage.getItem('settingupdate'));
-
-
 
       obj['comp_terms'] = CKEDITOR.instances.comp_terms.getData();
 
@@ -45,7 +46,6 @@ const Settings = () => {
       })
         .then((resp) => resp.text())
         .then((data) => {
- 
           if (data.indexOf('errors') != -1) {
             return displayToast('bgdanger', data);
           } else {
@@ -142,11 +142,15 @@ const Settings = () => {
                 })}
 
 
-                ${phoneInput({
-                  classname: 'sinpt',
+    
+                
+                ${textInput({
+                  type: 'text',
+                  classname: 'comp_phone sinpt',
                   name: 'comp_phone',
+                  required: true,
+                  label: 'Phone',
                   value: sett ? sett?.comp_phone : '',
-                  errorclass: 'comphone',
                 })}
 
 

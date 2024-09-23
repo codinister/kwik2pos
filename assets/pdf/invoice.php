@@ -24,7 +24,7 @@ if($sett){
     $terms_conditions = $sett['comp_terms'];
     $cur = $sett['currency'];
     $duration = $sett['duration'];
-
+    $digitaladdress = $sett['digitaladdress'];
     $receipt_type = $sett['receipt_type'];
 }
 
@@ -52,7 +52,6 @@ if($txs){
     $note  = $txs['note'];
     $tax_id  = $txs['tax_id'];
     $trans_type  = $txs['trans_type'];
-    $user_id  = $txs['usid'];
     $addbank = $txs['addbank'];
     $nhilx = $txs['nhil_rate'];
     $withholdingtaxx = $txs['withholdingtax_rate'];
@@ -60,34 +59,13 @@ if($txs){
     $vatx = $txs['vat_rate'];
     $covidx = $txs['covid_rate'];
     $prepared_by = $txs['prepared_by'];
+    $user_id  = $txs['usid'];
 }
 
 
-if($user_id){
-    $us = DB::get_row("SELECT signature,firstname,lastname FROM users WHERE user_id = ?",array($user_id));
-    if($us){
-        $signatures = $us['signature'];
-        $fullname = $us['firstname'].' '.$us['lastname'];
-    }
-    else{
-        $signatures = '';
-        $fullname = '';
-    }
-}
+$server = serverPreparedby($user_id); 
+$cashier = serverPreparedby($prepared_by); 
 
-if($prepared_by){
-    $us = DB::get_row("SELECT signature,firstname,lastname FROM users WHERE user_id = ?",array($prepared_by));
-    if($us){
-        $cash_signatures = $us['signature'];
-        $cashier = $us['firstname'].' '.$us['lastname'];
-        $server = $fullname;
-    }
-    else{
-        $cash_signatures = '';
-        $cashier = '';
-        $server = '';
-    }
-}
 
 
 //GET PRODUCTS

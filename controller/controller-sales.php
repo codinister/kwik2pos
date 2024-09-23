@@ -7,6 +7,23 @@ class sales{
     }
 
 
+
+    private function termnalReceipt(){
+		$sett = DB::get_row("SELECT receipt_type FROM settings WHERE code = ?",array($this->code()));
+		if($sett){
+			if ($sett['receipt_type'] === 'THERMNAL') {
+                return true; 
+            }
+            else{
+                return false;
+            }
+		}
+		else{
+            return false;
+        }
+	}
+
+
     public function save_contract(){
 
         $data = json_decode($_POST['data'],TRUE);
@@ -52,12 +69,7 @@ class sales{
         else{
             echo 'error';
         }
-
-
     }
-
-
-
 
     //SAVE SALES
     public function save_sales(){
@@ -68,10 +80,12 @@ class sales{
         
         extract($tax);
 
-        $qry = DB::get_row("SELECT profile,tax_id FROM tax WHERE profile = ? AND code = ?",array($profile,$this->code()));
-        if($qry){
-            if($qry['tax_id'] !== $tax_id){
-                output( 'Invoice description already exists!!' );
+        if(!$this->termnalReceipt()){
+            $qry = DB::get_row("SELECT profile,tax_id FROM tax WHERE profile = ? AND code = ?",array($profile,$this->code()));
+            if($qry){
+                if($qry['tax_id'] !== $tax_id){
+                    output( 'Invoice description already exists!!' );
+                }
             }
         }
 
@@ -86,8 +100,10 @@ class sales{
         }
 
         //Invoice description validation
-        if (COUNT([$profile]) < 1) {
-            output('Invoice description required!');
+        if(!$this->termnalReceipt()){
+            if (COUNT([$profile]) < 1) {
+                output('Invoice description required!');
+            }
         }
 
         //Invoice date validation
@@ -161,7 +177,8 @@ class sales{
         t.user_id,	
         t.addbank,
         t.note,
-        T.prepared_by,
+        t.uuid,
+        t.prepared_by,
         t.vat_rate,
         t.nhil_rate,
         t.getfund_rate,
@@ -210,6 +227,7 @@ class sales{
             'withholdingtax_rate' => $tx? $tx['withholdingtax_rate'] : 0,
             'code' => $tx? $tx['code'] : '',
             'bank_acc_number' => isset($_POST['duplicate']) ? '' : $tx['bank_acc_number'],
+            'uuid' => $tx? $tx['uuid'] : '',
             "contract" => isset($_POST['duplicate']) ? '' : DB::get_row("SELECT * FROM contracts WHERE tax_id =?", array($tax_id))
         );
 

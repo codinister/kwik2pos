@@ -156,7 +156,7 @@ const Users = () => {
         const { id } = e.target.dataset;
 
         let us;
-        if (obj?.firstname?.length > 0) {
+        if (obj?.user_id === id) {
           us = obj;
         } else {
           us = users.find((v) => v.user_id === id);
@@ -277,9 +277,21 @@ const Users = () => {
     // END TABS
 
     setTimeout(() => {
-      const user = JSON.parse(localStorage.getItem('zsdf'));
+      const usid1 = JSON.parse(localStorage.getItem('zsdf'))
+      const usid2 = JSON.parse(localStorage.getItem('usernote'));
+
+
+      const user_id = usid2 ? usid2?.user_id : usid1?.user_id
+
+
+      const filteruser = Object.values(users).find(
+        (v) => v.user_id === user_id
+      );
+
       classSelector('singleuserdetailsbx1').innerHTML =
-        onclickDisplayAsingleUser(user);
+        onclickDisplayAsingleUser(filteruser);
+      noteTabs(filteruser.note);
+      classSelector('addNote').classList.add('show');
     }, 0);
 
     const Page = `

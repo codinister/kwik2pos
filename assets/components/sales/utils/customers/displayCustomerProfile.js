@@ -8,9 +8,6 @@ const displayCustomerProfile = (
   cust_id,
   invoice_exist
 ) => {
-
-
-
   if (customers) {
     const obj = customers
       .filter((v) => v.cust_id === cust_id)
@@ -20,13 +17,14 @@ const displayCustomerProfile = (
       }))[0];
 
     if (obj) {
-      const { fullname, phone, email, location, type, debt } = obj;
+
+      const { fullname, phone, email, location, ref_type, debt } = obj;
       const profile = {
         fullname,
         phone,
         email,
         location,
-        type,
+        ref_type,
         debt,
         cust_id,
         invoice_exist,
@@ -34,9 +32,6 @@ const displayCustomerProfile = (
       classSelector('top-part').innerHTML = customerProfile(profile);
     }
   }
-
-
-  
 };
 
 export default displayCustomerProfile;

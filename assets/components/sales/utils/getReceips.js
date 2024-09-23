@@ -3,32 +3,28 @@ import Table from '../../utils/Table.js';
 import { dmy, formatDate, ymd } from '../../utils/DateFormats.js';
 import displayToast from '../../utils/displayToast.js';
 import deleteAccessControl from './deleteAccessControl.js';
-import sendReceiptWhatsapp from '../../sales/utils/customers/sendReceiptWhatsapp.js'
+import sendReceiptWhatsapp from '../../sales/utils/customers/sendReceiptWhatsapp.js';
+import inv_num from '../../utils/inv_num.js';
 
 const getReceipts = async (allreceipts) => {
   if (allreceipts) {
-
-    let receipts = allreceipts
+    let receipts = allreceipts;
     const arr = JSON.parse(localStorage.getItem('deletedreceipt'));
-    if(arr){
-       receipts = allreceipts.filter((v) => !arr.includes(v.pay_id));
+    if (arr) {
+      receipts = allreceipts.filter((v) => !arr.includes(v.pay_id));
     }
-
 
     //RECEIPT DATA
     const data = Object.values(
-      receipts
-        .reduce((a, b) => {
-          if (a[b.pay_id]) {
-            a[b.pay_id].pay_id = b.pay_id;
-          } else {
-            a[b.pay_id] = b;
-          }
-          return a;
-        }, {})
+      receipts.reduce((a, b) => {
+        if (a[b.pay_id]) {
+          a[b.pay_id].pay_id = b.pay_id;
+        } else {
+          a[b.pay_id] = b;
+        }
+        return a;
+      }, {})
     );
-
-
 
     document.addEventListener('change', (e) => {
       if (e.target.matches('.edit-receipt-inpt')) {
@@ -40,14 +36,9 @@ const getReceipts = async (allreceipts) => {
     });
 
     document.addEventListener('click', (e) => {
-
       if (e.target.matches('.whatsapp-receipt')) {
         sendReceiptWhatsapp(e);
       }
-
-
-
-
 
       if (e.target.matches('.save-receipt-btn')) {
         e.stopImmediatePropagation();
@@ -71,7 +62,6 @@ const getReceipts = async (allreceipts) => {
         })
           .then((resp) => resp.text())
           .then((data) => {
-
             displayToast('lightgreen', data);
             localStorage.removeItem('editreceipts');
 
@@ -95,15 +85,6 @@ const getReceipts = async (allreceipts) => {
             classSelector(`editamount${pay_id}`).innerHTML = payment;
           });
       }
-
-
-
-
-
-
-
-
-
 
       if (e.target.matches('.deletepay')) {
         e.stopImmediatePropagation();
@@ -176,8 +157,11 @@ const getReceipts = async (allreceipts) => {
       }
     });
 
+
+
     const tableBodyList = data
       .map((v) => {
+        const profile = v.profile ? v.profile : inv_num(v.pay_id);
         return `
       <ul class="receipt-table">   
       <li>
@@ -187,7 +171,7 @@ const getReceipts = async (allreceipts) => {
       data-user_id = "${v.user_id}" 
       data-pay_id = "${v.pay_id}" 
       class="viewthisreceipt prof${v.pay_id}">
-      ${v.profile}
+      ${profile}
       </a>
       </li>
       <li>

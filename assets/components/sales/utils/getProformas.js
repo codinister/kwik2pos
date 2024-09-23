@@ -5,6 +5,7 @@ import deleteAccessControl from '../utils/deleteAccessControl.js';
 import getIndustry from '../../utils/getIndustry.js';
 import getInvoiceDetails from '../../sales/utils/getInvoiceDetails.js';
 import sendInvoiceWhatsapp from '../../sales/utils/customers/sendInvoiceWhatsapp.js';
+import inv_num from '../../utils/inv_num.js';
 
 const getProformas = async (proformadatas) => {
   const industry = getIndustry();
@@ -42,29 +43,27 @@ const getProformas = async (proformadatas) => {
         }
       }
 
-
-
-
-
       if (e.target.matches('.dup-btn')) {
         e.stopImmediatePropagation();
         const { cust_id, tax_id, user_id } = e.target.dataset;
+        const crypto = self?.crypto?.randomUUID ?   self.crypto.randomUUID() : 'UUID not available'
+  
+
 
         getInvoiceDetails(cust_id, tax_id, user_id, 'duplicate', (data) => {
-
           const { products, taxes } = data;
           localStorage.setItem('prozdlist', JSON.stringify(products));
+
+
+          taxes['uuid'] = crypto
+
+
           localStorage.setItem('sales', JSON.stringify(taxes));
           localStorage.setItem('rend', 3);
           classSelector('noreload').classList.remove('show');
           document.body.style.overflow = 'scroll';
         });
       }
-
-
-
-
-
 
       //VIEW PROFORMA INVOICE
       if (e.target.matches('.viewthisproforma')) {
@@ -88,20 +87,16 @@ const getProformas = async (proformadatas) => {
       }
     });
 
-
-
-
-
-
     const invoiceHTMLList = (v) => {
       const user = v.firstname + ' ' + v.lastname;
+      const profile = v.profile ? v.profile :  inv_num(v.tax_id)
       return `
         <ul class="invoice-table">   
         <li>
         <a href="javascript:void(0);" 
         data-tax_id = "${v.tax_id}" 
         class="viewthisproforma">
-        ${v.profile}
+        ${profile}
         </a>
         </li>
 
@@ -147,15 +142,14 @@ const getProformas = async (proformadatas) => {
     };
 
     const proformaLists = Object.values(
-      proformadata
-        .reduce((a, b) => {
-          if (a[b.tax_id]) {
-            a[b.tax_id].tax_id = b.tax_id;
-          } else {
-            a[b.tax_id] = b;
-          }
-          return a;
-        }, {})
+      proformadata.reduce((a, b) => {
+        if (a[b.tax_id]) {
+          a[b.tax_id].tax_id = b.tax_id;
+        } else {
+          a[b.tax_id] = b;
+        }
+        return a;
+      }, {})
     )
       .map((v) => invoiceHTMLList(v))
       .join('');

@@ -18,6 +18,9 @@ const userForm = () => {
 
 
   document.addEventListener('click', (e) => {
+
+
+
     if (e.target.matches('.saveuserbtn')) {
       e.stopImmediatePropagation()
       const obj = getUsersLocalstorage();
@@ -30,6 +33,9 @@ const userForm = () => {
       const users = obj;
       saveUser({ users, menus });
     }
+
+
+
   });
 
   return `    
@@ -133,6 +139,14 @@ const userForm = () => {
           name: 'Products',
           check: us?.menus?.Products?.menu_id > 0 ? 'checked' : '',
         })}
+
+        ${checkBox({
+          classname: 'previllege assignto uchk',
+          labelname: 'Enable assign to',
+          name: 'Assignto',
+          check: us?.menus?.Assignto?.menu_id > 0 ? 'checked' : '',
+        })}
+
     </div>
     <div> 
         ${checkBox({

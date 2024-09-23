@@ -4,7 +4,7 @@ const Lists = (v) => {
 	<i class="fa fa-trash delete-record ${v.deltclass}" title="DELETE"  data-id="${v.id}" ></i>`;
 
   const adminbtns = `
-	<i class="fa fa-lock   text-muted"></i>
+	<i class="fa fa-edit edit-record ${v.editclass}" title="EDIT"   data-id="${v.id}" ></i>
 	<i class="fa fa-lock text-muted"></i>`;
 
   	return `<div class="list-box">

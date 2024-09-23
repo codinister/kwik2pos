@@ -331,18 +331,6 @@ const products = (product) => {
       input.select();
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
   });
 
   const showImage = () => {

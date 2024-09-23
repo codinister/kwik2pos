@@ -25,7 +25,7 @@ const transactionInputs = (vv, privilege) => {
   } else {
     allTransactions = `
     <div class="othercharges-box ">
-    ${payment(vv, privilege)}
+    ${payment(privilege)}
     </div>
     ${othercharge}
     <div class="subtotal-box hide-on-mobile">

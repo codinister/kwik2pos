@@ -1,4 +1,13 @@
 @media (min-width: 35em) {
+
+
+
+  .bulksms  {
+    padding-top: 5.6rem;
+  }
+
+
+
   .bulksms > div {
     background-color: white;
     padding-inline: 4em;

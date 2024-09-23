@@ -212,22 +212,20 @@ const sales = (customersdata, receipts, proforma, invoice) => {
       const txx = JSON.parse(localStorage.getItem('sales'));
 
       if (e.target.matches('.userlink')) {
+
         if (localStorage.getItem('sales')) {
           const { user_id } = e.target.dataset;
           const obj = JSON.parse(localStorage.getItem('sales'));
-
-          const prepareby = obj?.user_id;
+          obj['prepared_by'] = obj?.user_id;
           obj['user_id'] = user_id;
-          obj['prepared_by'] = prepareby;
           localStorage.setItem('sales', JSON.stringify(obj));
         }
+
       }
 
       if (e.target.matches('.customerlink')) {
         e.stopImmediatePropagation();
         const { id, name, phone, location, email } = e.target.dataset;
-
-        console.log(name);
 
         if (txx) {
           txx['cust_id'] = id;
@@ -317,8 +315,8 @@ const sales = (customersdata, receipts, proforma, invoice) => {
     checkinvoice = 'checked';
   }
 
-  let displaysalesinchkbx = ` <input type="hidden" ${checkinvoice} class="setsalesinvoice"  />`;
-  let enablebankdetails = ` <input type="hidden"  class="enablebankdetails"  />`;
+  let displaysalesinchkbx = '';
+  let enablebankdetails = '';
 
   if (industry !== 'retails') {
     displaysalesinchkbx = `

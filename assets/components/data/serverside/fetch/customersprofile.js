@@ -61,10 +61,9 @@ const customersprofile = (callback) => {
 
             invoice_total: Number(v.total),
             invoice_count: 1,
-            invoice_list: [{ ...v }],
+            invoice_list: { [v.tax_id]: { ...v } },
 
             payments: rec ? rec?.total_payments : 0,
-            total_debt: Number(v.total),
             profile: v.profile,
 
             expiries:
@@ -85,16 +84,13 @@ const customersprofile = (callback) => {
         .reduce((a, b) => {
           if (a[b.cust_id]) {
             const dateleft = 14 / expdate_left(b.exp_date);
-            const rec = allreceipts[b.cust_id];
-
-            a[b.cust_id].total_debt += Number(b.total_debt);
-
-            a[b.cust_id].total_debt =
-              Number(a[b.cust_id].total_debt) -
-              Number(rec ? rec?.total_payments : 0);
 
             a[b.cust_id].invoice_count += 1;
             a[b.cust_id].invoice_total += Number(b.invoice_total);
+
+            delete b.invoice_list;
+            delete b.payments;
+            a[b.cust_id].invoice_list[b.tax_id] = { ...b };
 
             if (dateleft > 1) {
               a[b.cust_id].expiries[b.exp_date] = {
@@ -107,10 +103,6 @@ const customersprofile = (callback) => {
               };
             } else {
             }
-
-            delete b.invoice_list;
-            delete b.payments;
-            a[b.cust_id].invoice_list.push({ ...b });
           } else {
             a[b.cust_id] = b;
           }
@@ -155,21 +147,30 @@ const customersprofile = (callback) => {
         const inv = allinvoices[v.cust_id];
         const prof = allproformas[v.cust_id];
 
+        const invoice_list_data = inv ? Object.values(inv?.invoice_list) : []
+        const total_sales = invoice_list_data.reduce((a, b) => {
+          return Number(a) + Number(b.total);
+        }, 0);
+
+        const total_transactions = total_sales;
+        const total_payment = rec ? rec?.total_payments : 0;
+        const total_debt = Number(total_transactions) - Number(total_payment);
+
         return {
           ...v,
 
           //begin receipt
           receipt_count: rec ? rec?.receipt_count : 0,
-          payments_received: rec ? rec?.total_payments : 0,
+          payments_received: total_payment,
           receipt_list: rec ? rec?.receipts : [],
 
           //begin invoice
           invoice_count: inv ? inv?.invoice_count : 0,
           invoice_total: inv ? inv?.invoice_total : 0,
-          invoice_list: inv ? inv?.invoice_list : [],
+          invoice_list: invoice_list_data,
           expiries: inv ? inv?.expiries : {},
           aginginvoice:
-            inv?.total_debt > 0
+            total_debt > 0
               ? {
                   fullname: v.fullname,
                   phone: v.phone,
@@ -178,11 +179,13 @@ const customersprofile = (callback) => {
                   user_id: v.user_id,
                   cust_id: v.cust_id,
                   total: inv ? inv?.invoice_total : 0,
-                  payment: rec ? rec?.total_payments : 0,
-                  debt: inv ? inv?.total_debt : 0,
+                  payment: total_payment,
+                  debt: total_debt,
                 }
               : '',
-          total_debt: inv ? inv?.total_debt : 0,
+
+          total_sales,
+          total_debt,
 
           //begin proforma
           proforma_count: prof ? prof?.proforma_count : 0,

@@ -63,8 +63,6 @@ const Pos = () => {
   });
 
   customersprofile((cust) => {
-
-
     
     const customers = cust
       .map((v) => ({
@@ -75,7 +73,7 @@ const Pos = () => {
         email: v.email,
         location: v.location,
         user_id: v.user_id,
-        debt: v.totdebt,
+        debt: v.total_debt,
         type: v.type,
         ref_type: v.ref_type,
         ref: v.ref, 

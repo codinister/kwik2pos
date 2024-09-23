@@ -9,7 +9,7 @@ const noteTabs = (details) => {
     .map(
       (v) => `
         <ul class="note-table-top">
-            <li>${formatDate(v.date)}</li>
+            <li>${v.title}</li>
             <li class="view-note" data-note_id="${v.note_id}" data-user_id="${
         v.user_id
       }">

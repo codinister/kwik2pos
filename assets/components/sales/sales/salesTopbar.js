@@ -12,6 +12,10 @@ import getPrevilleges from '../utils/getPrevilleges.js';
 import usersprofile from '../../data/serverside/fetch/usersprofile.js';
 
 const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
+
+
+
+
   usersprofile((data) => {
     const users = data.map((v) => ({
       user_id: v.user_id,
@@ -27,25 +31,23 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
       }
     });
 
-
     document.addEventListener('keyup', (e) => {
       if (e.target.matches('.userwrapperinpt')) {
         const val = e.target.value;
         if (users) {
           const usersdata = users
             .filter((v) =>
-              Object.values(v).join('').toLowerCase().includes(val.toLowerCase())
+              Object.values(v)
+                .join('')
+                .toLowerCase()
+                .includes(val.toLowerCase())
             )
             .map((v) => usersIteratorFunc(v))
             .join('');
-          classSelector('userwrapper').innerHTML = usersdata
+          classSelector('userwrapper').innerHTML = usersdata;
         }
       }
     });
-
-
-
-
   });
 
   const industry = getIndustry();
@@ -70,14 +72,8 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
     }
   });
 
-
-
-
-
-
   const customerIteratorFunc = (v) => {
-
-      return `
+    return `
       <li>
       <a href="javascript:void(0);" 
       class="customerlink" 
@@ -92,20 +88,10 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
       </a>
       </li>
     `;
-    
   };
 
-
-
-
-
-
-
-  
-
   const usersIteratorFunc = (v) => {
-
-      return `
+    return `
       <li>
       <a href="javascript:void(0);" 
       class="userlink" 
@@ -116,19 +102,7 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
       </a>
       </li>
     `;
-    
   };
-
-
-
-
-
-
-
-
-
-
-
 
   document.addEventListener('keyup', (e) => {
     if (e.target.matches('.customerinptclass')) {
@@ -149,19 +123,15 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
   document.addEventListener('click', (e) => {
     if (e.target.matches('.customerinptclass')) {
       if (customersData) {
-        const searchres = customersData.filter((v) => v.type === 'customer')
+        const searchres = customersData
+          .filter((v) => v.type === 'customer')
           .map((v) => customerIteratorFunc(v))
           .join('');
         classSelector('customerwrapper').innerHTML = searchres;
       }
     }
 
-
-
-
-    
     if (e.target.matches('.addrows')) {
-
       e.stopImmediatePropagation();
       salesLocalstorage();
 
@@ -179,6 +149,7 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
           qty: '1',
           prod_id: '',
           prod_name: '',
+          duration: '',
           prod_size: '',
           prod_price: '',
           total: 0,
@@ -203,17 +174,22 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
         }
       }
     }
-
-
-
-
-
-
-
-
   });
 
   const showbtn = getPrevilleges('addrowsbutton') ? 'show' : 'hide';
+  const assigntovalid = getPrevilleges('assignto') 
+
+  const assignto = assigntovalid ? `
+      ${dataListDropdown(
+      textInput,
+      'userwrapperinpt',
+      'Assign to',
+      '',
+      'userlink',
+      'userwrapper'
+    )}
+  
+  ` : ''
 
   const endDate = `
   ${textInput({
@@ -259,14 +235,7 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
 
     <div>
     <div>
-    ${dataListDropdown(
-      textInput,
-      'userwrapperinpt',
-      'Assign to',
-      '',
-      'userlink',
-      'userwrapper'
-    )}
+    ${assignto}
     </div>
     </div>
 

@@ -51,6 +51,10 @@
   color: #444;
 }
 
+.note-form textarea{
+  width: 100%;
+}
+
 @media (min-width: 35em) {
   .addUserPrevileges {
     font-size: 1rem;

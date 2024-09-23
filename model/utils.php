@@ -153,18 +153,6 @@ date_default_timezone_set('Africa/Accra');
 	}
 
 
-	function thankYouSms($cust_id, $user_id){
-		//Get customers 
-		$cust = DB::get_row("SELECT phone FROM customers WHERE cust_id = ? AND code = ?",array($cust_id,getCode($user_id)));
-
-		$sett = DB::get_row("SELECT appreciation_sms FROM settings WHERE code = ?", array(getCode($user_id)));
-
-		if($cust['phone'] && $sett['appreciation_sms']){
-			$to = $cust['phone'];
-			sendSmsApi($to,$sett['appreciation_sms'],$user_id);
-		}
-
-	}
 
 
 
@@ -512,9 +500,10 @@ extract($tax);
 		nhil_rate, 
 		getfund_rate,
 		covid_rate,
-		withholdingtax_rate
+		withholdingtax_rate, 
+		uuid
 	)
-	VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) 
+	VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) 
 	ON DUPLICATE KEY UPDATE 
 	vat	= VALUES(vat),
 	nhil = VALUES(nhil),
@@ -540,7 +529,8 @@ extract($tax);
 	nhil_rate = VALUES(nhil_rate),
 	getfund_rate = VALUES(getfund_rate),
 	covid_rate = VALUES(covid_rate),
-	withholdingtax_rate = VALUES(withholdingtax_rate)
+	withholdingtax_rate = VALUES(withholdingtax_rate), 
+	uuid = VALUES(uuid)
 	", array(
 		$tax_id,
 		$vat,
@@ -567,10 +557,11 @@ extract($tax);
 		$nhil_rate, 
 		$getfund_rate,
 		$covid_rate,
-		$withholdingtax_rate
+		$withholdingtax_rate, 
+		$uuid
 	));
 
-	$qry = DB::get_row("SELECT tax_id FROM tax WHERE profile = ?",array($profile)); 
+	$qry = DB::get_row("SELECT tax_id FROM tax WHERE uuid = ?",array($uuid)); 
 	if($qry){
 
 		$tax_id = $qry['tax_id'];
@@ -611,7 +602,8 @@ extract($tax);
 			qty = VALUES(qty),
 			total = VALUES(total),
 			createdAt = VALUES(createdAt),
-			exp_date = VALUES(exp_date)
+			exp_date = VALUES(exp_date),
+			tax_id = VALUES(tax_id)
 		", $sales);
 		return $tax_id;
 	}
@@ -692,10 +684,6 @@ function  savePayment($tax_id, $payment, $cust_id){
 }
 
 function feedback($user_id,$cust_id,$pay_id,$tax_id,$mess){
-	$fullname = getCustomerFullname($cust_id);
-    $activity= $mess.' '.$fullname."";
-    history($user_id,'',$activity);
-    thankYouSms($cust_id,$user_id);
 	echo $user_id.'-'.$cust_id.'-'.$pay_id.'-'.$tax_id;
 }
 
@@ -710,11 +698,29 @@ function getPreviousPayment($pay_id,$tax_id,$user_id){
 }
 
 
-
-
-
-
-
+function serverPreparedby($user_id){
+	if(!empty($user_id)){
+		$uss = DB::get_row("SELECT signature,firstname,lastname FROM users WHERE user_id = ?",array($user_id));
+		if($uss){
+			return array(
+				'fullname' => $uss['firstname'].' '.$uss['lastname'], 
+				'signature' => $uss['signature']
+			);
+		}
+		else{
+			return array(
+				'fullname' => false, 
+				'signature' => false
+			);
+		}
+	}
+	else{
+		return array(
+			'fullname' => false, 
+			'signature' => false
+		);
+	}
+}
 
 
 	//NOT IN USE
@@ -774,6 +780,8 @@ function getPreviousPayment($pay_id,$tax_id,$user_id){
 	// 		return '';
 	// 	}
 	// }
+
+
 
 
 

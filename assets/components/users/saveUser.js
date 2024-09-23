@@ -6,6 +6,11 @@ import getUsersLocalstorage from '../data/clientside/localstorage/GET/getUsersLo
 const saveUser = async ({ ...obj }) => {
   const { users, menus } = obj;
 
+
+  //SET PASSWORD COUNT 
+  users['password_count'] = users?.password.length
+
+
   const fd = new FormData();
   fd.append('users', JSON.stringify(users));
   fd.append('menus', JSON.stringify(menus));
@@ -17,11 +22,13 @@ const saveUser = async ({ ...obj }) => {
 
     const data = await resp.text();
 
+
     if (data.indexOf('errors') != -1) {
       displayToast('bgdanger', data);
     } else {
       const res = data.split('-')
       displayToast('lightgreen', res[0]);
+      
       const obj = getUsersLocalstorage()
       obj['user_id'] = res[1]
       setUsersLocalstorage(obj)
@@ -31,5 +38,7 @@ const saveUser = async ({ ...obj }) => {
     console.log(err);
   }
 };
+
+
 
 export default saveUser;

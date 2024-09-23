@@ -19,17 +19,16 @@
 			//INSERT MENU
 			$conn->query("INSERT INTO menu(menu_id, menu_name,menu_parent) VALUES
 			('1', 'Dashboard','null'),
-			('2', 'Sales','null'),
+			('2', 'Sell','null'),
 			('3', 'Users','null'),
 			('4', 'Products','null'),
-			('5', 'Note','null'),
-			('6', 'SMS','null'),
-			('7', 'Leads','null'),
-			('8', 'Settings','null'),
-			('9', 'Salesinvoice','none'),
-			('10', 'Addrowsbutton','none'),
-			('11', 'Unitprice','none'),
-			('12', 'Invoicedesc','none')
+			('5', 'SMS','null'),
+			('6', 'Settings','null'),
+			('7', 'Salesinvoice','none'),
+			('8', 'Addrowsbutton','none'),
+			('9', 'Unitprice','none'),
+			('10', 'Invoicedesc','none'),
+			('11', 'Assignto','none'),
 			");
 
 			echo 'Installation completed';

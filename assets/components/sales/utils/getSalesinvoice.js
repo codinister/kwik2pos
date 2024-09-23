@@ -5,6 +5,7 @@ import deleteAccessControl from '../utils/deleteAccessControl.js';
 import getInvoiceDetails from './getInvoiceDetails.js';
 import sendInvoiceWhatsapp from '../../sales/utils/customers/sendInvoiceWhatsapp.js';
 import roleAccess from '../../utils/roleAccess.js';
+import inv_num from '../../utils/inv_num.js';
 
 const getSalesinvoice = async (allinvoicess) => {
   if (allinvoicess) {
@@ -52,6 +53,9 @@ const getSalesinvoice = async (allinvoicess) => {
         const { cust_id, tax_id, user_id } = e.target.dataset;
         getInvoiceDetails(cust_id, tax_id, user_id, '', (data) => {
           const { products, taxes } = data;
+
+    
+
           localStorage.setItem('prozdlist', JSON.stringify(products));
           localStorage.setItem('sales', JSON.stringify(taxes));
           localStorage.setItem('rend', 3);
@@ -102,6 +106,7 @@ const getSalesinvoice = async (allinvoicess) => {
       }
 
       const user = v.firstname + ' ' + v.lastname;
+      const profile = v.profile ? v.profile : inv_num(v.tax_id);
       return `
         <ul class="sales-invoice-table">   
         <li>
@@ -110,7 +115,7 @@ const getSalesinvoice = async (allinvoicess) => {
         data-tax_id = "${v.tax_id}" 
         data-user_id = "${v.user_id}" 
         class="viewthissalesinvoice">
-        ${v.profile}
+        ${profile}
         </a>
         </li>
 

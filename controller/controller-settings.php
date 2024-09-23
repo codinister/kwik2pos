@@ -7,6 +7,9 @@ class settings{
 	}
 
 
+
+
+
     private function fileupload($file_name,$file_type,$tmp_name,$logo_image){
         if(!empty($file_name) || !empty($file_type) || !empty($tmp_name)){
             validation::file_type_validation($file_type);
@@ -46,13 +49,13 @@ class settings{
 			array(
                 'Company Name' => $comp_name,
                 'Company Address' => $comp_addr,
-                'Company Location' => $comp_location
+                'Company Location' => $comp_location, 
+                'Company Phone' => $comp_phone
 			)
 		);
 
-        validation::phone_validation(array('Company Phone' => $comp_phone));
+        //validation::phone_validation(array('Company Phone' => $comp_phone));
 		validation::email_validation($comp_email); 
-
 
         if($comp_website){
             validation::website_validation($comp_website);  

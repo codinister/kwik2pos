@@ -25,6 +25,11 @@ if(!empty($bill_server)){
     ';
 }
 
+$digaddress = '';
+if(!empty($digitaladdress)){
+$digaddress ='GPS: '.$digitaladdress;
+}
+
 
 
 $invoice_header = '
@@ -36,6 +41,10 @@ $invoice_header = '
 <br />
 <span>&nbsp;&nbsp;'.$comp_phone.'</span>
 <br />
+
+<span>&nbsp;&nbsp;'.$digaddress.'</span>
+<br />
+
 </td>
 </tr>
 </table>
@@ -105,14 +114,18 @@ $qry = DB::query('SELECT prod_name,qty,unit_price,total FROM sales WHERE tax_id 
 $row='';
 
 foreach($qry as $v){ 
-    $row .='
-    <tr>
-    <td style="width: 80px;">'.$v['prod_name'].'</td>
-    <td style="width: 40px;">'.$v['qty'].'</td>
-    <td style="width: 60px;">'.$v['unit_price'].'</td>
-    <td style="width: 60px;">'.number_format($v['total'], 2, '.', ',').'</td>
-    </tr>
-    ';
+
+    if(!empty($v['prod_name'])){
+        $row .='
+        <tr>
+        <td style="width: 80px;">'.$v['qty'].'</td>
+        <td style="width: 40px;">'.$v['qty'].'</td>
+        <td style="width: 60px;">'.$v['unit_price'].'</td>
+        <td style="width: 60px;">'.number_format($v['total'], 2, '.', ',').'</td>
+        </tr>
+        ';
+    }
+
 }
 
 $rows = '<table>'.$row.'</table>';

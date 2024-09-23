@@ -5,22 +5,26 @@ import format_number from '../../utils/format_number.js';
 import { textInput } from '../../utils/InputFields.js';
 import getIndustry from '../../utils/getIndustry.js';
 import checkWithholdingtax from '../utils/checkWithholdingtax.js';
-import getPrevilleges from '../utils/getPrevilleges.js'
+import getPrevilleges from '../utils/getPrevilleges.js';
+import termnalReceipt from '../utils/termnalReceipt.js';
 
 const subtotal = (vv) => {
   const industry = getIndustry();
+  const termnal = termnalReceipt();
 
   let invoice_desc = '';
 
   if (industry !== 'roofing company') {
-    invoice_desc = `${textInput({
-      type: 'text',
-      classname: 'profile trans',
-      required: true,
-      name: 'profile',
-      label: 'Invoice Description',
-      value: setInputValue(vv?.profile || ''),
-    })}`;
+    if (!termnal) {
+      invoice_desc = `${textInput({
+        type: 'text',
+        classname: 'profile trans',
+        required: true,
+        name: 'profile',
+        label: 'Invoice Description',
+        value: setInputValue(vv?.profile || ''),
+      })}`;
+    }
   }
 
   const { user_id } = JSON.parse(localStorage.getItem('zsdf'));
@@ -38,7 +42,7 @@ const subtotal = (vv) => {
     saveandclearbtns = saveInvoice();
   }
 
-  return  `
+  return `
   <div>
     ${textInput({
       type: 'text',

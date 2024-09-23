@@ -21,7 +21,7 @@ const textInput = (obj) => {
 
   return `
 		<div class="form-group  pt-0 input-animate">	
-			<input type="${type}" placeholder="${placeholder}"  class="fminpt form-control ${classname}" ${disabled} ${req} readonly value="${value}"  name="${name}" ${checked}>
+			<input type="${type}" autocomplete="none" placeholder="${placeholder}"  class="fminpt form-control ${classname}" ${disabled} ${req} readonly value="${value}"  name="${name}" ${checked}>
 			<label>${label}${!required ? ' (Optional)' : ''}</label>
 		</div>`;
 };

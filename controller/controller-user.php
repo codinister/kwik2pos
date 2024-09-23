@@ -23,8 +23,6 @@ class user{
 		$createdAt
 	){
 
-
-
 		DB::query("INSERT INTO users(
 			user_id,
 			firstname,
@@ -137,6 +135,16 @@ class user{
 			output('Phone is already in use!');
 		}
 
+
+		if($password_count > 30){
+			$pass = $password;
+	
+		}
+		else{
+			$pass = password_hash($password, PASSWORD_BCRYPT);
+		}
+
+
 		$usid = $this->save_user(
 			$user_id,
 			$firstname,
@@ -147,7 +155,7 @@ class user{
 			$hire_date,
 			$birthdate,
 			$username,
-			password_hash($password, PASSWORD_BCRYPT),
+			$pass,
 			$status,
 			$role_id, 
 			$createdAt

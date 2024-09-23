@@ -41,6 +41,7 @@ const userNote = () => {
   });
 
   return `
+  <div class="note-form">
   <div class="note-header">${note ? note?.fullname : ''}</div>
           ${textInput({
             type: 'text',
@@ -54,6 +55,8 @@ const userNote = () => {
           <textarea name="message" placeholder="Message" class="nte">${message}</textarea>
   
           <div class="savenote-wrapper"> ${noteSavebtn()}</div>
+
+          </div>
   
   `;
 };

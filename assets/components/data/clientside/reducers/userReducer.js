@@ -155,6 +155,8 @@ const userReducer = (e) => {
     const jsn = getUsersLocalstorage();
     const { name, value } = e.target;
 
+    defaultUsersLocalstorage();
+
     const obj = {
       Products: checked
         ? {
@@ -164,10 +166,10 @@ const userReducer = (e) => {
             menu_id: 4,
           }
         : {
-            usermenu_id: jsn?.menus?.products?.usermenu_id,
+            usermenu_id: jsn?.menus?.Products?.usermenu_id,
             menu_name: '',
             menu_parent: '',
-            menu_id: '',
+            menu_id: 4,
           },
       SMS: checked
         ? {
@@ -177,10 +179,10 @@ const userReducer = (e) => {
             menu_id: 5,
           }
         : {
-            usermenu_id: jsn?.menus?.sms?.usermenu_id,
+            usermenu_id: jsn?.menus?.SMS?.usermenu_id,
             menu_name: '',
             menu_parent: '',
-            menu_id: '',
+            menu_id: 5,
           },
       Salesinvoice: checked
         ? {
@@ -190,11 +192,12 @@ const userReducer = (e) => {
             menu_id: 7,
           }
         : {
-            usermenu_id: jsn?.menus?.salesinvoice?.usermenu_id,
+            usermenu_id: jsn?.menus?.Salesinvoice?.usermenu_id,
             menu_name: '',
             menu_parent: '',
-            menu_id: '',
+            menu_id: 7,
           },
+
       Addrowsbutton: checked
         ? {
             usermenu_id: '',
@@ -203,10 +206,10 @@ const userReducer = (e) => {
             menu_id: 8,
           }
         : {
-            usermenu_id: jsn?.menus?.addrowsbutton?.usermenu_id,
+            usermenu_id: jsn?.menus?.Addrowsbutton?.usermenu_id,
             menu_name: '',
             menu_parent: '',
-            menu_id: '',
+            menu_id: 8,
           },
       Unitprice: checked
         ? {
@@ -216,10 +219,10 @@ const userReducer = (e) => {
             menu_id: 9,
           }
         : {
-            usermenu_id: jsn?.menus?.unitprice?.usermenu_id,
+            usermenu_id: jsn?.menus?.Unitprice?.usermenu_id,
             menu_name: '',
             menu_parent: '',
-            menu_id: '',
+            menu_id: 9,
           },
 
       Invoicedesc: checked
@@ -230,10 +233,24 @@ const userReducer = (e) => {
             menu_id: 10,
           }
         : {
-            usermenu_id: jsn?.menus?.invoicedesc?.usermenu_id,
+            usermenu_id: jsn?.menus?.Invoicedesc?.usermenu_id,
             menu_name: '',
             menu_parent: '',
-            menu_id: '',
+            menu_id: 10,
+          },
+
+      Assignto: checked
+        ? {
+            usermenu_id: '',
+            menu_name: 'Assignto',
+            menu_parent: 'Privileges',
+            menu_id: 11,
+          }
+        : {
+            usermenu_id: jsn?.menus?.Assignto?.usermenu_id,
+            menu_name: '',
+            menu_parent: '',
+            menu_id: 11,
           },
     };
 

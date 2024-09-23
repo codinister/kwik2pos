@@ -40,7 +40,8 @@ class customer{
 		$email,
 		$location,
 		$user_id,
-		$ref_id
+		$ref_id,
+		$ref_type
 	){
 	
 
@@ -52,15 +53,17 @@ class customer{
 			type,
 			user_id,
 			ref_id,
+			ref_type,
 			createdAt,
 			code
-		) VALUES(?,?,?,?,'customer',?,?,now(),?)",array(
+		) VALUES(?,?,?,?,'customer',?,?,?,now(),?)",array(
 			$fullname,
 			$phone,
 			$email,
 			$location,
 			$user_id,
 			$ref_id,
+			$ref_type,
 			$this->code()
 		));
 
@@ -73,14 +76,12 @@ class customer{
 		$ref_fullname,
 		$ref_phone,
 		$user_id,
-		$ref_id, 
-		$ref_type
+		$ref_id
 	){
 		//$date = getCurrentDateTime();
 
 		if(!empty($ref_id)){
-			DB::query("UPDATE customers SET ref='1', ref_type = ? WHERE cust_id = ?",array($ref_type,$ref_id));
-
+			DB::query("UPDATE customers SET ref='1' WHERE cust_id = ?",array($ref_id));
 			return $ref_id;
 		}
 		elseif(!empty($ref_fullname)){
@@ -92,14 +93,12 @@ class customer{
 				user_id,
 				createdAt,
 				code, 
-				ref_type,
         		ref
-			) VALUES(?,?,'customer',?,now(),?,?, 1)",array(
+			) VALUES(?,?,'customer',?,now(),?, 1)",array(
 				$ref_fullname,
 				$ref_phone,
 				$user_id,
-				$this->code(), 
-				$ref_type
+				$this->code()
 			));
 
 			$cust_id = DB::get_row("SELECT cust_id FROM customers WHERE fullname =?",array($ref_fullname));
@@ -114,8 +113,6 @@ class customer{
 	public function add_customer(){
 		$post = json_decode($_POST['data'],TRUE);
 		extract($post);
-
-
 
 		//Start customer validation
 		validation::empty_validation(
@@ -163,8 +160,7 @@ class customer{
 			$custname,
 			$rphone,
 			$_SESSION['edfghl'],
-			$ref_id,
-			$ref_type
+			$ref_id
 		);
 
 
@@ -174,7 +170,8 @@ class customer{
 			$cemail,
 			$clocation,
 			$_SESSION['edfghl'], 
-			$ref_id
+			$ref_id, 
+			$ref_type
 		);
 
 		//End referrer validation

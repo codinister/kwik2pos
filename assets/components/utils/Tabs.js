@@ -52,9 +52,6 @@ export const Tabs = (tabMenu, tabContent) => {
 
             <div class="tabs-content">
                 ${tabContent}
-                <!--<div id="tab1" class="active hide-tab">
-                TAB CONTENT ONE
-                </div>-->
             </div>
         </div>
         `;

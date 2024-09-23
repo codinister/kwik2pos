@@ -1,6 +1,12 @@
 import { ymd } from '../../../../utils/DateFormats.js';
 
 const defaultSalesLocalstorage = () => {
+
+
+  const crypto = self?.crypto?.randomUUID ?   self.crypto.randomUUID() : 'UUID not available'
+  
+
+
   if (!localStorage.getItem('sales')) {
     const sess = JSON.parse(localStorage.getItem('zsdf'));
 
@@ -47,6 +53,7 @@ const defaultSalesLocalstorage = () => {
       code: sess?.code,
       bank_acc_number: '',
       contract: '',
+      uuid: crypto
     };
 
     localStorage.setItem('sales', JSON.stringify(sales));

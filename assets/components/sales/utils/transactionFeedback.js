@@ -5,7 +5,6 @@ import sendInvoiceWhatsapp from '../utils/customers/sendInvoiceWhatsapp.js';
 import sendReceiptWhatsapp from '../utils/customers/sendReceiptWhatsapp.js';
 
 const transactionfeedback = (txx) => {
-  console.log(txx)
   document.addEventListener('change', (e) => {
     if (e.target.matches('.invoicenote')) {
       e.stopImmediatePropagation();
@@ -128,6 +127,18 @@ const transactionfeedback = (txx) => {
     return '';
   };
 
+  let addnoteinput = '';
+
+  const set = JSON.parse(localStorage.getItem('sinpt'));
+
+  if (set?.receipt_type !== 'THERMNAL') {
+    addnoteinput = `
+  <div>
+  <input type="checkbox"  class="addnote" /> 
+  <label>Add note </label> 
+  </div>`;
+  }
+
   return `
   <duv class="feedbackwrapper">
 
@@ -143,8 +154,8 @@ const transactionfeedback = (txx) => {
           data-pay_id = "${txx?.pay_id}" 
           >${txx?.pay_id ? 'VIEW RECEIPT' : 'VIEW INVOICE'}</a>
           ${
-          txx?.cust_phone ? 
-          `
+            txx?.cust_phone
+              ? `
           <a href="javascript:void(0);" class="whatsappbx">
           <img 
           data-cust_id = "${txx?.cust_id}" 
@@ -154,7 +165,8 @@ const transactionfeedback = (txx) => {
           data-cust_name = "${txx?.cust_name}"
           data-phone = "${txx?.cust_phone}"
           class="whatsapp" src="assets/images/whatsapp.jpg" alt="whatsapp" />
-          </a>` : ''
+          </a>`
+              : ''
           }
           <a href="javascript:void(0);" class="closebx">CLOSE</a>
       </div>
@@ -165,10 +177,7 @@ const transactionfeedback = (txx) => {
 
       <div class="checkboxex-wrapper">
         ${enableContract()}
-        <div>
-        <input type="checkbox"  class="addnote" /> 
-        <label>Add note </label> 
-        </div>
+        ${addnoteinput}
       </div>
 
 
