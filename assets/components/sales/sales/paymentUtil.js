@@ -12,10 +12,13 @@ const paymentUtil = () => {
     }
   }, 1000);
 
-  const disabled = v?.balance < 1 ? 'disabled' : '';
-
+  const disabled = v?.balance < 1 && v?.trans_type === 'invoice' ? 'disabled' : '';
+const paytypedisabled = v?.tax_id > 0 && v.balance < 1 ? 'disabled' : '';
   const newpay =
     v?.newpayment > 0 ? setInputValue(v?.newpayment) : 0;
+
+
+ 
 
   return `
   
@@ -51,7 +54,7 @@ const paymentUtil = () => {
       <div class="select-inpt">
       <label>Payment Type</label>
       <br>
-        <select class="pay_type"  ${disabled}  >
+        <select class="pay_type"  ${paytypedisabled}  >
         <option>Cash</option>
         <option>Cheque</option>
         <option>Bank Transfer</option>

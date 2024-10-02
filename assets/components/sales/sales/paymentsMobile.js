@@ -16,20 +16,9 @@ const paymentsMobile = (vv, privilege) => {
   const termnal = termnalReceipt();
   const tx = JSON.parse(localStorage.getItem('sales'));
   const trans_type = tx?.trans_type;
+  const showpayment = trans_type === 'invoice' ? 'show' : 'hide';
 
-  document.addEventListener('change', (e) => {
-    if (e.target.matches('.pay_type')) {
-      e.stopImmediatePropagation();
-      const { value } = e.target;
-      updateTaxlocalstorage('pay_type', value);
-    }
 
-    if (e.target.matches('.invoice_date')) {
-      e.stopImmediatePropagation();
-      const { value } = e.target;
-      updateTaxlocalstorage('invoice_date', value);
-    }
-  });
 
   let othercharge = '';
 
@@ -109,7 +98,9 @@ const paymentsMobile = (vv, privilege) => {
   <div class="receipt-fields-container ${privilege}">
 
 
-  ${paymentUtil()}
+   <div class="showpayment ${showpayment}">
+    ${paymentUtil()}
+  </div>
 
 
   </div>

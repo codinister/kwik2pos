@@ -11,6 +11,23 @@
 }
 
 
+.showpayment.show{
+  display: block;
+}
+
+
+.showpayment.hide{
+  display: none;
+}
+
+.showinvcheckbx.show{
+  display: block; 
+}
+
+.showinvcheckbx.hide{
+  display: none; 
+}
+
 .dup-btn {
   font-size: 0.7rem;
   background-color: hsl(var(--danger));

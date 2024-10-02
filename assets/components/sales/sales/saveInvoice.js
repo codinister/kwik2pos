@@ -64,6 +64,8 @@ const saveInvoice = () => {
       })
         .then((resp) => resp.text())
         .then((data) => {
+
+    
           if (data.indexOf('errors') != -1) {
             displayToast('bgdanger', data);
             classSelector('saveinvoice-wrapper').innerHTML = Buttons([
@@ -105,6 +107,7 @@ const saveInvoice = () => {
 
   return `
   <div class="saveinvoice-wrapper">
+
   ${Buttons([
     {
       btnclass: 'saveinvoice',

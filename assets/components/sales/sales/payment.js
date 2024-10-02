@@ -42,16 +42,19 @@ const payment = (privilege) => {
   });
 
 
+  const pro = JSON.parse(localStorage.getItem('sales'));
 
+  const showpayment = pro?.trans_type === 'invoice' ? 'show' : 'hide'
   return `
-    <div class="receipt-fields-container ${privilege}">
+    <div class="receipt-fields-container  ${privilege}">
 
-
+   <div class="showpayment ${showpayment}">
     ${paymentUtil()}
-
+  </div>
 
     </div>
   `;
+  
 };
 
 export default payment;

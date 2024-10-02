@@ -93,7 +93,7 @@ class Validation{
 	public static function string_validation($var=array()){	
 			if(is_array($var)){
 				foreach($var as $k=>$v){
-					 if(filter_var($v, FILTER_SANITIZE_STRING)===false){ ?>
+					 if(!is_string($v)){ ?>
 					<span style='font-size:0;'>errors</span>
 					Avoid special characters in <?php echo $k; ?> field!
 					<?php 

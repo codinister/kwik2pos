@@ -10,6 +10,7 @@ import setBalance from './tax/setBalance.js';
 import setTotal from './tax/setTotal.js';
 import sumTaxes from './tax/sumTaxes.js';
 import paymentUtil from '../sales/paymentUtil.js';
+import { ymd } from '../../utils/DateFormats.js';
 
 const calculateTransactions = (e, callback = (d) => null) => {
   getSettings((data) => {
@@ -21,6 +22,20 @@ const calculateTransactions = (e, callback = (d) => null) => {
       if (name) {
         if (name === 'payment') {
           taxObj['newpayment'] = value;
+
+          if (!taxObj?.pay_type) {
+            taxObj['pay_type'] = 'Cash';
+          }
+
+          if (!taxObj?.bank_acc_number) {
+            taxObj['bank_acc_number'] = '';
+          }
+
+          if (taxObj?.receipt_date.length < 1) {
+            const newdate = new Date();
+            taxObj['receipt_date'] =  ymd(newdate)
+          }
+
 
           if (value) {
             if (classSelector('setsalesinvoice')?.checked) {

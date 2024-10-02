@@ -33,14 +33,14 @@ const subtotal = (vv) => {
   const trans_type = tx?.trans_type;
   const usid = tx?.user_id;
 
-  let saveandclearbtns = '';
-  if (trans_type === 'invoice') {
-    if (user_id === usid && getPrevilleges('salesinvoice')) {
-      saveandclearbtns = saveInvoice();
-    }
-  } else {
-    saveandclearbtns = saveInvoice();
-  }
+  // let saveandclearbtns = '';
+  // if (trans_type === 'invoice') {
+  //   if (user_id === usid && getPrevilleges('salesinvoice')) {
+  //     saveandclearbtns = saveInvoice();
+  //   }
+  // } else {
+  //   saveandclearbtns = saveInvoice();
+  // }
 
   return `
   <div>
@@ -82,7 +82,7 @@ const subtotal = (vv) => {
     <div class="save-invoice-btn dbtns">
  
 
-      ${saveandclearbtns}
+      ${saveInvoice()}
 
       <a href="#table-top-id" class="cancelinvoice">Clear</span></a>
     

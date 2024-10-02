@@ -16,6 +16,7 @@ import durationConverter from '../../utils/durationConverter.js';
 import getPrevilleges from '../utils/getPrevilleges.js';
 import posTableclasses from '../../utils/posTableclasses.js';
 import dataListMobile from '../../utils/dataListMobile.js';
+import paymentUtil from './paymentUtil.js';
 
 const sales = (customersdata, receipts, proforma, invoice) => {
   const industry = getIndustry();
@@ -130,12 +131,20 @@ const sales = (customersdata, receipts, proforma, invoice) => {
       if (e.target.checked) {
         taxx['trans_type'] = 'invoice';
         taxx['newpayment'] = 0;
-        classSelector('payment').value = null;
-        calculateTransactions(e);
+
+        if(classSelector('payment')){
+          classSelector('payment').value = null;
+          calculateTransactions(e);
+        }
+
+
         classSelector('invoicestatus').innerHTML = 'SALES INVOICE';
+     
+        classSelector('receipt-fields-container').innerHTML =  paymentUtil()
       } else {
         taxx['trans_type'] = 'proforma';
         classSelector('invoicestatus').innerHTML = 'PROFORMA INVOICE';
+        classSelector('receipt-fields-container').innerHTML =  ''
       }
       localStorage.setItem('sales', JSON.stringify(taxx));
     }
@@ -312,9 +321,14 @@ const sales = (customersdata, receipts, proforma, invoice) => {
   let displaysalesinchkbx = '';
   let enablebankdetails = '';
 
+  const showinvcheckbx = taxx?.tax_id > 0 && taxx?.trans_type === 'proforma' ? 'hide' : 'show'
+
   if (industry !== 'retails') {
+
+
     displaysalesinchkbx = `
-    <input type="checkbox" ${checkinvoice} class="setsalesinvoice" /> CREATE SALES INVOICE`;
+    <div class="showinvcheckbx ${showinvcheckbx}">
+    <input type="checkbox" ${checkinvoice} class="setsalesinvoice" /> CREATE SALES INVOICE </div>`;
 
     enablebankdetails = `
     <input type="checkbox"  class="enablebankdetails" /> INCLUDE BANK DETAILS`;
