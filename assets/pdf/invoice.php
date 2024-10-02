@@ -8,6 +8,17 @@ if($uid){
     $usserid = $uid['user_id'];
 }
 
+
+if($tax_id){
+    $us = DB::get_row('SELECT firstname,lastname,signature FROM users WHERE user_id = ?',array($user_id));
+    $fullname = $us['firstname'].' '.$us['lastname'];
+    $signatures = $us['signature'];
+}
+else{
+    $fullname = '';
+    $signatures = '';
+}
+
 //SETTINGS
 $sett = DB::get_row("SELECT * FROM settings WHERE code = ?",array(getCode($usserid))); 
 if($sett){

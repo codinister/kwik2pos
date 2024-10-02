@@ -27,6 +27,13 @@ const saveInvoice = () => {
         return displayToast('bgdanger', 'Add an item to continue!');
       }
 
+      const unitppricelength = Object.values(items).map(v => v.unit_price).filter(Boolean).length
+
+            //Unit price checker
+            if (unitppricelength < 1) {
+              return displayToast('bgdanger', "Unit price field required!");
+            }
+
       //Customer field validation
       if (sales?.cust_id < 1) {
         return displayToast('bgdanger', "Customer's field required!");

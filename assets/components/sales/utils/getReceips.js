@@ -133,19 +133,13 @@ const getReceipts = async (allreceipts) => {
           );
         }
 
-        if (window.screen.width < 400) {
-          classSelector(`prof${pay_id}`).innerHTML = `
-          <input type="text"  name="payment" class="edit-receipt-inpt" value="${amnt}" />
-          <input type="date" name="receipt_date" class="edit-receipt-inpt recpt-inpt-date${pay_id}"/>
-          `;
-        } else {
           classSelector(`editamount${pay_id}`).innerHTML = `
           <input type="text" id="${pay_id}" name="payment" class="edit-receipt-inpt" value="${amnt}" />
           `;
           classSelector(`editreceiptdate${pay_id}`).innerHTML = `
           <input type="date" id="${pay_id}" name="receipt_date" class="edit-receipt-inpt recpt-inpt-date${pay_id}"/>
           `;
-        }
+        
 
         classSelector(`addsavebtn${pay_id}`).innerHTML = `
         <a href="javascript:void(0);"  class="save-receipt-btn">SAVE</a>
@@ -176,14 +170,9 @@ const getReceipts = async (allreceipts) => {
       ${profile}
       </a>
       </li>
-      <li>
-        <div 
-        data-pay_id="${v.pay_id}" 
-        class="edit-payment editamount${v.pay_id}">
-        ${v.payment}
-        </div>
-      </li>
-      <li>
+
+
+            <li>
         <div
         data-pay_id="${v.pay_id}" 
         class="edit-payment-date editreceiptdate${v.pay_id}"
@@ -191,6 +180,18 @@ const getReceipts = async (allreceipts) => {
         ${formatDate(v.createdAt)}
         </div>
       </li>
+
+
+      <li>
+        <div 
+        data-pay_id="${v.pay_id}" 
+        class="edit-payment editamount${v.pay_id}">
+        ${v.payment}
+        </div>
+      </li>
+
+
+
       <li class="salesicons addsavebtn${v.pay_id}">
 
 

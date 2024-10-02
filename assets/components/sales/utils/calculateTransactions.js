@@ -116,8 +116,16 @@ const calculateTransactions = (e, callback = (d) => null) => {
       localStorage.setItem('sales', JSON.stringify(v));
 
       const val = JSON.parse(localStorage.getItem('sales'));
-      classSelector('total').value = setTotal(val);
-      classSelector('balance').value = setBalance(val);
+
+      if(classSelector('total')){
+        classSelector('total').value = setTotal(val);
+      }
+
+
+      if(classSelector('balance')){
+        classSelector('balance').value = setBalance(val);
+      }
+
 
       if (classSelector('top_total')) {
         classSelector('top_total').textContent = setTotal(val);

@@ -610,7 +610,8 @@ extract($tax);
 	return '';
 }
 	
-function sendReceiptSms($pay_id,$cust_id,$user_id){
+function sendReceiptSms($user_id,$cust_id,$pay_id,$tax_id){
+
 	//Get settings 
 	$sett = DB::get_row("SELECT comp_name,activate_receipt_sms,sms_cc FROM settings WHERE code = ?",array(getCode($user_id)));
 
@@ -625,15 +626,35 @@ function sendReceiptSms($pay_id,$cust_id,$user_id){
 			$phone = $cust['phone']; 
 			$comp_name = $sett['comp_name'];
 
-			$url = 'https://app.kwik2pos.com';
+			$url = 'https://www.kwik2pos.com';
 			$mobile = implode('', explode(' ',$phone));
-			$encoded = base64_encode($pay_id);
+	
 
-			$msg = <<<SMS
-			Hi! $cust_name this is $sender from $comp_name please click on the link below to view your invoice.
-			 <br /><br />
-			$url/assets/pdf/invoice.php?rec=$encoded
-			SMS;
+
+			
+			if(!empty($pay_id)){
+				$receipt_encoded = base64_encode($pay_id);
+				$msg = <<<SMS
+				Hi! $cust_name this is $sender from $comp_name please click on the link below to view your receipt.
+		
+				$url/assets/pdf/receipt.php?rec=$receipt_encoded
+				SMS;
+			}
+			else{
+				$inv_encoded = base64_encode($tax_id);
+				$msg = <<<SMS
+				Hi! $cust_name this is $sender from $comp_name please click on the link below to view your invoice.
+				
+				$url/assets/pdf/invoice.php?inv=$inv_encoded
+				SMS;
+			}
+
+
+
+	
+
+
+
 			
 			//Message to be sent 
 			if($sett['sms_cc'] AND $cust['phone']){
@@ -671,10 +692,6 @@ function  savePayment($tax_id, $payment, $cust_id){
 			$user_id = $qry['user_id']; 
 		}
 
-
-		sendReceiptSms($pay_id,$cust_id,$user_id);
-
-
 		return $pay_id;
 	}
 	else {
@@ -683,7 +700,8 @@ function  savePayment($tax_id, $payment, $cust_id){
 
 }
 
-function feedback($user_id,$cust_id,$pay_id,$tax_id,$mess){
+function feedback($user_id,$cust_id,$pay_id,$tax_id){
+	sendReceiptSms($user_id,$cust_id,$pay_id,$tax_id);
 	echo $user_id.'-'.$cust_id.'-'.$pay_id.'-'.$tax_id;
 }
 

@@ -1,11 +1,8 @@
-
-
-
 .feedbackwrapper {
   padding: 2em;
-
-position: absolute;
-width: 100%;
+  background-color: white;
+  position: absolute;
+  width: 100%;
   box-shadow: 0.4rem 0.4rem 1.2rem rgba(0, 0, 0, 0.2);
 }
 
@@ -83,6 +80,6 @@ width: 100%;
   color: white;
 }
 
-.invoicenote{
+.invoicenote {
   width: 100%;
 }

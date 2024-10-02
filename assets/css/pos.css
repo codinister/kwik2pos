@@ -9,7 +9,15 @@
   padding-inline: 1.2rem;
   cursor: pointer;
 }
-
+.save-receipt-btn {
+  display: block;
+  background-color: hsl(var(--success));
+  padding: 0.7em;
+  width: max-content;
+  border-radius: 1.4rem;
+  color: white;
+  font-size: 1rem;
+}
 
 .showpayment.show{
   display: block;
@@ -564,15 +572,7 @@
     position: relative;
   }
 
-  .save-receipt-btn {
-    display: block;
-    background-color: hsl(var(--success));
-    padding: 0.7em;
-    width: max-content;
-    border-radius: 1.4rem;
-    color: white;
-    font-size: 1rem;
-  }
+
 
   .salesinvoice .div-table-inner,
   .receipts .div-table-inner,
@@ -1249,6 +1249,38 @@
 
   /* End receipt */
 
+  .addnote {
+    position: relative;
+  }
+
+  .addnote textarea {
+    height: 6rem;
+    padding: 1em;
+  }
+
+  .addnote label {
+    position: absolute;
+    top: -1.5rem;
+    left: 0.5rem;
+    background-color: white;
+    padding: 0.2rem;
+    font-size: 1.6rem;
+    color: hsl(var(--danger));
+  }
+
+  .addnote > a {
+    display: block;
+    padding: 0.8rem;
+    border-radius: 3rem;
+    background-color: hsl(var(--success));
+    color: white;
+    margin-top: 1.6rem;
+    text-align: center;
+  }
+
+  .edit-receipt-inpt{
+    width: 8rem;
+  }
 
 
 }
