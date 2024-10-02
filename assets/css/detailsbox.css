@@ -1,4 +1,4 @@
-@media (min-width: 35em) {
+
   .detailsbox {
     font-size: 1.2rem;
   }
@@ -15,4 +15,6 @@
   .detailsbox ul li > ul > li:nth-of-type(2) {
     flex: 20rem 1 1;
   }
-}
+
+
+

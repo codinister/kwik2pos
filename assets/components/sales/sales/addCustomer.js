@@ -62,6 +62,7 @@ const addCustomer = (customersData) => {
         .filter((v) =>
           Object.values(v).join('').toLowerCase().includes(val.toLowerCase())
         )
+        .slice(0,10)
         .map((v) => referrerIteratorFunc(v))
         .join('');
       classSelector('referrerwrapper').innerHTML = searchres;
@@ -78,6 +79,7 @@ const addCustomer = (customersData) => {
         .filter((v) =>
           Object.values(v).join('').toLowerCase().includes(val.toLowerCase())
         )
+        .slice(0,10)
         .map((v) => referrerIteratorFunc(v))
         .join('');
       classSelector('referrerwrapper').innerHTML = searchres;

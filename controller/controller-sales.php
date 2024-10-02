@@ -75,19 +75,21 @@ class sales{
     public function save_sales(){
 
         $payment = flatten(json_decode($_POST['payment'],TRUE));
+
+
         $tax = json_decode($_POST['sales'],TRUE);
         $sales = flatten(json_decode($_POST['items'],TRUE));
         
         extract($tax);
 
-        if(!$this->termnalReceipt()){
-            $qry = DB::get_row("SELECT profile,tax_id FROM tax WHERE profile = ? AND code = ?",array($profile,$this->code()));
-            if($qry){
-                if($qry['tax_id'] !== $tax_id){
-                    output( 'Invoice description already exists!!' );
-                }
-            }
-        }
+        // if(!$this->termnalReceipt()){
+        //     $qry = DB::get_row("SELECT profile,tax_id FROM tax WHERE profile = ? AND code = ?",array($profile,$this->code()));
+        //     if($qry){
+        //         if($qry['tax_id'] !== $tax_id){
+        //             output( 'Invoice description already exists!!' );
+        //         }
+        //     }
+        // }
 
         //No item validation
         if (COUNT($sales) < 1) {

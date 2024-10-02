@@ -14,17 +14,34 @@ const posTableclasses = (duration = '', k = '') => {
     <input class="sumitems duration" name="duration" type="number" data-key="${k}" value="${duration}" />
     </li>`;
   } else if (industry === 'service provider') {
-    length_duration = `<li>Duration</li>`;
+    length_duration = `
+    <li >
+    <span class="hideonmobile">Duration</span>
+    <span class="hideondesktop">Dur</span>
+    </li>  
+    `;
     table_class = 'service-table';
     product_size = `<li>
     <input class="sumitems duration" name="duration" type="number" data-key="${k}" value="${duration}" />
     </li>`;
   } else if (industry === 'rentals') {
-    length_duration = `<li>Duration</li>`;
+
+    length_duration = `
+    <li >
+    <span class="hideonmobile">Duration</span>
+    <span class="hideondesktop">Dur</span>
+    </li>  
+    `;
+
     table_class = 'rental-table';
-    product_size = `<li>
+    
+    product_size = `
+    <li>
     <input class="sumitems duration" name="duration" type="number" data-key="${k}" value="${duration}" />
-    </li>`;
+    </li>
+    `;
+
+
   } else if (industry === 'retails') {
     table_class = 'retail-table';
   }

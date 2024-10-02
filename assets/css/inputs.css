@@ -2,12 +2,11 @@
 Animate input field
 */
 
-
-.form-group span{
-font-size: 1.2rem; 
-color: red;
-margin-top: -1rem;
-display: block;
+.form-group span {
+  font-size: 1.2rem;
+  color: red;
+  margin-top: -1rem;
+  display: block;
 }
 
 .bank_acc_number {
@@ -153,6 +152,7 @@ display: block;
     padding: 0.5em;
     margin-bottom: 0.5rem;
     width: 100%;
+    border: solid 0.1rem #444;
   }
   .input-animate {
     position: relative;

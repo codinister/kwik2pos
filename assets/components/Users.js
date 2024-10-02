@@ -18,6 +18,8 @@ import setUsersLocalstorage from './data/clientside/localstorage/SET/setUsersLoc
 import getUsersLocalstorage from './data/clientside/localstorage/GET/getUsersLocalstorage.js';
 import noteTabs from './users/noteTabs.js';
 import { ymd } from './utils/DateFormats.js';
+import { textInput } from './utils/InputFields.js';
+import dataListDropdown from './utils/dataListDropdown.js';
 
 //CREATE USERS PAGE
 const Users = () => {
@@ -29,6 +31,22 @@ const Users = () => {
     }
 
     document.addEventListener('keyup', (e) => {
+      if (e.target.matches('.userwrapperinpt')) {
+        const val = e.target.value;
+        if (users) {
+          const usersdata = users
+            .filter((v) =>
+              Object.values(v)
+                .join('')
+                .toLowerCase()
+                .includes(val.toLowerCase())
+            )
+            .map((v) => divcolmFunc(v))
+            .join('');
+          classSelector('userwrapper').innerHTML = usersdata;
+        }
+      }
+
       if (e.target.matches('.searchuser')) {
         const { value } = e.target;
 
@@ -51,6 +69,16 @@ const Users = () => {
     });
 
     document.addEventListener('click', (e) => {
+      if (e.target.matches('.userwrapperinpt')) {
+        if (users) {
+          const usersdata = users
+            .slice(0, 10)
+            .map((v) => divcolmFunc(v))
+            .join('');
+          classSelector('userwrapper').innerHTML = usersdata;
+        }
+      }
+
       if (e.target.matches('.delete-note')) {
         e.stopImmediatePropagation();
         const { note_id } = e.target.dataset;
@@ -197,6 +225,10 @@ const Users = () => {
             noteTabs(filteruser.note);
 
             classSelector('addNote').classList.add('show');
+
+            if (classSelector('userwrapper')) {
+              classSelector('userwrapper').classList.remove('showmodal');
+            }
           }
         }
       }
@@ -277,12 +309,10 @@ const Users = () => {
     // END TABS
 
     setTimeout(() => {
-      const usid1 = JSON.parse(localStorage.getItem('zsdf'))
+      const usid1 = JSON.parse(localStorage.getItem('zsdf'));
       const usid2 = JSON.parse(localStorage.getItem('usernote'));
 
-
-      const user_id = usid2 ? usid2?.user_id : usid1?.user_id
-
+      const user_id = usid2 ? usid2?.user_id : usid1?.user_id;
 
       const filteruser = Object.values(users).find(
         (v) => v.user_id === user_id
@@ -300,11 +330,25 @@ const Users = () => {
 
             <div class="sidebar bgwhite usersidebar">
 
+              <div class="hideonmobile">
                 ${Sidebar(
                   searchBox('searchuser', 'Search Users'),
                   listOfUsers,
                   'usersidebarclass'
                 )}
+                </div>
+
+            <div class="hideondesktop userdropdown">
+                ${dataListDropdown(
+                  textInput,
+                  'userwrapperinpt',
+                  'Select user',
+                  '',
+                  'userlink',
+                  'userwrapper'
+                )}
+
+                </div>
 
             </div>
 

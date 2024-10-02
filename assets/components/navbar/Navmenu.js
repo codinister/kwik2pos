@@ -36,9 +36,7 @@ const Navmenu = () => {
 
   const otp = `
           <ul class="navbar-nav">
-              <li class="close-box">
-                <a href="javascript:void(0);" title="Close" class="close-btn">x</a>
-              </li>
+   
               ${arr}
               <div class="navbar-nav-overlay"></div>
           </ul>
@@ -51,6 +49,16 @@ const Navmenu = () => {
   }, 0);
 
   document.addEventListener('click', (e) => {
+    if (e.target.matches('.hamburger')) {
+      classSelector('nav-bar-wrapper').classList.add('show');
+      classSelector('nav-overlay').classList.add('show');
+    }
+
+    if (e.target.matches('.nav-overlay')) {
+      classSelector('nav-bar-wrapper').classList.remove('show');
+      classSelector('nav-overlay').classList.remove('show');
+    }
+
     if (e.target.matches('.close-btn')) {
       classSelector('navbar-nav').classList.remove('show');
       classSelector('navbar-nav').classList.add('hide');
@@ -58,11 +66,6 @@ const Navmenu = () => {
 
     if (e.target.matches('.navbar-nav-overlay')) {
       classSelector('navbar-nav').classList.add('hide');
-    }
-
-    if (e.target.matches('.hamburger-span')) {
-      classSelector('navbar-nav').classList.remove('hide');
-      classSelector('navbar-nav').classList.add('show');
     }
 
     if (e.target.matches('.close-profile-box')) {
@@ -114,28 +117,36 @@ const Navmenu = () => {
 
   return ` 
     <nav class="navbar">
-        <div class="navbaritems"></div>
-        <span class="appexpiration"></span>
-        <div class="other-nav-details">
-        <a href="javascript:void(0);" class="hamburger hamburger-span">
-        <span class="hamburger-span"></span>
-        <span class="hamburger-span"></span>
-        <span class="hamburger-span"></span>
-        </a>
 
-        ${bell}
- 
-        <a class="logout" href="?page=logout">
-        <i class="fa fa-arrow-left fa-lg"></i> LOGOUT
-        </a>
-                        
-        <a class="profile-img" href="javascript:void(0);" title="${fullname}">
-        <img class="closeprofilebox profileimage"  src="assets/uploads/${
-          sess?.photo ? sess?.photo : 'avatar.png'
-        }" alt="Profile Photo">
-        </a>
-        
+
+      <div class="nav-bar-wrapper">
+
+      <img src="assets/uploads/${sett?.comp_logo}" alt="" class="mob-logo hideondesktop" />
+       <div class="navbaritems"></div>
+       </div>
+
+        <div class="nav-bar-icons">
+          <img src="assets/images/hamburger.jpg" alt="" class="hamburger hideondesktop" />
+
+          <span class="appexpiration"></span>
+
+          <div class="other-nav-details ">
+            ${bell}
+            <a class="logout" href="?page=logout">
+            <i class="fa fa-arrow-left fa-lg"></i> LOGOUT
+            </a>             
+            <a class="profile-img" href="javascript:void(0);" title="${fullname}">
+            <img class="closeprofilebox profileimage"  src="assets/uploads/${
+              sess?.photo ? sess?.photo : 'avatar.png'
+            }" alt="Profile Photo">
+            </a>
+          </div>
         </div>
+
+
+        <div class="nav-overlay hideondesktop"></div>
+
+   
     </nav>
     ${userProfile()}
     ${toastNotification()}

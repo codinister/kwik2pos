@@ -34,3 +34,15 @@
 @import 'pos/roofing.css';
 @import 'pos/service.css';
 @import 'pos/feedbackbox.css';
+
+@media (min-width: 35em) {
+  .hideondesktop {
+    display: none !important;
+  }
+}
+
+@media (max-width: 35em) {
+  .hideonmobile {
+    display: none !important;
+  }
+}

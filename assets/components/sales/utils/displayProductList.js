@@ -50,7 +50,7 @@ const displayProductList = () => {
 
           return `
             <ul class="${table_class} ${highlight}">
-            <li>${numbering++}</li>
+            <li class="hideonmobile">${numbering++}</li>
             <li>
             <input type="number" name="qty" data-key="${k}" 
             value="${v.qty}" class="qty sumitems" />
@@ -71,6 +71,8 @@ const displayProductList = () => {
             ${format_number(total_amnt)}
             </span>
             </li>
+
+            
             <li>
             ${editInvoiceAcessControl(
               `<i class="fa fa-trash delete-item" data-s_id="${v.s_id}" data-trash="${k}"></i>`

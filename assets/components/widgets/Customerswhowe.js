@@ -13,11 +13,18 @@ const Customerswhowe = (data) => {
     ${data
     .map(
       (v) => `
+   
       <ul>
-        <li>${v.fullname}</li>
+        <li>
+           <a href="javascript:void(0);" class="accstatement" data-cust_id="${v.cust_id}">
+        ${v.fullname}
+        </a>
+        
+        </li>
         <li>${v.phone}</li>
         <li>${format_number(v.debt)}</li>
       </ul>
+    
       `
     )
     .join(' ')}

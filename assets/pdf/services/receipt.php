@@ -11,7 +11,7 @@ if($balance < 0){
 }
 elseif($balance > 0){
     $balance_text = 'Balance due:';
-    $balance_amount =  $total - getPreviousPayment($pay_id,$tax_id);
+    $balance_amount =  $total - getPreviousPayment($pay_id,$tax_id,$usserid);
 }
 else{
     $balance_text = false;

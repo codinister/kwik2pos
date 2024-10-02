@@ -1,11 +1,9 @@
 import { ymd } from '../../../../utils/DateFormats.js';
 
 const defaultSalesLocalstorage = () => {
-
-
-  const crypto = self?.crypto?.randomUUID ?   self.crypto.randomUUID() : 'UUID not available'
-  
-
+  const crypto = self?.crypto?.randomUUID
+    ? self.crypto.randomUUID()
+    : 'UUID not available';
 
   if (!localStorage.getItem('sales')) {
     const sess = JSON.parse(localStorage.getItem('zsdf'));
@@ -44,7 +42,7 @@ const defaultSalesLocalstorage = () => {
       note: '',
       invoice_date: ymd(newdate),
       addbank: '',
-      receipt_date: '',
+      receipt_date: ymd(newdate),
       vat_rate: sett?.vat,
       nhil_rate: sett?.nhil,
       getfund_rate: sett?.getfund,
@@ -53,7 +51,7 @@ const defaultSalesLocalstorage = () => {
       code: sess?.code,
       bank_acc_number: '',
       contract: '',
-      uuid: crypto
+      uuid: crypto,
     };
 
     localStorage.setItem('sales', JSON.stringify(sales));

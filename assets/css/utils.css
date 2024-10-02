@@ -353,9 +353,17 @@
     background-color: #555;
     color: white;
   }
+
 }
 
 @media (max-width: 35em) {
+
+  .dash-container {
+    width: 100%;
+    padding-inline: 1.6rem;
+  }
+
+
   .sendprodemail input {
     outline: none;
     border: solid 0.1rem #666;

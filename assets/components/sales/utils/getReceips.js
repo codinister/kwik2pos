@@ -8,6 +8,8 @@ import inv_num from '../../utils/inv_num.js';
 
 const getReceipts = async (allreceipts) => {
   if (allreceipts) {
+
+
     let receipts = allreceipts;
     const arr = JSON.parse(localStorage.getItem('deletedreceipt'));
     if (arr) {

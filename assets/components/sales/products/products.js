@@ -14,28 +14,27 @@ const products = (product) => {
   const removenulls = product.filter((v) => v.prod_name !== null);
   const industry = getIndustry();
 
-
-
   const products = Object.values(removenulls).map((v) => {
+    const pqty =
+      industry === 'retails'
+        ? v.remaining
+        : industry === 'rentals'
+        ? v.remaining
+        : v.prod_qty;
 
-    const pqty = industry === 'retails'? v.remaining :  industry === 'rentals'? v.remaining : v.prod_qty
-    
-   return  {
-    cat_id: v.cat_id,
-    createdAt: v.createdAt,
-    prod_code: v.prod_code,
-    prod_id: v.prod_id,
-    prod_image: v.prod_image,
-    prod_name: v.prod_name,
-    prod_qty: pqty,
-    duration: '0',
-    selling_price: v.selling_price,
-    prodsize: v.prod_size,
-  }
-
-});
-
-
+    return {
+      cat_id: v.cat_id,
+      createdAt: v.createdAt,
+      prod_code: v.prod_code,
+      prod_id: v.prod_id,
+      prod_image: v.prod_image,
+      prod_name: v.prod_name,
+      prod_qty: pqty,
+      duration: '0',
+      selling_price: v.selling_price,
+      prodsize: v.prod_size,
+    };
+  });
 
   const productListFunc = (v) => {
     let rows = '';
@@ -72,25 +71,41 @@ const products = (product) => {
           ${proddesc}
           </a>
           </li>
-          <li>
+          <li class="hideonmobile">
             ${rows}
           </li>
- 
       </ul>`;
   };
 
+  const mobileProductsFunc = (v) => {
+
+        return productListFunc(v);
+
+  };
+
   document.addEventListener('keyup', (e) => {
+    if (e.target.matches('.mobile-products-inpt')) {
+      const val = e.target.value;
+
+      const productsdata = products
+        .filter((v) =>
+          Object.values(v).join('').toLowerCase().includes(val.toLowerCase())
+        )
+        .slice(0, 10)
+        .map((v) => productListFunc(v, '', '') )
+        .join('');
+      classSelector('mobileprodwrapper').innerHTML = productsdata;
+    }
+
     if (e.target.matches('.searchposproducts')) {
       const inpt = e.target.value;
       const output = products
         .filter((v) =>
           Object.values(v).join('').toLowerCase().includes(inpt.toLowerCase())
         )
-
-
-        .map((v) => {
-          return productListFunc(v, '', '');
-        })
+        .slice(0,20)
+        .map((v) => productListFunc(v, '', '')
+        )
         .join('');
 
       classSelector('pos-product-output').innerHTML = output;
@@ -172,6 +187,17 @@ const products = (product) => {
   });
 
   document.addEventListener('click', (e) => {
+    if (e.target.matches('.mobile-products-inpt')) {
+      if (products) {
+        const productsdata = products
+          .map((v) => mobileProductsFunc(v))
+          .slice(0, 10)
+          .join('');
+
+        classSelector('mobileprodwrapper').innerHTML = productsdata;
+      }
+    }
+
     if (e.target.matches('.bulkaddlink')) {
       e.stopImmediatePropagation();
       const prod_id = classSelector('pos_prod_id').value;
@@ -231,21 +257,11 @@ const products = (product) => {
       document.body.style.overflow = 'hidden';
     }
 
-
-
-
-
-
-
-
-
     //Set and display product list
     if (e.target.matches('.prodList')) {
       e.stopImmediatePropagation();
       const { prod_id, prod_name, duration, prodsize, prod_price } =
         e.target.dataset;
-
-
 
       displayToast('lightgreen', `You added <br> ${prod_name}`);
       salesLocalstorage();
@@ -329,8 +345,11 @@ const products = (product) => {
       input.value = null;
       input.focus();
       input.select();
-    }
 
+      if (classSelector('mobileprodwrapper')) {
+        classSelector('mobileprodwrapper').classList.remove('showmodal');
+      }
+    }
   });
 
   const showImage = () => {
@@ -362,6 +381,7 @@ const products = (product) => {
       return productListFunc(v);
     })
     .filter(Boolean)
+    .slice(0,20)
     .sort()
     .join('');
 

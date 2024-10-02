@@ -64,8 +64,6 @@ const saveInvoice = () => {
       })
         .then((resp) => resp.text())
         .then((data) => {
-
-
           if (data.indexOf('errors') != -1) {
             displayToast('bgdanger', data);
             classSelector('saveinvoice-wrapper').innerHTML = Buttons([
@@ -84,7 +82,17 @@ const saveInvoice = () => {
             tx['tax_id'] = v[3] || '';
             localStorage.setItem('sales', JSON.stringify(tx));
 
-            classSelector('pos-sales').innerHTML = transactionfeedback(tx);
+            const { cust_id, tax_id, user_id, pay_id, cust_name, cust_phone } =
+              JSON.parse(localStorage.getItem('sales'));
+
+            classSelector('pos-sales').innerHTML = transactionfeedback(
+              cust_id,
+              tax_id,
+              user_id,
+              pay_id,
+              cust_name,
+              cust_phone
+            );
             window.scrollTo(0, 0);
 
             if (classSelector('saveinvoicespin')) {

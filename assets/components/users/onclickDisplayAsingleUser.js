@@ -1,6 +1,5 @@
-import { formatDate } from "../utils/DateFormats.js";
+import { formatDate } from '../utils/DateFormats.js';
 const onclickDisplayAsingleUser = ({ ...v }) => {
-
   return `<ul>
     <li> 
         <ul class="userdetailsbox">
@@ -12,7 +11,11 @@ const onclickDisplayAsingleUser = ({ ...v }) => {
     <li> 
         <ul class="userdetailsbox">
             <li><i class="fa fa-calendar text-muted"></i> Hire Date:</li> 
-            <li>${v.hire_date.split('-')[0] === '0000' ? '' : formatDate(v.hire_date)}</li>
+            <li>${
+              v.hire_date.split('-')[0] === '0000'
+                ? ''
+                : formatDate(v.hire_date)
+            }</li>
         </ul>
     </li>
 

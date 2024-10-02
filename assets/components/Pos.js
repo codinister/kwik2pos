@@ -8,7 +8,6 @@ import editingMode from './utils/editingMode.js';
 import Layout from './Layout.js';
 import Modalboxnoreload3 from './utils/Modalboxnoreload3.js';
 import rerender from './utils/rerender.js';
-import productsMobile from './sales/products/productsMobile.js';
 import productsprofile from './data/serverside/fetch/productsprofile.js';
 import customersprofile from './data/serverside/fetch/customersprofile.js';
 import getIndustry from './utils/getIndustry.js';
@@ -56,13 +55,16 @@ const Pos = () => {
       //MODAL BOX FIVE
       if (e.target.matches('.additems')) {
         classSelector('noreload3').classList.add('show');
-        classSelector('salesitems').innerHTML = productsMobile(availables);
+
         document.body.style.overflow = 'hidden';
       }
     });
   });
 
   customersprofile((cust) => {
+
+
+    
     
     const customers = cust
       .map((v) => ({
@@ -130,8 +132,10 @@ const Pos = () => {
   const page = `
     <div class="pos-container">
         <div class="pos-products-wrapper">
+
+ 
         <div class="pos-sales"></div>
-        <div class="pos-products"></div>
+        <div class="pos-products hideonmobile"></div>
         </div>
     </div>
 

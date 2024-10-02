@@ -1,4 +1,4 @@
-
+@media (min-width: 35em) {
   .data-list {
     position: relative;
   }
@@ -29,4 +29,42 @@
   .data-list-container.showmodal {
     display: block;
   }
+}
 
+@media (max-width: 35em) {
+  .data-list {
+    position: relative;
+  }
+
+  .data-list-container {
+    list-style: none;
+    font-size: 1.2rem;
+    display: none;
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    z-index: 7;
+    border: solid 0.8rem white;
+    background-color: white;
+    color: var(--muted);
+    line-height: 2rem;
+    overflow-y: scroll;
+    overflow-x: none;
+    height: 22rem;
+    width: 100%;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+  }
+
+  .data-list-container li a {
+    color: hsl(var(--black));
+
+    padding: 1rem;
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .data-list-container.showmodal {
+    display: block;
+  }
+}

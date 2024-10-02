@@ -53,9 +53,6 @@ const getSalesinvoice = async (allinvoicess) => {
         const { cust_id, tax_id, user_id } = e.target.dataset;
         getInvoiceDetails(cust_id, tax_id, user_id, '', (data) => {
           const { products, taxes } = data;
-
-    
-
           localStorage.setItem('prozdlist', JSON.stringify(products));
           localStorage.setItem('sales', JSON.stringify(taxes));
           localStorage.setItem('rend', 3);

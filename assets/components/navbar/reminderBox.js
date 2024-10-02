@@ -175,9 +175,9 @@ const remondexbx = () => {
       e.stopImmediatePropagation();
       const { cust_id, tax_id, user_id } = e.target.dataset;
       getInvoiceDetails(cust_id, tax_id, user_id, '', (data) => {
-        const { products, settings, sales } = data;
+        const { products, taxes } = data;
         localStorage.setItem('prozdlist', JSON.stringify(products));
-        localStorage.setItem('sales', JSON.stringify(sales));
+        localStorage.setItem('sales', JSON.stringify(taxes));
         if (localStorage.getItem('prozdlist')) {
           window.location = 'index.html?page=sell';
         }

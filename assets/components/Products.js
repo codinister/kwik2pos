@@ -13,6 +13,9 @@ import Layout from './Layout.js';
 import productsLocalstorage from './data/clientside/localstorage/default/defaultProductsLocalstorage.js';
 import editCatForm from './products/utils/editCatForm.js';
 import roofingStock from './products/roofing/roofingStock.js';
+import dataListDropdown from './utils/dataListDropdown.js';
+
+import { textInput } from './utils/InputFields.js';
 
 const Products = () => {
   const industry = getIndustry();
@@ -114,6 +117,9 @@ const Products = () => {
     }
   });
 
+
+  
+
   productsprofile((output) => {
     document.addEventListener('change', (e) => {
       if (e.target.matches('.checkall')) {
@@ -187,9 +193,25 @@ const Products = () => {
 
   const Page = `
       <div class="dash-container mb-2">
-      <div class="dash-row gap-3">
-      <div class="sidebar bgwhite prod-side-bar">
 
+      <div class="dash-row gap-3">
+
+      <div class="hideondesktop mobile-cat-dropdown">
+      
+      ${dataListDropdown(
+        textInput,
+        'categorylistinpt',
+        'Select category',
+        '',
+        'hyy67f',
+        'categwrapper'
+      )}
+      
+      </div>
+
+      
+      <div class="sidebar bgwhite prod-side-bar hideonmobile">
+      
         <div class="scroll-wrapper">
         <div class="categories-searchbox"></div>
         <div class="scroll-inner products-categories"></div>
@@ -222,7 +244,7 @@ const Products = () => {
 
             <div class="add-product-wrapper">
     
-              </div>
+            </div>
           
           </div>
           <div class="other-box"></div>

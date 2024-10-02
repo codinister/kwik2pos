@@ -4,7 +4,14 @@ import Contract from '../sales/Contract.js';
 import sendInvoiceWhatsapp from '../utils/customers/sendInvoiceWhatsapp.js';
 import sendReceiptWhatsapp from '../utils/customers/sendReceiptWhatsapp.js';
 
-const transactionfeedback = (txx) => {
+const transactionfeedback = (
+  cust_id,
+  tax_id,
+  user_id,
+  pay_id,
+  cust_name,
+  cust_phone
+) => {
   document.addEventListener('change', (e) => {
     if (e.target.matches('.invoicenote')) {
       e.stopImmediatePropagation();
@@ -14,17 +21,18 @@ const transactionfeedback = (txx) => {
     }
 
     if (e.target.matches('.addcontract')) {
-      const { cust_name, tax_id, cust_id, total } = txx;
-
       if (e.target.checked) {
-        document.querySelector('.contract-box').innerHTML = Contract(
-          cust_name,
-          tax_id,
-          cust_id,
-          total
-        );
+        const tx = JSON.parse(localStorage.getItem('sales'));
+        
+        classSelector('note-box').innerHTML = Contract(
+          tx?.cust_name,
+          tx?.tax_id,
+          tx?.cust_id,
+          tx?.total
+        );;
+        
       } else {
-        document.querySelector('.contract-box').innerHTML = '';
+        classSelector('note-box').innerHTML = '';
       }
     }
 
@@ -32,10 +40,8 @@ const transactionfeedback = (txx) => {
       if (e.target.checked) {
         document.querySelector('.note-box').innerHTML = `
           <div class="addnote">
-      
           <textarea class="invoicenote"></textarea>
           <label>Add note</label>
-    
           <a href="javascript:void(0);" class="addinvnote">ADD NOTE</a>
           </div>
           `;
@@ -91,10 +97,9 @@ const transactionfeedback = (txx) => {
       e.stopImmediatePropagation();
 
       const tx = JSON.parse(localStorage.getItem('sales'));
-
       const fd = new FormData();
       fd.append('note', tx?.note);
-      fd.append('tax_id', txx?.tax_id);
+      fd.append('tax_id', tx?.tax_id);
 
       fetch('router.php?controller=sales&task=addInvoiceNote', {
         method: 'Post',
@@ -106,7 +111,9 @@ const transactionfeedback = (txx) => {
             displayToast('bgdanger', data);
           } else {
             displayToast('lightgreen', data);
-            //window.location = `assets/pdf/invoice.php?inv=${txx?.tax_id}`;
+            document.querySelector('.note-box').innerHTML = '';
+
+            classSelector('addnote').checked = false;
           }
         });
     }
@@ -141,52 +148,38 @@ const transactionfeedback = (txx) => {
 
   return `
   <duv class="feedbackwrapper">
-
-
-
-
       <div class="feedbackbtns">
           <a href="javascript:void(0);"
           class="previewpdf"
-          data-cust_id = "${txx?.cust_id}" 
-          data-tax_id = "${txx?.tax_id}" 
-          data-user_id = "${txx?.user_id}" 
-          data-pay_id = "${txx?.pay_id}" 
-          >${txx?.pay_id ? 'VIEW RECEIPT' : 'VIEW INVOICE'}</a>
+          data-cust_id = "${cust_id}" 
+          data-tax_id = "${tax_id}" 
+          data-user_id = "${user_id}" 
+          data-pay_id = "${pay_id}" 
+          >${pay_id ? 'VIEW RECEIPT' : 'VIEW INVOICE'}</a>
           ${
-            txx?.cust_phone
+            cust_phone
               ? `
           <a href="javascript:void(0);" class="whatsappbx">
           <img 
-          data-cust_id = "${txx?.cust_id}" 
-          data-tax_id = "${txx?.tax_id}" 
-          data-user_id = "${txx?.user_id}" 
-          data-pay_id = "${txx?.pay_id}" 
-          data-cust_name = "${txx?.cust_name}"
-          data-phone = "${txx?.cust_phone}"
+          data-cust_id = "${cust_id}" 
+          data-tax_id = "${tax_id}" 
+          data-user_id = "${user_id}" 
+          data-pay_id = "${pay_id}" 
+          data-cust_name = "${cust_name}"
+          data-phone = "${cust_phone}"
           class="whatsapp" src="assets/images/whatsapp.jpg" alt="whatsapp" />
           </a>`
               : ''
           }
           <a href="javascript:void(0);" class="closebx">CLOSE</a>
       </div>
-
-
-
-
-
       <div class="checkboxex-wrapper">
         ${enableContract()}
         ${addnoteinput}
-      </div>
+      </div
 
-
-
-      <div class="contract-box"></div>
-
-
+<div></div>
       <div class="note-box"></div>
-
 
 
   </div>

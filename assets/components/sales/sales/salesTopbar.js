@@ -10,12 +10,10 @@ import { ymd } from '../../utils/DateFormats.js';
 import updateTaxlocalstorage from '../utils/updateTaxlocalstorage.js';
 import getPrevilleges from '../utils/getPrevilleges.js';
 import usersprofile from '../../data/serverside/fetch/usersprofile.js';
+import customerlistFunc from '../utils/customers/customerlistFunc.js';
+import deleteAccessControl from '../utils/deleteAccessControl.js';
 
 const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
-
-
-
-
   usersprofile((data) => {
     const users = data.map((v) => ({
       user_id: v.user_id,
@@ -25,13 +23,18 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
     document.addEventListener('click', (e) => {
       if (e.target.matches('.userwrapperinpt')) {
         if (users) {
-          const usersdata = users.map((v) => usersIteratorFunc(v)).join('');
+          const usersdata = users
+            .slice(0, 10)
+            .map((v) => usersIteratorFunc(v))
+            .join('');
           classSelector('userwrapper').innerHTML = usersdata;
         }
       }
     });
 
     document.addEventListener('keyup', (e) => {
+
+      
       if (e.target.matches('.userwrapperinpt')) {
         const val = e.target.value;
         if (users) {
@@ -42,6 +45,7 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
                 .toLowerCase()
                 .includes(val.toLowerCase())
             )
+            .slice(0, 10)
             .map((v) => usersIteratorFunc(v))
             .join('');
           classSelector('userwrapper').innerHTML = usersdata;
@@ -90,6 +94,54 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
     `;
   };
 
+  const mobileCustomerIteratorFunc = (v) => {
+    return `
+    <div class="cust-list-box">
+    <div class="custfullnamebx">
+      <a href="javascript:void(0);" 
+      data-cust_id="${v.cust_id}" 
+      data-fullname = "${v.fullname}"
+      data-phone = "${v.phone}"
+      data-email = "${v.email}"
+          data-ref_type = "${v.ref_type}"
+      data-location = "${v.location}"
+      data-description = "${v.description}"
+      data-type = "${v.type}"
+      data-desc="customer"
+      data-user_id = "${v.user_id}"
+      class="mobile-customerlink" title= "Assigned to: ${v.firstname} ${
+      v.lastname
+    }">
+      ${v.fullname}
+      </a>
+    </div>
+    <div>
+    <a href="javascript:void(0);">
+    <i class="fa fa-pencil editcust"
+      data-cust_id="${v.cust_id}" 
+      data-fullname = "${v.fullname}"
+      data-phone = "${v.phone}"
+      data-email = "${v.email}"
+          data-type = "${v.type}"
+      data-ref_type = "${v.ref_type}"
+      data-location = "${v.location}"
+      data-debt = "${v.debt}"
+    ></i>
+    </a>
+    <a href="javascript:void(0);">
+    ${deleteAccessControl(
+      `<i class="fa fa-trash delt-cust"  
+      data-cust_id="${v.cust_id}" 
+      data-fullname = "${v.fullname}"
+      ></i>`
+    )}
+    </a>
+    </div>
+  
+  
+  </div>`;
+  };
+
   const usersIteratorFunc = (v) => {
     return `
       <li>
@@ -112,9 +164,24 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
           .filter((v) =>
             Object.values(v).join('').toLowerCase().includes(val.toLowerCase())
           )
+          .slice(0, 10)
           .map((v) => customerIteratorFunc(v))
           .join('');
         classSelector('customerwrapper').innerHTML = searchres;
+      }
+    }
+
+    if (e.target.matches('.mobile-customerinptclass')) {
+      const val = e.target.value;
+      if (customersData) {
+        const searchres = customersData
+          .filter((v) =>
+            Object.values(v).join('').toLowerCase().includes(val.toLowerCase())
+          )
+          .slice(0, 10)
+          .map((v) => mobileCustomerIteratorFunc(v))
+          .join('');
+        classSelector('mobile-customerwrapper').innerHTML = searchres;
       }
     }
   });
@@ -125,9 +192,21 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
       if (customersData) {
         const searchres = customersData
           .filter((v) => v.type === 'customer')
+          .slice(0, 10)
           .map((v) => customerIteratorFunc(v))
           .join('');
         classSelector('customerwrapper').innerHTML = searchres;
+      }
+    }
+
+    if (e.target.matches('.mobile-customerinptclass')) {
+      if (customersData) {
+        const searchres = customersData
+          .filter((v) => v.type === 'customer')
+          .slice(0, 10)
+          .map((v) => mobileCustomerIteratorFunc(v))
+          .join('');
+        classSelector('mobile-customerwrapper').innerHTML = searchres;
       }
     }
 
@@ -177,19 +256,21 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
   });
 
   const showbtn = getPrevilleges('addrowsbutton') ? 'show' : 'hide';
-  const assigntovalid = getPrevilleges('assignto') 
+  const assigntovalid = getPrevilleges('assignto');
 
-  const assignto = assigntovalid ? `
+  const assignto = assigntovalid
+    ? `
       ${dataListDropdown(
-      textInput,
-      'userwrapperinpt',
-      'Assign to',
-      '',
-      'userlink',
-      'userwrapper'
-    )}
+        textInput,
+        'userwrapperinpt',
+        'Assign to',
+        '',
+        'userlink',
+        'userwrapper'
+      )}
   
-  ` : ''
+  `
+    : '';
 
   const endDate = `
   ${textInput({
@@ -231,10 +312,8 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
     </div>
     </div>
 
-
-
     <div>
-    <div>
+    <div class="assignto-wrapper">
     ${assignto}
     </div>
     </div>

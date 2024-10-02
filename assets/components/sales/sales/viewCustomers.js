@@ -1,6 +1,7 @@
 import Buttons from '../../utils/Buttons.js';
 import { classSelector } from '../../utils/Selectors.js';
 import Spinner from '../../utils/Spinner.js';
+import dataListDropdown from '../../utils/dataListDropdown.js';
 import displayToast from '../../utils/displayToast.js';
 import getIndustry from '../../utils/getIndustry.js';
 import roleAccess from '../../utils/roleAccess.js';
@@ -9,11 +10,11 @@ import TabsSections from '../utils/TabsSections.js';
 import customerData from '../utils/customers/customerData.js';
 import customerProfile from '../utils/customers/customerProfile.js';
 import displayCustomerProfile from '../utils/customers/displayCustomerProfile.js';
-
 import listOfallcustomers from '../utils/customers/listOfallcustomers.js';
 import getProformas from '../utils/getProformas.js';
 import getReceipts from '../utils/getReceips.js';
 import getSalesinvoice from '../utils/getSalesinvoice.js';
+import { textInput } from '../../utils/InputFields.js';
 
 const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
   const industry = getIndustry();
@@ -23,12 +24,18 @@ const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
   document.addEventListener('click', (e) => {
     if (e.target.matches('.show-customers')) {
       const res = customers.filter((v) => v.type === 'customer');
-      classSelector('allcustomers-list').innerHTML = listOfallcustomers(res,'customer');
+      classSelector('allcustomers-list').innerHTML = listOfallcustomers(
+        res,
+        'customer'
+      );
     }
 
     if (e.target.matches('.show-referrers')) {
       const res = customers.filter((v) => v.ref === '1');
-      classSelector('allcustomers-list').innerHTML = listOfallcustomers(res,'referrer');
+      classSelector('allcustomers-list').innerHTML = listOfallcustomers(
+        res,
+        'referrer'
+      );
     }
 
     if (e.target.matches('.viewcustomers')) {
@@ -38,33 +45,47 @@ const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
 
       if (customers) {
         const { user_id, code } = JSON.parse(localStorage.getItem('zsdf'));
-        Spinner('hide-on-mobilespin');
+
         classSelector('viewcustomerwrapper').innerHTML = `
 
         <div class="viewcust-sidebar">
 
+        <div class="hideonmobile">
             ${searchBox('customersearch-class', 'Search Customers')}
+            </div>
 
             <div class="side-box-container">
-              <button data-user_id="${user_id}" data-code="${code}" class="cust-rep-btn">CUSTOMERS REPORT</button>
+              <button data-user_id="${user_id}" data-code="${code}" class="cust-rep-btn">CUSTOMERS LIST</button>
             </div>
 
             <div class="referer-conteiner">
 
-              <button class="show-customers">
+              <button class="show-customers hideonmobile">
               Show only customers
               </button>
 
-              <button class="show-referrers">
+              <button class="show-referrers hideonmobile">
               Show only referrers
               </button>
 
             </div>
 
+            <div class="hideondesktop mobile-cust-search">
+              ${dataListDropdown(
+                textInput,
+                'mobile-customerinptclass',
+                'Choose Customer',
+                '',
+                'fff',
+                'mobile-customerwrapper'
+              )}
+            </div>
 
-            <div class="allcustomers-list">
+
+            <div class="allcustomers-list hideonmobile">
             ${listOfallcustomers(
-              customers.filter((v) => v.type === 'customer'),'customer'
+              customers.filter((v) => v.type === 'customer'),
+              'customer'
             )}
             </div>
         </div>
@@ -75,7 +96,6 @@ const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
         `;
         classSelector('noreload').classList.add('show');
         document.body.style.overflow = 'hidden';
-        classSelector('hide-on-mobilespin').innerHTML = '';
 
         TabsSections();
       }
@@ -92,6 +112,43 @@ const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
       } else {
         window.location = `assets/pdf/customers.php?u=${user_id}`;
       }
+    }
+
+    if (e.target.matches(`.mobile-customerlink`)) {
+      const inputText = e.target.textContent;
+      classSelector('mobile-customerinptclass').value = inputText;
+
+      classSelector('mobile-customerwrapper').classList.remove('showmodal');
+
+      const { cust_id, user_id, desc } = e.target.dataset;
+
+      const usid = JSON.parse(localStorage.getItem('zsdf')).user_id;
+
+      //To display or hide account statement button
+      const invoice_exist = allinvoices.some((v) => v.cust_id === cust_id);
+      displayCustomerProfile(customers, user_id, usid, cust_id, invoice_exist);
+
+      let prof = [];
+      let invs = [];
+      let rec = [];
+
+      if (desc === 'customer') {
+        prof = allproforma.filter((v) => v.cust_id === cust_id);
+        invs = allinvoices.filter((v) => v.cust_id === cust_id);
+        rec = receipts.filter((v) => v.cust_id === cust_id);
+      } else if (desc === 'referrer') {
+        const filtered = customer
+          .filter((v) => cust_id === v.ref_id)
+          .map((v) => v.cust_id);
+        prof = allproforma.filter((v) => filtered.includes(v.cust_id));
+        invs = allinvoices.filter((v) => filtered.includes(v.cust_id));
+        rec = receipts.filter((v) => filtered.includes(v.cust_id));
+      }
+
+      TabsSections();
+      getProformas(prof);
+      getSalesinvoice(invs);
+      getReceipts(rec);
     }
 
     if (e.target.matches('.displaycustdetails')) {
@@ -111,7 +168,7 @@ const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
         prof = allproforma.filter((v) => v.cust_id === cust_id);
         invs = allinvoices.filter((v) => v.cust_id === cust_id);
         rec = receipts.filter((v) => v.cust_id === cust_id);
-      } else if (desc === 'referrer') {   
+      } else if (desc === 'referrer') {
         const filtered = customer
           .filter((v) => cust_id === v.ref_id)
           .map((v) => v.cust_id);
@@ -119,9 +176,6 @@ const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
         invs = allinvoices.filter((v) => filtered.includes(v.cust_id));
         rec = receipts.filter((v) => filtered.includes(v.cust_id));
       }
-
- 
-
 
       TabsSections();
       getProformas(prof);
@@ -149,7 +203,7 @@ const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
     }
 
     if (e.target.matches('.delt-cust')) {
-      e.stopImmediatePropagation()
+      e.stopImmediatePropagation();
       if (confirm('Are you sure you want to delete ')) {
         const { cust_id, fullname } = e.target.dataset;
 
@@ -220,13 +274,23 @@ const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
     if (e.target.matches('.customersearch-class')) {
       const { value } = e.target;
       if (value.length > 0) {
-        const res = customers.filter((v) =>
-          Object.values(v).join(' ').toLowerCase().includes(value.toLowerCase())
+        const res = customers
+          .filter((v) =>
+            Object.values(v)
+              .join(' ')
+              .toLowerCase()
+              .includes(value.toLowerCase())
+          )
+          .slice(0, 10);
+        classSelector('allcustomers-list').innerHTML = listOfallcustomers(
+          res,
+          'customer'
         );
-        classSelector('allcustomers-list').innerHTML = listOfallcustomers(res,'customer');
       } else {
-        classSelector('allcustomers-list').innerHTML =
-          listOfallcustomers(customers,'customer');
+        classSelector('allcustomers-list').innerHTML = listOfallcustomers(
+          customers,
+          'customer'
+        );
       }
     }
   });
@@ -234,18 +298,10 @@ const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
   return `
   ${Buttons([
     {
-      btnclass: 'viewcustomers hide-on-mobile',
+      btnclass: 'viewcustomers',
       btnname: 'CUSTOMERS ACCOUNTS',
     },
   ])}
-
-  ${Buttons([
-    {
-      btnclass: 'viewcustomers-mobile hide-on-desktop',
-      btnname: 'CUSTOMERS ACCOUNTS',
-    },
-  ])}
-
   `;
 };
 

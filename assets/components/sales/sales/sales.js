@@ -15,15 +15,12 @@ import { ymd } from '../../utils/DateFormats.js';
 import durationConverter from '../../utils/durationConverter.js';
 import getPrevilleges from '../utils/getPrevilleges.js';
 import posTableclasses from '../../utils/posTableclasses.js';
+import dataListMobile from '../../utils/dataListMobile.js';
 
 const sales = (customersdata, receipts, proforma, invoice) => {
   const industry = getIndustry();
   const taxx = JSON.parse(localStorage.getItem('sales'));
   const sett = JSON.parse(localStorage.getItem('sinpt'));
-
-  // if (taxx) {
-  //   taxChecker();
-  // }
 
   const tx = JSON.parse(localStorage.getItem('sales'));
 
@@ -212,7 +209,6 @@ const sales = (customersdata, receipts, proforma, invoice) => {
       const txx = JSON.parse(localStorage.getItem('sales'));
 
       if (e.target.matches('.userlink')) {
-
         if (localStorage.getItem('sales')) {
           const { user_id } = e.target.dataset;
           const obj = JSON.parse(localStorage.getItem('sales'));
@@ -220,7 +216,6 @@ const sales = (customersdata, receipts, proforma, invoice) => {
           obj['user_id'] = user_id;
           localStorage.setItem('sales', JSON.stringify(obj));
         }
-
       }
 
       if (e.target.matches('.customerlink')) {
@@ -291,7 +286,6 @@ const sales = (customersdata, receipts, proforma, invoice) => {
 
   const { table_class, length_duration } = posTableclasses();
 
-
   if (taxx) {
     if (taxx?.trans_type === 'invoice') {
       setTimeout(() => {
@@ -327,11 +321,6 @@ const sales = (customersdata, receipts, proforma, invoice) => {
   }
 
   setTimeout(() => {
-
-
-
-
-
     const sales = JSON.parse(localStorage.getItem('sales'));
 
     if (sales?.addbank > 0) {
@@ -358,28 +347,30 @@ const sales = (customersdata, receipts, proforma, invoice) => {
 
         
         
-        <div class="itmsbtns">
+   <div class="hideondesktop mobile-products-wrapper">
 
-        <div class="hide-on-desktop">
-        <a href="javascript:void(0);" class="additems">Add items</a>
-        </div>
-        
-        <div class="">
-        <a href="javascript:void(0);" class="addrows ${showbtn}">Add empty rows</a>
-        </div>
+   ${dataListMobile()}
 
-        </div>
+   </div>
         
         ${Table(
           `
           <ul class="${table_class}" id="table-top-id">
-            <li>#</li>
+
+            <li class="hideonmobile">#</li>
+
             <li>Qty</li>
+
             <li>Description</li>
+            
             ${length_duration}
-            <li><span class="hide-on-mobile">Unit</span>Price</li>
+
+            <li><span class="hideonmobile">Unit</span>Price</li>
+
             <li>Total</li>
+
             <li></li>
+
             </ul>`,
           displayProductList(),
           'pos-sales-output'

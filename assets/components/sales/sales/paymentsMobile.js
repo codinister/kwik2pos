@@ -7,24 +7,28 @@ import format_number from '../../utils/format_number.js';
 import getIndustry from '../../utils/getIndustry.js';
 import othercharges from './othercharges.js';
 import updateTaxlocalstorage from '../utils/updateTaxlocalstorage.js';
+import termnalReceipt from '../utils/termnalReceipt.js';
+import getPrevilleges from '../utils/getPrevilleges.js';
+import paymentUtil from './paymentUtil.js';
 
 const paymentsMobile = (vv, privilege) => {
   const industry = getIndustry();
+  const termnal = termnalReceipt();
+  const tx = JSON.parse(localStorage.getItem('sales'));
+  const trans_type = tx?.trans_type;
 
   document.addEventListener('change', (e) => {
-
     if (e.target.matches('.pay_type')) {
       e.stopImmediatePropagation();
-      const {value} = e.target
-      updateTaxlocalstorage('pay_type', value)
+      const { value } = e.target;
+      updateTaxlocalstorage('pay_type', value);
     }
 
     if (e.target.matches('.invoice_date')) {
       e.stopImmediatePropagation();
-      const {value} = e.target
-      updateTaxlocalstorage('invoice_date', value)
+      const { value } = e.target;
+      updateTaxlocalstorage('invoice_date', value);
     }
-
   });
 
   let othercharge = '';
@@ -36,19 +40,32 @@ const paymentsMobile = (vv, privilege) => {
   let invoice_desc = '';
 
   if (industry !== 'roofing company') {
-    invoice_desc = `${textInput({
-      type: 'text',
-      classname: 'profile trans',
-      required: true,
-      name: 'profile',
-      label: 'Invoice Description',
-      value: setInputValue(vv?.profile || ''),
-    })}`;
+    if (!termnal) {
+      invoice_desc = `${textInput({
+        type: 'text',
+        classname: 'profile trans',
+        required: true,
+        name: 'profile',
+        label: 'Invoice Description',
+        value: setInputValue(vv?.profile || ''),
+      })}`;
+    }
+  }
+
+  let saveandclearbtns = '';
+  if (trans_type === 'invoice') {
+    if (user_id === usid && getPrevilleges('salesinvoice')) {
+      saveandclearbtns = saveInvoice();
+    }
+  } else {
+    saveandclearbtns = saveInvoice();
   }
 
   return `
   <div>
-${invoice_desc}
+
+
+
     ${textInput({
       type: 'text',
       classname: 'sub_total',
@@ -57,6 +74,7 @@ ${invoice_desc}
       disabled: 'disabled',
       value: setInputValue(format_number(vv?.sub_total || '')),
     })}
+
     ${textInput({
       type: 'number',
       classname: 'discount trans',
@@ -64,7 +82,7 @@ ${invoice_desc}
       label: 'Discount',
       name: 'discount',
       disabled: '',
-      value: setInputValue(format_number(vv?.discount || '')),
+      value: setInputValue(Number(vv?.discount || '')),
     })}
 
     <div class="taxbox">
@@ -72,58 +90,33 @@ ${invoice_desc}
     ${checkWithholdingtax()}
     </div>
 
-    ${textInput({
-      type: 'text',
-      classname: 'total',
-      required: true,
-      label: 'Total',
-      disabled: 'disabled',
-      value: setInputValue(format_number(vv?.total || '')),
-    })}
+        ${textInput({
+          type: 'text',
+          classname: 'total',
+          required: true,
+          label: 'Total',
+          disabled: 'disabled',
+          value: setInputValue(format_number(vv?.total || '')),
+        })}
 
 
     ${othercharge}
 
-
+    ${invoice_desc}
   <div>
 
-  <div class="${privilege}">
 
-      ${textInput({
-        type: 'number',
-        classname: 'payment  trans',
-        required: true,
-        name: 'payment',
-        label: 'Make Payment',
-        value: '',
-      })}
+  <div class="receipt-fields-container ${privilege}">
 
-      <div class="select-inpt">
-      <label>Payment Type</label>
-      <br>
-        <select class="pay_type">
-        <option>Cash</option>
-        <option>Cheque</option>
-        <option>Bank Transfer</option>
-        <option>Mobile Money</option>
-        </select>
-      </div>
 
-      ${textInput({
-        type: 'text',
-        classname: 'balance',
-        required: true,
-        label: 'Balance',
-        disabled: 'disabled',
-        value: setInputValue(format_number(vv?.balance || '')),
-      })}
+  ${paymentUtil()}
 
-    </div>
+
+  </div>
 
     <div class="save-invoice-btn dbtns">
-      ${saveInvoice()}
-
-    <a href="#table-top-id" class=" clearal">Clear all items</a>
+        ${saveandclearbtns}
+      <a href="#table-top-id" class="cancelinvoice">Clear</span></a>
     </div>
 
   </div>

@@ -29,6 +29,7 @@ window.addEventListener('load', (e) => {
       console.log(err.message);
     }
   };
-
-  getLowStocksAlert();
 });
+
+
+

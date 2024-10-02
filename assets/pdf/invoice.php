@@ -42,7 +42,7 @@ if($txs){
     $subtotal = $txs['subtotal'];
     $discount = $txs['discount'];
     $nhil = $txs['nhil'];
-    $withholdingtax = $txs['withholdingtax'];
+    $withholdingtax = $txs['withholdingtax'] === '0' ? '' : $txs['withholdingtax'];
     $getfund = $txs['getfund'];
     $vat = $txs['vat'];
     $covid = $txs['covid'];

@@ -28,7 +28,7 @@
 			('8', 'Addrowsbutton','none'),
 			('9', 'Unitprice','none'),
 			('10', 'Invoicedesc','none'),
-			('11', 'Assignto','none'),
+			('11', 'Assignto','none')
 			");
 
 			echo 'Installation completed';

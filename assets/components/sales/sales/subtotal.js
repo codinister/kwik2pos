@@ -83,8 +83,8 @@ const subtotal = (vv) => {
  
 
       ${saveandclearbtns}
-      <a href="#table-top-id" class=" clearal hide-on-desktop">Clear</a>
-      <a href="#table-top-id" class="cancelinvoice hide-on-mobile">Clear</span></a>
+
+      <a href="#table-top-id" class="cancelinvoice">Clear</span></a>
     
     </div>
 

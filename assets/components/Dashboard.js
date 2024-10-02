@@ -11,6 +11,21 @@ import { textInput } from './utils/InputFields.js';
 import getIndustry from './utils/getIndustry.js';
 
 const Dashboard = () => {
+
+
+
+  document.addEventListener('click', e => {
+
+
+
+    if (e.target.matches('.accstatement')) {
+      const { cust_id } = e.target.dataset;
+
+      window.location = `assets/pdf/accstatement.php?t=${cust_id}`;
+    }
+
+  })
+
   productsprofile((products) => {
     customersprofile((customers) => {
       usersprofile((users) => {

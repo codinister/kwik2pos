@@ -1,12 +1,7 @@
 @media (min-width: 35em) {
-
-
-
-  .bulksms  {
+  .bulksms {
     padding-top: 5.6rem;
   }
-
-
 
   .bulksms > div {
     background-color: white;
@@ -70,7 +65,6 @@
 
   .smsdispflex {
     display: flex;
-
   }
 
   .smsdispflex li:nth-of-type(1) {
@@ -85,22 +79,32 @@
     flex-basis: 30rem !important;
     flex-grow: 1;
   }
-
-
 }
 
+
+
+
+
+
 @media (max-width: 35em) {
+  .bulksms {
+    padding-top: 5.6rem;
+  }
+
   .bulksms > div {
     background-color: white;
     padding-inline: 4em;
     padding-block: 3em;
+
     font-size: 1.2rem;
   }
+
 
   .bulksms > div > div textarea {
     padding: 0.8em;
     height: 13rem;
     margin-block: 1em;
+    width: 100%;
   }
 
   .addexistingcont {
@@ -127,22 +131,14 @@
     margin-top: 2em !important;
   }
 
-  .smsdispflex {
-    display: flex;
-  }
 
-  .mobiletb li:nth-of-type(2),
-  .smsdispflex li:nth-of-type(2) {
-    flex-basis: 2.5rem !important;
-    flex-grow: 1;
-  }
 
   .smscontacts ul li:nth-of-type(2) {
-    flex: 30rem 1 1;
+    flex: 20rem 1 1;
   }
 
   .smscontacts .div-table-inner {
-    height: 25rem;
+    height: 15rem;
   }
 
   .smscontacts a {
@@ -151,5 +147,22 @@
     border-radius: 3rem;
     font-size: 1.2rem;
     color: white;
+  }
+
+  .smsdispflex {
+    display: flex;
+  }
+
+  .smsdispflex li:nth-of-type(1) {
+    flex-basis: 2rem !important;
+    flex-grow: 1;
+  }
+  .smsdispflex li:nth-of-type(2) {
+    flex-basis: 10rem !important;
+    flex-grow: 1;
+  }
+  .smsdispflex li:nth-of-type(3) {
+    flex-basis: 10rem !important;
+    flex-grow: 1;
   }
 }

@@ -185,6 +185,8 @@ class user{
 			$placeholder = implode(',', $menu_placeholder);
 
 
+
+
 			DB::query("INSERT INTO user_menu(
 			    usermenu_id, 
 				menu_name,
