@@ -368,27 +368,22 @@ const sales = (customersdata, receipts, proforma, invoice) => {
    </div>
         
         ${Table(
-          `
-          <ul class="${table_class}" id="table-top-id">
-
-            <li class="hideonmobile">#</li>
-
-            <li>Qty</li>
-
-            <li>Description</li>
-            
+          table_class,
+          'table-top-id',
+          `<tr>
+            <td class="hideonmobile">#</td>
+            <td>Qty</td>
+            <td>Description</td>
             ${length_duration}
-
-            <li><span class="hideonmobile">Unit</span>Price</li>
-
-            <li>Total</li>
-
-            <li></li>
-
-            </ul>`,
-          displayProductList(),
+            <td><span class="hideonmobile">Unit</span>Price</td>
+            <td>Total</td>
+            <td></td>
+            </tr>
+            `,
+            displayProductList(),
           'pos-sales-output'
         )}
+
 
         <div class="${privilege} mobile-sinv">
         

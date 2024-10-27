@@ -1,29 +1,19 @@
 
-const Table = ( tablehead,tablebody,tableBodyClass) => (` 
+const Table = ( cls='', id='', tablehead,tablebody,tableBodyClass) => (` 
     <div class="div-table">
+
     <div class="div-table-inner">
-        <div class="div-table-head">
+
+        <table class="${cls}" id="${id}" cellspacing="0" cellpadding="0" >
+        <thead class="div-table-head">
             ${tablehead}
-              <!--<ul>
-                <li>Name</li>
-                <li>Phone</li>
-                <li>Residence</li>
-              </ul>-->
-        </div>
-        <div class="div-table-body ${tableBodyClass}">
+        </thead>
+        <tbody class="div-table-body  ${tableBodyClass}">
             ${tablebody}
-            <!--<ul>
-            <li>Name</li>
-            <li>Phone</li>
-            <li>Residence</li>
-            </ul>
-            <ul>
-            <li>Name</li>
-            <li>Phone</li>
-            <li>Residence</li>
-            </ul>-->
-        </div>
-        </div>
+        </tbody>
+        </table>
+    </div>
+
     </div>
 
 `)

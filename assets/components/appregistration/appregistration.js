@@ -53,8 +53,8 @@ document.addEventListener('click', (e) => {
             })
           );
 
-          history.replaceState(null, '', 'http://localhost/kwikpos');
-          window.location = 'http://localhost/kwikpos';
+          history.replaceState(null, '', 'https://www.kwik2pos.com');
+          window.location = 'https://www.kwik2pos.com';
         }
       });
   }

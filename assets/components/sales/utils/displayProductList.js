@@ -49,36 +49,36 @@ const displayProductList = () => {
           const highlight = duplicate_result > 1 ? 'highlight' : '';
 
           return `
-            <ul class="${table_class} ${highlight}">
-            <li class="hideonmobile">${numbering++}</li>
-            <li>
+            <tr class="${table_class} ${highlight}">
+            <td class="hideonmobile">${numbering++}</td>
+            <td>
             <input type="number" name="qty" data-key="${k}" 
             value="${v.qty}" class="qty sumitems" />
-            </li>
-            <li>
+            </td>
+            <td>
             <input type="text" name="prod_name" data-key="${k}" 
             value="${proddesc}" ${invoicedesc}   class="prod_name schprod" />
-            </li>
+            </td>
      
             ${product_size}
-            <li>
+            <td>
             <input class="sumitems prod_price" name="prod_price" type="number" data-key="${k}" 
             value="${v.prod_price}" ${enable_unit_price_field}  />
-            </li>
+            </td>
 
-            <li>
+            <td>
             <span class="total${k}">
             ${format_number(total_amnt)}
             </span>
-            </li>
+            </td>
 
             
-            <li>
+            <td>
             ${editInvoiceAcessControl(
               `<i class="fa fa-trash delete-item" data-s_id="${v.s_id}" data-trash="${k}"></i>`
             )}
-            </li>
-            </ul>
+            </td>
+            </tr>
           `;
         }
       })

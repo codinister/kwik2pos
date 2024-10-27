@@ -4,8 +4,9 @@ const customerlistFunc = (v,desc) => {
 
 
   return `
-  <div class="cust-list-box">
-  <div class="custfullnamebx">
+  <tr class="cust-list-box">
+
+  <td class="custfullnamebx">
     <a href="javascript:void(0);" 
     data-cust_id="${v.cust_id}" 
     data-fullname = "${v.fullname}"
@@ -22,10 +23,10 @@ const customerlistFunc = (v,desc) => {
   }">
     ${v.fullname}
     </a>
-  </div>
+  </td>
 
 
-  <div>
+  <td>
   <a href="javascript:void(0);">
   <i class="fa fa-pencil editcust"
     data-cust_id="${v.cust_id}" 
@@ -38,6 +39,9 @@ const customerlistFunc = (v,desc) => {
     data-debt = "${v.debt}"
   ></i>
   </a>
+  </td>
+
+  <td>
   <a href="javascript:void(0);">
   ${deleteAccessControl(
     `<i class="fa fa-trash delt-cust"  
@@ -46,10 +50,10 @@ const customerlistFunc = (v,desc) => {
     ></i>`
   )}
   </a>
-  </div>
+  </td>
 
 
-</div>`;
+</tr>`;
 };
 
 export default customerlistFunc;

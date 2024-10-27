@@ -191,15 +191,13 @@ const rentalsStock = (data) => {
   );
 
   classSelector('products-table-header').innerHTML = `
-      <ul class="products-table-top">
-      <li>      
-      <input type="checkbox" class="checkall" />&nbsp;&nbsp;
-      Name
-      </li>
-      <li>Qty</li>
-      <li>Size</li>
-      <li class="action">Actions</li>
-      </ul>
+      <tr class="products-table-top">
+      <td><input type="checkbox" class="checkall" /></td>
+      <td>Name</td>
+      <td>Qty</td>
+      <td>Size</td>
+      <td class="action">Actions</td>
+      </tr>
       `;
 
   classSelector('products-table-body-inner').innerHTML = productsList(

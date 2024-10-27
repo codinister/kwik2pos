@@ -10,7 +10,7 @@ if($uid){
 
 
 if($tax_id){
-    $us = DB::get_row('SELECT firstname,lastname,signature FROM users WHERE user_id = ?',array($user_id));
+    $us = DB::get_row('SELECT firstname,lastname,signature FROM users WHERE user_id = ?',array($usserid));
     $fullname = $us['firstname'].' '.$us['lastname'];
     $signatures = $us['signature'];
 }
@@ -119,6 +119,7 @@ array_walk(
  $array,
  function ($sub_array, $index) use (&$array, &$prod_name_indexes) {
 // Store the index of the first prod_name found.
+
 if (!isset($prod_name_indexes[$sub_array['prod_name']])) {
  $prod_name_indexes[$sub_array['prod_name']] = $index;
 }
@@ -128,7 +129,11 @@ else { // This prod_name already exists so we'll combine it.
  // Sum the az value.
  $array[$first_prod_name_index]['qty'] += $sub_array['qty'];
  $array[$first_prod_name_index]['prod_price'] += $sub_array['prod_price'];
- $array[$first_prod_name_index]['duration'] +=  $sub_array['duration'];
+
+ if(!empty($sub_array['duration'])){
+    $array[$first_prod_name_index]['duration'] +=  $sub_array['duration'];
+ }
+
  $array[$first_prod_name_index]['total'] += $sub_array['total'];
 
  // Remove this entry.
@@ -180,9 +185,7 @@ $invoice_no = inv_num($tax_id,$usserid);
 $header_top = '../images/header-top.png';
 $header_bottom = '../images/header-bottom.png';
 
-if(strToLower($comp_name) === 'classic roofing systems'){
-    $industry = 'classic roofing systems';
-}
+
 if(strToLower($comp_name) === 'emagweb solutions'){
     $industry = 'emagweb solutions';
 }
@@ -250,14 +253,6 @@ switch($industry){
         }
     break;
 
-    case 'classic roofing systems':
-        if($receipt_type === 'THERMNAL'){
-            include('thermnal/invoice.php');
-        }
-        else{
-            include('classicroofing/invoice.php');
-        }
-    break;
     
     
     case 'emagweb solutions':

@@ -11,20 +11,13 @@ import { textInput } from './utils/InputFields.js';
 import getIndustry from './utils/getIndustry.js';
 
 const Dashboard = () => {
-
-
-
-  document.addEventListener('click', e => {
-
-
-
+  document.addEventListener('click', (e) => {
     if (e.target.matches('.accstatement')) {
       const { cust_id } = e.target.dataset;
 
       window.location = `assets/pdf/accstatement.php?t=${cust_id}`;
     }
-
-  })
+  });
 
   productsprofile((products) => {
     customersprofile((customers) => {
@@ -179,16 +172,22 @@ const Dashboard = () => {
               )
               .map(
                 (v) => `
-                  <ul>
-                    <li>${v.fullname}</li>
-                    <li>${v.phone}</li>
-                    <li>${format_number(v.debt)}</li>
-                  </ul>
+                  <tr  class="arrears-table-row">
+                    <td>
+                    <a href="javascript:void(0);" class="accstatement" data-cust_id="${
+                    v.cust_id
+                    }">
+                    ${v.fullname}
+                    </a>
+                    </td>
+                    <td>${v.phone}</td>
+                    <td>${format_number(v.debt)}</td>
+                  </tr>
                   `
               )
               .join(' ');
 
-            document.querySelector('.arrears-table-row').innerHTML = res;
+            document.querySelector('.tr-bg').innerHTML = res;
           }
         });
 

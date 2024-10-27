@@ -56,22 +56,3 @@ export const Tabs = (tabMenu, tabContent) => {
         </div>
         `;
 };
-
-//USAGE
-// import { Tabs,tabContent,tabMenu } from '../utils/Tabs.js'
-
-// const tabContentObj = [
-//     {
-//         tab:  `
-//             <div id="tab1" class="active hide-tab">
-//             ${Table(tablehead,tablebody)}
-//             </div>
-//         `
-//     }
-// ]
-
-// const tabMenuObj = [
-//     {name: '', active: '',tabTarget: ''}
-// ]
-
-// Tabs(tabMenu(tabMenuObj),tabContent(tabContentObj))

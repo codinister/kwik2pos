@@ -7,9 +7,10 @@ const productsList = (obj) => {
     })
     .map(
       (v) => `
-        <ul class="products-table-body">
-        <li>  
-        <span>    
+
+        <tr class="products-table-body">
+
+        <td>  
         <input type="checkbox" 
         data-prod_id="${v.prod_id}" 
         data-prod_name="${v.prod_name}" 
@@ -18,18 +19,39 @@ const productsList = (obj) => {
         data-cat_name="${v.cat_name}"
         data-type="Stock List"
         class="checkmark" />
-        </span>
-        <span>
+        </td>
+
+
+        <td>
         <a href="javascript:void(0);" style="color: black;" class="showprod" data-prod_id="${v.prod_id}">${v.prod_name}</a>
-        </span>
-        </li>
-        <li>${v.prod_qty}</li>
-        <li>${v.prod_size}</li>
-        <li class="action">
-        <i class="fa fa-pencil edit-prod" data-prod_id="${v.prod_id}" title="Edit"></i>
-            <i class="fa fa-trash delete-prod" data-prod_id="${v.prod_id}" title="Delete"></i>
-        </li>
-        </ul>
+        </td>
+
+        <td>${v.prod_qty}</td>
+
+        <td>${v.prod_size}</td>
+
+        <td class="action">
+          <table>
+          <tbody>
+          <tr>
+
+          <td>
+          <i class="fa fa-pencil edit-prod" data-prod_id="${v.prod_id}" title="Edit"></i>
+          </td>
+          
+          <td>
+          <i class="fa fa-trash delete-prod" data-prod_id="${v.prod_id}" title="Delete"></i>
+          </td>
+
+        </tr>
+        </tbody>
+        </table>
+
+        </td>
+
+
+
+        </tr>
       `
     )
     .join(' ');

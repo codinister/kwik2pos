@@ -137,15 +137,18 @@ const available = (data) => {
   );
 
   classSelector('products-table-header').innerHTML = `
-      <ul class="products-table-top">
-      <li>      
-      <input type="checkbox" class="checkall" />&nbsp;&nbsp;
+      <tr class="available-table-top">
+      <td>      
+      <input type="checkbox" class="checkall" />
+      </td>
+
+      <td>
       Name
-      </li>
-      <li>Qty</li>
-      <li class="action">Exp. Date</li>
-      <li>Size</li>
-      </ul>
+      </td>
+      <td>Qty</td>
+     
+      <td>Size</td>
+      </tr>
       `;
 
   classSelector('products-table-body-inner').innerHTML = availableList(

@@ -7,9 +7,8 @@ const productsList = (obj) => {
     })
     .map(
       (v) => `
-        <ul class="products-table-body">
-        <li>  
-        <span>    
+        <tr class="products-table-body">
+        <td>  
         <input type="checkbox" 
         data-prod_id="${v.prod_id}" 
         data-prod_name="${v.prod_name}" 
@@ -23,21 +22,36 @@ const productsList = (obj) => {
 
         data-type="Stocks"
         class="checkmark" />
-        </span>
-        <span>
+        </td>
+
+        <td>
         <a href="javascript:void(0);" style="color: black;" class="showprod" data-prod_id="${v.prod_id}">${v.prod_name}</a>
-        </span>
-        </li>
+        </td>
 
 
-        <li>${v.remaining}</li>
-        <li>${v.prod_size}</li>
+        <td>${v.remaining}</td>
+        <td>${v.prod_size}</td>
 
-        <li class="action">
+        <td class="action">
+
+        <table>
+        <tbody>
+        <tr>
+
+        <td>
         <i class="fa fa-pencil edit-prod" data-prod_id="${v.prod_id}" title="Edit"></i>
-            <i class="fa fa-trash delete-prod" data-prod_id="${v.prod_id}" title="Delete"></i>
-        </li>
-        </ul>
+        </td>
+
+        <td>
+        <i class="fa fa-trash delete-prod" data-prod_id="${v.prod_id}" title="Delete"></i>
+        </td>
+
+        </tr>
+        </tbody>
+        </table>
+
+        </td>
+        </tr>
       `
     )
     .join(' ');

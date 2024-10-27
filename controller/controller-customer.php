@@ -213,7 +213,8 @@ class customer{
 			email = ?,
 			location = ?,
 			type = ?,
-			updatedAt = NOW()
+			updatedAt = NOW(), 
+			ref_type = ?
 			WHERE cust_id = ?
 		",array(
 			$fullname,
@@ -221,6 +222,7 @@ class customer{
 			$email,
 			$location,
 			$type,
+			$ref_type,
 			$cust_id
 		));
 		$activity="Updated customer ".$fullname."";

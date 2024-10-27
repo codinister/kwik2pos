@@ -9,9 +9,9 @@ const rentedList = (obj) => {
     })
     .map(
       (v) => `
-        <ul class="products-table-body">
-        <li>  
-        <span>    
+        <tr class="products-table-body">
+
+        <td>     
         <input type="checkbox" 
         data-prod_id="${v.prod_id}" 
         data-prod_name="${v.prod_name}" 
@@ -22,17 +22,18 @@ const rentedList = (obj) => {
         data-createdat="${v.createdAt}"
         data-type="Rented List"
         class="checkmark" />
-        </span>
-        <span>
+        </td>
+        
+        <td>
         <a href="javascript:void(0);" style="color: black;" class="rentedshowprod" title="Start date: ${formatDate(v.createdAt)} Rented by: ${v.fullname}" data-prod_id="${
           v.prod_id
         }">${v.prod_name}</a>
-        </span>
-        </li>
-        <li>${v.prod_qty}</li>
-        <li>${formatDate(v.exp_date)}</li>
-        <li>${v.prod_size}</li>
-        </ul>
+        </td>
+
+        <td>${v.prod_qty}</td>
+        <td>${formatDate(v.exp_date)}</td>
+        <td>${v.prod_size}</td>
+        </tr>
       `
     )
     .join(' ');

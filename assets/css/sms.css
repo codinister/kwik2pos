@@ -1,4 +1,16 @@
 @media (min-width: 35em) {
+  .sms-tbl td:nth-of-type(1) {
+    width: 5rem;
+  }
+
+  .sms-tbl td:nth-of-type(2) {
+    width: 60rem;
+  }
+
+  .sms-tbl td:nth-of-type(3) {
+    width: 15rem;
+  }
+
   .bulksms {
     padding-top: 5.6rem;
   }
@@ -41,14 +53,10 @@
   .sendsms {
     background-color: hsl(var(--success));
     color: white;
-    padding: 0.7em;
+padding: 1rem;
     text-align: center;
     border-radius: 3rem;
     margin-top: 2em !important;
-  }
-
-  .smscontacts ul li:nth-of-type(2) {
-    flex: 30rem 1 1;
   }
 
   .smscontacts .div-table-inner {
@@ -63,28 +71,7 @@
     color: white;
   }
 
-  .smsdispflex {
-    display: flex;
-  }
-
-  .smsdispflex li:nth-of-type(1) {
-    flex-basis: 2rem !important;
-    flex-grow: 1;
-  }
-  .smsdispflex li:nth-of-type(2) {
-    flex-basis: 30rem !important;
-    flex-grow: 1;
-  }
-  .smsdispflex li:nth-of-type(3) {
-    flex-basis: 30rem !important;
-    flex-grow: 1;
-  }
 }
-
-
-
-
-
 
 @media (max-width: 35em) {
   .bulksms {
@@ -98,7 +85,6 @@
 
     font-size: 1.2rem;
   }
-
 
   .bulksms > div > div textarea {
     padding: 0.8em;
@@ -131,8 +117,6 @@
     margin-top: 2em !important;
   }
 
-
-
   .smscontacts ul li:nth-of-type(2) {
     flex: 20rem 1 1;
   }
@@ -149,20 +133,7 @@
     color: white;
   }
 
-  .smsdispflex {
-    display: flex;
-  }
 
-  .smsdispflex li:nth-of-type(1) {
-    flex-basis: 2rem !important;
-    flex-grow: 1;
-  }
-  .smsdispflex li:nth-of-type(2) {
-    flex-basis: 10rem !important;
-    flex-grow: 1;
-  }
-  .smsdispflex li:nth-of-type(3) {
-    flex-basis: 10rem !important;
-    flex-grow: 1;
-  }
+
+
 }

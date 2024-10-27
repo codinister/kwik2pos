@@ -6,19 +6,15 @@ import productsList from './productsList.js';
 import { textInput } from '../../utils/InputFields.js';
 import Buttons from '../../utils/Buttons.js';
 import googlemap from '../../utils/googlemap.js';
-import categoriesComponent from './categoriesComponent.js';
+import categoriesComponent from '../utils/categoriesComponent.js';
 import defaultProductsLocalstorage from '../../data/clientside/localstorage/default/defaultProductsLocalstorage.js';
 import filterProductsByDates from './filterProductsByDates.js';
 
 const retailStock = (data) => {
   const retails = data?.retails.stocks;
 
-
-
-
-  const allproducts = data?.retails.prod
-  const allsales = data?.retails.sales
-
+  const allproducts = data?.retails.prod;
+  const allsales = data?.retails.sales;
 
   const categories = Object.values(
     retails
@@ -68,17 +64,17 @@ const retailStock = (data) => {
       <div class="show-prod-box">
 
         <div>
-          <ul>
-            <li>
+          <tr>
+            <td>
             <span>Product Size</span> <span>${prod_size}</span>
-            </li>
-            <li>
+            </td>
+            <td>
             <span>Unit Price (GHs)</span> <span>${selling_price}</span>
-            </li>
-            <li>
+            </td>
+            <td>
             <span>Product Qty</span> <span>${prod_qty}</span>
-            </li>
-          </ul>
+            </td>
+          </tr>
 
           <div>
             ${textInput({
@@ -188,15 +184,17 @@ const retailStock = (data) => {
   );
 
   classSelector('products-table-header').innerHTML = `
-      <ul class="products-table-top">
-      <li>      
-      <input type="checkbox" class="checkall" />&nbsp;&nbsp;
+      <tr class="products-table-top">
+      <td>      
+      <input type="checkbox" class="checkall" />
+      </td>
+      <td>
       Name
-      </li>
-      <li>Qty</li>
-      <li>Size</li>
-      <li class="action">Actions</li>
-      </ul>
+      </td>
+      <td>Qty</td>
+      <td>Size</td>
+      <td class="action">Actions</td>
+      </tr>
       `;
 
   classSelector('products-table-body-inner').innerHTML = productsList(

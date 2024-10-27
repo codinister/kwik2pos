@@ -12,103 +12,116 @@ import getSmsBalance from './sms/getSmsBalance.js';
 const Sms = () => {
   getSmsBalance();
 
-  document.addEventListener('keyup', (e) => {
-    if (e.target.matches('.smsmessage')) {
-      const len = e.target.value.length;
-      classSelector('totalcharentered').textContent = len;
-      const per = Math.floor(Number(len) / 160) + 1;
-      classSelector('perreceipient').textContent = per;
-    }
-  });
+  customersprofile((data) => {
 
-  document.addEventListener('click', (e) => {
-    if (e.target.matches('.sendsms')) {
-      const commasepcontacts = classSelector('commasepcontacts').value;
-      const smsmessage = classSelector('smsmessage').value;
+    const divcolmFunc = (v) => `
+    <tr class="smsdispflex">
+        <td>
+        <input type="checkbox" data-phone="${v.phone}" class="csms" />
+        </td>
+        <td>${v.fullname}</td>
+        <td>${v.phone}</td>
+    </tr>`;
 
-      if (!commasepcontacts) {
-        displayToast('bgdanger', 'Contacts field required!');
-        return;
+
+
+    const get_only_customers_withphone = data.filter((v) => {
+      if (v.phone) return v;
+    });
+
+    document.addEventListener('keyup', (e) => {
+      if (e.target.matches('.smsmessage')) {
+        const len = e.target.value.length;
+        classSelector('totalcharentered').textContent = len;
+        const per = Math.floor(Number(len) / 160) + 1;
+        classSelector('perreceipient').textContent = per;
       }
 
-      if (!smsmessage) {
-        displayToast('bgdanger', 'Message field required!');
-        return;
+      if (e.target.matches('.searchsmsclass')) {
+        const inpt = e.target.value;
+        const output = get_only_customers_withphone
+          .filter((v) =>
+            Object.values(v).join('').toLowerCase().includes(inpt.toLowerCase())
+          )
+          .slice(0, 20)
+          .map((v) => divcolmFunc(v))
+          .join('');
+
+        classSelector('tableBodyClass').innerHTML = output;
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (e.target.matches('.sendsms')) {
+        const commasepcontacts = classSelector('commasepcontacts').value;
+        const smsmessage = classSelector('smsmessage').value;
+
+        if (!commasepcontacts) {
+          displayToast('bgdanger', 'Contacts field required!');
+          return;
+        }
+
+        if (!smsmessage) {
+          displayToast('bgdanger', 'Message field required!');
+          return;
+        }
+
+        classSelector('sendsmswrapper').innerHTML = Spinner('sendsmsspin');
+
+        const fd = new FormData();
+        fd.append('contacts', commasepcontacts);
+        fd.append('message', smsmessage);
+
+        fetch('router.php?controller=widget&task=send_sms', {
+          method: 'Post',
+          body: fd,
+        })
+          .then((resp) => resp.text())
+          .then((data) => {
+            const obj = JSON.parse(data);
+
+            if (obj?.code === '1000') {
+              const res = smsStatusCodes(obj?.code);
+              displayToast('lightgreen', res);
+              getSmsBalance();
+              classSelector(
+                'sendsmswrapper'
+              ).innerHTML = `<a href="javascript:void(0)" class="sendsms">SEND MESSAGE <span class="sendsmsspin"></span></a>`;
+            } else if (obj?.code !== '1000') {
+              const res = smsStatusCodes(data?.code);
+              displayToast('bgdanger', res);
+              classSelector(
+                'sendsmswrapper'
+              ).innerHTML = `<a href="javascript:void(0)" class="sendsms">SEND MESSAGE <span class="sendsmsspin"></span></a>`;
+            }
+          });
       }
 
-      classSelector('sendsmswrapper').innerHTML = Spinner('sendsmsspin');
-
-      const fd = new FormData();
-      fd.append('contacts', commasepcontacts);
-      fd.append('message', smsmessage);
-
-      fetch('router.php?controller=widget&task=send_sms', {
-        method: 'Post',
-        body: fd,
-      })
-        .then((resp) => resp.text())
-        .then((data) => {
-          const obj = JSON.parse(data);
-
-          if (obj?.code === '1000') {
-            const res = smsStatusCodes(obj?.code);
-            displayToast('lightgreen', res);
-            getSmsBalance();
-            classSelector(
-              'sendsmswrapper'
-            ).innerHTML = `<a href="javascript:void(0)" class="sendsms">SEND MESSAGE <span class="sendsmsspin"></span></a>`;
-          } else if (obj?.code !== '1000') {
-            const res = smsStatusCodes(data?.code);
-            displayToast('bgdanger', res);
-            classSelector(
-              'sendsmswrapper'
-            ).innerHTML = `<a href="javascript:void(0)" class="sendsms">SEND MESSAGE <span class="sendsmsspin"></span></a>`;
-          }
-
-        });
-    }
-
-    if (e.target.matches('.smscheckall')) {
-      const selctall = Array.from(document.querySelectorAll('.csms'));
-      if (e.target.checked) {
-        selctall.forEach((v) => (v.checked = true));
-      } else {
-        selctall.forEach((v) => (v.checked = false));
+      if (e.target.matches('.smscheckall')) {
+        const selctall = Array.from(document.querySelectorAll('.csms'));
+        if (e.target.checked) {
+          selctall.forEach((v) => (v.checked = true));
+        } else {
+          selctall.forEach((v) => (v.checked = false));
+        }
       }
-    }
 
-    if (e.target.matches('.addsmsconts')) {
-      Spinner('addsmscontsspin');
-      const selctall = Array.from(
-        document.querySelectorAll('.csms'),
-        (v) => v.checked && v.dataset.phone.split(' ').join('')
-      )
-        .filter(Boolean)
-        .join(',');
+      if (e.target.matches('.addsmsconts')) {
+        Spinner('addsmscontsspin');
+        const selctall = Array.from(
+          document.querySelectorAll('.csms'),
+          (v) => v.checked && v.dataset.phone.split(' ').join('')
+        )
+          .filter(Boolean)
+          .join(',');
 
-      classSelector('commasepcontacts').value = selctall;
-      classSelector('noreload').classList.remove('show');
-      document.body.style.overflow = 'scroll';
-    }
+        classSelector('commasepcontacts').value = selctall;
+        classSelector('noreload').classList.remove('show');
+        document.body.style.overflow = 'scroll';
+      }
 
-    if (e.target.matches('.addexistingcont')) {
+      if (e.target.matches('.addexistingcont')) {
 
-
-
-      customersprofile((data) => {
-        
-        const divcolmFunc = (v) => `
-            <ul class="smsdispflex">
-                <li>
-                <input type="checkbox" data-phone="${v.phone}" class="csms" />
-                </li>
-                <li>${v.fullname}</li>
-                <li>${v.phone}</li>
-            </ul>`;
-
-        const get_only_customers_withphone = data.filter((v) => {
-          if (v.phone) return v;
-        });
 
         const customersdetails = get_only_customers_withphone
           .map((v) => {
@@ -117,22 +130,18 @@ const Sms = () => {
           .join('');
 
         classSelector('smscontacts').innerHTML = `
-          ${searchBox(
-            'searchsmsclass',
-            'Search Contacts',
-            get_only_customers_withphone,
-            divcolmFunc,
-            'tableBodyClass'
-          )}
+          ${searchBox('searchsmsclass', 'Search Contacts')}
 
           ${Table(
-            `<ul class="mobiletb smsdispflex">
-                <li>
-                <input type="checkbox" class="smscheckall" />
-                </li>
-                <li>Customers</li>
-                <li>Contacts</li>
-            </ul>`,
+            'sms-tbl',
+            'smstbl',
+            `<tr class="mobiletb smsdispflex">
+                <td>
+                &nbsp; &nbsp;<input type="checkbox" class="smscheckall" />
+                </td>
+                <td>Customers</td>
+                <td>Contacts</td>
+            </tr>`,
             `${customersdetails}`,
             'tableBodyClass'
           )}
@@ -141,18 +150,13 @@ const Sms = () => {
         classSelector('noreload').classList.add('show');
         document.body.style.overflow = `hidden`;
 
-      });
-
-
-
-
-      if (classSelector('addsmscontsspin')) {
-        classSelector('addsmscontsspin').innerHTML = '';
+        if (classSelector('addsmscontsspin')) {
+          classSelector('addsmscontsspin').innerHTML = '';
+        }
       }
-    }
-  });
+    });
 
-  const page = `
+    const page = `
       <div class="dash-container  bulksms">
       <div>
         <div>
@@ -178,7 +182,8 @@ const Sms = () => {
   ${Modalboxnoreload('', '<div class="smscontacts"></div>')}
   `;
 
-  document.querySelector('.root').innerHTML = Layout('sms', page);
+    document.querySelector('.root').innerHTML = Layout('sms', page);
+  });
 };
 
 export default Sms;

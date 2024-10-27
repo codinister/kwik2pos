@@ -113,7 +113,7 @@ foreach($products as $k => $v){
     $rows .='
     <tr>
     <td style="width: 266px;">
-    <a style="color: black; text-decoration: none;" href="http://localhost/kwikpos/product.html?p='.$v['prod_id'].'">'.$v['prod_name'].'</a>
+    <a style="color: black; text-decoration: none;" href="http://www.kwik2pos.com/product.html?p='.$v['prod_id'].'">'.$v['prod_name'].'</a>
     </td>
     <td style="width: 134px;">'.$v['selling_price'].'</td>
     <td style="width: 133px;">'.$v['cat_name'].'</td>
@@ -124,7 +124,7 @@ foreach($products as $k => $v){
 
 // <a href="https://app.kwik2pos.com/product.html?p='.$v['prod_id'].'">'.$v['prod_name'].'</a>
 
-// <a href="http://localhost/kwikpos/product.html?p='.$v['prod_id'].'">'.$v['prod_name'].'</a>
+// <a href="http://www.kwik2pos.com/product.html?p='.$v['prod_id'].'">'.$v['prod_name'].'</a>
 
 
 $row = '<table border="1">'.$rows.'</table>

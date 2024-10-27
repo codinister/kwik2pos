@@ -1,5 +1,4 @@
 <?php 
-
 $signature = getSignature($signatures,$fullname,$width="80",$height="30", $actions);
 $logo = getLogo($comp_logo,$width="100",$height="80", $actions);
 
@@ -15,19 +14,20 @@ else{
     $invoice_desc = 'SALES INVOICE';
 }
 
-$siteloc = '';
-if($site_location){
-    $siteloc = '<span style="font-size: 9px; font-weight: bold;">
-    &nbsp;&nbsp;SITE LOC:</span>
-    <span>'.$site_location.'</span>';
+
+//CHECK IF THERE ARE DURATIONS
+$durations = [];
+foreach($items as $k => $v){
+    array_push($durations, $v['duration']);
 }
+$duration_count = array_sum($durations);
+
 
 $invoice_header = '
     <table >
         <tr>
             <td style="width: 120px;">
             '.$logo.'
-
             <div>
             '.$invoice_desc.'
             </div>
@@ -99,17 +99,8 @@ $invoice_header = '
 
 $pdf->writeHTMLCell(190,50,'','',$invoice_header,0,1);
 
-
-//TABLE BODY 
-
-//CHECK IF THERE ARE DURATIONS
-$durations = '';
-foreach($data['products'] as $k => $v){
-    $durations .= $v['prod_size'];
-}
-
 //TABLE HEADER
-if($durations > 0){ 
+if($duration_count > 0){ 
     $table_header = '
     <table>
     <tr>
@@ -161,8 +152,6 @@ else{
     ';
 
 }
-
-
 $pdf->writeHTMLCell(190,5,'','',$table_header,'',1);
 
 
@@ -171,21 +160,23 @@ $rows = '';
 foreach($items as $k => $v){
     $num = $k + 1;
 
-    if($durations > 0){
+    if($v['qty'] > 0){
+    if($duration_count > 0){
+
+    $dur =  $v['duration'] ?  $v['duration'].' '.$duration.'(s)' : '';
    
     $rows .='
         <tr>
         <td style="width: 30px; border-right: solid 1px black; border-top: solid 1px black;">'.$num.'</td>
         <td style="width: 50px; border-right: solid 1px black;  border-top: solid 1px black;">'.$v['qty'].'</td>
         <td style="width: 190px; border-right: solid 1px black;  border-top: solid 1px black;">'.$v['prod_name'].'</td>
-        <td style="width: 110px; border-right: solid 1px black;  border-top: solid 1px black;">'.$v['prod_size'].'</td>
+        <td style="width: 110px; border-right: solid 1px black;  border-top: solid 1px black;">'.$dur.'</td>
         <td style="width: 60px; border-right: solid 1px black;  border-top: solid 1px black;">'.$v['prod_price'].'</td>
         <td style="width: 90px; border-right: solid 1px black;  border-top: solid 1px black;">'.number_format($v['total'], 2, '.', ',').'</td>
         </tr>
     ';
     }
     else{
-
         $rows .='
         <tr>
         <td style="width: 30px; border-right: solid 1px black; border-top: solid 1px black;">'.$num.'</td>
@@ -196,6 +187,7 @@ foreach($items as $k => $v){
         </tr>
     ';
     }
+}
 }
 
 $row = '
@@ -225,6 +217,8 @@ $sub_total = '
 </tr>
 ';
 
+
+
 //DISCOUNT 
 $discounts = '';
 $disc = 100 * $discount;
@@ -232,11 +226,12 @@ $discnt = $disc / $subtotal;
 if($discount){ 
 $discounts = '
 <tr>   
-<td style="width: 160px;">Discount  ('.floor($discnt).'%)</td>
+<td style="width: 110px;">Discount  ('.floor($discnt).'%)</td>
 <td style="width: 100px;">'.number_format($discount, 2, '.', ',').'</td>
 </tr>
 ';
 }
+
 
 //WITHHOLDING TAX
 $withholdingtaxs = '';

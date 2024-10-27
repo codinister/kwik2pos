@@ -17,61 +17,40 @@ const displayEmptyrows = () => {
           obj[k].total = total_amnt;
 
           return `
-            <ul class="sales-table">
-
-            <li class="hideonmobile">${numbering++}</li>
-
-            <li>
+            <tr class="sales-table">
+            <td class="hideonmobile">${numbering++}</td>
+            <td>
             <input type="number" name="qty" data-key="${k}" value="${
             v.qty
           }" class="qty sumitems" />
-            </li>
-
-
-            <li>
+            </td>
+            <td>
             <input type="text" name="prod_name" data-key="${k}" value="${
             v.prod_name
           }" class="prod_name  schprod" />
-            </li>
-
-
-            <li>
+            </td>
+            <td>
             <input class="sumitems duration" name="duration" type="number" data-key="${k}" value="${
             v.duration
           }" />
-            </li>
-
-
-            <li>
+            </td>
+            <td>
             <input class="sumitems prod_price" name="prod_price" type="number" data-key="${k}" value="${
             v.prod_price
           }" />
-            
-            </li>
-
-
-            <li>
+            </td>
+            <td>
             <span class="total${k}">
             ${format_number(total_amnt)}
             </span>
-            </li>
-
-
-
-            <li>
+            </td>
+            <td>
             <span>
             ${editInvoiceAcessControl(
               `<i class="fa fa-trash delete-item" data-s_id="${v.s_id}" data-trash="${k}"></i>`
             )}
             </span>
-            </li>
-
-
-
-
-
-
-
+            </td>
             </ul>
           `;
         }

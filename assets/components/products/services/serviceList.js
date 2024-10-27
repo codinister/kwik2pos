@@ -7,9 +7,9 @@ const serviceList = (obj) => {
     })
     .map(
       (v) => `
-        <ul class="service-table-body">
-        <li>  
-        <span>    
+        <tr class="service-table-body">
+
+        <td>   
         <input type="checkbox" 
         data-prod_id="${v.prod_id}" 
         data-prod_name="${v.prod_name}" 
@@ -17,17 +17,33 @@ const serviceList = (obj) => {
         data-selling_price="${v.selling_price}"
         data-type="Services"
         class="checkmark" />
-        </span>
-        <span>
+        </td>
+
+
+        <td>
         <a href="javascript:void(0);" style="color: black;" class="showservice" data-prod_id="${v.prod_id}">${v.prod_name}</a>
-        </span>
-        </li>
-        <li>${v.selling_price}</li>
-        <li class="action">
+        </td>
+
+        <td>${v.selling_price}</td>
+        <td class="action">
+
+        <table>
+        <tbody>
+        <tr>
+
+        <td>
         <i class="fa fa-pencil edit-prod" data-prod_id="${v.prod_id}" title="Edit"></i>
-            <i class="fa fa-trash delete-prod" data-prod_id="${v.prod_id}" title="Delete"></i>
-        </li>
-        </ul>
+        </td>
+
+        <td>
+        <i class="fa fa-trash delete-prod" data-prod_id="${v.prod_id}" title="Delete"></i>
+        </td>
+
+       </tr>
+        </tbody>
+        </table>
+        </td>
+        </tr>
       `
     )
     .join(' ');

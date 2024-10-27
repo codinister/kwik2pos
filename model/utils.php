@@ -450,14 +450,16 @@ date_default_timezone_set('Africa/Accra');
 	==============================*/ 
 
 	function getSignature($signatures,$fullname,$width="80",$height="30", $actions=''){
-		if($actions === 'main'){
-			$signature = $signatures ? '<img src="../uploads/'.$signatures.'" width="'.$width.'" height="'.$height.'" alt="" />' : $fullname;
-		}
-		else{
-			$signature = $signatures ? '<img src="../assets/uploads/'.$signatures.'" width="'.$width.'" height="'.$height.'" alt="" />' : $fullname;
-		}
+	
+		$signature = $signatures ? '<img src="../uploads/'.$signatures.'" width="'.$width.'" height="'.$height.'" alt="" />' : $fullname;
+
 		return $signature;
 	}
+
+
+
+
+
 
 	function getLogo($comp_logo,$width="100",$height="80", $actions=''){
 		if($actions === 'main'){
@@ -610,6 +612,7 @@ extract($tax);
 	return '';
 }
 	
+
 function sendReceiptSms($user_id,$cust_id,$pay_id,$tax_id){
 
 	//Get settings 
@@ -649,19 +652,17 @@ function sendReceiptSms($user_id,$cust_id,$pay_id,$tax_id){
 				SMS;
 			}
 
-
-
-	
-
-
-
-			
 			//Message to be sent 
-			if($sett['sms_cc'] AND $cust['phone']){
-				$to = $sett['sms_cc'].','.$cust['phone'];
-			}
-			elseif($sett['sms_cc']){
-				$to = $sett['sms_cc'];
+			if(!empty($pay_id)){
+				if($sett['sms_cc'] AND $cust['phone']){
+					$to = $sett['sms_cc'].','.$cust['phone'];
+				}
+				elseif($sett['sms_cc']){
+					$to = $sett['sms_cc'];
+				}
+				elseif($cust['phone']){
+					$to = $cust['phone'];
+				}
 			}
 			elseif($cust['phone']){
 				$to = $cust['phone'];

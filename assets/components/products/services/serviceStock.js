@@ -56,14 +56,14 @@ const serviceStock = (data) => {
       <div class="show-prod-box">
 
         <div>
-          <ul>
-            <li>
+          <tr>
+            <td>
             <span>Category</span> <span>${cat_name}</span>
-            </li>
-            <li>
+            </td>
+            <td>
             <span>Unit Price (GHs)</span> <span>${selling_price}</span>
-            </li>
-          </ul>
+            </td>
+          </tr>
 
           <div>
 
@@ -146,14 +146,16 @@ const serviceStock = (data) => {
   );
 
   classSelector('products-table-header').innerHTML = `
-      <ul class="service-table-top">
-      <li>      
-      <input type="checkbox" class="checkall" />&nbsp;&nbsp;
+      <tr class="service-table-top">
+      <td>      
+      <input type="checkbox" class="checkall" />
+      
+      <td>
       Service
-      </li>
-      <li>Price</li>
-      <li class="action">Actions</li>
-      </ul>
+      </td>
+      <td>Price</td>
+      <td class="action">Actions</td>
+      </tr>
       `;
 
   classSelector('products-table-body-inner').innerHTML = serviceList(

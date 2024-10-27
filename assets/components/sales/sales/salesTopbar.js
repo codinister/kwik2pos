@@ -96,14 +96,17 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
 
   const mobileCustomerIteratorFunc = (v) => {
     return `
+
     <div class="cust-list-box">
+
+
     <div class="custfullnamebx">
       <a href="javascript:void(0);" 
       data-cust_id="${v.cust_id}" 
       data-fullname = "${v.fullname}"
       data-phone = "${v.phone}"
       data-email = "${v.email}"
-          data-ref_type = "${v.ref_type}"
+      data-ref_type = "${v.ref_type}"
       data-location = "${v.location}"
       data-description = "${v.description}"
       data-type = "${v.type}"
@@ -115,7 +118,10 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
       ${v.fullname}
       </a>
     </div>
+
+
     <div>
+
     <a href="javascript:void(0);">
     <i class="fa fa-pencil editcust"
       data-cust_id="${v.cust_id}" 
@@ -128,6 +134,8 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
       data-debt = "${v.debt}"
     ></i>
     </a>
+
+
     <a href="javascript:void(0);">
     ${deleteAccessControl(
       `<i class="fa fa-trash delt-cust"  
@@ -136,15 +144,19 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
       ></i>`
     )}
     </a>
+    
     </div>
   
   
-  </div>`;
+  </div>
+  
+  
+  `;
   };
 
   const usersIteratorFunc = (v) => {
     return `
-      <li>
+      <td>
       <a href="javascript:void(0);" 
       class="userlink" 
       data-fullname="${v.fullname}"
@@ -152,7 +164,7 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
       >
       ${v.fullname}
       </a>
-      </li>
+      </td>
     `;
   };
 

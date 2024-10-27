@@ -12,7 +12,6 @@ const defaultSalesLocalstorage = () => {
 
     const newdate = new Date();
 
-
     const sales = {
       vat: 0,
       nhil: 0,

@@ -68,6 +68,10 @@ const getReceipts = async (allreceipts) => {
             localStorage.removeItem('editreceipts');
 
             classSelector(`addsavebtn${pay_id}`).innerHTML = `
+            <table class="actions-btn">
+            <tbody>
+            <tr>
+            <td>
             <a href="javascript:void(0);">
             ${deleteAccessControl(
               `<i class="fa fa-pencil editpay" 
@@ -76,11 +80,19 @@ const getReceipts = async (allreceipts) => {
             data-date="${receipt_date}"></i>`
             )}
             </a>
+            </td>
+
+            <td>
             <a href="javascript:void(0);">
             ${deleteAccessControl(
               `<i class="fa fa-trash deletepay" data-pay_id="${pay_id}"></i>`
             )}
             </a>
+            </td>
+
+            </tr>
+            </tbody>
+            </table>
             `;
             classSelector(`editreceiptdate${pay_id}`).innerHTML =
               dmy(receipt_date);
@@ -159,8 +171,8 @@ const getReceipts = async (allreceipts) => {
       .map((v) => {
         const profile = v.profile ? v.profile : inv_num(v.pay_id);
         return `
-      <ul class="receipt-table">   
-      <li>
+      <tr class="receipt-table">   
+      <td>
       <a href="javascript:void(0);" 
       data-cust_id = "${v.cust_id}" 
       data-tax_id = "${v.tax_id}" 
@@ -169,31 +181,38 @@ const getReceipts = async (allreceipts) => {
       class="viewthisreceipt prof${v.pay_id}">
       ${profile}
       </a>
-      </li>
+      </td>
 
 
-            <li>
+
+      <td>
+        <div 
+        data-pay_id="${v.pay_id}" 
+        class="edit-payment editamount${v.pay_id}">
+        ${v.payment}
+        </div>
+      </td>
+
+
+      <td>
         <div
         data-pay_id="${v.pay_id}" 
         class="edit-payment-date editreceiptdate${v.pay_id}"
         >
         ${formatDate(v.createdAt)}
         </div>
-      </li>
-
-
-      <li>
-        <div 
-        data-pay_id="${v.pay_id}" 
-        class="edit-payment editamount${v.pay_id}">
-        ${v.payment}
-        </div>
-      </li>
+      </td>
 
 
 
-      <li class="salesicons addsavebtn${v.pay_id}">
 
+
+
+      <td class="salesicons addsavebtn${v.pay_id}">
+      <table class="actions-btn">
+      <tbody>
+      <tr>
+      <td>
 
         <a href="javascript:void(0);">
             ${deleteAccessControl(
@@ -204,37 +223,40 @@ const getReceipts = async (allreceipts) => {
               `
             )}
         </a>
-        <a href="javascript:void(0);"     class="whatsapp-small">
-            <img 
-              class="whatsapp-receipt"
-              data-pay_id = ${v.pay_id}
-              data-cust_name = ${v.fullname}
-              data-phone = ${v.phone}
-              src="assets/images/whatsapp.jpg" alt="whatsapp" 
-            />
-        </a>
+        </td>
+
+
+        <td>
         <a href="javascript:void(0);">
           ${deleteAccessControl(
             `<i class="fa fa-trash deletepay" data-pay_id="${v.pay_id}"></i>`
           )}
         </a>
+      </td>
+
+      </tr>
+      </tbody>
+
+      </table>
 
 
 
-      </li>
-      </ul>
+      </td>
+      </tr>
     `;
       })
       .join('');
 
     classSelector('receipts').innerHTML = `
       ${Table(
-        `<ul class="receipt-table">   
-        <li>Profile</li>
-        <li>Payment</li>
-        <li>Date</li>
-        <li>Action</li>
-        </ul>`,
+        'receipt-inv-tabe',
+        'dd25',
+        `<tr class="receipt-table">   
+        <td>Profile</td>
+        <td>Payment</td>
+        <td>Date</td>
+        <td>Action</td>
+        </tr>`,
         `${tableBodyList}`,
         'receiptTableBodyClass'
       )}

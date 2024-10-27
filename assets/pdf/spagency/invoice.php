@@ -15,12 +15,6 @@ else{
     $invoice_desc = 'SALES INVOICE';
 }
 
-$siteloc = '';
-if($site_location){
-    $siteloc = '<span style="font-size: 9px; font-weight: bold;">
-    &nbsp;&nbsp;SITE LOC:</span>
-    <span>'.$site_location.'</span>';
-}
 
 
 
@@ -28,12 +22,9 @@ if($site_location){
 $durations = [];
 $expd = '';
 foreach($items as $k => $v){
-
     if($v['exp_date']){
         $expd = $v['exp_date'];
     }
-
-    
     array_push($durations, $v['duration']);
 }
 
@@ -195,10 +186,9 @@ else{
 
 $pdf->writeHTMLCell(190,5,'','',$table_header,'',1);
 
+$rows = '';
 foreach($items as $k => $v){
     $num = $k + 1;
-
-
 
     if($v['qty'] > 0){
     if($duration_count > 0){ 
@@ -266,7 +256,7 @@ $discnt = $disc / $subtotal;
 if($discount){ 
 $discounts = '
 <tr>   
-<td style="width: 160px;">Discount  ('.floor($discnt).'%)</td>
+<td style="width: 110px;">Discount  ('.floor($discnt).'%)</td>
 <td style="width: 100px;">'.number_format($discount, 2, '.', ',').'</td>
 </tr>
 ';

@@ -8,38 +8,56 @@ const noteTabs = (details) => {
   const getDetailsOfUserNote = data
     .map(
       (v) => `
-        <ul class="note-table-top">
-            <li>${v.title}</li>
-            <li class="view-note" data-note_id="${v.note_id}" data-user_id="${
-        v.user_id
-      }">
-            ${v.message.substring(0, 50)}......</li>
-            <li class="col-100 flex gap-2">
+        <tr class="note-table-top">
+
+            <td>${v.title}</td>
+
+            <td class="view-note" data-note_id="${v.note_id}" data-user_id="${
+              v.user_id
+            }">
+            ${v.message.substring(0, 50)}......
+            </td>
+
+
+
+            <td class="col-100 flex gap-2">
+              <table>
+              <tbody>
+              <tr>
+              <td>
                 <i class="fa fa-edit edit-note cursor" title="EDIT" data-user_id="${
                   v.user_id
                 }" data-note_id="${v.note_id}"></i>
+               </td>
+                <td>
                 <i class="fa fa-trash delete-note cursor" title="DELETE" data-note_id="${
                   v.note_id
                 }"></i>
-            </li>
-        </ul>
+                </td>
+                </tr>
+                </tbody>
+                </table>
+
+
+            </td>
+        </tr>
     `
     )
     .join('');
 
   const tablehead = `
-    <ul class="note-table-bottom">
-    <li>Date</li>
-    <li>Message</li>
-    <li>Action</li>
-    </ul>
+    <tr class="note-table-bottom">
+    <td>Subject</td>
+    <td>Message</td>
+    <td>Action</td>
+    </tr>
     `;
 
   const tablebody = getDetailsOfUserNote;
 
   classSelector('tabs-content').innerHTML = `
     <div id="tab1" class="active hide-tab">
-    ${Table(tablehead, tablebody)}
+    ${Table('note-tabs-tbl','4435',tablehead, tablebody)}
     </div>
     `;
   //END NOTE

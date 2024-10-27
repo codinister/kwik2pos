@@ -1,68 +1,60 @@
+.div-table {
+  background-color: white;
+  padding-bottom: 1.2rem;
+}
 
-  .div-table {
-    background-color: white;
-    padding-bottom: 1.2rem;
+.div-table-head {
+  background-color: #dedede;
+  margin-top: 0.4rem;
+}
+
+.div-table-head tr td {
+  text-transform: uppercase;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.div-table-body {
+  font-size: 1.2rem;
+}
+
+
+.div-table-body tr tr {
+margin: 0;
+}
+
+.div-table-body tr td {
+  border-bottom: solid #ccc 0.1rem;
+  text-transform: uppercase;
+  color: hsl(var(--black));
+  padding-inline: 1rem;
+}
+
+.div-table-body tr td input {
+  padding-block: 1rem;
+  border: 0;
+  width: 100%;
+}
+
+
+
+@media (min-width: 35em) {
+  .div-table-inner {
+    margin-top: 0;
+    margin-inline: 0.8rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 50rem;
+    position: relative;
   }
+}
 
-
-
-  .div-table-head {
-    background-color: #dedede;
-    margin-top: 0.4rem;
-    font-size: 1.2rem;
-    padding-block: 1rem;
-    padding-inline: .7rem;
- 
+@media (max-width: 35em) {
+  .div-table-inner {
+    margin-top: 0;
+    margin-inline: 0.8rem;
+    height: 25rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
-
-  .div-table-head ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.2rem;
-    color: hsl(var(--black));
-  }
-
-  .div-table-head ul li {
-    text-transform: uppercase;
-  }
-
-  .div-table-body {
-    margin-top: 0.4rem;
-    font-size: 1.2rem;
-  }
-
-  .div-table-body ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.2rem;
-    color: hsl(var(--black));
-    padding-inline: .8rem;
-    padding-block: 0.8rem;
-    border-bottom: solid var(--muted) 0.1rem;
-  }
-
-  .div-table-body ul li {
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-
-  @media(min-width: 35em){
-    .div-table-inner {
-      margin-top: 0;
-      margin-inline: 0.8rem;
-      overflow-y: scroll;
-      overflow-x: hidden;
-    }
-  }
-
-
-  @media(max-width: 35em){
-    .div-table-inner {
-      margin-top: 0;
-      margin-inline: 0.8rem;
-      height: 25rem;
-      overflow-y: scroll;
-      overflow-x: hidden;
-    }
-  }
+}

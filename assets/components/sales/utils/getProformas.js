@@ -91,44 +91,46 @@ const getProformas = async (proformadatas) => {
       const user = v.firstname + ' ' + v.lastname;
       const profile = v.profile ? v.profile :  inv_num(v.tax_id)
       return `
-        <ul class="invoice-table">   
-        <li>
+        <tr class="invoice-table">   
+        <td>
         <a href="javascript:void(0);" 
         data-tax_id = "${v.tax_id}" 
         class="viewthisproforma">
         ${profile}
         </a>
-        </li>
+        </td>
 
-        <li>${formatDate(v.createdAt)}</li>
+        <td>${formatDate(v.createdAt)}</td>
 
-        <li class="salesicons">
-        <a href="javascript:void(0);">
-        <i class="fa fa-pencil editthisproforma" 
-        data-cust_id = "${v.cust_id}" 
-        data-tax_id = "${v.tax_id}" 
-        data-user_id = "${v.user_id}" 
-        "></i>
-        </a>
+        <td class="salesicons">
+
+          <table class="actions-btn">
+          <tbody>
+          <tr>
+
+          <td>
+                  <a href="javascript:void(0);">
+                  <i class="fa fa-pencil editthisproforma" 
+                  data-cust_id = "${v.cust_id}" 
+                  data-tax_id = "${v.tax_id}" 
+                  data-user_id = "${v.user_id}" 
+                  "></i>
+                  </a>
+          </td>
 
 
-        <a href="javascript:void(0);"     class="whatsapp-small">
-            <img 
-              class="whatsapp-proforma"
-              data-tax_id = ${v.tax_id}
-              data-cust_name = ${v.fullname}
-              data-phone = ${v.phone}
-              src="assets/images/whatsapp.jpg" alt="whatsapp" 
-            />
-        </a>
 
+
+        <td>
         <a href="javascript:void(0);">
         ${deleteAccessControl(
           `<i class="fa fa-trash deleteproforma"   data-tax_id="${v.tax_id}"></i>`,
           v.user_id
         )}
         </a>
+        </td>
 
+        <td>
       <a href="javascript:void(0);" class="dup-btn"
       data-cust_id = "${v.cust_id}" 
       data-tax_id = "${v.tax_id}" 
@@ -136,8 +138,13 @@ const getProformas = async (proformadatas) => {
       >
         DUPLICATE
       </a>
-      </li>
-      </ul>
+      </td>
+
+      </tr>
+      </tbody>
+      </table>
+      </td>
+      </tr>
   `;
     };
 
@@ -163,11 +170,13 @@ const getProformas = async (proformadatas) => {
 
     classSelector('proformainvoice').innerHTML = `
   ${Table(
-    `<ul class="invoice-table ">   
-    <li>${invoicedesc}</li>
-    <li>Date</li>
-    <li>Action</li>
-    </ul>`,
+    'proforma-inv-table',
+    'dd4',
+    `<tr class="invoice-table ">   
+    <td>${invoicedesc}</td>
+    <td>Date</td>
+    <td>Action</td>
+    </tr>`,
     `${proformaLists}`,
     'proformaTableBodyClass'
   )}

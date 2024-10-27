@@ -105,8 +105,8 @@ const getSalesinvoice = async (allinvoicess) => {
       const user = v.firstname + ' ' + v.lastname;
       const profile = v.profile ? v.profile : inv_num(v.tax_id);
       return `
-        <ul class="sales-invoice-table">   
-        <li>
+        <tr class="sales-invoice-table">   
+        <td>
         <a href="javascript:void(0);" 
         data-cust_id = "${v.cust_id}" 
         data-tax_id = "${v.tax_id}" 
@@ -114,33 +114,44 @@ const getSalesinvoice = async (allinvoicess) => {
         class="viewthissalesinvoice">
         ${profile}
         </a>
-        </li>
+        </td>
 
-        <li>${formatDate(v.createdAt)}</li>
+        <td>${formatDate(v.createdAt)}</td>
 
-        <li class="salesicons">
+        <td class="salesicons">
         <div class="salesiconsinner ${hide_if_balance_is_zero}">
+
+         <table class="actions-btn">
+          <tbody>
+          <tr>
+
+          <td>
+
         ${editInvoice}
-        <a href="javascript:void(0);"     class="whatsapp-small">
-            <img 
-              class="whatsapp-invoice"
-              data-tax_id = ${v.tax_id}
-              data-cust_name = ${v.fullname}
-              data-phone = ${v.phone}
-              src="assets/images/whatsapp.jpg" alt="whatsapp" 
-            />
-        </a>
+        </td>
+
+        <td>
 
         <a href="javascript:void(0);">${deleteAccessControl(
           `<i class="fa fa-trash deleteSalesInvoice" data-tax_id="${v.tax_id}"></i>`,
           v.user_id
         )}
         </a>
+
+        </td>
+
+        </tr>
+        </tbody>
+        </table>
+
+
+
+
         </div>
-        </li>
+        </td>
 
 
-        </ul>
+        </tr>
   `;
     };
 
@@ -148,11 +159,13 @@ const getSalesinvoice = async (allinvoicess) => {
 
     classSelector('salesinvoice').innerHTML = `
     ${Table(
-      `<ul class="sales-invoice-table">   
-      <li>Profile</li>
-      <li>Date</li>
-      <li>Action</li>
-      </ul>`,
+      'sales-inv-table',
+      'dd2',
+      `<tr class="sales-invoice-table">   
+      <td>Profile</td>
+      <td>Date</td>
+      <td>Action</td>
+      </tr>`,
       `${tableBodyList}`,
       'invoiceTableBodyClass'
     )}

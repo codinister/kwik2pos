@@ -664,3 +664,392 @@ Stack trace:
 [12-Mar-2024 15:01:13 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwikexyg/public_html/assets/pdf/spagency/invoice.php on line 335
 [12-Mar-2024 15:02:16 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwikexyg/public_html/assets/pdf/spagency/invoice.php on line 200
 [12-Mar-2024 15:02:16 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwikexyg/public_html/assets/pdf/spagency/invoice.php on line 335
+[03-Oct-2024 09:47:53 Africa/Accra] PHP Warning:  Undefined variable $usserid in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 91
+[03-Oct-2024 09:47:53 Africa/Accra] PHP Warning:  Undefined variable $usserid in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 108
+[03-Oct-2024 09:47:53 Africa/Accra] PHP Warning:  Undefined variable $pay_type in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 137
+[03-Oct-2024 09:47:53 Africa/Accra] PHP Warning:  Undefined variable $usserid in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 143
+[03-Oct-2024 09:47:53 Africa/Accra] PHP Warning:  Undefined variable $receipt_type in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 147
+[03-Oct-2024 09:47:53 Africa/Accra] PHP Warning:  Undefined variable $tax_id in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 160
+[03-Oct-2024 09:47:53 Africa/Accra] PHP Warning:  Undefined variable $prepared_by in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 173
+[03-Oct-2024 09:47:53 Africa/Accra] PHP Warning:  Undefined variable $payment in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 190
+[03-Oct-2024 09:47:53 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 194
+[03-Oct-2024 09:47:53 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 198
+[03-Oct-2024 09:47:53 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 202
+[03-Oct-2024 09:47:53 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 206
+[03-Oct-2024 09:47:53 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 212
+[03-Oct-2024 09:47:53 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 221
+[03-Oct-2024 09:47:53 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 230
+[03-Oct-2024 09:47:53 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 239
+[03-Oct-2024 09:47:53 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 248
+[03-Oct-2024 09:47:53 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 258
+[03-Oct-2024 09:47:53 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 268
+[03-Oct-2024 09:47:53 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 277
+[03-Oct-2024 09:47:53 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 286
+[03-Oct-2024 09:47:56 Africa/Accra] PHP Warning:  Undefined variable $usserid in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 91
+[03-Oct-2024 09:47:56 Africa/Accra] PHP Warning:  Undefined variable $usserid in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 108
+[03-Oct-2024 09:47:56 Africa/Accra] PHP Warning:  Undefined variable $pay_type in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 137
+[03-Oct-2024 09:47:56 Africa/Accra] PHP Warning:  Undefined variable $usserid in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 143
+[03-Oct-2024 09:47:56 Africa/Accra] PHP Warning:  Undefined variable $receipt_type in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 147
+[03-Oct-2024 09:47:56 Africa/Accra] PHP Warning:  Undefined variable $tax_id in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 160
+[03-Oct-2024 09:47:56 Africa/Accra] PHP Warning:  Undefined variable $prepared_by in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 173
+[03-Oct-2024 09:47:56 Africa/Accra] PHP Warning:  Undefined variable $payment in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 190
+[03-Oct-2024 09:47:56 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 194
+[03-Oct-2024 09:47:56 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 198
+[03-Oct-2024 09:47:56 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 202
+[03-Oct-2024 09:47:56 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 206
+[03-Oct-2024 09:47:56 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 212
+[03-Oct-2024 09:47:56 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 221
+[03-Oct-2024 09:47:56 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 230
+[03-Oct-2024 09:47:56 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 239
+[03-Oct-2024 09:47:56 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 248
+[03-Oct-2024 09:47:56 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 258
+[03-Oct-2024 09:47:56 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 268
+[03-Oct-2024 09:47:56 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 277
+[03-Oct-2024 09:47:56 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 286
+[03-Oct-2024 09:47:57 Africa/Accra] PHP Warning:  Undefined variable $usserid in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 91
+[03-Oct-2024 09:47:57 Africa/Accra] PHP Warning:  Undefined variable $usserid in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 108
+[03-Oct-2024 09:47:57 Africa/Accra] PHP Warning:  Undefined variable $pay_type in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 137
+[03-Oct-2024 09:47:57 Africa/Accra] PHP Warning:  Undefined variable $usserid in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 143
+[03-Oct-2024 09:47:57 Africa/Accra] PHP Warning:  Undefined variable $receipt_type in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 147
+[03-Oct-2024 09:47:57 Africa/Accra] PHP Warning:  Undefined variable $tax_id in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 160
+[03-Oct-2024 09:47:57 Africa/Accra] PHP Warning:  Undefined variable $prepared_by in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 173
+[03-Oct-2024 09:47:57 Africa/Accra] PHP Warning:  Undefined variable $payment in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 190
+[03-Oct-2024 09:47:57 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 194
+[03-Oct-2024 09:47:57 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 198
+[03-Oct-2024 09:47:57 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 202
+[03-Oct-2024 09:47:57 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 206
+[03-Oct-2024 09:47:57 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 212
+[03-Oct-2024 09:47:57 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 221
+[03-Oct-2024 09:47:57 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 230
+[03-Oct-2024 09:47:57 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 239
+[03-Oct-2024 09:47:57 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 248
+[03-Oct-2024 09:47:57 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 258
+[03-Oct-2024 09:47:57 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 268
+[03-Oct-2024 09:47:57 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 277
+[03-Oct-2024 09:47:57 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 286
+[03-Oct-2024 09:48:01 Africa/Accra] PHP Warning:  Undefined variable $usserid in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 91
+[03-Oct-2024 09:48:01 Africa/Accra] PHP Warning:  Undefined variable $usserid in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 108
+[03-Oct-2024 09:48:01 Africa/Accra] PHP Warning:  Undefined variable $pay_type in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 137
+[03-Oct-2024 09:48:01 Africa/Accra] PHP Warning:  Undefined variable $usserid in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 143
+[03-Oct-2024 09:48:01 Africa/Accra] PHP Warning:  Undefined variable $receipt_type in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 147
+[03-Oct-2024 09:48:01 Africa/Accra] PHP Warning:  Undefined variable $tax_id in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 160
+[03-Oct-2024 09:48:01 Africa/Accra] PHP Warning:  Undefined variable $prepared_by in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 173
+[03-Oct-2024 09:48:01 Africa/Accra] PHP Warning:  Undefined variable $payment in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 190
+[03-Oct-2024 09:48:01 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 194
+[03-Oct-2024 09:48:01 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 198
+[03-Oct-2024 09:48:01 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 202
+[03-Oct-2024 09:48:01 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 206
+[03-Oct-2024 09:48:01 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 212
+[03-Oct-2024 09:48:01 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 221
+[03-Oct-2024 09:48:01 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 230
+[03-Oct-2024 09:48:01 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 239
+[03-Oct-2024 09:48:01 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 248
+[03-Oct-2024 09:48:01 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 258
+[03-Oct-2024 09:48:01 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 268
+[03-Oct-2024 09:48:01 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 277
+[03-Oct-2024 09:48:01 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 286
+[03-Oct-2024 13:08:22 Africa/Accra] PHP Warning:  Undefined variable $usserid in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 91
+[03-Oct-2024 13:08:22 Africa/Accra] PHP Warning:  Undefined variable $usserid in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 108
+[03-Oct-2024 13:08:22 Africa/Accra] PHP Warning:  Undefined variable $pay_type in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 137
+[03-Oct-2024 13:08:22 Africa/Accra] PHP Warning:  Undefined variable $usserid in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 143
+[03-Oct-2024 13:08:22 Africa/Accra] PHP Warning:  Undefined variable $receipt_type in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 147
+[03-Oct-2024 13:08:22 Africa/Accra] PHP Warning:  Undefined variable $tax_id in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 160
+[03-Oct-2024 13:08:22 Africa/Accra] PHP Warning:  Undefined variable $prepared_by in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 173
+[03-Oct-2024 13:08:22 Africa/Accra] PHP Warning:  Undefined variable $payment in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 190
+[03-Oct-2024 13:08:22 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 194
+[03-Oct-2024 13:08:22 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 198
+[03-Oct-2024 13:08:22 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 202
+[03-Oct-2024 13:08:22 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 206
+[03-Oct-2024 13:08:22 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 212
+[03-Oct-2024 13:08:22 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 221
+[03-Oct-2024 13:08:22 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 230
+[03-Oct-2024 13:08:22 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 239
+[03-Oct-2024 13:08:22 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 248
+[03-Oct-2024 13:08:22 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 258
+[03-Oct-2024 13:08:22 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 268
+[03-Oct-2024 13:08:22 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 277
+[03-Oct-2024 13:08:22 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/receipt.php on line 286
+[03-Oct-2024 13:14:36 Africa/Accra] PHP Warning:  Undefined array key "grand_total" in /home/kwiknaep/public_html/assets/pdf/accstatement.php on line 127
+[03-Oct-2024 13:14:36 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/accstatement.php on line 178
+[03-Oct-2024 13:14:36 Africa/Accra] PHP Warning:  Undefined variable $rows2 in /home/kwiknaep/public_html/assets/pdf/accstatement.php on line 279
+[04-Oct-2024 08:32:26 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[04-Oct-2024 08:32:26 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 08:32:26 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 08:32:26 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[04-Oct-2024 08:32:26 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 227
+[04-Oct-2024 08:32:26 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364
+[04-Oct-2024 10:20:21 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[04-Oct-2024 10:20:21 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 10:20:21 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 10:20:21 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[04-Oct-2024 10:20:21 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 227
+[04-Oct-2024 10:20:21 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364
+[04-Oct-2024 10:25:27 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[04-Oct-2024 10:25:27 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 10:25:27 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 10:25:27 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[04-Oct-2024 10:25:27 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 227
+[04-Oct-2024 10:25:27 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364
+[04-Oct-2024 10:25:46 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[04-Oct-2024 10:25:46 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 10:25:46 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 10:25:46 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[04-Oct-2024 10:25:46 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 227
+[04-Oct-2024 10:25:46 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364
+[04-Oct-2024 10:33:59 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[04-Oct-2024 10:33:59 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 10:33:59 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 10:33:59 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[04-Oct-2024 10:33:59 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 215
+[04-Oct-2024 10:33:59 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364
+[04-Oct-2024 10:34:08 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[04-Oct-2024 10:34:08 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 10:34:08 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 10:34:08 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[04-Oct-2024 10:34:08 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 215
+[04-Oct-2024 10:34:08 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364
+[04-Oct-2024 10:34:21 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[04-Oct-2024 10:34:21 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 10:34:21 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 10:34:21 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[04-Oct-2024 10:34:22 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 215
+[04-Oct-2024 10:34:22 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364
+[04-Oct-2024 10:34:28 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[04-Oct-2024 10:34:28 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 10:34:28 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 10:34:28 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[04-Oct-2024 10:34:28 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 215
+[04-Oct-2024 10:34:28 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364
+[04-Oct-2024 10:45:31 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[04-Oct-2024 10:45:31 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 10:45:31 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 10:45:31 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[04-Oct-2024 10:45:31 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 215
+[04-Oct-2024 10:45:31 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364
+[04-Oct-2024 10:46:09 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[04-Oct-2024 10:46:09 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 10:46:09 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 10:46:09 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[04-Oct-2024 10:46:09 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 215
+[04-Oct-2024 10:46:09 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364
+[04-Oct-2024 10:50:02 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[04-Oct-2024 10:50:02 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 10:50:02 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 10:50:02 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[04-Oct-2024 10:50:02 Africa/Accra] PHP Warning:  Undefined variable $usserid in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 23
+[04-Oct-2024 10:50:02 Africa/Accra] PHP Warning:  Undefined variable $usserid in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 44
+[04-Oct-2024 10:50:02 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 77
+[04-Oct-2024 10:50:02 Africa/Accra] PHP Warning:  Undefined variable $prepared_by in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 78
+[04-Oct-2024 10:50:02 Africa/Accra] PHP Warning:  Undefined variable $receipt_type in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 146
+[04-Oct-2024 10:50:02 Africa/Accra] PHP Warning:  Undefined variable $addbank in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 159
+[04-Oct-2024 10:50:02 Africa/Accra] PHP Warning:  Undefined variable $usserid in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 177
+[04-Oct-2024 10:50:02 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 183
+[04-Oct-2024 10:50:02 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 186
+[04-Oct-2024 10:50:02 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 189
+[04-Oct-2024 10:50:02 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 192
+[04-Oct-2024 10:50:02 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 198
+[04-Oct-2024 10:50:02 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 208
+[04-Oct-2024 10:50:02 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 217
+[04-Oct-2024 10:50:02 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 226
+[04-Oct-2024 10:50:02 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 235
+[04-Oct-2024 10:50:02 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 244
+[04-Oct-2024 10:50:02 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 253
+[04-Oct-2024 10:50:02 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 263
+[04-Oct-2024 10:50:02 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 272
+[04-Oct-2024 11:44:59 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[04-Oct-2024 11:44:59 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 11:44:59 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 11:44:59 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[04-Oct-2024 11:45:00 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 215
+[04-Oct-2024 11:45:00 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364
+[04-Oct-2024 14:19:57 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[04-Oct-2024 14:19:57 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 14:19:57 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 14:19:57 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[04-Oct-2024 14:19:57 Africa/Accra] PHP Warning:  Undefined variable $usserid in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 23
+[04-Oct-2024 14:19:57 Africa/Accra] PHP Warning:  Undefined variable $usserid in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 44
+[04-Oct-2024 14:19:57 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 77
+[04-Oct-2024 14:19:57 Africa/Accra] PHP Warning:  Undefined variable $prepared_by in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 78
+[04-Oct-2024 14:19:57 Africa/Accra] PHP Warning:  Undefined variable $receipt_type in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 146
+[04-Oct-2024 14:19:57 Africa/Accra] PHP Warning:  Undefined variable $addbank in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 159
+[04-Oct-2024 14:19:57 Africa/Accra] PHP Warning:  Undefined variable $usserid in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 177
+[04-Oct-2024 14:19:57 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 183
+[04-Oct-2024 14:19:57 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 186
+[04-Oct-2024 14:19:57 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 189
+[04-Oct-2024 14:19:57 Africa/Accra] PHP Warning:  Undefined variable $comp_name in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 192
+[04-Oct-2024 14:19:57 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 198
+[04-Oct-2024 14:19:57 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 208
+[04-Oct-2024 14:19:57 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 217
+[04-Oct-2024 14:19:57 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 226
+[04-Oct-2024 14:19:57 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 235
+[04-Oct-2024 14:19:57 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 244
+[04-Oct-2024 14:19:57 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 253
+[04-Oct-2024 14:19:57 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 263
+[04-Oct-2024 14:19:57 Africa/Accra] PHP Warning:  Undefined variable $industry in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 272
+[04-Oct-2024 16:53:52 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[04-Oct-2024 16:53:52 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 16:53:52 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 16:53:52 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[04-Oct-2024 16:53:52 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 215
+[04-Oct-2024 16:53:52 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364
+[04-Oct-2024 17:11:11 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[04-Oct-2024 17:11:11 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 17:11:11 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[04-Oct-2024 17:11:11 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[04-Oct-2024 17:11:11 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 215
+[04-Oct-2024 17:11:11 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364
+[06-Oct-2024 21:19:15 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[06-Oct-2024 21:19:15 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[06-Oct-2024 21:19:15 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[06-Oct-2024 21:19:15 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[06-Oct-2024 21:19:15 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 215
+[06-Oct-2024 21:19:15 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364
+[06-Oct-2024 21:21:50 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[06-Oct-2024 21:21:50 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[06-Oct-2024 21:21:50 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[06-Oct-2024 21:21:50 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[06-Oct-2024 21:21:50 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 215
+[06-Oct-2024 21:21:50 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364
+[06-Oct-2024 21:23:58 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[06-Oct-2024 21:23:58 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[06-Oct-2024 21:23:58 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[06-Oct-2024 21:23:58 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[06-Oct-2024 21:23:58 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 215
+[06-Oct-2024 21:23:58 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364
+[06-Oct-2024 21:34:08 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[06-Oct-2024 21:34:08 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[06-Oct-2024 21:34:08 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[06-Oct-2024 21:34:08 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[06-Oct-2024 21:34:08 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 215
+[06-Oct-2024 21:34:08 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364
+[07-Oct-2024 15:06:11 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[07-Oct-2024 15:06:11 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[07-Oct-2024 15:06:11 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[07-Oct-2024 15:06:11 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[07-Oct-2024 15:06:11 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 215
+[07-Oct-2024 15:06:11 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364
+[07-Oct-2024 15:06:20 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[07-Oct-2024 15:06:20 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[07-Oct-2024 15:06:20 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[07-Oct-2024 15:06:20 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[07-Oct-2024 15:06:20 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 215
+[07-Oct-2024 15:06:20 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364
+[08-Oct-2024 13:42:29 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[08-Oct-2024 13:42:29 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[08-Oct-2024 13:42:29 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[08-Oct-2024 13:42:29 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[08-Oct-2024 13:42:29 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 227
+[08-Oct-2024 13:42:29 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364
+[08-Oct-2024 13:50:34 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[08-Oct-2024 13:50:34 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[08-Oct-2024 13:50:34 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[08-Oct-2024 13:50:34 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[08-Oct-2024 13:50:34 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 227
+[08-Oct-2024 13:50:34 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364
+[10-Oct-2024 15:55:46 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[10-Oct-2024 15:55:46 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[10-Oct-2024 15:55:46 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[10-Oct-2024 15:55:46 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[10-Oct-2024 15:55:46 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 215
+[10-Oct-2024 15:55:46 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364
+[16-Oct-2024 09:48:58 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[16-Oct-2024 09:48:58 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[16-Oct-2024 09:48:58 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[16-Oct-2024 09:48:58 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[16-Oct-2024 09:48:58 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 227
+[16-Oct-2024 09:48:58 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364
+[16-Oct-2024 09:56:00 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[16-Oct-2024 09:56:00 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[16-Oct-2024 09:56:00 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[16-Oct-2024 09:56:00 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[16-Oct-2024 09:56:00 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 227
+[16-Oct-2024 09:56:00 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364
+[16-Oct-2024 09:59:45 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[16-Oct-2024 09:59:45 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[16-Oct-2024 09:59:45 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[16-Oct-2024 09:59:45 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[16-Oct-2024 09:59:45 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 227
+[16-Oct-2024 09:59:45 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364
+[16-Oct-2024 13:02:06 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[16-Oct-2024 13:02:06 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[16-Oct-2024 13:02:06 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[16-Oct-2024 13:02:06 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[16-Oct-2024 13:02:06 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 227
+[16-Oct-2024 13:02:06 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364
+[16-Oct-2024 19:37:09 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[16-Oct-2024 19:37:09 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[16-Oct-2024 19:37:09 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[16-Oct-2024 19:37:09 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[16-Oct-2024 19:37:09 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 227
+[16-Oct-2024 19:37:09 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364
+[16-Oct-2024 22:28:51 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[16-Oct-2024 22:28:51 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[16-Oct-2024 22:28:51 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[16-Oct-2024 22:28:51 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[16-Oct-2024 22:28:51 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 227
+[16-Oct-2024 22:28:51 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364
+[17-Oct-2024 14:07:58 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[17-Oct-2024 14:07:58 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[17-Oct-2024 14:07:58 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[17-Oct-2024 14:07:58 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[17-Oct-2024 14:07:58 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/roofing/invoice.php on line 221
+[17-Oct-2024 14:07:58 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/roofing/invoice.php on line 358
+[17-Oct-2024 14:10:19 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[17-Oct-2024 14:10:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[17-Oct-2024 14:10:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[17-Oct-2024 14:10:19 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[17-Oct-2024 14:10:19 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/roofing/invoice.php on line 221
+[17-Oct-2024 14:10:19 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/roofing/invoice.php on line 358
+[18-Oct-2024 19:38:21 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[18-Oct-2024 19:38:21 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[18-Oct-2024 19:38:21 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[18-Oct-2024 19:38:21 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[18-Oct-2024 19:38:22 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 227
+[18-Oct-2024 19:38:22 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364
+[19-Oct-2024 14:54:38 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[19-Oct-2024 14:54:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[19-Oct-2024 14:54:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[19-Oct-2024 14:54:38 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[19-Oct-2024 14:54:38 Africa/Accra] PHP Warning:  Undefined array key "prod_size" in /home/kwiknaep/public_html/assets/pdf/emagwebsolutions/invoice.php on line 86
+[19-Oct-2024 14:54:38 Africa/Accra] PHP Warning:  Undefined array key "prod_size" in /home/kwiknaep/public_html/assets/pdf/emagwebsolutions/invoice.php on line 86
+[19-Oct-2024 14:54:38 Africa/Accra] PHP Warning:  Undefined array key "prod_size" in /home/kwiknaep/public_html/assets/pdf/emagwebsolutions/invoice.php on line 86
+[19-Oct-2024 14:54:38 Africa/Accra] PHP Warning:  Undefined array key "prod_size" in /home/kwiknaep/public_html/assets/pdf/emagwebsolutions/invoice.php on line 86
+[19-Oct-2024 14:54:38 Africa/Accra] PHP Warning:  Undefined array key "prod_size" in /home/kwiknaep/public_html/assets/pdf/emagwebsolutions/invoice.php on line 86
+[19-Oct-2024 21:01:57 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[19-Oct-2024 21:01:57 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[19-Oct-2024 21:01:57 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[19-Oct-2024 21:01:57 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[19-Oct-2024 21:01:57 Africa/Accra] PHP Warning:  Undefined array key "prod_size" in /home/kwiknaep/public_html/assets/pdf/emagwebsolutions/invoice.php on line 86
+[19-Oct-2024 21:01:57 Africa/Accra] PHP Warning:  Undefined array key "prod_size" in /home/kwiknaep/public_html/assets/pdf/emagwebsolutions/invoice.php on line 86
+[19-Oct-2024 21:01:57 Africa/Accra] PHP Warning:  Undefined array key "prod_size" in /home/kwiknaep/public_html/assets/pdf/emagwebsolutions/invoice.php on line 86
+[19-Oct-2024 21:01:57 Africa/Accra] PHP Warning:  Undefined array key "prod_size" in /home/kwiknaep/public_html/assets/pdf/emagwebsolutions/invoice.php on line 86
+[19-Oct-2024 21:01:57 Africa/Accra] PHP Warning:  Undefined array key "prod_size" in /home/kwiknaep/public_html/assets/pdf/emagwebsolutions/invoice.php on line 86
+[19-Oct-2024 21:25:36 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[19-Oct-2024 21:25:36 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[19-Oct-2024 21:25:36 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[19-Oct-2024 21:25:36 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[19-Oct-2024 21:25:36 Africa/Accra] PHP Warning:  Undefined array key "prod_size" in /home/kwiknaep/public_html/assets/pdf/emagwebsolutions/invoice.php on line 86
+[19-Oct-2024 21:25:36 Africa/Accra] PHP Warning:  Undefined array key "prod_size" in /home/kwiknaep/public_html/assets/pdf/emagwebsolutions/invoice.php on line 86
+[19-Oct-2024 21:25:36 Africa/Accra] PHP Warning:  Undefined array key "prod_size" in /home/kwiknaep/public_html/assets/pdf/emagwebsolutions/invoice.php on line 86
+[19-Oct-2024 21:25:36 Africa/Accra] PHP Warning:  Undefined array key "prod_size" in /home/kwiknaep/public_html/assets/pdf/emagwebsolutions/invoice.php on line 86
+[19-Oct-2024 21:25:36 Africa/Accra] PHP Warning:  Undefined array key "prod_size" in /home/kwiknaep/public_html/assets/pdf/emagwebsolutions/invoice.php on line 86
+[19-Oct-2024 21:27:15 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[19-Oct-2024 21:27:15 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[19-Oct-2024 21:27:15 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[19-Oct-2024 21:27:15 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[19-Oct-2024 21:27:15 Africa/Accra] PHP Warning:  Undefined array key "prod_size" in /home/kwiknaep/public_html/assets/pdf/emagwebsolutions/invoice.php on line 86
+[19-Oct-2024 21:27:15 Africa/Accra] PHP Warning:  Undefined array key "prod_size" in /home/kwiknaep/public_html/assets/pdf/emagwebsolutions/invoice.php on line 86
+[19-Oct-2024 21:27:15 Africa/Accra] PHP Warning:  Undefined array key "prod_size" in /home/kwiknaep/public_html/assets/pdf/emagwebsolutions/invoice.php on line 86
+[19-Oct-2024 21:27:15 Africa/Accra] PHP Warning:  Undefined array key "prod_size" in /home/kwiknaep/public_html/assets/pdf/emagwebsolutions/invoice.php on line 86
+[19-Oct-2024 21:27:15 Africa/Accra] PHP Warning:  Undefined array key "prod_size" in /home/kwiknaep/public_html/assets/pdf/emagwebsolutions/invoice.php on line 86
+[19-Oct-2024 21:28:39 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[19-Oct-2024 21:28:39 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[19-Oct-2024 21:28:39 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[19-Oct-2024 21:28:39 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[19-Oct-2024 21:28:39 Africa/Accra] PHP Warning:  Undefined array key "prod_size" in /home/kwiknaep/public_html/assets/pdf/emagwebsolutions/invoice.php on line 86
+[19-Oct-2024 22:29:34 Africa/Accra] PHP Warning:  Undefined variable $user_id in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 13
+[19-Oct-2024 22:29:34 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[19-Oct-2024 22:29:34 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 14
+[19-Oct-2024 22:29:34 Africa/Accra] PHP Warning:  Trying to access array offset on value of type bool in /home/kwiknaep/public_html/assets/pdf/invoice.php on line 15
+[19-Oct-2024 22:29:34 Africa/Accra] PHP Warning:  Undefined variable $rows in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 215
+[19-Oct-2024 22:29:34 Africa/Accra] PHP Warning:  Undefined variable $cpvids in /home/kwiknaep/public_html/assets/pdf/spagency/invoice.php on line 364

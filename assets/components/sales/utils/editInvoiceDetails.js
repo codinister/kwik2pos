@@ -23,39 +23,39 @@ const editInvoiceDetails = (data, trans_type = '') => {
       products[k].total = total_amnt;
 
       return `
-          <ul class="sales-table">
-          <li>${numbering++}</li>
-          <li>
+          <tr class="sales-table">
+          <td>${numbering++}</td>
+          <td>
           <input type="text" name="qty" data-key="${k}" value="${
         v.qty
       }" class="qty sumitems" />
-          </li>
-          <li>
+          </td>
+          <td>
 
           <input type="text" name="prod_name" data-key="${k}" 
           value="${v.prod_name}" ${invoicedesc} class="prod_name schprod " />
           
-          </li>
-          <li>
+          </td>
+          <td>
           <input class="sumitems" name="prod_size" type="text" data-key="${k}" value="${
         v.prod_size
       }" class="prod_size" />
-          </li>
-          <li>
+          </td>
+          <td>
           <input class="sumitems" name="prod_price" type="text" data-key="${k}" 
           value="${v.prod_price}" ${unitprice} class="prod_price" />
-          </li>
-          <li>
+          </td>
+          <td>
           <span class="total${k}">
           ${format_number(total_amnt)}
           </span>
-          </li>
-          <li>
+          </td>
+          <td>
           ${editInvoiceAcessControl(
             `<i class="fa fa-trash delete-item" data-s_id="${v.s_id}"  data-trash="${k}"></i>`
           )}
-          </li>
-          </ul>
+          </td>
+          </tr>
         `;
     }
   };

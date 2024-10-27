@@ -58,8 +58,8 @@ const products = (product) => {
     }
 
     return `
-      <ul class="pos-prod-table">
-          <li>
+      <tr>
+          <td>
           <a 
           class="prodList"
           data-prod_id="${v.prod_id}"
@@ -70,11 +70,11 @@ const products = (product) => {
           href="javascript:void(0);">
           ${proddesc}
           </a>
-          </li>
-          <li class="hideonmobile">
+          </td>
+          <td class="hideonmobile">
             ${rows}
-          </li>
-      </ul>`;
+          </td>
+      </tr>`;
   };
 
   const mobileProductsFunc = (v) => {
@@ -387,14 +387,14 @@ const products = (product) => {
 
   let rows = '';
   if (industry === 'service provider') {
-    rows = '<li>Rows</li>';
+    rows = '<td>Rows</td>';
   }
   if (industry === 'rentals') {
-    rows = '<li>Available</li>';
+    rows = '<td>Available</td>';
   } else if (industry === 'retails') {
-    rows = '<li>Stock</li>';
+    rows = '<td>Stock</td>';
   } else if (industry === 'roofing company') {
-    rows = '<li>Rows</li>';
+    rows = '<td>Rows</td>';
   }
 
   return `
@@ -405,8 +405,12 @@ const products = (product) => {
         ${searchBox('searchposproducts', 'Search Products')}
         </div>
         ${Table(
-          `<ul class="pos-prod-table">
-          <li>Item</li>${rows}</ul>`,
+          'pos-prod-table-cls',
+          'fff',
+          `<tr class="pos-prod-table">
+          <td>Item</td>
+          ${rows}
+          </tr>`,
           `${body}`,
           'pos-product-output'
         )}

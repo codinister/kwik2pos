@@ -46,6 +46,7 @@ const Settings = () => {
       })
         .then((resp) => resp.text())
         .then((data) => {
+         
           if (data.indexOf('errors') != -1) {
             return displayToast('bgdanger', data);
           } else {

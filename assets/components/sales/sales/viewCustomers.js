@@ -1,6 +1,5 @@
 import Buttons from '../../utils/Buttons.js';
 import { classSelector } from '../../utils/Selectors.js';
-import Spinner from '../../utils/Spinner.js';
 import dataListDropdown from '../../utils/dataListDropdown.js';
 import displayToast from '../../utils/displayToast.js';
 import getIndustry from '../../utils/getIndustry.js';
@@ -82,11 +81,15 @@ const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
             </div>
 
 
-            <div class="allcustomers-list hideonmobile">
+            <div class=" hideonmobile allcustomers-list-height">
+            <table>
+            <tbody class="allcustomers-list">
             ${listOfallcustomers(
               customers.filter((v) => v.type === 'customer'),
               'customer'
             )}
+            </tbody>
+            </table>
             </div>
         </div>
         <div class="viewcust-content">
@@ -271,6 +274,7 @@ const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
   });
 
   document.addEventListener('input', (e) => {
+    
     if (e.target.matches('.customersearch-class')) {
       const { value } = e.target;
       if (value.length > 0) {

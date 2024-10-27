@@ -46,7 +46,6 @@ const roofingStock = (prod) => {
 
         classSelector('prod-form-body').innerHTML = `
       <div class="show-prod-box">
-
         <div>
           <ul>
             <li>
@@ -56,9 +55,7 @@ const roofingStock = (prod) => {
             <span>Unit Price (GHs)</span> <span>${selling_price}</span>
             </li>
           </ul>
-
           <div>
-
           </div>
         </div>
 
@@ -134,20 +131,28 @@ const roofingStock = (prod) => {
     'search-rental-products'
   );
 
+  
+  if(classSelector('products-table-header')){
   classSelector('products-table-header').innerHTML = `
-      <ul class="service-table-top">
-      <li>      
-      <input type="checkbox" class="checkall" />&nbsp;&nbsp;
-      Product
-      </li>
-      <li>Unit Price</li>
-      <li class="action">Actions</li>
-      </ul>
+      <tr class="service-table-top">
+      <td>      
+      <input type="checkbox" class="checkall" />
+      </td>
+      <td>Product</td>
+      <td>Unit Price</td>
+      <td class="action">Actions</td>
+      </tr>
       `;
+  }
 
+
+
+
+  if(classSelector('products-table-body-inner')){
   classSelector('products-table-body-inner').innerHTML = roofingList(
     Object.values(products)
   );
+}
 
   classSelector('add-product-wrapper').innerHTML = Buttons([
     {

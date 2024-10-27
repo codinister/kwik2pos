@@ -1,7 +1,5 @@
 @media (min-width: 35em) {
   .list-box {
-    display: flex;
-    flex-wrap: wrap;
     padding-block: 0.5em;
     font-size: 1.2rem;
   }
@@ -10,22 +8,20 @@
     color: #666;
   }
 
-  .list-box > div {
-    flex-grow: 1;
-    flex-shrink: 1;
+  .list-box > td:nth-of-type(1) {
+    width: 27rem;
   }
 
-  .list-box > div:nth-of-type(1) {
-    flex-basis: 85%;
+  .list-box > td:nth-of-type(2) {
+    width: 7rem;
   }
 
-  .list-box > div:nth-of-type(2) {
-    flex-basis: 3rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start !important;
-    align-items: center;
-    gap: 0.8rem;
+  .list-box > td:nth-of-type(2) .user-actions td:nth-of-type(1) {
+    width: 4rem;
+  }
+
+  .list-box > td:nth-of-type(2) .user-actions td:nth-of-type(2) {
+    width: 4rem;
   }
 
   .edit-record,
@@ -34,37 +30,37 @@
   }
 }
 
-
-
 @media (max-width: 35em) {
-  .list-box {
-    display: flex;
-    flex-wrap: wrap;
+
+
+  .user-list-box {
     padding-block: 0.5em;
     font-size: 1.2rem;
+    display: flex; 
   }
 
-  .list-box a {
+  .user-list-box a {
     color: #666;
   }
 
-  .list-box > div {
-    flex-grow: 1;
-    flex-shrink: 1;
+  .user-list-box > li:nth-of-type(1) {
+    flex-basis: 32rem;
   }
 
-  .list-box > div:nth-of-type(1) {
-    flex-basis: 85%;
-  }
-
-  .list-box > div:nth-of-type(2) {
-    flex-basis: 3rem;
+  .user-list-box > li:nth-of-type(2) {
+    flex-basis: 7rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start !important;
     align-items: center;
     gap: 0.8rem;
   }
+
+
+  .user-list-box > li:nth-of-type(2) > span {
+    flex: 2rem 1 1;
+  }
+
 
   .edit-record,
   .delete-record {

@@ -1,16 +1,20 @@
 import { classSelector } from '../../utils/Selectors.js';
 import productsList from '../rentals/productsList.js';
+import mobileCatHTMLlist from './mobileCatHTMLlist.js';
+
 import categoryHTMLList from './categoryHTMLList.js';
+
 import productSearchBox from './productSearchBox.js';
 
 const categoriesComponent = (categories, stocks) => {
   document.addEventListener('click', (e) => {
     if (e.target.matches('.categorylistinpt')) {
       if (categories) {
+
         const catarr = categories
-          .map((v) => categoryHTMLList(v, 'editrentalcat', 'deleterentalcat'))
+          .map((v) => mobileCatHTMLlist(v, 'editrentalcat', 'deleterentalcat'))
           .join('');
-        classSelector('categwrapper').innerHTML = catarr
+        classSelector('categwrapper').innerHTML = catarr;
       }
     }
 
@@ -24,17 +28,18 @@ const categoriesComponent = (categories, stocks) => {
   });
 
   document.addEventListener('keyup', (e) => {
+    
     if (e.target.matches('.categorylistinpt')) {
       const val = e.target.value;
-      if (users) {
-        const usersdata = users
+      if (categories) {
+        const catarr = categories
           .filter((v) =>
             Object.values(v).join('').toLowerCase().includes(val.toLowerCase())
           )
           .slice(0, 10)
-          .map((v) => usersIteratorFunc(v))
+          .map((v) => mobileCatHTMLlist(v, 'editrentalcat', 'deleterentalcat'))
           .join('');
-        classSelector('categwrapper').innerHTML = usersdata;
+        classSelector('categwrapper').innerHTML = catarr;
       }
     }
 

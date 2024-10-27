@@ -12,6 +12,11 @@ import userReducer from './data/clientside/reducers/userReducer.js';
 import Sidebar from './utils/Sidebar.js';
 import searchBox from './utils/searchBox.js';
 import divcolmFunc from './users/divcolmFunc.js';
+
+
+import divcolmFuncMobile from './users/divcolmFuncMobile.js';
+
+
 import usersprofile from './data/serverside/fetch/usersprofile.js';
 import onclickDisplayAsingleUser from './users/onclickDisplayAsingleUser.js';
 import setUsersLocalstorage from './data/clientside/localstorage/SET/setUsersLocalstorage.js';
@@ -41,7 +46,7 @@ const Users = () => {
                 .toLowerCase()
                 .includes(val.toLowerCase())
             )
-            .map((v) => divcolmFunc(v))
+            .map((v) => divcolmFuncMobile(v))
             .join('');
           classSelector('userwrapper').innerHTML = usersdata;
         }
@@ -50,7 +55,12 @@ const Users = () => {
       if (e.target.matches('.searchuser')) {
         const { value } = e.target;
 
-        classSelector('usersidebarclass').innerHTML = Object.values(users)
+        classSelector('usersidebarclass').innerHTML = `
+        
+<table cellspacing="0">
+<tbody>`+
+        
+        Object.values(users)
           .filter((v) =>
             Object.values(v)
               .join(' ')
@@ -60,7 +70,10 @@ const Users = () => {
           .map((v) => {
             return divcolmFunc(v);
           })
-          .join('');
+          .join('')+`
+          </tbody>
+          </table>
+          `
       }
     });
 
@@ -73,7 +86,7 @@ const Users = () => {
         if (users) {
           const usersdata = users
             .slice(0, 10)
-            .map((v) => divcolmFunc(v))
+            .map((v) => divcolmFuncMobile(v))
             .join('');
           classSelector('userwrapper').innerHTML = usersdata;
         }
@@ -333,12 +346,23 @@ const Users = () => {
               <div class="hideonmobile">
                 ${Sidebar(
                   searchBox('searchuser', 'Search Users'),
-                  listOfUsers,
+
+                  `
+                  <table cellspacing="0">
+                  <tbody>
+                  ${listOfUsers}
+                  </tbody>
+                  </table>
+                  `
+                  
+                  
+                  ,
                   'usersidebarclass'
                 )}
                 </div>
 
             <div class="hideondesktop userdropdown">
+            <br /><br />
                 ${dataListDropdown(
                   textInput,
                   'userwrapperinpt',

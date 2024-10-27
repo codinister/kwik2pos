@@ -195,7 +195,7 @@ const Products = () => {
       <div class="dash-container mb-2">
 
       <div class="dash-row gap-3">
-
+<br /> <br />
       <div class="hideondesktop mobile-cat-dropdown">
       
       ${dataListDropdown(
@@ -203,7 +203,7 @@ const Products = () => {
         'categorylistinpt',
         'Select category',
         '',
-        'hyy67f',
+        'hyy67f', 
         'categwrapper'
       )}
       
@@ -214,7 +214,13 @@ const Products = () => {
       
         <div class="scroll-wrapper">
         <div class="categories-searchbox"></div>
-        <div class="scroll-inner products-categories"></div>
+        <div class="scroll-inner">
+        
+        <table cellspacing="0">
+        <tbody class="products-categories"></tbody>
+        </table>
+        
+        </div>
         </div>
 
       </div>
@@ -253,11 +259,17 @@ const Products = () => {
 
         <div class="products-table-wrapper">
             <div class="products-table-inner">
-            <div class="products-table-header"></div>
-            <div class="products-table-body-inner"></div>
-        </div>
 
-      </div>
+            <table cellspacing="0">
+            <thead class="products-table-header"></thead>
+            </table>
+
+            <table cellspacing="0">
+            <tbody class="products-table-body-inner"></tbody>
+            </table>
+            
+            </div>
+        </div>
 
       </div>
       </div>

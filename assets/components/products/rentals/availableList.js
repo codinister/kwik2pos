@@ -9,9 +9,9 @@ const availableList = (obj) => {
     })
     .map(
       (v) => `
-        <ul class="products-table-body">
-        <li>  
-        <span>    
+        <tr class="available-table-body">
+
+        <td>  
         <input type="checkbox" 
         data-prod_id="${v.prod_id}" 
         data-prod_name="${v.prod_name}" 
@@ -20,17 +20,19 @@ const availableList = (obj) => {
         data-cat_name="${v.cat_name}"
         data-type="Available List"
         class="checkmark" />
-        </span>
-        <span>
-        <a href="javascript:void(0);" style="color: black;" class="rentedshowprod" data-prod_id="${
+        </td>
+
+
+        <td>
+        <a href="javascript:void(0);" style="color: black;" class="availablesshowprod" data-prod_id="${
           v.prod_id
         }">${v.prod_name}</a>
-        </span>
-        </li>
-        <li>${v.remaining}</li>
-        <li>${v.cat_name}</li>
-        <li>${v.prod_size}</li>
-        </ul>
+        </td>
+
+        <td>${v.remaining}</td>
+     
+        <td>${v.prod_size}</td>
+        </tr>
       `
     )
     .join(' ');

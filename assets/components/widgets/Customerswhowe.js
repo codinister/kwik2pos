@@ -2,34 +2,41 @@ import format_number from '../utils/format_number.js';
 
 const Customerswhowe = (data) => {
   return `
-  <div class="arrears-table-head">
-  <ul>
-  <li>Name</li>
-  <li>Phone</li>
-  <li>Amount</li>
-  <ul>  
-  </div>
-  <div class="arrears-table-row">
+
+  <table cellspacing="0">
+
+  <thead class="arrears-table-head">
+  <tr class="arrears-table-row">
+  <td>Name</td>
+  <td>Phone</td>
+  <td>Amount</td>
+  </tr>  
+  </thead>
+
+
+  <tbody class="tr-bg">
     ${data
     .map(
       (v) => `
    
-      <ul>
-        <li>
+      <tr class="arrears-table-row">
+        <td>
            <a href="javascript:void(0);" class="accstatement" data-cust_id="${v.cust_id}">
         ${v.fullname}
         </a>
         
-        </li>
-        <li>${v.phone}</li>
-        <li>${format_number(v.debt)}</li>
-      </ul>
+        </td>
+        <td>${v.phone}</td>
+        <td>${format_number(v.debt)}</td>
+      </tr>
     
       `
     )
     .join(' ')}
-  </div>
+  </tbody>
 
+
+  </table>
   `;
 };
 

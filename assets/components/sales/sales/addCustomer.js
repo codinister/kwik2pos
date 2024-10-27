@@ -9,6 +9,8 @@ import Spinner from '../../utils/Spinner.js';
 
 const addCustomer = (customersData) => {
   const referrerIteratorFunc = (v) => {
+    const rtype = v.ref_type.length > 0 ? v.ref_type : 'other';
+
     return `
       <li>
       <a href="javascript:void(0);" 
@@ -19,7 +21,7 @@ const addCustomer = (customersData) => {
       data-email="${v.email}"
       data-type="${v.type}"
       data-cust_id="${v.cust_id}"
-      data-ref_type="${v.ref_type}"
+      data-ref_type="${rtype}"
       data-ref="${v.ref}"
       >
       ${v.fullname}
@@ -30,6 +32,7 @@ const addCustomer = (customersData) => {
 
   document.addEventListener('input', (e) => {
     if (e.target.matches('.custinp')) {
+    
       const { name, value } = e.target;
 
       if (!localStorage.getItem('custinp'))
@@ -43,11 +46,20 @@ const addCustomer = (customersData) => {
             custname: '',
             rphone: '',
             ref_id: '',
-            ref_type: ''
+            ref_type: '',
           })
         );
       const getobj = JSON.parse(localStorage.getItem('custinp'));
       const newobj = { ...getobj, [name]: value };
+
+      if (name === 'custname') {
+        newobj['ref_id'] = '';
+        newobj['rphone'] = '';
+        newobj['ref_type'] = '';
+        classSelector('ref_type').value = '';
+        classSelector('rphone').value = '';
+      }
+
       localStorage.setItem('custinp', JSON.stringify(newobj));
     }
   });
@@ -62,7 +74,7 @@ const addCustomer = (customersData) => {
         .filter((v) =>
           Object.values(v).join('').toLowerCase().includes(val.toLowerCase())
         )
-        .slice(0,10)
+        .slice(0, 10)
         .map((v) => referrerIteratorFunc(v))
         .join('');
       classSelector('referrerwrapper').innerHTML = searchres;
@@ -79,14 +91,14 @@ const addCustomer = (customersData) => {
         .filter((v) =>
           Object.values(v).join('').toLowerCase().includes(val.toLowerCase())
         )
-        .slice(0,10)
+        .slice(0, 10)
         .map((v) => referrerIteratorFunc(v))
         .join('');
       classSelector('referrerwrapper').innerHTML = searchres;
     }
 
     if (e.target.matches('.refererlink')) {
-      const { phone, cust_id, ref_type, ref } = e.target.dataset;
+      const { cust_id, ref_type, ref } = e.target.dataset;
 
       if (!localStorage.getItem('custinp'))
         localStorage.setItem(
@@ -99,13 +111,13 @@ const addCustomer = (customersData) => {
             custname: '',
             rphone: '',
             ref_id: '',
-            ref_type: ''
+            ref_type: '',
+            ref: '',
           })
         );
       const getobj = JSON.parse(localStorage.getItem('custinp'));
       const newobj = {
         ...getobj,
-        rphone: phone,
         ref_id: cust_id,
         ref_type,
         ref,
@@ -114,7 +126,6 @@ const addCustomer = (customersData) => {
       const obj = JSON.parse(localStorage.getItem('custinp'));
 
       classSelector('ref_type').value = obj?.ref_type;
-      classSelector('rphone').value = obj?.rphone;
     }
 
     if (e.target.matches('.referrercheckbox')) {
@@ -129,8 +140,7 @@ const addCustomer = (customersData) => {
       e.stopImmediatePropagation();
       salesLocalstorage();
 
-
-      if(!localStorage.getItem('custinp')){
+      if (!localStorage.getItem('custinp')) {
         return displayToast('bgdanger', 'Valid fullname field required!');
       }
 
@@ -162,7 +172,6 @@ const addCustomer = (customersData) => {
       })
         .then((resp) => resp.text())
         .then((data) => {
-
           if (data.indexOf('errors') != -1) {
             displayToast('bgdanger', data);
             classSelector('savecustomerspin').innerHTML = '';
@@ -225,7 +234,7 @@ const addCustomer = (customersData) => {
       const obj = JSON.parse(localStorage.getItem('custinp'));
 
       setTimeout(() => {
-        classSelector('ref_type').value = obj?.type;
+        classSelector('ref_type').value = obj?.ref_type;
       }, 1000);
 
       classSelector('addcustomerwrapper').innerHTML = `

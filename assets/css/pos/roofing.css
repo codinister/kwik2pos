@@ -1,64 +1,55 @@
+@media (min-width: 35em) {
+  .roofing-table td:nth-of-type(1) {
+    width: 2rem;
+  }
+  .roofing-table td:nth-of-type(2) {
+    width: 4rem;
+  }
 
+  .roofing-table td:nth-of-type(3) {
+    width: 33rem;
+  }
 
+  .roofing-table td:nth-of-type(4) {
+    width: 5rem;
+  }
+  .roofing-table td:nth-of-type(5) {
+    width: 7rem;
+  }
 
-.roofing-table {
-    gap: 1em !important;
+  .roofing-table td:nth-of-type(6) {
+    width: 9rem;
   }
-  
-  .roofing-table li {
-    flex-grow: 1;
+
+  .roofing-table td:nth-of-type(7) {
+    width: 1rem;
   }
-  
-  .roofing-table li input {
-    border: none;
+}
+
+@media (max-width: 35em) {
+  .roofing-table td:nth-of-type(1) {
+    display: none;
   }
-  
-  .roofing-table li:nth-of-type(1) {
-    flex-basis: 2rem;
+  .roofing-table td:nth-of-type(2) {
+    width: 4rem;
   }
-  
-  .roofing-table li:nth-of-type(2) {
-    flex-basis: 4rem;
+
+  .roofing-table td:nth-of-type(3) {
+    width: 33rem;
   }
-  .roofing-table li:nth-of-type(2) input {
-    width: 100%;
+
+  .roofing-table td:nth-of-type(4) {
+    width: 5rem;
   }
-  
-  .roofing-table li:nth-of-type(3) {
-    flex-basis: 17rem;
+  .roofing-table td:nth-of-type(5) {
+    width: 7rem;
   }
-  .roofing-table li:nth-of-type(3) input {
-    width: 100%;
+
+  .roofing-table td:nth-of-type(6) {
+    width: 9rem;
   }
-  
-  .roofing-table li:nth-of-type(4) {
-    flex-basis: 5rem;
+
+  .roofing-table td:nth-of-type(7) {
+    width: 1rem;
   }
-  .roofing-table li:nth-of-type(4) input {
-    width: 100%;
-  }
-  
-  .roofing-table li:nth-of-type(5) {
-    flex-basis: 5rem;
-  }
-  .roofing-table li:nth-of-type(5) input {
-    width: 100%;
-  }
-  
-  .roofing-table li:nth-of-type(6) {
-    flex-basis: 5rem;
-  }
-  
-  .roofing-table li:nth-of-type(6) input {
-    width: 100%;
-  }
-  
-  .roofing-table li:nth-of-type(7) {
-    flex-basis: 1rem;
-    display: flex;
-    justify-content: center;
-  }
-  
-  
-  
-  
+}
