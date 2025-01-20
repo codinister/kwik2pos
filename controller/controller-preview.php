@@ -31,6 +31,22 @@ class preview{
         echo json_encode($sale);
     }
 
+
+    public function payment(){
+        $tax_id =  $_GET['tax_id'];
+
+        $pay = DB::query("SELECT 
+        t.*,
+        p.createdAt as rec_date, 
+        p.* 
+        FROM tax as t 
+        JOIN payment_history as p 
+        ON p.tax_id = t.tax_id 
+        WHERE p.tax_id = ?",array($tax_id)); 
+
+        echo json_encode($pay); 
+    }
+
 }
 
 

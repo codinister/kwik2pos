@@ -48,7 +48,7 @@ const pageHistory = () => {
       localStorage.removeItem('userprofile');
       localStorage.removeItem('usernote');
       localStorage.removeItem('settingupdate');
-
+      localStorage.removeItem('smsinpt')
       history.pushState({page: ''}, '', '');
 
       document.querySelector('.root').innerHTML = Login();

@@ -89,6 +89,18 @@
     overflow-x: none;
   }
 
+  .contentmodal{
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 99;
+    overflow-y: scroll;
+    overflow-x: none;
+  }
+
   @media(min-width: 35rem){ 
     .modal-inner {
       background-color: #fff;
@@ -157,6 +169,7 @@
   .modalboxthree,
   .modalboxfour,
   .modalboxfive,
+  .contentmodal,
   .noreload,
   .noreload2,
   .noreload3 {
@@ -210,6 +223,12 @@
   }
 
   .modalboxfive.show {
+    visibility: visible;
+    opacity: 0;
+    animation: modal 0.1s ease-in forwards;
+  }
+
+  .contentmodal.show {
     visibility: visible;
     opacity: 0;
     animation: modal 0.1s ease-in forwards;

@@ -1,17 +1,18 @@
 import { expdate_left } from '../../../utils/DateFormats.js';
 
+// const dateleft =  expdate_left(b.duration,b.sales_date) <= 14 ? expdate_left(b.duration,b.sales_date) : 0
 
-
-
+const sett = JSON.parse(localStorage.getItem('sinpt'));
 
 const rentalsFilter = (product, sale) => {
-  const prods = product || []
-  const trans = sale || []
+  const prods = product || [];
+  const trans = sale || [];
 
   /*
    * ALL PRODUCTS
    */
-  const products = prods.map((v) => ({
+  const products = prods
+    .map((v) => ({
       ...v,
       prod_qty_arr: [
         {
@@ -40,7 +41,9 @@ const rentalsFilter = (product, sale) => {
   /*
    * ALL SALES
    */
-  const sales = trans.filter((v) => expdate_left(v.exp_date) > 0)?.map((v) => ({ ...v, qty: Number(v.qty) }))
+  const sales = trans
+    .filter((v) => expdate_left(v.duration, v.sales_date) > 0)
+    ?.map((v) => ({ ...v, qty: Number(v.qty) }))
     .reduce((a, b) => {
       if (a[b.prod_id]) {
         a[b.prod_id].qty += Number(b.qty);
@@ -80,7 +83,7 @@ const rentalsFilter = (product, sale) => {
         prod_qty_arr: prd ? prd?.prod_qty_arr : '',
         cust_id: v.cust_id,
         fullname: v.fullname,
-        available: expdate_left(v.exp_date) < 1,
+        available: expdate_left(v.duration, v.sales_date) <= sett?.makeavailabe,
         sold,
       };
     })
@@ -102,16 +105,6 @@ const rentalsFilter = (product, sale) => {
   return { stocks, rented, availables };
 };
 
-
-
-
-
-
-
-
-
-
-
 const serviceFilter = (products) => {
   return products;
 };
@@ -121,11 +114,10 @@ const roofingFilter = (roofing) => {
 };
 
 const retailsFilter = (product, sale) => {
-  const allsales = sale || []
-  const prod = product || []
+  const allsales = sale || [];
+  const prod = product || [];
 
-
-  const sales = [... allsales]
+  const sales = [...allsales]
     .map((v) => {
       return {
         ...v,
@@ -145,7 +137,6 @@ const retailsFilter = (product, sale) => {
   /*
    * ALL PRODUCTS
    */
-
 
   const products = [...prod]
     .map((v) => ({
@@ -187,7 +178,7 @@ const retailsFilter = (product, sale) => {
     };
   });
 
-  return { stocks, prod,sales };
+  return { stocks, prod, sales };
 };
 
 export { rentalsFilter, retailsFilter, roofingFilter, serviceFilter };

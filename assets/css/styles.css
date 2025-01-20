@@ -35,6 +35,8 @@
 @import 'pos/service.css';
 @import 'pos/feedbackbox.css';
 
+@import 'preview.css';
+
 @media (min-width: 35em) {
   .hideondesktop {
     display: none !important;

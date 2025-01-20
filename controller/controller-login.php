@@ -50,6 +50,9 @@
 										'code' => $user? $user['code']: '',
 										'firstname' => $user? $user['firstname']: '',
 										'lastname' => $user? $user['lastname'] : '',
+
+										'login_date' => $user? $user['login_date'] : '',
+
 										'phone' => $user? $user['phone'] : '',
 										'email' => $user? $user['email'] : '',
 										'residence' => $user? $user['residence'] : '',

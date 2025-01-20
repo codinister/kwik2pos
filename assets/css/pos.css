@@ -53,92 +53,38 @@
   cursor: pointer;
 }
 
-.customer-prof-table tbody td:nth-of-type(1) {
-  width: 15rem;
-  text-transform: uppercase;
-}
+.pos-product-output td,
+.pos-sales-output td {
 
-.customer-prof-table tbody td:nth-of-type(2) {
-  width: 35rem;
-}
-
-.customer-prof-table tbody td:nth-of-type(3) {
-  width: 15rem;
-}
-.customer-prof-table tbody td input {
-  width: 100%;
+  border-bottom: solid .1rem #999;
 }
 
 @media (min-width: 35em) {
-  /*-------------------------
-  BEGIN SALES INVOICE
-  --------------------------*/
-  .sales-inv-table .actions-btn td:nth-of-type(1) {
-    width: 2rem;
-  }
-  .sales-inv-table .actions-btn td:nth-of-type(2) {
-    width: 2rem;
+  .customer-prof-table tbody td:nth-of-type(1) {
+    width: 15rem;
+    text-transform: uppercase;
   }
 
-  .sales-inv-table td:nth-of-type(1) {
-    width: 33rem;
-  }
-  .sales-inv-table td:nth-of-type(2) {
-    width: 13rem;
-  }
-  .sales-inv-table td:nth-of-type(3) {
-    width: 13rem;
+  .customer-prof-table tbody td:nth-of-type(2) {
+    width: 35rem;
   }
 
-  /*------------------------------
-  RECEIPT INV TABLE
-  -----------------------------*/
-  .receipt-inv-tabe .actions-btn td:nth-of-type(1) {
-    width: 2rem;
+  .customer-prof-table tbody td:nth-of-type(3) {
+    width: 15rem;
   }
-  .receipt-inv-tabe .actions-btn td:nth-of-type(2) {
-    width: 2rem;
-  }
-  .receipt-inv-tabe td:nth-of-type(1) {
-    width: 29rem;
-  }
-  .receipt-inv-tabe td:nth-of-type(2) {
-    width: 10rem;
-  }
-  .receipt-inv-tabe td:nth-of-type(3) {
-    width: 10rem;
-  }
-  .receipt-inv-tabe td:nth-of-type(4) {
-    width: 10rem;
+  .customer-prof-table tbody td input {
+    width: 100%;
   }
 
-  /*-----------------------------
-    PROFORMA INV TABLE 
-  ------------------------------*/
-  .proforma-inv-table .actions-btn td:nth-of-type(1) {
-    width: 1rem;
-  }
-  .proforma-inv-table .actions-btn td:nth-of-type(2) {
-    width: 1rem;
-  }
-  .proforma-inv-table .actions-btn td:nth-of-type(3) {
-    width: 6rem;
-  }
-  .proforma-inv-table td:nth-of-type(1) {
-    width: 30rem;
-  }
-  .proforma-inv-table td:nth-of-type(2) {
-    width: 13rem;
-  }
-  .proforma-inv-table td:nth-of-type(3) {
-    width: 16rem;
-  }
+
 
   .pos-prod-table-cls td:nth-of-type(1) {
     width: 30rem;
+    padding-block: 1rem;
   }
   .pos-prod-table-cls td:nth-of-type(2) {
     width: 5rem;
+    padding-block: 1rem;
   }
   .viewinvoice,
   .cancelinvoice {
@@ -551,7 +497,7 @@
 
   .viewcustomerwrapper > div:nth-of-type(1) {
     flex-basis: 22rem;
-    height: 45rem;
+    height: 50rem;
     border: solid 0.1rem var(--muted);
     border-radius: 1rem;
     padding: 0.7em;
@@ -559,10 +505,11 @@
 
   .viewcustomerwrapper > div:nth-of-type(2) {
     width: 100%;
-    height: 45rem;
+    height: 50rem;
     border: solid 0.1rem var(--muted);
     padding: 0.7em;
     border-radius: 1rem;
+
   }
 
   .top-part {
@@ -645,41 +592,40 @@
   }
 
   /* Begin proforma table */
-  .invoice-table li:nth-of-type(1) {
-    flex-basis: 8rem;
-    flex-grow: 1;
+  .invoice-table > td:nth-of-type(1) {
+    width: 32rem;
+    padding-block: 1rem;
   }
 
-  .invoice-table li:nth-of-type(2) {
-    flex-basis: 8rem;
-    flex-grow: 1;
+  .invoice-table > td:nth-of-type(2) {
+    width: 12rem;
+    padding-block: 1rem;
   }
 
-  .invoice-table li:nth-of-type(3) {
-    flex-basis: 11rem;
-    flex-grow: 1;
+  .invoice-table > td:nth-of-type(3) {
+    width: 15rem;
+    padding-block: 1rem;
   }
+
   /* End proforma table */
 
   /* Begin sales invoice */
-  .sales-invoice-table li:nth-of-type(1) {
-    flex-basis: 14rem;
-    flex-grow: 1;
+  .sales-invoice-table > td:nth-of-type(1) {
+    width: 35rem; 
+    padding-block: 1rem;
   }
 
-  .sales-invoice-table li:nth-of-type(2) {
-    flex-basis: 14rem;
-    flex-grow: 1;
+  .sales-invoice-table > td:nth-of-type(2) {
+    width: 12rem; 
+    padding-block: 1rem;
   }
 
-  .sales-invoice-table li:nth-of-type(3) {
-    flex-basis: 3rem;
-    flex-grow: 1;
+  .sales-invoice-table > td:nth-of-type(3) {
+    width: 12rem; 
+    padding-block: 1rem;
   }
 
-  .sales-invoice-table li:nth-of-type(3) > div {
-    display: flex;
-  }
+
   /* End sales invoice */
 
   .sales-invoice-table li:last-child,
@@ -690,32 +636,25 @@
   }
 
   /* Begin receipt */
-  .receipt-table li:nth-of-type(1) {
-    flex-basis: 11rem;
-    flex-grow: 1;
+  .receipt-table td:nth-of-type(1) {
+    width: 29rem; 
+    padding-block: 1rem;
   }
 
-  .receipt-table li:nth-of-type(2) {
-    flex-basis: 11rem;
-    flex-grow: 1;
+  .receipt-table td:nth-of-type(2) {
+    width: 10rem; 
+    padding-block: 1rem; 
   }
 
-  .receipt-table li:nth-of-type(3) {
-    flex-basis: 11rem;
-    flex-grow: 1;
+  .receipt-table td:nth-of-type(3) {
+    padding-block: 1rem;
+    width: 10rem; 
   }
 
-  .receipt-table li:nth-of-type(4) {
-    flex-basis: 5rem;
-    flex-grow: 1;
+  .receipt-table td:nth-of-type(4) {
+    padding-block: 1rem;
+    width: 10rem; 
   }
-
-  .receipt-table li:last-child {
-    display: flex;
-    gap: 1em;
-    align-items: center;
-  }
-
   /* End receipt */
 
   .pos-products-wrapper {
@@ -1049,6 +988,7 @@
     display: block;
   }
 
+
   .pos-prod-table {
     border-bottom: solid 0.1rem #777;
     background-color: white;
@@ -1185,14 +1125,17 @@
   /* Begin proforma table */
   .invoice-table > td:nth-of-type(1) {
     width: 20rem;
+    padding-block: 1rem;
   }
 
   .invoice-table > td:nth-of-type(2) {
     display: none;
+    padding-block: 1rem;
   }
 
   .invoice-table > td:nth-of-type(3) {
     width: 10rem;
+    padding-block: 1rem;
   }
   /* End proforma table */
 
@@ -1201,14 +1144,13 @@
     width: 25rem;
   }
 
-  .sales-invoice-table  > td:nth-of-type(2) {
+  .sales-invoice-table > td:nth-of-type(2) {
     display: none;
   }
 
   .sales-invoice-table > td:nth-of-type(3) {
-    width: 8rem; 
+    width: 8rem;
   }
-
 
   /* End sales invoice */
 
@@ -1221,11 +1163,11 @@
 
   /* Begin receipt */
   .receipt-table > td:nth-of-type(1) {
-    width: 20rem; 
+    width: 20rem;
   }
 
   .receipt-table > td:nth-of-type(2) {
-    width: 12rem; 
+    width: 12rem;
   }
 
   .receipt-table > td:nth-of-type(3) {
@@ -1233,9 +1175,8 @@
   }
 
   .receipt-table > td:nth-of-type(4) {
-    width: 5rem; 
+    width: 5rem;
   }
-
 
   /* End receipt */
 
@@ -1270,5 +1211,27 @@
 
   .edit-receipt-inpt {
     width: 8rem;
+  }
+
+  .customer-prof-table tbody td:nth-of-type(1) {
+    width: 15rem;
+    text-transform: uppercase;
+  }
+
+  .customer-prof-table tbody td:nth-of-type(2) {
+    width: 25rem;
+  }
+
+  .customer-prof-table tbody td:nth-of-type(3) {
+    width: 15rem;
+  }
+  .customer-prof-table tbody td input {
+    width: 100%;
+  }
+
+  .paywrap{
+    background-color: #dedede;
+    padding: 2rem;
+    border-radius: 1.2rem;
   }
 }

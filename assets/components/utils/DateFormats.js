@@ -11,6 +11,24 @@ function ymd(date) {
   return `${year}-${mnt}-${dy}`;
 }
 
+const durationInMonths = (createdAt, duration) => {
+  let date = new Date(createdAt);
+  const mnth = date.setMonth(date.getMonth() + duration);
+  return date;
+};
+
+const durationInDays = (createdAt, duration) => {
+  let date = new Date(createdAt);
+  date.setDate(date.getDate() + duration);
+  return date;
+};
+
+const durationInYears = (createdAt, duration) => {
+  let date = new Date(createdAt);
+  date.setFullYear(date.getFullYear() + duration);
+  return date;
+};
+
 function dmy(date) {
   const d = new Date(date);
   const year = d.getFullYear();
@@ -65,7 +83,6 @@ function formatDate(dateObject) {
   return date;
 }
 
-
 const year = (date) => {
   const dt = new Date(date);
   return dt.getFullYear();
@@ -73,7 +90,7 @@ const year = (date) => {
 
 const month = (date) => {
   const dt = new Date(date);
-  return dt.getMonth()+1;
+  return dt.getMonth() + 1;
 };
 
 function formatMonth(m) {
@@ -98,8 +115,9 @@ function formatMonth(m) {
 }
 
 function daysleft(cdate, fdate) {
-  const futuredate = new Date(fdate);
   const curdate = new Date(cdate);
+  const futuredate = new Date(fdate);
+
   const newdate = futuredate.getTime() - curdate.getTime();
   const days = Math.floor(newdate / (1000 * 60 * 60 * 24));
   return days;
@@ -113,11 +131,22 @@ const daytodate = (date, day) => {
   return newdate;
 };
 
-const expdate_left = (exp_date) => {
-  const cur_date = new Date().getTime();
-  const expdate = new Date(exp_date).getTime();
-  const remain = expdate - cur_date;
-  const days = Math.floor(remain / (1000 * 60 * 60 * 24));
+const expdate_left = (duration, createdAt) => {
+  const user = JSON.parse(localStorage.getItem('zsdf'));
+  const cur_date = new Date(user?.login_date);
+  const sett = JSON.parse(localStorage.getItem('sinpt'));
+  const durations = sett?.duration;
+
+  const dur = {
+    Month: durationInMonths(createdAt, duration),
+    Day: durationInDays(createdAt, duration),
+    Year: durationInYears(createdAt, duration),
+  };
+
+  const exp_date = dur[durations];
+  const newdate = exp_date.getTime() - cur_date.getTime();
+  const days = Math.floor(newdate / (1000 * 60 * 60 * 24));
+
   return days;
 };
 
@@ -146,4 +175,7 @@ export {
   expdate_left,
   dateValidator,
   datetoms,
+  durationInMonths,
+  durationInDays,
+  durationInYears,
 };

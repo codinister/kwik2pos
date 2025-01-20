@@ -1,14 +1,22 @@
 import getLogo from '../../../../utils/getLogo.js';
-import { formatDate } from '../../../../utils/DateFormats.js';
+import imagePath from '../../../../utils/imagePath.js';
+import invoiceDate from '../../../../utils/invoiceDate.js';
 
 const tableHeader = ({ ...obj }) => {
-  
   const {
     invoice_no,
     customers: { fullname: cust_name, phone, location: custloc },
-    settings: { comp_name, comp_logo, comp_location, comp_email, comp_website },
+    settings: {
+      comp_name,
+      comp_logo,
+      comp_location,
+      comp_email,
+      comp_website,
+      duration,
+    },
     taxes: { createdAt, profile, trans_type },
     items,
+    durations,
   } = obj;
 
   //INVOICE HEADER
@@ -22,14 +30,8 @@ const tableHeader = ({ ...obj }) => {
     invoice_desc = 'PROFORMA INVOICE';
   }
 
-  let expd = '';
-  items.forEach((v, k) => {
-    if (v.exp_date) {
-      expd = v.exp_date;
-    }
-  });
 
-  const exp_date = expd;
+
 
   const logo = getLogo(comp_logo);
 
@@ -55,9 +57,9 @@ const tableHeader = ({ ...obj }) => {
                         ${comp_website}
                         <br />
                         <br />
-                        START DATE:${formatDate(createdAt)}
-                        <br />
-                        END DATE: ${formatDate(exp_date)}
+
+                  ${invoiceDate(duration, durations, createdAt)}
+                    
                         <br />
                         <br />
                         PROJECT:${profile}
@@ -75,7 +77,7 @@ const tableHeader = ({ ...obj }) => {
                         <br />
                         ${invoice_no_type}:
                         <strong>${invoice_no}</strong>
-                        <img src="images/spagency/underline.jpg" alt="" width="200" height="10" />
+                        <img src="${imagePath()}images/spagency/underline.jpg" alt="" width="200" height="10" />
                         <br />
                         <br />
                         </td>

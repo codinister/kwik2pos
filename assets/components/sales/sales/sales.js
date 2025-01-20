@@ -9,10 +9,6 @@ import displayProductList from '../utils/displayProductList.js';
 import format_number from '../../utils/format_number.js';
 import clearSales from '../utils/clearSales.js';
 import getIndustry from '../../utils/getIndustry.js';
-import sendEmail from '../../utils/sendEmail.js';
-import Spinner from '../../utils/Spinner.js';
-import { ymd } from '../../utils/DateFormats.js';
-import durationConverter from '../../utils/durationConverter.js';
 import getPrevilleges from '../utils/getPrevilleges.js';
 import posTableclasses from '../../utils/posTableclasses.js';
 import dataListMobile from '../../utils/dataListMobile.js';
@@ -36,14 +32,7 @@ const sales = (customersdata, receipts, proforma, invoice) => {
         obj[key].qty = value;
       }
 
-      if (name === 'duration') {
-        obj[key].duration = value;
-        if (industry === 'rentals' || industry === 'service provider') {
-          const start_date = classSelector('invoice_date').value;
-          const expiry_date = ymd(durationConverter(start_date, value));
-          obj[key].exp_date = expiry_date;
-        }
-      }
+
 
       if (name === 'prod_price') {
         obj[key].prod_price = value;
@@ -78,52 +67,7 @@ const sales = (customersdata, receipts, proforma, invoice) => {
     }
   };
 
-  document.addEventListener('click', (e) => {
-    //SEND BY EMAIL
-    if (e.target.matches('.soemail')) {
-      Spinner('whatsappspin');
 
-      const sendEmails = async () => {
-        const { cust_id, user_id, tax_id, pay_id, title } = e.target.dataset;
-
-        let url;
-        let fetchURL;
-        const origin = window.location.origin;
-        let subject;
-        if (pay_id) {
-          url = `${origin}/api/pdf/receipt${tax_id}.pdf`;
-          fetchURL = `api/receipt.php?c=${cust_id}&u=${user_id}&t=${tax_id}&p=${pay_id}`;
-          subject = 'Payment Receipt';
-        } else {
-          url = `${origin}/api/pdf/invoice${tax_id}.pdf`;
-          fetchURL = `api/invoice.php?c=${cust_id}&u=${user_id}&t=${tax_id}`;
-          subject = 'Invoice';
-        }
-
-        const messg = classSelector('messg').value;
-        const email = classSelector('typ').value;
-
-        const messUrl = `${messg} \n\n ${url}`;
-        const message = messUrl;
-
-        const createdPdf = await fetch(fetchURL);
-        const resp = createdPdf.text();
-
-        sendEmail(
-          email,
-          subject,
-          message,
-          'router.php?controller=widget&task=send_pdf_email'
-        );
-
-        classSelector('modalboxfour').classList.remove('show');
-        document.body.style.overflow = 'scroll';
-        classSelector('whatsappspin').innerHTML = '';
-      };
-
-      sendEmails();
-    }
-  });
 
   document.addEventListener('change', (e) => {
     if (e.target.matches('.setsalesinvoice')) {
@@ -245,6 +189,15 @@ const sales = (customersdata, receipts, proforma, invoice) => {
         clearSales();
       }
 
+
+
+      if (e.target.matches('.cancelsales')) {
+        e.stopImmediatePropagation();
+        clearSales();
+        localStorage.setItem('rend', 3);
+
+      }
+
       if (e.target.matches('.clearal')) {
         e.stopImmediatePropagation();
         clearSales();
@@ -323,13 +276,14 @@ const sales = (customersdata, receipts, proforma, invoice) => {
 
   const showinvcheckbx = taxx?.tax_id > 0 && taxx?.trans_type === 'proforma' ? 'hide' : 'show'
 
-  if (industry !== 'retails') {
+
 
 
     displaysalesinchkbx = `
     <div class="showinvcheckbx ${showinvcheckbx}">
     <input type="checkbox" ${checkinvoice} class="setsalesinvoice" /> CREATE SALES INVOICE </div>`;
 
+  if (industry !== 'retails') {
     enablebankdetails = `
     <input type="checkbox"  class="enablebankdetails" /> INCLUDE BANK DETAILS`;
   }

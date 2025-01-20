@@ -21,7 +21,7 @@ const paytypedisabled = v?.tax_id > 0 && v.balance < 1 ? 'disabled' : '';
  
 
   return `
-  
+  <div class="paywrap">
     ${textInput({
       type: 'date',
       classname: 'receipt_date',
@@ -63,6 +63,7 @@ const paytypedisabled = v?.tax_id > 0 && v.balance < 1 ? 'disabled' : '';
         <div class="chequenumber"></div>
       </div>
   
+      </div>
   `;
 };
 

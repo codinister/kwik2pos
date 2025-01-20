@@ -44,14 +44,15 @@ const customersprofile = (callback) => {
           return a;
         }, {});
 
-
-
       /*
        * ALL INVOICES
        */
       const allinvoices = Object.values(value[1].value)
         .map((v) => {
-          const daysleft = 14 / expdate_left(v.exp_date);
+          const daysleft =
+            expdate_left(v.duration, v.sales_date) <= 14
+              ? expdate_left(v.duration, v.sales_date)
+              : 0;
           const custo = allcustomers[v.cust_id];
           const rec = allreceipts[v.cust_id];
 
@@ -78,6 +79,7 @@ const customersprofile = (callback) => {
                       tax_id: v.tax_id,
                       exp_date: v.exp_date,
                       profile: v.profile,
+                      user_id: v.user_id,
                     },
                   }
                 : {},
@@ -85,7 +87,10 @@ const customersprofile = (callback) => {
         })
         .reduce((a, b) => {
           if (a[b.cust_id]) {
-            const dateleft = 14 / expdate_left(b.exp_date);
+            const dateleft =
+              expdate_left(b.duration, b.sales_date) <= 14
+                ? expdate_left(b.duration, b.sales_date)
+                : 0;
 
             a[b.cust_id].invoice_count += 1;
             a[b.cust_id].invoice_total += Number(b.invoice_total);
@@ -102,6 +107,7 @@ const customersprofile = (callback) => {
                 tax_id: b.tax_id,
                 exp_date: b.exp_date,
                 profile: b.profile,
+                user_id: b.user_id,
               };
             } else {
             }
@@ -149,7 +155,7 @@ const customersprofile = (callback) => {
         const inv = allinvoices[v.cust_id];
         const prof = allproformas[v.cust_id];
 
-        const invoice_list_data = inv ? Object.values(inv?.invoice_list) : []
+        const invoice_list_data = inv ? Object.values(inv?.invoice_list) : [];
         const total_sales = invoice_list_data.reduce((a, b) => {
           return Number(a) + Number(b.total);
         }, 0);

@@ -1,5 +1,9 @@
 import Navmenu from './navbar/Navmenu.js';
+import contentModal from './utils/contentModal.js';
+import contentPreview from './utils/contentPreview.js';
+
 const Layout = (page, html) => {
+  contentPreview();
   return `
     <style>
     .${page}{  
@@ -17,6 +21,7 @@ const Layout = (page, html) => {
     <small>&copy; copyright 2023 <span id="appname"></span> by <a href="http://www.emagwebsolutions.com">Emagweb Solutions</a></small>
     </footer>	
     <br><br><br>
+    ${contentModal('', ``)}
     `;
 };
 

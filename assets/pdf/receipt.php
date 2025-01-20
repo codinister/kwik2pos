@@ -19,9 +19,6 @@ class toWords
     var $tens = array('', 'Ten', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety');
     var $mag = array('', 'Thousand', 'Million', 'Billion', 'Trillion');
     
-
-
-
     function __construct($amount, $major = MAJOR, $minor = MINOR)
     {
         $this->__toWords__((int)($amount), $major);
@@ -32,11 +29,6 @@ class toWords
         $this->words = $whole_number_part . ' ' . $this->words;
     }
     
-
-
-
-
-
     function __toWords__($amount, $major)
     {
         $this->major  = $major;
@@ -56,11 +48,6 @@ class toWords
         }
     }
     
-
-
-
-
-
     function _build($n)
     {
         $res = '';
@@ -91,32 +78,7 @@ class toWords
         return $res;
     }
 
-
-
-
-
-
-    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 $pay_id = base64_decode($_GET['rec']);
 

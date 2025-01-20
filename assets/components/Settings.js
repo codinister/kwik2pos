@@ -16,10 +16,7 @@ const Settings = () => {
   const sett = JSON.parse(localStorage.getItem('sinpt'));
   const industry = getIndustry();
 
-
-
   document.addEventListener('click', (e) => {
-    
     if (e.target.matches('.save_setting')) {
       const obj = JSON.parse(localStorage.getItem('settingupdate'));
 
@@ -46,7 +43,6 @@ const Settings = () => {
       })
         .then((resp) => resp.text())
         .then((data) => {
-         
           if (data.indexOf('errors') != -1) {
             return displayToast('bgdanger', data);
           } else {
@@ -368,6 +364,9 @@ const Settings = () => {
                 </select>
                 </div>
        
+            </div>
+            <div>
+              ${duration}
             </div>
             <div>
               ${duration}

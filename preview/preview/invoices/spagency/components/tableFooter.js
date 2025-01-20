@@ -1,3 +1,5 @@
+import imagePath from "../../../../utils/imagePath.js";
+
 const tableFooter = ({ ...obj }) => {
   const {
     settings: { comp_phone },
@@ -23,7 +25,7 @@ const tableFooter = ({ ...obj }) => {
           <tr>
 
           <td style="width: 33px; padding-inline: 1rem;"> 
-          <img src="images/spagency/telephone.jpg" alt="" width="22" height="22" /> 
+          <img src="${imagePath()}images/spagency/telephone.jpg" alt="" width="22" height="22" /> 
           </td>
 
           <td>  
@@ -39,7 +41,7 @@ const tableFooter = ({ ...obj }) => {
             <tr>
 
             <td style="width: 3.3rem; padding-inline: 1rem;"> 
-            <img src="images/spagency/envelope.jpg" alt="" width="20" height="18" />
+            <img src="${imagePath()}images/spagency/envelope.jpg" alt="" width="20" height="18" />
             </td>
 
             <td>  
@@ -55,7 +57,7 @@ const tableFooter = ({ ...obj }) => {
           <table>
           <tr>
           <td style="width: 3.3rem; padding-inline: 1rem;"> 
-          <img src="images/spagency/mobile.jpg" alt="" width="16" height="27" />
+          <img src="${imagePath()}images/spagency/mobile.jpg" alt="" width="16" height="27" />
           </td>
           <td>  
           ${comp_phone}

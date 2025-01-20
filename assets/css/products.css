@@ -821,7 +821,7 @@
 
   .products-table-body > td:nth-of-type(2),
   .products-table-top > td:nth-of-type(2) {
-    width: 19rem;
+    width: 17rem;
   }
 
   .products-table-body > td:nth-of-type(3),
@@ -974,7 +974,7 @@
 
   .service-table-body > td:nth-of-type(2),
   .service-table-top > td:nth-of-type(2) {
-    width: 27rem;
+    width: 22rem;
   }
 
   .service-table-body > td:nth-of-type(3),

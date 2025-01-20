@@ -21,7 +21,10 @@ const Customerswhowe = (data) => {
    
       <tr class="arrears-table-row">
         <td>
-           <a href="javascript:void(0);" class="accstatement" data-cust_id="${v.cust_id}">
+        <a href="javascript:void(0);" class="accstatement" data-cust_id="${v.cust_id}"
+        
+        
+        >
         ${v.fullname}
         </a>
         

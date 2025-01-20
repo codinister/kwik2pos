@@ -41,12 +41,7 @@ const getSalesinvoice = async (allinvoicess) => {
         }
       }
 
-      if (e.target.matches('.viewthissalesinvoice')) {
-        e.stopImmediatePropagation();
-        const { cust_id, tax_id, user_id } = e.target.dataset;
 
-        window.location = `assets/pdf/invoice.php?inv=${btoa(tax_id)}`;
-      }
 
       if (e.target.matches('.editthissalesinvoice')) {
         e.stopImmediatePropagation();
@@ -111,7 +106,7 @@ const getSalesinvoice = async (allinvoicess) => {
         data-cust_id = "${v.cust_id}" 
         data-tax_id = "${v.tax_id}" 
         data-user_id = "${v.user_id}" 
-        class="viewthissalesinvoice">
+        class="preview-invoice">
         ${profile}
         </a>
         </td>

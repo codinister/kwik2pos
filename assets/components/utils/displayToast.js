@@ -27,7 +27,7 @@ const displayToast = (classname, text) => {
 
   setTimeout(() => {
     document.querySelector('.toastnotification').classList.remove('show');
-  }, 3000);
+  }, 5000);
 };
 
 export default displayToast;

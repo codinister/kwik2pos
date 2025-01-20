@@ -174,11 +174,11 @@ const getReceipts = async (allreceipts) => {
       <tr class="receipt-table">   
       <td>
       <a href="javascript:void(0);" 
-      data-cust_id = "${v.cust_id}" 
-      data-tax_id = "${v.tax_id}" 
-      data-user_id = "${v.user_id}" 
-      data-pay_id = "${v.pay_id}" 
-      class="viewthisreceipt prof${v.pay_id}">
+        data-cust_id = "${v.cust_id}" 
+        data-pay_id = "${v.pay_id}" 
+        data-user_id = "${v.user_id}"
+        data-tax_id = "${v.tax_id}"
+      class="preview-reciept prof${v.pay_id}">
       ${profile}
       </a>
       </td>

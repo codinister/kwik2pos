@@ -56,14 +56,14 @@ const serviceStock = (data) => {
       <div class="show-prod-box">
 
         <div>
-          <tr>
-            <td>
+          <ul>
+            <li>
             <span>Category</span> <span>${cat_name}</span>
-            </td>
-            <td>
+            </li>
+            <li>
             <span>Unit Price (GHs)</span> <span>${selling_price}</span>
-            </td>
-          </tr>
+            </li>
+          </ul>
 
           <div>
 

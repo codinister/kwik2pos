@@ -702,7 +702,7 @@ function  savePayment($tax_id, $payment, $cust_id){
 }
 
 function feedback($user_id,$cust_id,$pay_id,$tax_id){
-	sendReceiptSms($user_id,$cust_id,$pay_id,$tax_id);
+
 	echo $user_id.'-'.$cust_id.'-'.$pay_id.'-'.$tax_id;
 }
 

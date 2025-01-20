@@ -64,17 +64,17 @@ const retailStock = (data) => {
       <div class="show-prod-box">
 
         <div>
-          <tr>
-            <td>
+          <ul>
+            <li>
             <span>Product Size</span> <span>${prod_size}</span>
-            </td>
-            <td>
+            </li>
+            <li>
             <span>Unit Price (GHs)</span> <span>${selling_price}</span>
-            </td>
-            <td>
+            </li>
+            <li>
             <span>Product Qty</span> <span>${prod_qty}</span>
-            </td>
-          </tr>
+            </li>
+          </ul>
 
           <div>
             ${textInput({

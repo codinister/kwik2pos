@@ -65,7 +65,6 @@ function formatDate(dateObject) {
   return date;
 }
 
-
 const year = (date) => {
   const dt = new Date(date);
   return dt.getFullYear();
@@ -73,7 +72,7 @@ const year = (date) => {
 
 const month = (date) => {
   const dt = new Date(date);
-  return dt.getMonth()+1;
+  return dt.getMonth() + 1;
 };
 
 function formatMonth(m) {
@@ -98,8 +97,9 @@ function formatMonth(m) {
 }
 
 function daysleft(cdate, fdate) {
-  const futuredate = new Date(fdate);
   const curdate = new Date(cdate);
+  const futuredate = new Date(fdate);
+
   const newdate = futuredate.getTime() - curdate.getTime();
   const days = Math.floor(newdate / (1000 * 60 * 60 * 24));
   return days;
@@ -132,6 +132,24 @@ const datetoms = (date) => {
   return dt;
 };
 
+const durationInMonths = (createdAt, duration) => {
+  let date = new Date(createdAt);
+  date.setMonth(date.getMonth() + duration);
+  return date;
+};
+
+const durationInDays = (createdAt, duration) => {
+  let date = new Date(createdAt);
+  date.setDate(date.getDate() + duration);
+  return date;
+};
+
+const durationInYears = (createdAt, duration) => {
+  let date = new Date(createdAt);
+  date.setFullYear(date.getFullYear() + duration);
+  return date;
+};
+
 export {
   ymd,
   dmy,
@@ -146,4 +164,7 @@ export {
   expdate_left,
   dateValidator,
   datetoms,
+  durationInMonths,
+  durationInDays,
+  durationInYears,
 };

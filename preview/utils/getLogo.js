@@ -1,5 +1,10 @@
 const getLogo = (comp_logo) => {
-  const logo = `<img  src="../assets/uploads/${comp_logo}" alt="logo" />`;
+  let logo;
+  if (localStorage.getItem('zsdf')) {
+    logo = `<img  src="assets/uploads/${comp_logo}" alt="logo" />`;
+  } else {
+    logo = `<img  src="../assets/uploads/${comp_logo}" alt="logo" />`;
+  }
 
   return logo;
 };

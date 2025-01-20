@@ -51,7 +51,7 @@ if($txs){
     $site_location = $txs['location'];
     $profile = $txs['profile'];
     $subtotal = $txs['subtotal'];
-    $discount = $txs['discount'];
+    $discount = $txs['discount']? $txs['discount'] : 0;
     $nhil = $txs['nhil'];
     $withholdingtax = $txs['withholdingtax'] === '0' ? '' : $txs['withholdingtax'];
     $getfund = $txs['getfund'];

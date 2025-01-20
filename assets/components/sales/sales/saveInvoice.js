@@ -8,6 +8,7 @@ import itemsValidation from '../utils/itemsValidation.js';
 import paymentValidation from '../utils/paymentValidation.js';
 import bankAccValidation from '../utils/bankAccValidation.js';
 import termnalReceipt from '../utils/termnalReceipt.js';
+import smsSuperAdmin from '../utils/smsSuperAdmin.js'
 
 const saveInvoice = () => {
   const industry = getIndustry();
@@ -27,12 +28,14 @@ const saveInvoice = () => {
         return displayToast('bgdanger', 'Add an item to continue!');
       }
 
-      const unitppricelength = Object.values(items).map(v => v.unit_price).filter(Boolean).length
+      const unitppricelength = Object.values(items)
+        .map((v) => v.unit_price)
+        .filter(Boolean).length;
 
-            //Unit price checker
-            if (unitppricelength < 1) {
-              return displayToast('bgdanger', "Unit price field required!");
-            }
+      //Unit price checker
+      if (unitppricelength < 1) {
+        return displayToast('bgdanger', 'Unit price field required!');
+      }
 
       //Customer field validation
       if (sales?.cust_id < 1) {
@@ -71,8 +74,6 @@ const saveInvoice = () => {
       })
         .then((resp) => resp.text())
         .then((data) => {
-
-    
           if (data.indexOf('errors') != -1) {
             displayToast('bgdanger', data);
             classSelector('saveinvoice-wrapper').innerHTML = Buttons([
@@ -91,8 +92,18 @@ const saveInvoice = () => {
             tx['tax_id'] = v[3] || '';
             localStorage.setItem('sales', JSON.stringify(tx));
 
-            const { cust_id, tax_id, user_id, pay_id, cust_name, cust_phone } =
-              JSON.parse(localStorage.getItem('sales'));
+            const {
+              cust_id,
+              tax_id,
+              user_id,
+              pay_id,
+              cust_name,
+              cust_phone,
+              cust_email,
+              code,
+            } = JSON.parse(localStorage.getItem('sales'));
+
+
 
             classSelector('pos-sales').innerHTML = transactionfeedback(
               cust_id,
@@ -100,13 +111,17 @@ const saveInvoice = () => {
               user_id,
               pay_id,
               cust_name,
-              cust_phone
+              cust_phone,
+              cust_email,
+              code
             );
             window.scrollTo(0, 0);
 
             if (classSelector('saveinvoicespin')) {
               classSelector('saveinvoicespin').innerHTML = '';
             }
+
+            smsSuperAdmin(tax_id, user_id,cust_id, pay_id)
           }
         });
     }

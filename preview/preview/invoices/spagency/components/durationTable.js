@@ -1,13 +1,14 @@
-import durationCounter from '../../../../utils/durationCounter.js';
+
 import format_number from '../../../../utils/format_number.js';
 
 const durationTable = ({ ...obj }) => {
   const {
     settings: { duration },
     items,
+    durations
   } = obj;
 
-  const duration_count = durationCounter(items);
+  const duration_count = durations;
 
   let rows = '';
 

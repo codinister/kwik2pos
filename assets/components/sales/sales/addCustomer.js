@@ -1,4 +1,3 @@
-import displayToast from '../../utils/displayToast.js';
 import salesLocalstorage from '../../data/clientside/localstorage/default/defaultSalesLocalstorage.js';
 import Buttons from '../../utils/Buttons.js';
 import { classSelector } from '../../utils/Selectors.js';
@@ -6,6 +5,7 @@ import { textInput } from '../../utils/InputFields.js';
 import dataListDropdown from '../../utils/dataListDropdown.js';
 import getIndustry from '../../utils/getIndustry.js';
 import Spinner from '../../utils/Spinner.js';
+import displayToast from '../../utils/displayToast.js';
 
 const addCustomer = (customersData) => {
   const referrerIteratorFunc = (v) => {
@@ -32,7 +32,6 @@ const addCustomer = (customersData) => {
 
   document.addEventListener('input', (e) => {
     if (e.target.matches('.custinp')) {
-    
       const { name, value } = e.target;
 
       if (!localStorage.getItem('custinp'))
@@ -249,7 +248,7 @@ const addCustomer = (customersData) => {
           value: obj?.cfullname,
         })}
       ${textInput({
-        type: 'text',
+        type: 'number',
         classname: 'cphone custinp',
         name: 'cphone',
         required: false,

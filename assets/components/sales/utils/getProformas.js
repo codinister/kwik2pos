@@ -46,30 +46,21 @@ const getProformas = async (proformadatas) => {
       if (e.target.matches('.dup-btn')) {
         e.stopImmediatePropagation();
         const { cust_id, tax_id, user_id } = e.target.dataset;
-        const crypto = self?.crypto?.randomUUID ?   self.crypto.randomUUID() : 'UUID not available'
-  
-
+        const crypto = self?.crypto?.randomUUID
+          ? self.crypto.randomUUID()
+          : 'UUID not available';
 
         getInvoiceDetails(cust_id, tax_id, user_id, 'duplicate', (data) => {
           const { products, taxes } = data;
           localStorage.setItem('prozdlist', JSON.stringify(products));
 
-
-          taxes['uuid'] = crypto
-
+          taxes['uuid'] = crypto;
 
           localStorage.setItem('sales', JSON.stringify(taxes));
           localStorage.setItem('rend', 3);
           classSelector('noreload').classList.remove('show');
           document.body.style.overflow = 'scroll';
         });
-      }
-
-      //VIEW PROFORMA INVOICE
-      if (e.target.matches('.viewthisproforma')) {
-        e.stopImmediatePropagation();
-        const { tax_id } = e.target.dataset;
-        window.location = `assets/pdf/invoice.php?inv=${btoa(tax_id)}`;
       }
 
       if (e.target.matches('.editthisproforma')) {
@@ -89,13 +80,16 @@ const getProformas = async (proformadatas) => {
 
     const invoiceHTMLList = (v) => {
       const user = v.firstname + ' ' + v.lastname;
-      const profile = v.profile ? v.profile :  inv_num(v.tax_id)
+      const profile = v.profile ? v.profile : inv_num(v.tax_id);
       return `
         <tr class="invoice-table">   
         <td>
         <a href="javascript:void(0);" 
+        data-cust_id = "${v.cust_id}" 
         data-tax_id = "${v.tax_id}" 
-        class="viewthisproforma">
+        data-user_id = "${v.user_id}"
+        class="preview-invoice"
+        >
         ${profile}
         </a>
         </td>

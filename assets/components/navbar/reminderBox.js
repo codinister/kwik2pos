@@ -1,21 +1,20 @@
-import { dmy, formatDate } from '../utils/DateFormats.js';
+import { formatDate } from '../utils/DateFormats.js';
 import displayToast from '../utils/displayToast.js';
-import smsStatusCodes from '../sms/smsStatusCodes.js';
 import getIndustry from '../utils/getIndustry.js';
-import getInvoiceDetails from '../sales/utils/getInvoiceDetails.js';
 import customersprofile from '../data/serverside/fetch/customersprofile.js';
 
 const remondexbx = () => {
+
   const industry = getIndustry();
+  
   const { role_id } = JSON.parse(localStorage.getItem('zsdf'));
 
   customersprofile((data) => {
-
     const obj = data
       .map((v) => v.expiries)
       .filter((v) => Object.values(v).length)
-      .map(v => Object.values(v)).flat(2);
-
+      .map((v) => Object.values(v))
+      .flat(2);
 
     const count = obj.length;
 
@@ -56,7 +55,7 @@ const remondexbx = () => {
         <div class="expbtns">
         ${smslink}
         <a href="javascript:void(0)"
-        class="viewinv"
+        class="preview-invoice"
         data-cust_id = "${v.cust_id}"
         data-tax_id = "${v.tax_id}"
         data-user_id = "${v.user_id}"
@@ -84,12 +83,6 @@ const remondexbx = () => {
       document.querySelector('.remondexbx').classList.remove('show');
     }
 
-
-
-
-
-
-
     if (e.target.matches('.sendsmstoclient')) {
       e.stopImmediatePropagation();
 
@@ -112,40 +105,8 @@ const remondexbx = () => {
         return displayToast('bgdanger', 'Message field required!!');
       }
 
-      const fd = new FormData();
-      fd.append('contacts', phone);
-      fd.append('message', mess);
-
-      fetch('router.php?controller=widget&task=send_sms', {
-        method: 'Post',
-        body: fd,
-      })
-        .then((resp) => resp.json())
-        .then((data) => {
-          if (data?.code?.split(':')[1]?.length || data.code == 1000) {
-            const res = smsStatusCodes(data.code);
-            displayToast('lightgreen', res);
-          } else if (data.code != 1000) {
-            const res = smsStatusCodes(data.code);
-            displayToast('bgdanger', res);
-            e.target.innerHTML = 'SEND SMS';
-          }
-        });
+      sendSMS(mess, phone, 'sendsmstoclientwrapper', 'sent');
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     if (e.target.matches('.closesmsbx')) {
       const { prod_id } = e.target.dataset;
@@ -153,7 +114,7 @@ const remondexbx = () => {
     }
 
     if (e.target.matches('.sendsmsmess')) {
-      const { phone, prod_id, fullname, exp_date,profile } = e.target.dataset;
+      const { phone, prod_id, fullname, exp_date, profile } = e.target.dataset;
 
       document.querySelector(`.sendsmsbx${prod_id}`).innerHTML = `
       <div class="smssbx">
@@ -165,23 +126,12 @@ const remondexbx = () => {
         exp_date
       )}  </textarea>
 
+      <div class="sendsmstoclientwrapper">
       <a href="javascript:void(0);" data-prod_id=${prod_id} class="sendsmstoclient">
        <span>SEND SMS  </span></a>
+       </div>
       </div>
       `;
-    }
-
-    if (e.target.matches('.viewinv')) {
-      e.stopImmediatePropagation();
-      const { cust_id, tax_id, user_id } = e.target.dataset;
-      getInvoiceDetails(cust_id, tax_id, user_id, '', (data) => {
-        const { products, taxes } = data;
-        localStorage.setItem('prozdlist', JSON.stringify(products));
-        localStorage.setItem('sales', JSON.stringify(taxes));
-        if (localStorage.getItem('prozdlist')) {
-          window.location = 'index.html?page=sell';
-        }
-      });
     }
   });
 

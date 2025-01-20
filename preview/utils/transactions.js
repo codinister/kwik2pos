@@ -60,11 +60,11 @@ const transactions = ({ ...obj }) => {
 
   if (covid > 0) {
     covids = `
-  <tr>
-  <td style="width: 31.5rem;   text-align: right; padding: 1rem;">COVID (${covid_rate}%)</td>
-  <td style="width: 8.5rem; padding: 0.5rem; ">${format_number(covid)}</td>
-  </tr>
-  `;
+    <tr>
+    <td style="width: 31.5rem;   text-align: right; padding: 1rem;">COVID (${covid_rate}%)</td>
+    <td style="width: 8.5rem; padding: 0.5rem; ">${format_number(covid)}</td>
+    </tr>
+    `;
   }
 
   //WITHHOLDING TAX
@@ -80,13 +80,13 @@ const transactions = ({ ...obj }) => {
 
   //GETFUNDS
   let getfunds = '';
-  if (nhil > 0) {
+  if (getfund > 0) {
     getfunds = `
-  <tr>
-  <td style="width: 31.5rem;   text-align: right; padding: 1rem;">GETFUND (${getfund_rate}%)</td>
-  <td style="width: 8.5rem; padding: 0.5rem; ">${format_number(getfund)}</td>
-  </tr>
-  `;
+    <tr>
+    <td style="width: 31.5rem;   text-align: right; padding: 1rem;">GETFUND (${getfund_rate}%)</td>
+    <td style="width: 8.5rem; padding: 0.5rem; ">${format_number(getfund)}</td>
+    </tr>
+    `;
   }
 
   //VAT

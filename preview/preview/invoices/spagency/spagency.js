@@ -9,6 +9,7 @@ import terms from '../../../utils/terms.js';
 
 const spagency = ({ ...obj }) => {
   return `
+  <div class="invwrapper">
     ${tableHeader(obj)}
     <br />
     ${durationTable(obj)}
@@ -23,6 +24,7 @@ const spagency = ({ ...obj }) => {
     ${terms(obj)}
         <br />    <br />
     ${tableFooter(obj)}
+    </div>
     `;
 };
 
