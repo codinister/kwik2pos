@@ -86,9 +86,6 @@ const tableHeader = ({ ...obj }) => {
                 </td>
             </tr>
             </thead>
-
-
-            
         </table>
     
     

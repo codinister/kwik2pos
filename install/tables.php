@@ -66,6 +66,7 @@ function tables($conn){
 	receipt_type VARCHAR(255) NOT NULL,
 	app_expiry_date DATETIME,
 	app_status VARCHAR(255) NOT NULL,
+	showinstock INT(11) NOT NULL,
 	users VARCHAR(255) NOT NULL,
 	digitaladdress   VARCHAR(255) NOT NULL,
 	PRIMARY KEY(comp_id)

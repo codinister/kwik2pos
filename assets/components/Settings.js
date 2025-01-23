@@ -17,6 +17,7 @@ const Settings = () => {
   const industry = getIndustry();
 
   document.addEventListener('click', (e) => {
+
     if (e.target.matches('.save_setting')) {
       const obj = JSON.parse(localStorage.getItem('settingupdate'));
 
@@ -52,6 +53,8 @@ const Settings = () => {
         })
         .catch((err) => console.log(err));
     }
+
+    
   });
 
   document.addEventListener('input', (e) => {
@@ -66,6 +69,12 @@ const Settings = () => {
       const dur = sett ? sett?.duration : '';
       classSelector('duration').value = dur;
     }
+
+    if (classSelector('showinstock')) {
+      const shoin = sett ? sett?.showinstock : '';
+      classSelector('showinstock').value = shoin;
+    }
+
     if (classSelector('currency')) {
       const cur = sett ? sett?.currency : '';
       classSelector('currency').value = cur;
@@ -73,7 +82,36 @@ const Settings = () => {
   });
 
   let duration = '';
+  let showinstock = ''
   if (industry === 'service provider' || industry === 'rentals') {
+
+
+    showinstock = `
+    <div class="select-inpt" value= id="ss">	
+    <label> Show in stock </label>
+    <br>
+    <select class="showinstock sinpt"  name="showinstock">
+      <option hidden>Select days</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+    </select>
+    </div>
+    `;
+
+
+
     duration = `
     <div class="select-inpt" value= id="zz">	
     <label> Duration Type </label>
@@ -86,6 +124,8 @@ const Settings = () => {
     </select>
     </div>
     `;
+
+
   }
 
   const page = `
@@ -369,7 +409,7 @@ const Settings = () => {
               ${duration}
             </div>
             <div>
-              ${duration}
+              ${showinstock}
             </div>
             </div>  
         </div>

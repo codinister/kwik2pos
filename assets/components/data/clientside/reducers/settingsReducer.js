@@ -30,15 +30,6 @@ const settingsReducer = (e) => {
       }
     }
 
-    // if (name === 'comp_phone') {
-    //   if (value.length < 10) {
-    //     classSelector('comphone').textContent =
-    //       'Phone number must be 10 or more!';
-    //     return;
-    //   } else {
-    //     classSelector('comphone').textContent = '';
-    //   }
-    // }
 
     const obj = JSON.parse(localStorage.getItem('settingupdate'));
 

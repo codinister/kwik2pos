@@ -2,9 +2,7 @@ import { textInput, Button } from './utils/InputFields.js';
 import { classSelector } from './utils/Selectors.js';
 import FormSubmitUtils from './utils/FormSubmitUtils.js';
 
-
 const Login = () => {
-
   document.addEventListener('click', (e) => {
     if (e.target.matches('.fminpt')) {
       e.target.removeAttribute('readonly');
@@ -43,14 +41,16 @@ const Login = () => {
           if (indx != -1) {
             ErrorResult('output1', data);
           } else {
-
-            const sett = data?.settings[0]
+            let sett = data?.settings[0];
+            if (sett.showinstock === '0') {
+              sett.showinstock = 1;
+            }
 
             localStorage.removeItem('loginfields');
             localStorage.setItem('sinpt', JSON.stringify(sett));
             localStorage.setItem('settingupdate', JSON.stringify(sett));
 
-            delete data['settings']
+            delete data['settings'];
             localStorage.setItem('zsdf', JSON.stringify(data));
 
             const sess = localStorage.getItem('zsdf');

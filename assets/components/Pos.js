@@ -14,6 +14,7 @@ import getIndustry from './utils/getIndustry.js';
 import { ymd } from './utils/DateFormats.js';
 import availableStockData from './products/utils/availableStockData.js';
 import format_number from './utils/format_number.js';
+import transactionfeedback from './sales/utils/transactionFeedback.js';
 
 const Pos = () => {
   const industry = getIndustry();
@@ -21,12 +22,11 @@ const Pos = () => {
   setTimeout(() => {
     const set = JSON.parse(localStorage.getItem('sales'));
 
-
     if (classSelector('top_total')) {
-      classSelector('top_total').textContent = set?.total ?  format_number(set?.total) : '0.00'
+      classSelector('top_total').textContent = set?.total
+        ? format_number(set?.total)
+        : '0.00';
     }
-
-
   }, 3000);
 
   //SET AVAILABLE PRODUCTS
@@ -34,7 +34,6 @@ const Pos = () => {
     const prod = availableStockData(resp);
 
     let availables = [];
-
 
     if (industry === 'retails') {
       availables = prod.filter((v) => v.remaining > 0).map((v) => v);
@@ -62,10 +61,6 @@ const Pos = () => {
   });
 
   customersprofile((cust) => {
-
-
-    
-    
     const customers = cust
       .map((v) => ({
         cust_id: v.cust_id,
@@ -78,7 +73,7 @@ const Pos = () => {
         debt: v.total_debt,
         type: v.type,
         ref_type: v.ref_type,
-        ref: v.ref, 
+        ref: v.ref,
         ref_id: v.ref_id,
         description: v.description,
         firstname: v.firstname,
@@ -93,9 +88,6 @@ const Pos = () => {
       }))
       .flat(2);
 
-
-    
-
     const receipts = cust.map((v) => v.receipt_list).flat(2);
     const proforma = cust.map((v) => v.proforma_list).flat(2);
     const invoice = cust.map((v) => v.invoice_list).flat(2);
@@ -106,28 +98,34 @@ const Pos = () => {
       proforma,
       invoice
     );
+
+    // classSelector('pos-sales').innerHTML = transactionfeedback(
+    //   '',
+    //   '',
+    //   '',
+    //   '',
+    //   '',
+    //   '',
+    //   '',
+    //   ''
+    // );
   });
 
+  if (localStorage.getItem('sales')) {
+    const tax = JSON.parse(localStorage.getItem('sales'));
 
-
-
-  if(localStorage.getItem('sales')){
-  const tax = JSON.parse(localStorage.getItem('sales')) 
-
-
-  if (tax?.cust_name) {
-    if (classSelector('customerhiddeninpt')) {
-      classSelector('customerhiddeninpt').value = tax?.cust_id;
-    }
-
-    setTimeout(() => {
-      if (classSelector('customerinptclass')) {
-        classSelector('customerinptclass').value = tax?.cust_name;
+    if (tax?.cust_name) {
+      if (classSelector('customerhiddeninpt')) {
+        classSelector('customerhiddeninpt').value = tax?.cust_id;
       }
-    }, 1000);
-  }
 
-}
+      setTimeout(() => {
+        if (classSelector('customerinptclass')) {
+          classSelector('customerinptclass').value = tax?.cust_name;
+        }
+      }, 1000);
+    }
+  }
 
   const page = `
     <div class="pos-container">

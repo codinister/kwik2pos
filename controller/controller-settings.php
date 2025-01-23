@@ -164,9 +164,6 @@ class settings{
 
         $comp_logo = $this->fileupload($file_name,$file_type,$tmp_name,$logo_image);
 
-
-
-
             DB::query("
             UPDATE settings SET 
             comp_name = ?,
@@ -193,7 +190,8 @@ class settings{
             getfund  = ?,    
             covid   = ?,
             withholdingtax = ?,
-            digitaladdress = ?
+            digitaladdress = ?,
+            showinstock = ?
             WHERE code = ?
             
         ", array(
@@ -222,11 +220,9 @@ class settings{
             $covid,
             $withholdingtax,
             $digitaladdress,
+            $showinstock,
             $this->code()
         ));
-
-
-
 
         echo 'Settings saved successfully!';
     }

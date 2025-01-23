@@ -1,6 +1,7 @@
 import genURL from '../../share/genURL.js';
 import previews from '../../share/previews.js';
 import sharing from '../../share/sharing.js';
+import noteWrapper from './noteWrapper.js';
 
 const transactionfeedback = (
   cust_id,
@@ -26,6 +27,10 @@ const transactionfeedback = (
   <div>
   ${prev} ${share}
   </div>
+
+${noteWrapper()}
+
+
   </div>
   `;
 };

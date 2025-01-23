@@ -1,4 +1,4 @@
-<?php 
+
 $signature = '<img src="../uploads/'.$signatures.'" width="80" height="30" alt="" />';
 $logo = '<img src="../uploads/'.$comp_logo.'" width="100" height="85" alt="" />';
 $underline =  '<img src="../images/spagency/underline.jpg" alt="" width="100" height="7" />';
@@ -407,5 +407,3 @@ $signs = '
 ';
 
 $pdf->writeHTMLCell(190,5,'','',$signs,'',1);
-
-?>

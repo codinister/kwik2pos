@@ -24,6 +24,12 @@ class preview{
         $tax = DB::query("SELECT * FROM tax WHERE tax_id = ?",array($tax_id));
         echo json_encode($tax);
     }
+
+    public function contracts(){
+        $tax_id =  $_GET['tax_id'];
+        $tax = DB::query("SELECT * FROM contracts WHERE tax_id = ?",array($tax_id));
+        echo json_encode($tax);
+    }
     
     public function sales(){
         $tax_id =  $_GET['tax_id'];

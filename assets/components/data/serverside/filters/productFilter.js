@@ -83,7 +83,7 @@ const rentalsFilter = (product, sale) => {
         prod_qty_arr: prd ? prd?.prod_qty_arr : '',
         cust_id: v.cust_id,
         fullname: v.fullname,
-        available: expdate_left(v.duration, v.sales_date) <= sett?.makeavailabe,
+        available: expdate_left(v.duration, v.sales_date) <= sett?.showinstock,
         sold,
       };
     })

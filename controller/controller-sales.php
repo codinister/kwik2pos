@@ -29,6 +29,7 @@ class sales{
         $data = json_decode($_POST['data'],TRUE);
         extract($data);
 
+
         $insert = DB::query("INSERT INTO contracts(
             cont_id,
             title,
@@ -59,12 +60,8 @@ class sales{
            $otherinfo
         ));
 
-
-        $qry = DB::get_row("SELECT TAX_ID FROM contracts WHERE  tax_id = ?", array($tax_id));
-
-
-        if($qry){
-            echo $tax_id;
+        if($insert){
+            echo 'Contract saved!';
         }
         else{
             echo 'error';

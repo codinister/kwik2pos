@@ -1,0 +1,48 @@
+
+Date: 21 Jan 2025
+Time: 16:19:08
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`app`.`contracts`, CONSTRAINT `taxfk` FOREIGN KEY (`tax_id`) REFERENCES `tax` (`tax_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+ SQL ERROR:
+INSERT INTO contracts(
+            cont_id,
+            title,
+            start_date,
+            refferedtoas,
+            contractnumber,
+            tax_id,
+            cust_id, 
+            code, 
+            otherinfo
+        ) VALUES(?,?,?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE 
+            title = VALUES(title),
+            start_date = VALUES(start_date),
+            refferedtoas = VALUES(refferedtoas),
+            contractnumber = VALUES(contractnumber),
+            tax_id = VALUES(tax_id), 
+            cust_id = VALUES(cust_id), 
+            otherinfo = VALUES(otherinfo)
+
+
+Date: 21 Jan 2025
+Time: 16:15:47
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`app`.`contracts`, CONSTRAINT `taxfk` FOREIGN KEY (`tax_id`) REFERENCES `tax` (`tax_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+ SQL ERROR:
+INSERT INTO contracts(
+            cont_id,
+            title,
+            start_date,
+            refferedtoas,
+            contractnumber,
+            tax_id,
+            cust_id, 
+            code, 
+            otherinfo
+        ) VALUES(?,?,?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE 
+            title = VALUES(title),
+            start_date = VALUES(start_date),
+            refferedtoas = VALUES(refferedtoas),
+            contractnumber = VALUES(contractnumber),
+            tax_id = VALUES(tax_id), 
+            cust_id = VALUES(cust_id), 
+            otherinfo = VALUES(otherinfo)
+

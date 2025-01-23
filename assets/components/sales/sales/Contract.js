@@ -54,17 +54,7 @@ const Contract = (fullname, tax_id, cust_id, fullpayment) => {
   }
   else{
   
-    setTimeout(() => {
-      if (classSelector('start_date')) {
-        classSelector('start_date').valueAsDate = new Date();
-      }
-      if(classSelector('title')){
-        classSelector('title').value = 'OUT OF HOME ADVERTISING CONTRACT'
-      }
-      if(classSelector('refferedtoas')){
-        classSelector('refferedtoas').value = 'Agency'
-      }
-    }, 1000);
+
   }
 
 
@@ -91,60 +81,7 @@ const Contract = (fullname, tax_id, cust_id, fullpayment) => {
     );
   }
 
-  document.addEventListener('click', (e) => {
-    if (e.target.matches('.contract-btn')) {
-
-      const st = JSON.parse(localStorage.getItem('contract'));
-      st['otherinfo'] = CKEDITOR.instances.otherinfo.getData();
-      localStorage.setItem('contract', JSON.stringify(st));
-
-      const sales = JSON.parse(localStorage.getItem('sales'));
-
-
-      const  otherinfo1 = sales?.contract?.otherinfo
-      const  otherinfo2 = JSON.parse(localStorage.getItem('contract'))?.otherinfo
-      const  touched = JSON.parse(localStorage.getItem('contract'))?.touched
-
-
-      // console.log({otherinfo1, otherinfo2, touched})
-
-      // return 
-
-      const obj = JSON.parse(localStorage.getItem('contract'));
-
-      const trim = Object.values(obj)
-        .map((v) => v)
-        .filter(Boolean);
-
-      if (trim.length < 5) {
-        return displayToast('bgdanger', 'All fields required!');
-      }
-
-      const fd = new FormData();
-      fd.append('data', JSON.stringify(obj));
-
-      Spinner('btn-wrapper');
-
-      fetch('router.php?controller=sales&task=save_contract', {
-        method: 'Post',
-        body: fd,
-      })
-        .then((resp) => resp.text())
-        .then((data) => {
-
-          if (data !== 'error') {
-            console.log('Cleard');
-            localStorage.removeItem('sales');
-            localStorage.removeItem('prozdlist');
-            localStorage.removeItem('contract');
-            window.location = `assets/pdf/contract.php?inv=${btoa(data)}`;
-          } else {
-            displayToast('bgdanger', 'An error occured!');
-          }
-        });
-    }
-  });
-
+ 
   document.addEventListener('input', (e) => {
     if (e.target.matches('.contr')) {
       const { name, value } = e.target;
