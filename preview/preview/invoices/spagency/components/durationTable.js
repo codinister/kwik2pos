@@ -20,7 +20,7 @@ const durationTable = ({ ...obj }) => {
 
         if (v.qty > 0) {
           const dur =
-            v.duration.length > 0 ? v.duration + `${duration}(s)` : '';
+            v.duration > 0 ? v.duration + `${duration}(s)` : '';
 
           return `
                   <tr>

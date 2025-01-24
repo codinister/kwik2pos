@@ -1,40 +1,26 @@
 import getLogo from '../../../utils/getLogo.js';
 
-
-
-const Header = (settings) => {
-
-  const { comp_name,comp_logo, comp_email, comp_location, comp_website } = settings;
+const Header = (obj) => {
+  const {
+    settings: { comp_name, comp_logo, comp_email, comp_location, comp_website },
+  } = obj;
 
   const logo = getLogo(comp_logo);
 
-
-  return `<table  cellspacing="0" cellpadding="0">
+  return `<table  cellspacing="0" cellpadding="0" style="width: 70rem; font-size: 1.6rem;">
     <thead>
         <tr>
-            <td style="width: 15rem;">
+            <td style="width: 10rem;">
             ${logo}
             </td>
             <td style="width: 50rem;">
             <h2>${comp_name.toUpperCase()}</h2>
-            <table cellspacing="0" cellpadding="0">
-                <tr>
-                    <td style="width: 29rem;">
-                    <span>${comp_location}</span>
-                    <br />
-                    <span>&nbsp;&nbsp;${comp_email}</span>
-                    <br />
-                    <span>&nbsp;&nbsp;${comp_website}</span>
-                    <br />
-                    <br />
-        
-                    </td>
-                    <td style="text-align: right;">
-                    <br /> <br /><br />
-                    </td>
-                    
-                </tr>
-            </table>
+            <span>${comp_location}</span>
+            <br />
+            <span>${comp_email}</span>
+            <br />
+            <span>${comp_website}</span>
+
             </td>
         </tr>
         </thead>

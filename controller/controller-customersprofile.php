@@ -25,6 +25,8 @@ class customersprofile{
 		t.*, 
 		s.exp_date,
 		s.duration,
+		s.unit_price,
+		s.total as item_total,
 		t.createdAt as sales_date
 		FROM tax as t JOIN sales as s ON t.tax_id = s.tax_id WHERE t.trans_type = 'invoice' AND t.code = ?", array(getCode($_SESSION['edfghl']))); 
 		$this->response($qry);

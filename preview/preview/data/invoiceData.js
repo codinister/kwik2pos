@@ -6,7 +6,12 @@ import roofing from '../invoices/roofing/roofing.js';
 import services from '../invoices/services/services.js';
 import spagency from '../invoices/spagency/spagency.js';
 
-const invoiceData = (tax_id, sett, cust, user, tax, sales) => {
+const invoiceData = (tax_id, sett, cust, user, tax, sell) => {
+
+  const sales = sell.map(v => {
+    const durations = Number(v.total) / Number(v.unit_price)
+    return {...v, duration: Math.floor(durations)}
+  })
   let fullname = '';
   let signatures = '';
   if (tax_id) {

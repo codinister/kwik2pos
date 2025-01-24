@@ -1,7 +1,15 @@
 import inv_num from '../../utils/inv_num.js';
 import spagency from '../contracts/spagency.js';
 
-const contractData = (tax_id, sett, cust, user, tax, sales, contract) => {
+const contractData = (tax_id, sett, cust, user, tax, sell, contract) => {
+
+  const sales = sell.map(v => {
+    const durations = Number(v.total) / Number(v.unit_price)
+    return {...v, duration: Math.floor(durations)}
+  })
+
+
+
   let fullname = '';
   let signatures = '';
   if (tax_id) {
@@ -24,6 +32,7 @@ const contractData = (tax_id, sett, cust, user, tax, sales, contract) => {
   }
 
   const durations = Math.max(...sales.map((v) => v.duration));
+
 
   const obj = {
     settings: sett,

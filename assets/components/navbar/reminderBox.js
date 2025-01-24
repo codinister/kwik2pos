@@ -4,18 +4,13 @@ import getIndustry from '../utils/getIndustry.js';
 import customersprofile from '../data/serverside/fetch/customersprofile.js';
 
 const remondexbx = () => {
-
   const industry = getIndustry();
-  
+
   const { role_id } = JSON.parse(localStorage.getItem('zsdf'));
 
   customersprofile((data) => {
-    const obj = data
-      .map((v) => v.expiries)
-      .filter((v) => Object.values(v).length)
-      .map((v) => Object.values(v))
-      .flat(2);
 
+    const obj = data.map((v) => v.expiries).flat(2);
     const count = obj.length;
 
     if (industry === 'rentals' || industry === 'service provider') {
