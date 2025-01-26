@@ -30,6 +30,26 @@ class preview{
         $tax = DB::query("SELECT * FROM contracts WHERE tax_id = ?",array($tax_id));
         echo json_encode($tax);
     }
+
+
+    public function contacts(){
+
+        $user_id = $_GET['user_id']; 
+        $code = $_GET['code']; 
+
+
+        if($user_id !== ''){
+            $custs = DB::query("SELECT * FROM customers WHERE user_id = ?",array($user_id));
+            echo json_encode($custs);
+        }
+        else if($code !== ''){
+            $custs2 = DB::query("SELECT * FROM customers WHERE code = ?",array($code));
+            echo json_encode($custs2);
+        }
+
+
+    
+    }
     
     public function sales(){
         $tax_id =  $_GET['tax_id'];
@@ -52,6 +72,47 @@ class preview{
 
         echo json_encode($pay); 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function sales_by_custid(){
+        $cust_id =  $_GET['cust_id'];
+        $tax = DB::query("SELECT * FROM tax WHERE cust_id = ?",array($cust_id));
+        echo json_encode($tax);
+    }
+
+
+    public function payment_by_custid(){
+        $cust_id =  $_GET['cust_id'];
+
+        $pay = DB::query("SELECT 
+        p.createdAt as rec_date, 
+        p.* 
+        FROM payment_history as p 
+        WHERE cust_id = ?",array($cust_id)); 
+
+        echo json_encode($pay); 
+    }
+
+
 
 }
 

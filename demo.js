@@ -1,21 +1,5 @@
+const date =
+  (new Date('2025-01-28').getTime() - new Date().getTime('2025-01-25')) /
+  (1000 * 60 * 60 * 24);
 
-
-const durationInMonths = (createdAt, duration) => {
-  let date = new Date(createdAt);
-  date.setMonth(date.getMonth() + duration);
-  return date;
-};
-
-
-const durationInDays = (createdAt, duration) => {
-  let date = new Date(createdAt);
-  date.setDate(date.getDate() + duration);
-  return date;
-};
-
-
-const durationInYears = (createdAt, duration) => {
-  let date = new Date(createdAt);
-  date.setFullYear(date.getFullYear() + duration);
-  return date;
-};
+console.log(date);

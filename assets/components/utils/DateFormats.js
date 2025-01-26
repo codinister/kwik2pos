@@ -117,7 +117,6 @@ function formatMonth(m) {
 function daysleft(cdate, fdate) {
   const curdate = new Date(cdate);
   const futuredate = new Date(fdate);
-
   const newdate = futuredate.getTime() - curdate.getTime();
   const days = Math.floor(newdate / (1000 * 60 * 60 * 24));
   return days;

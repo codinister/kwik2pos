@@ -481,35 +481,36 @@ const spagency = ({ ...obj }) => {
               ${otherinfo || ''}
               </div>
 
-              <div>
+              <div style="margin-top: 8rem;">
               <h3>FLIGHTING / DEFLIGHTING OF FLEXY</h3>
+              <br />
               <p>
               Where the Client requests for removal or replacement of artwork within the contract period,
               the Client will be made to pay a flighting/installation fee at a mutually agreed cost after providing a new flexy (Artwork).
               </p>
               </div>
-
+     <br />
               <div>
               This contract supersedes all prior agreements, written and oral between the two parties with respect to the subject matter of this contract.
               </div>
-
+     <br />
               <div>
               <p>
               In the event of this country being at war or civil unrest or at any time through a law, decree or act of government / landlord for the time being in power, the agency is prevented from installing the billboard or is compelled to discontinue the use of the site, the agency shall give notice in writing to the client outlining all factors involved in the breach of the agreement. An alternative solution shall then be decided upon by both parties that would mutually benefit them.
               </p>
               </div>
-
+     <br />
               <div style="text-align: center; font-style: italic; font-weight: bold;">
               Should the artwork get damaged by a storm or wind blow, which is not caused as a result
               of the defect of the advertising structure, the Client shall be liable for the reprinting
               of the artwork and supply to the Agency for installation
               </div>
-
+     <br />
               <div>
               Failure to abide by any of the clauses in this agreement, automatically grants rights to the
               aggrieved party to;
 
-              <ol>
+              <ol style="padding-left: 1.6rem;">
               <li>
               Seek redress through civilized communication with the offending party, or should this
               fail,
@@ -521,7 +522,7 @@ const spagency = ({ ...obj }) => {
               Both parties may opt for formal dispute resolution (Arbitration) should the above fail.
               </li>
               </ol>
-
+     <br />
               <div> 
               In the event of any party deciding to withdraw from this contract, written notice of not less than
               one (1) months must be served. The withdrawing party will be liable for any costs/fees that are
