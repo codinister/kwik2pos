@@ -53,7 +53,7 @@ const Resetpassword = () => {
     }
   });
 
-  return `
+  classSelector('display-page').innerHTML = `
 
           <div class="reset-password-wrapper">
 

@@ -7,7 +7,6 @@ import {
 } from './utils/InputFields.js';
 import { classSelector } from './utils/Selectors.js';
 import displayToast from './utils/displayToast.js';
-import Layout from './Layout.js';
 import getIndustry from './utils/getIndustry.js';
 import Spinner from './utils/Spinner.js';
 import settingsReducer from './data/clientside/reducers/settingsReducer.js';
@@ -128,7 +127,7 @@ const Settings = () => {
 
   }
 
-  const page = `
+  classSelector('display-page').innerHTML = `
 
       <div class="settings-wrapper">
 
@@ -448,9 +447,7 @@ const Settings = () => {
 
 `;
 
-  if (document.querySelector('.root')) {
-    document.querySelector('.root').innerHTML = Layout('settings', page);
-  }
+
 
   //CKEDITOR INSTANCE
   CKEDITOR.replace('comp_terms', {

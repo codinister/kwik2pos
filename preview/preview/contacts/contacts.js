@@ -12,24 +12,24 @@ const contacts = ({ ...obj }) => {
     rows += `
             <tr>
     
-            <td style="padding: .8rem; width: 30px; border-bottom: solid 1px #444; border-right: solid 1px #444; border-left: solid 1px #444;">
+            <td style="padding: .8rem; width: 3rem; border-bottom: solid 0.1rem #444; border-right: solid 0.1rem #444; border-left: solid 0.1rem #444;">
             ${num}
             </td>
     
-            <td style="padding: .8rem; width: 145px; border-bottom: solid 1px #444; border-right: solid 1px #444;">
+            <td style="padding: .8rem; width: 14.5rem; border-bottom: solid 0.1rem #444; border-right: solid 0.1rem #444;">
             ${V.fullname}
             </td>
     
-            <td style="padding: .8rem; width: 120px; border-bottom: solid 1px #444; border-right: solid 1px #444;">
+            <td style="padding: .8rem; width: 12rem; border-bottom: solid 0.1rem #444; border-right: solid 0.1rem #444;">
             ${V.phone}
             </td>
     
-            <td style="padding: .8rem; width: 120px; border-bottom: solid 1px #444; border-right: solid 1px #444;">
+            <td style="padding: .8rem; width: 12rem; border-bottom: solid 0.1rem #444; border-right: solid 0.1rem #444;">
             ${V.email}
             </td>
     
             
-            <td style="padding: .8rem; width: 120px; border-bottom: solid 1px #444; border-right: solid 1px #444;">
+            <td style="padding: .8rem; width: 12rem; border-bottom: solid 0.1rem #444; border-right: solid 0.1rem #444;">
             ${V.location}
             </td>
     
@@ -63,11 +63,11 @@ const contacts = ({ ...obj }) => {
         <table style="width: 70rem;" cellpadding="0" cellspacing="0">
         <thead style="background-color: #444; color: white;">
          <tr>
-            <td style="width: 30px; padding: .8rem; ">#</td>
-            <td style="width: 145px; padding: .8rem; ">Fullname</td>
-            <td style="width: 120px; padding: .8rem; ">Phone</td>
-            <td style="width: 120px; padding: .8rem; ">Email</td>
-            <td style="width: 120px; padding: .8rem; ">Location</td>
+            <td style="width: 3rem; padding: .8rem; ">#</td>
+            <td style="width: 14.5rem; padding: .8rem; ">Fullname</td>
+            <td style="width: 12rem; padding: .8rem; ">Phone</td>
+            <td style="width: 12rem; padding: .8rem; ">Email</td>
+            <td style="width: 12rem; padding: .8rem; ">Location</td>
          </tr>
         </thead>
     

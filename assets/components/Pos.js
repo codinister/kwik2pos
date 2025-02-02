@@ -5,7 +5,6 @@ import Modalboxtwo from './utils/Modalboxtwo.js';
 import Modalboxnoreload from './utils/Modalboxnoreload.js';
 import Modalboxfour from './utils/Modalboxfour.js';
 import editingMode from './utils/editingMode.js';
-import Layout from './Layout.js';
 import Modalboxnoreload3 from './utils/Modalboxnoreload3.js';
 import rerender from './utils/rerender.js';
 import productsprofile from './data/serverside/fetch/productsprofile.js';
@@ -127,7 +126,7 @@ const Pos = () => {
     }
   }
 
-  const page = `
+  classSelector('display-page').innerHTML = `
     <div class="pos-container">
         <div class="pos-products-wrapper">
 
@@ -155,7 +154,7 @@ const Pos = () => {
     ${editingMode()}
     `;
 
-  document.querySelector('.root').innerHTML = Layout('sell', page);
+
 };
 
 rerender(Pos, 3);

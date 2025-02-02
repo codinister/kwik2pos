@@ -1,7 +1,15 @@
+import Header from "./components/Header.js";
+import Body from "./components/Body.js";
+import Footer from "./components/Footer.js";
 
+const emagweb = ({ ...obj }) => {
+  return `
+  <div class="invwrapper" style="width: max-content">
+    ${Header(obj)}
+    ${Body(obj)}
+    ${Footer(obj)}
+    </div>
+    `;
+};
 
-const emagweb = ({...obj}) => {
-
-}
-
-export default emagweb
+export default emagweb;

@@ -1,5 +1,7 @@
 const Chartbox = (id, arrlabels, arrdata) => {
   setTimeout(() => {
+
+    if(document.getElementById(id)){
     const getcanvas = document.getElementById(id).getContext('2d');
 
     const chart = new Chart(getcanvas, {
@@ -17,6 +19,7 @@ const Chartbox = (id, arrlabels, arrdata) => {
         chart.update();
       }
     });
+  }
   }, 1000);
 
   return `

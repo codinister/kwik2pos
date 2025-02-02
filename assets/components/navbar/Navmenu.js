@@ -7,10 +7,12 @@ import getSettingLocalstorage from '../data/clientside/localstorage/GET/getSetti
 import defaultProfileLocalstorage from '../data/clientside/localstorage/default/defaultProfileLocalstorage.js';
 import userProfile from '../users/userProfile.js';
 
-const Navmenu = () => {
+const Navmenu = (page) => {
   const industry = getIndustry();
   const sett = getSettingLocalstorage();
   const user = getLoginuser();
+
+
 
   const sess = JSON.parse(localStorage.getItem('zsdf'));
   const fullname = sess?.firstname + ' ' + sess?.lastname;
@@ -21,11 +23,12 @@ const Navmenu = () => {
 
   const arr = privelleges
     .map((a) => {
+      const pge = a.toLowerCase()
       return `
             <li class="nav-item dropdown">
-            <a class="${a.toLowerCase()} navlinks   nav-link"  
+            <a class="${pge} ${pge === page ? 'actv' : ''} navlinks   nav-link"  
             href="javascript:void(0);"   
-            data-navlinks = "?page=${a.toLowerCase()}"
+            data-navlinks = "?page=${pge}"
             id="navbarDropdownMenuLink"
             >
             ${a} 
@@ -49,6 +52,10 @@ const Navmenu = () => {
   }, 0);
 
   document.addEventListener('click', (e) => {
+    if (e.target.matches('.fminpt')) {
+      e.target.removeAttribute('readonly');
+    }
+
     if (e.target.matches('.hamburger')) {
       classSelector('nav-bar-wrapper').classList.add('show');
       classSelector('nav-overlay').classList.add('show');
@@ -115,13 +122,16 @@ const Navmenu = () => {
     bell = bellIcon();
   }
 
-  return ` 
+  classSelector('display-navbar').innerHTML = ` 
+  <div class="nav-menu">
     <nav class="navbar">
 
 
       <div class="nav-bar-wrapper">
 
-      <img src="assets/uploads/${sett?.comp_logo}" alt="" class="mob-logo hideondesktop" />
+      <img src="assets/uploads/${
+        sett?.comp_logo
+      }" alt="" class="mob-logo hideondesktop" />
        <div class="navbaritems"></div>
        </div>
 
@@ -132,7 +142,7 @@ const Navmenu = () => {
 
           <div class="other-nav-details ">
             ${bell}
-            <a class="logout" href="?page=logout">
+            <a class="logout navlinks" data-navlinks = "?page=logout" href="javascript:void(0);">
             <i class="fa fa-arrow-left fa-lg"></i> LOGOUT
             </a>             
             <a class="profile-img" href="javascript:void(0);" title="${fullname}">
@@ -150,6 +160,8 @@ const Navmenu = () => {
     </nav>
     ${userProfile()}
     ${toastNotification()}
+     </div>
+     <div class="marginTop"></div>
     `;
 };
 

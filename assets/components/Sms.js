@@ -3,8 +3,6 @@ import { classSelector } from './utils/Selectors.js';
 import Table from './utils/Table.js';
 import searchBox from './utils/searchBox.js';
 import displayToast from './utils/displayToast.js';
-import smsStatusCodes from './sms/smsStatusCodes.js';
-import Layout from './Layout.js';
 import Spinner from './utils/Spinner.js';
 import customersprofile from './data/serverside/fetch/customersprofile.js';
 import smsBalance from './data/api/sms/smsBalance.js';
@@ -236,7 +234,7 @@ const Sms = () => {
       }
     }, 1000);
 
-    const page = `
+    classSelector('display-page').innerHTML = `
       <div class="dash-container  bulksms">
       <div>
         <div>
@@ -268,7 +266,7 @@ const Sms = () => {
   ${Modalboxnoreload('', '<div class="smscontacts"></div>')}
   `;
 
-    document.querySelector('.root').innerHTML = Layout('sms', page);
+
   });
 };
 

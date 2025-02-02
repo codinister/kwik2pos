@@ -68,48 +68,28 @@ class preview{
         FROM tax as t 
         JOIN payment_history as p 
         ON p.tax_id = t.tax_id 
-        WHERE p.tax_id = ?",array($tax_id)); 
+        WHERE p.tax_id = ? AND t.trans_type = 'invoice' ",array($tax_id)); 
 
         echo json_encode($pay); 
     }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public function sales_by_custid(){
-        $cust_id =  $_GET['cust_id'];
-        $tax = DB::query("SELECT * FROM tax WHERE cust_id = ?",array($cust_id));
-        echo json_encode($tax);
-    }
-
-
-    public function payment_by_custid(){
+    public function customr_statement(){
         $cust_id =  $_GET['cust_id'];
 
-        $pay = DB::query("SELECT 
+        $res = DB::query("SELECT 
+        t.*,
         p.createdAt as rec_date, 
-        p.* 
-        FROM payment_history as p 
-        WHERE cust_id = ?",array($cust_id)); 
+        p.*, 
+        c.*
+        FROM payment_history as p
+        RIGHT JOIN tax as t 
+        ON p.tax_id = t.tax_id JOIN customers as c ON c.cust_id = t.cust_id
+        WHERE t.cust_id = ? AND t.trans_type = 'invoice'
+        ",array($cust_id)); 
 
-        echo json_encode($pay); 
+        echo json_encode($res); 
     }
 
 

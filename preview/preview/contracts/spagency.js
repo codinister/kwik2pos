@@ -250,20 +250,20 @@ const spagency = ({ ...obj }) => {
         <table  style="width: 70rem; font-size: 1.2rem; background-color: #444; color: white;">
           <thead>
           <tr>
-          <td style="padding: 1rem; width: 30px;">#
+          <td style="padding: 1rem; width: 3rem;">#
           </td>
-          <td style="padding: 1rem; width: 50px;">Qty
+          <td style="padding: 1rem; width: 5rem;">Qty
           </td>
-          <td style="padding: 1rem; width: 150px;">Description
+          <td style="padding: 1rem; width: 15rem;">Description
           </td>
-          <td style="padding: 1rem; width: 70px;">Size
+          <td style="padding: 1rem; width: 7rem;">Size
           </td>
-          <td style="padding: 1rem; width: 80px;">Duration
+          <td style="padding: 1rem; width: 8rem;">Duration
           </td>
 
-          <td style="padding: 1rem; width: 60px;">Unit Price
+          <td style="padding: 1rem; width: 6rem;">Unit Price
           </td>
-          <td style="padding: 1rem; width: 90px;">Total
+          <td style="padding: 1rem; width: 9rem;">Total
           </td>
           </tr>
           </tbody>
@@ -275,15 +275,15 @@ const spagency = ({ ...obj }) => {
       <table   style="width: 70rem; font-size: 1.2rem; background-color: #444; color: white;">
       <tbody>
         <tr>
-        <td style="padding: 1rem; width: 30px;">#
+        <td style="padding: 1rem; width: 3rem;">#
         </td>
-        <td style="padding: 1rem; width: 60px;">Qty
+        <td style="padding: 1rem; width: 6rem;">Qty
         </td>
-        <td style="padding: 1rem; width: 270px;">Description
+        <td style="padding: 1rem; width: 27rem;">Description
         </td>
-        <td style="padding: 1rem; width: 80px;">Unit Price
+        <td style="padding: 1rem; width: 8rem;">Unit Price
         </td>
-        <td style="padding: 1rem; width: 90px;">Total
+        <td style="padding: 1rem; width: 9rem;">Total
         </td>
         </tr>
         </tbody>
@@ -304,21 +304,21 @@ const spagency = ({ ...obj }) => {
 
         rows += `
                 <tr>
-                <td style="padding: 1rem; width: 30px; border-right: solid 1px black; border-left: solid 1px black; border-bottom: solid 1px black;">${num++}</td>
-                <td style="padding: 1rem; width: 50px; border-right: solid 1px black; border-bottom: solid 1px black; ">${
+                <td style="padding: 1rem; width: 3rem; border-right: solid 0.1rem black; border-left: solid 0.1rem black; border-bottom: solid 0.1rem black;">${num++}</td>
+                <td style="padding: 1rem; width: 5rem; border-right: solid 0.1rem black; border-bottom: solid 0.1rem black; ">${
                   v.qty
                 }</td>
-                <td style="padding: 1rem; width: 150px; border-right: solid 1px black; border-bottom: solid 1px black; ">${
+                <td style="padding: 1rem; width: 15rem; border-right: solid 0.1rem black; border-bottom: solid 0.1rem black; ">${
                   v.prod_name
                 }</td>
-                <td style="padding: 1rem; width: 70px; border-right: solid 1px black; border-bottom: solid 1px black; ">${
+                <td style="padding: 1rem; width: 7rem; border-right: solid 0.1rem black; border-bottom: solid 0.1rem black; ">${
                   v.prod_size
                 }</td>
-                <td style="padding: 1rem; width: 80px; border-right: solid 1px black; border-bottom: solid 1px black; ">${dur}</td>
-                <td style="padding: 1rem; width: 60px; border-right: solid 1px black; border-bottom: solid 1px black; ">${
+                <td style="padding: 1rem; width: 8rem; border-right: solid 0.1rem black; border-bottom: solid 0.1rem black; ">${dur}</td>
+                <td style="padding: 1rem; width: 6rem; border-right: solid 0.1rem black; border-bottom: solid 0.1rem black; ">${
                   v.unit_price
                 }</td>
-                <td style="padding: 1rem; width: 90px; border-right: solid 1px black; border-bottom: solid 1px black; ">${format_number(
+                <td style="padding: 1rem; width: 9rem; border-right: solid 0.1rem black; border-bottom: solid 0.1rem black; ">${format_number(
                   v.total
                 )}</td>
                 </tr>
@@ -326,17 +326,17 @@ const spagency = ({ ...obj }) => {
       } else {
         rows += `
                 <tr>
-                <td style="padding: 1rem; width: 30px; border-right: solid 1px black; border-left: solid 1px black; border-left: solid 1px black; border-bottom: solid 1px black;">${num++}</td>
-                <td style="padding: 1rem; width: 60px; border-right: solid 1px black; border-bottom: solid 1px black; ">${
+                <td style="padding: 1rem; width: 3rem; border-right: solid 0.1rem black; border-left: solid 0.1rem black; border-left: solid 0.1rem black; border-bottom: solid 0.1rem black;">${num++}</td>
+                <td style="padding: 1rem; width: 6rem; border-right: solid 0.1rem black; border-bottom: solid 0.1rem black; ">${
                   v.qty
                 }</td>
-                <td style="padding: 1rem; width: 270px; border-right: solid 1px black; border-bottom: solid 1px black; ">${
+                <td style="padding: 1rem; width: 27rem; border-right: solid 0.1rem black; border-bottom: solid 0.1rem black; ">${
                   v.prod_name
                 }</td>
-                <td style="padding: 1rem; width: 80px; border-right: solid 1px black; border-bottom: solid 1px black; ">${
+                <td style="padding: 1rem; width: 8rem; border-right: solid 0.1rem black; border-bottom: solid 0.1rem black; ">${
                   v.unit_price
                 }</td>
-                <td style="padding: 1rem; width: 90px; border-right: solid 1px black; border-bottom: solid 1px black;  ">${format_number(
+                <td style="padding: 1rem; width: 9rem; border-right: solid 0.1rem black; border-bottom: solid 0.1rem black;  ">${format_number(
                   v.total
                 )}</td>
                 </tr>
@@ -365,7 +365,7 @@ const spagency = ({ ...obj }) => {
       <table style="width: 70rem; font-size: 1.6rem;">
         <tbody>
           <tr>
-            <td style="border: solid 1px black; text-align: center;">
+            <td style="border: solid 0.1rem black; text-align: center;">
             <br />
             <h1>${title || 'OUT OF HOME ADVERTISING CONTRACT'}</h1>
             <br />
@@ -407,7 +407,7 @@ const spagency = ({ ...obj }) => {
 
 
           <tr>
-            <td style="border: solid 1px black; padding-block: 2.4rem; text-align: center; ">
+            <td style="border: solid 0.1rem black; padding-block: 2.4rem; text-align: center; ">
               <h3>CONTRACT #</h3>
               <h3>${
                 contractnumber || contNumber(comp_name, full_name, start_date)
@@ -416,7 +416,7 @@ const spagency = ({ ...obj }) => {
           </tr>
    
           <tr> 
-          <td style="padding-block: 8rem; width: 530px; text-align: justify;">
+          <td style="padding-block: 8rem; width: 53rem; text-align: justify;">
           This contract agreement is made this <b>${days(
             day
           )}</b> day of <b>${year}</b> signed and sealed between these parties <b>${comp_name}</b> (hereby called the (${

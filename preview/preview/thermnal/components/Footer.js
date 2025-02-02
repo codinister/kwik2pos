@@ -23,9 +23,11 @@ const Footer = ({ ...obj }) => {
 
   //Sub Total
   const sub_total = `
+     <br />
   <tr>
-    <td style="width: 180px;">Sub Total ${currency}</td>
-    <td style="width: 60px;">${format_number(subtotal)}</td>
+    <td style="width: 18rem;">
+    Sub Total ${currency}</td>
+    <td style="width: 6rem;">${format_number(subtotal)}</td>
   </tr>
   `;
 
@@ -37,10 +39,10 @@ const Footer = ({ ...obj }) => {
   if (discount > 0) {
     discounts = `
     <tr>   
-      <td style="width: 180px;">
+      <td style="width: 18rem;">
       Discount ${currency} (${Math.floor(discnt)}%)
       </td>
-      <td style="width: 60px;">
+      <td style="width: 6rem;">
       ${format_number(discount)}
       </td>
     </tr>
@@ -52,8 +54,8 @@ const Footer = ({ ...obj }) => {
   if (nhil > 0) {
     nhils = `
   <tr>
-  <td style="width: 180px;">NHIL (${nhil_rate}%)</td>
-  <td style="width: 60px;">${format_number(nhil)}</td>
+  <td style="width: 18rem;">NHIL (${nhil_rate}%)</td>
+  <td style="width: 6rem;">${format_number(nhil)}</td>
   </tr>
   `;
   }
@@ -63,8 +65,8 @@ const Footer = ({ ...obj }) => {
   if (covid > 0) {
     covids = `
       <tr>
-      <td style="width: 180px;">COVID (${covid_rate}%)</td>
-      <td style="width: 60px;">${format_number(covid)}</td>
+      <td style="width: 18rem;">COVID (${covid_rate}%)</td>
+      <td style="width: 6rem;">${format_number(covid)}</td>
       </tr>
       `;
   }
@@ -74,8 +76,8 @@ const Footer = ({ ...obj }) => {
   if (withholdingtax > 0) {
     withholdingtaxs = `
         <tr>
-        <td style="width: 180px;">WITHHOLDING TAX (${withholdingtax_rate}%)</td>
-        <td style="width: 60px;">${format_number(withholdingtax)}</td>
+        <td style="width: 18rem;">WITHHOLDING TAX (${withholdingtax_rate}%)</td>
+        <td style="width: 6rem;">${format_number(withholdingtax)}</td>
         </tr>
         `;
   }
@@ -85,8 +87,8 @@ const Footer = ({ ...obj }) => {
   if (getfund > 0) {
     getfunds = `
   <tr>
-  <td style="width: 180px;">GETFUND (${getfund_rate}%)</td>
-  <td style="width: 60px;">${format_number(getfund)}</td>
+  <td style="width: 18rem;">GETFUND (${getfund_rate}%)</td>
+  <td style="width: 6rem;">${format_number(getfund)}</td>
   </tr>
   `;
   }
@@ -96,32 +98,32 @@ const Footer = ({ ...obj }) => {
   if (vat > 0) {
     vats = `
   <tr>
-  <td style="width: 180px;">VAT (${vat_rate}%)</td>
-  <td style="width: 60px;">${format_number(vat)}</td>
+  <td style="width: 18rem;">VAT (${vat_rate}%)</td>
+  <td style="width: 6rem;">${format_number(vat)}</td>
   </tr>
   `;
   }
 
   let totals = ` 
   <tr>
-  <td style="width: 180px;"><strong>TOTAL ${currency}</strong></td>
-  <td style="width: 60px;"><strong>${format_number(total)}</strong></td>
+  <td style="width: 18rem;"><strong>TOTAL ${currency}</strong></td>
+  <td style="width: 6rem;"><strong>${format_number(total)}</strong></td>
   </tr>
   `;
 
   const thanks = `
-  <br /><br />
   <tr>
-  <td style="width: 240px; text-align: center;"><strong>Thank you!</strong></td>
-  </tr>
-  <tr>
-  <td style="width: 240px; text-align: center;"><strong>Please come again</strong></td>
+    <td colspan="2" style="width: 24rem; text-align: center;">
+    <br />
+    <strong>Thank you!</strong>
+    <br />
+    <strong>Please come again</strong>
+    </td>
   </tr>
   `;
 
   return `
-  <br /><br />
-  <table>
+  <table style="width: 24rem;" cellspacing="0">
     ${sub_total}
     ${withholdingtaxs}
     ${discounts}

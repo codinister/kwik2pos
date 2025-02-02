@@ -9,7 +9,6 @@ import rentedProducts from './products/rentals/rented.js';
 import retailsStock from './products/retails/retailStock.js';
 import serviceStock from './products/services/serviceStock.js';
 import Buttons from './utils/Buttons.js';
-import Layout from './Layout.js';
 import productsLocalstorage from './data/clientside/localstorage/default/defaultProductsLocalstorage.js';
 import editCatForm from './products/utils/editCatForm.js';
 import roofingStock from './products/roofing/roofingStock.js';
@@ -191,7 +190,7 @@ const Products = () => {
     }
   });
 
-  const Page = `
+  classSelector('display-page').innerHTML = `
       <div class="dash-container mb-2">
 
       <div class="dash-row gap-3">
@@ -276,7 +275,7 @@ const Products = () => {
       </div>
       ${Modalboxone('', '')}
       `;
-  classSelector('root').innerHTML = Layout('products', Page);
+
 };
 rerender(Products, 2);
 export default Products;

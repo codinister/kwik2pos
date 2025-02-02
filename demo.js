@@ -1,5 +1,22 @@
-const date =
-  (new Date('2025-01-28').getTime() - new Date().getTime('2025-01-25')) /
-  (1000 * 60 * 60 * 24);
+function a(fn) {
+  return fn(3);
+}
 
-console.log(date);
+function b(fn) {
+  return fn(33);
+}
+
+function c(fn) {
+  return fn(12);
+}
+
+const sol = a((data1) => {
+  return b((data2) => {
+    return c((data3) => {
+      const res = data1 + data2 + data3
+      return res
+    });
+  });
+});
+
+console.log(sol)

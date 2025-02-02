@@ -5,7 +5,6 @@ import Modalboxone from './utils/Modalboxone.js';
 import { Tabs, tabContent, tabMenu } from './utils/Tabs.js';
 import rerender from './utils/rerender.js';
 import getCode from './utils/getCode.js';
-import Layout from './Layout.js';
 import userForm from './users/userForm.js';
 import userNote from './users/userNote.js';
 import userReducer from './data/clientside/reducers/userReducer.js';
@@ -30,7 +29,7 @@ import dataListDropdown from './utils/dataListDropdown.js';
 const Users = () => {
   const code = getCode();
 
-  usersprofile((users) => {
+   usersprofile((users) => {
     function userdata() {
       return users;
     }
@@ -337,7 +336,7 @@ const Users = () => {
       classSelector('addNote').classList.add('show');
     }, 0);
 
-    const Page = `
+    classSelector('display-page').innerHTML = `
         <div class="dash-container mb-2">
         <div class="dash-row gap-3">
 
@@ -403,7 +402,6 @@ const Users = () => {
       ${Modalboxone('', '')}
     `;
 
-    classSelector('root').innerHTML = Layout('users', Page);
   });
 };
 

@@ -1,6 +1,10 @@
 import { formatDate } from '../../../utils/DateFormats.js';
 
 const Header = ({ ...obj }) => {
+
+
+  console.log(obj)
+
   const {
     invoice_no,
     customers: { fullname: cust_name },
@@ -19,7 +23,7 @@ const Header = ({ ...obj }) => {
   return `
   <table>
     <tr>
-      <td style="width: 240px; text-align: center;">
+      <td style="width: 24rem; text-align: center;">
       <h1>${comp_name.toUpperCase()}</h1>
       ${comp_location}
       <br />
@@ -27,7 +31,9 @@ const Header = ({ ...obj }) => {
       <br />
       ${digitaladdress.length > 0 ? digitaladdress : ''}
       <br />
-      <strong style="font-size: 14px;">${pyid > 0 ? 'RECIEPT' : 'ESTIMATE'}</strong>
+      <strong style="font-size: 1.4rem;">
+      ${pyid > 0 ? 'RECIEPT' : 'ESTIMATE'}
+      </strong>
       </td>
     </tr>
   </table>
@@ -35,46 +41,46 @@ const Header = ({ ...obj }) => {
   
   <table>
     <tr>
-      <td style="width: 120px;">
+      <td style="width: 12rem;">
       CASHIER
       </td>
-      <td style="width: 120px;">
+      <td style="width: 12rem;">
       ${cashiername}
       </td>
     </tr>
     <tr>
-      <td style="width: 120px;">
+      <td style="width: 12rem;">
       DATE
       </td>
-      <td style="width: 120px;">
+      <td style="width: 12rem;">
       ${formatDate(createdAt)}
       </td>
     </tr>
     <tr>
-      <td style="width: 120px;">
+      <td style="width: 12rem;">
       ESTIMATE #
       </td>
-      <td style="width: 120px;">
+      <td style="width: 12rem;">
       ${invoice_no}
       </td>
     </tr>
     <tr>
-      <td style="width: 120px;">
+      <td style="width: 12rem;">
       CUSTOMER
       </td>
-      <td style="width: 120px;">
+      <td style="width: 12rem;">
       ${cust_name}
       </td>
     </tr>
   </table>
-
+<br />
 
   <table>
     <tr>
-      <td style="width: 80px; "><strong>ITEM NAME</strong></td>
-      <td style="width: 40px;"><strong>QTY</strong></td>
-      <td style="width: 60px;"><strong>PRICE</strong></td>
-      <td style="width: 60px;"><strong>TOTAL</strong></td>
+      <td style="width: 8rem; "><strong>ITEM NAME</strong></td>
+      <td style="width: 4rem; text-align: center;"><strong>QTY</strong></td>
+      <td style="width: 6rem;"><strong>PRICE</strong></td>
+      <td style="width: 6rem;"><strong>TOTAL</strong></td>
     </tr>
   </table>
   `;

@@ -1,0 +1,99 @@
+
+Date: 31 Jan 2025
+Time: 11:10:12
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'p.cust_id' in 'on clause'
+ SQL ERROR:
+SELECT 
+        t.*,
+        p.createdAt as rec_date, 
+        p.* 
+        FROM tax as t 
+        LEFT JOIN payment_history as p 
+        ON t.cust_id = p.cust_id
+        WHERE t.cust_id = ?
+
+
+Date: 31 Jan 2025
+Time: 11:07:33
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'p.cust_id' in 'on clause'
+ SQL ERROR:
+SELECT 
+        p.createdAt as rec_date, 
+        p.* , 
+        t.*
+        FROM tax as t LEFT JOIN payment_history as p 
+        ON t.cust_id = p.cust_id
+        WHERE t.cust_id = ?
+
+
+Date: 31 Jan 2025
+Time: 11:06:22
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'p.cust_id' in 'on clause'
+ SQL ERROR:
+SELECT 
+        p.createdAt as rec_date, 
+        p.* , 
+        t.*
+        FROM tax as t LEFT JOIN payment_history as p 
+        ON t.cust_id = p.cust_id
+        WHERE t.cust_id = ?
+
+
+Date: 31 Jan 2025
+Time: 11:06:21
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'p.cust_id' in 'on clause'
+ SQL ERROR:
+SELECT 
+        p.createdAt as rec_date, 
+        p.* , 
+        t.*
+        FROM tax as t LEFT JOIN payment_history as p 
+        ON t.cust_id = p.cust_id
+        WHERE t.cust_id = ?
+
+
+Date: 31 Jan 2025
+Time: 10:56:32
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE t.cust_id = '368'' at line 7
+ SQL ERROR:
+SELECT 
+        p.createdAt as rec_date, 
+        p.* , 
+        t.*
+        FROM payment_history as p JOIN tax as t 
+        ON t.cust_id LEFT JOIN p.cust_id
+        WHERE t.cust_id = ?
+
+
+Date: 31 Jan 2025
+Time: 10:37:47
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cust_id' in 'where clause'
+ SQL ERROR:
+SELECT 
+        p.createdAt as rec_date, 
+        p.* 
+        FROM payment_history as p 
+        WHERE cust_id = ?
+
+
+Date: 31 Jan 2025
+Time: 10:33:36
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cust_id' in 'where clause'
+ SQL ERROR:
+SELECT 
+        p.createdAt as rec_date, 
+        p.* 
+        FROM payment_history as p 
+        WHERE cust_id = ?
+
+
+Date: 31 Jan 2025
+Time: 10:32:18
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cust_id' in 'where clause'
+ SQL ERROR:
+SELECT 
+        p.createdAt as rec_date, 
+        p.* 
+        FROM payment_history as p 
+        WHERE cust_id = ?
+

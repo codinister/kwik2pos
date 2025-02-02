@@ -1,4 +1,3 @@
-import Layout from './Layout.js';
 import Chartbox from './widgets/Chartbox.js';
 import Totalbox from './widgets/Totalbox.js';
 import productsprofile from './data/serverside/fetch/productsprofile.js';
@@ -9,15 +8,11 @@ import Customerswhowe from './widgets/Customerswhowe.js';
 import format_number from './utils/format_number.js';
 import { textInput } from './utils/InputFields.js';
 import getIndustry from './utils/getIndustry.js';
+import { classSelector } from './utils/Selectors.js';
 
 const Dashboard = () => {
-  document.addEventListener('click', (e) => {
-    if (e.target.matches('.accstatement')) {
-      const { cust_id } = e.target.dataset;
 
-      window.location = `assets/pdf/accstatement.php?t=${cust_id}`;
-    }
-  });
+
 
   productsprofile((products) => {
     customersprofile((customers) => {
@@ -191,7 +186,7 @@ const Dashboard = () => {
           }
         });
 
-        const page = `
+        classSelector('display-page').innerHTML =  `
           <section class="dashboard-section">
             <div class="dashboard-container">
               <div class="total-wrapper">
@@ -262,10 +257,11 @@ const Dashboard = () => {
             </section>
             `;
 
-        document.querySelector('.root').innerHTML = Layout('dashboard', page);
+  
       });
     });
   });
+
 };
 
 export default Dashboard;

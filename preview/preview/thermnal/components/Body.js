@@ -6,13 +6,13 @@ const Body = ({ ...obj }) => {
   const rows = Object.values(items).map((v) => {
     if (v.qty > 0) {
       return `<tr>
-      <td style="width: 80px;">'.${v.prod_name}</td>
-      <td style="width: 40px;">'.${v.qty}</td>
-      <td style="width: 60px;">'.${v.unit_price}</td>
-      <td style="width: 60px;">${format_number(v.total)}</td>
+      <td style="width: 8rem;">${v.prod_name}</td>
+      <td style="width: 4rem; text-align: center;">${v.qty}</td>
+      <td style="width: 6rem;">${v.unit_price}</td>
+      <td style="width: 6rem;">${format_number(v.total)}</td>
       </tr>`;
     }
-  });
+  }).join(' ');
 
   return `<table>${rows}</table>`;
 };
