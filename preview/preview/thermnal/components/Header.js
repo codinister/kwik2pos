@@ -24,7 +24,7 @@ const Header = ({ ...obj }) => {
   <table>
     <tr>
       <td style="width: 24rem; text-align: center;">
-      <h1>${comp_name.toUpperCase()}</h1>
+      <h5>${comp_name.toUpperCase()}</h5>
       ${comp_location}
       <br />
       ${comp_phone}

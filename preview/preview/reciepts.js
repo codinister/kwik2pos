@@ -3,11 +3,11 @@ const url = new URLSearchParams(window.location.search);
 import recieptsData from './data/recieptsData.js';
 
 //ID
-const pay_id = url.get('pyid');
-const user_id = url.get('usd');
+const pay_id = atob(url.get('pyid'));
+const user_id = atob(url.get('usd'));
 const code = url.get('cde');
-const cust_id = url.get('cusd');
-const tax_id = url.get('txid');
+const cust_id = atob(url.get('cusd'));
+const tax_id = atob(url.get('txid'));
 
 
 //URL

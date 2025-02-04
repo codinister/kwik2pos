@@ -1,32 +1,23 @@
 import format_number from '../../utils/format_number.js';
-import getLogo from '../../utils/getLogo.js';
 import amountToWords from '../../utils/ToWords.js';
-import signature from '../../utils/signature.js';
-import expDate from '../../utils/expDate.js';
 import Footer from './components/Footer.js';
 import Header from './components/Header.js';
 import { dmy, ymd } from '../../utils/DateFormats.js';
 
 const spagency = ({ ...obj }) => {
+
   const {
     settings: {
       comp_name,
-      comp_logo,
       comp_phone,
-      comp_email,
-      comp_website,
       comp_location,
       duration: durationType,
     },
     customers: { fullname: full_name },
-    users,
     taxes: { createdAt: start_date, total, vat },
     items,
-    fullname,
-    signatures,
-    invoice_no,
     durations,
-    contract: { cont_id, title, refferedtoas, contractnumber, otherinfo },
+    contract: { title, refferedtoas, contractnumber, otherinfo },
   } = obj;
 
 
@@ -44,11 +35,7 @@ const spagency = ({ ...obj }) => {
     return comp_name.toUpperCase() + `/${init}/` + dmy(new Date(start_date));
   };
 
-  const sign = signature({ ...obj });
-  const logo = getLogo(comp_logo);
-  const underline = '';
 
-  const exp_date = expDate(durationType, durations, start_date);
   const grandtotalwords = amountToWords(Number(total));
 
   function days(d) {
@@ -345,7 +332,7 @@ const spagency = ({ ...obj }) => {
     }
   });
 
-  console.log(items)
+
   let row = `
     ${table_header}
     <table style="width: 70rem; font-size: 1.2rem;">
@@ -356,7 +343,6 @@ const spagency = ({ ...obj }) => {
     <br /> <br /><br />
   `;
 
-  const fullpayment = amountToWords(Number(total));
 
   return `
     <div class="invwrapper">
@@ -367,37 +353,37 @@ const spagency = ({ ...obj }) => {
           <tr>
             <td style="border: solid 0.1rem black; text-align: center;">
             <br />
-            <h1>${title || 'OUT OF HOME ADVERTISING CONTRACT'}</h1>
+            <h3>${title || 'OUT OF HOME ADVERTISING CONTRACT'}</h3>
             <br />
             </td>
           </tr>
           <tr>
             <td>
-            <h3 style="text-align: center; margin-block: 8rem;">Between</h3>
+            <h4 style="text-align: center; margin-block: 8rem;">Between</h4>
             </td>
           </tr>
           <tr>
             <td>
               <div style="text-align: center; line-height: 2.4rem;">
-              <h2>${comp_name}</h2>
+              <h4>${comp_name}</h4>
               <strong>Head Office</strong>
               <br />
               <strong>${comp_location}</strong>
               <br />
               <span><i>Tel: ${comp_phone}</i></span>
-              <h4>Herein after referred to as </h4>
-              <h4>"The ${refferedtoas || 'Ageency'}" </h4>
+              <h5>Herein after referred to as </h5>
+              <h5>"The ${refferedtoas || 'Ageency'}" </h5>
               </div>
          
-              <h3 style="text-align: center; margin-block: 8rem;"> And</h3>
+              <h5 style="text-align: center; margin-block: 8rem;"> And</h5>
     
               <div style="text-align: center;">
-              <h2>${full_name}</h2>
+              <h4>${full_name}</h4>
               </div>
    
-              <h4 style="text-align: center; margin-block: 8rem;">
+              <h5 style="text-align: center; margin-block: 8rem;">
               Hereinafter referred to as “The Client”
-              </h4>
+              </h5>
   
               </div> 
               <br />
@@ -408,10 +394,10 @@ const spagency = ({ ...obj }) => {
 
           <tr>
             <td style="border: solid 0.1rem black; padding-block: 2.4rem; text-align: center; ">
-              <h3>CONTRACT #</h3>
-              <h3>${
+              <h4>CONTRACT #</h4>
+              <h5>${
                 contractnumber || contNumber(comp_name, full_name, start_date)
-              }</h3>
+              }</h5>
             </td>
           </tr>
    
@@ -482,7 +468,7 @@ const spagency = ({ ...obj }) => {
               </div>
 
               <div style="margin-top: 8rem;">
-              <h3>FLIGHTING / DEFLIGHTING OF FLEXY</h3>
+              <h5>FLIGHTING / DEFLIGHTING OF FLEXY</h5>
               <br />
               <p>
               Where the Client requests for removal or replacement of artwork within the contract period,

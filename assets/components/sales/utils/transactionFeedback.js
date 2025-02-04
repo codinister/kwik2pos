@@ -19,6 +19,8 @@ const transactionfeedback = (
   const share = sharing(cust_phone, cust_name, cust_email, url,type);
   const prev = previews(pay_id, cust_id, tax_id, user_id);
 
+  console.log(url)
+
   return `
   <div class="transactionfeedback-bx">
   <div> 
@@ -28,7 +30,7 @@ const transactionfeedback = (
   ${prev} ${share}
   </div>
 
-${noteWrapper()}
+  ${noteWrapper()}
 
 
   </div>

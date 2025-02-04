@@ -7,13 +7,13 @@ import Users from './Users.js';
 import Login from './Login.js';
 import Forgotpassword from './Forgotpassword.js';
 import Resetpassword from './Resetpassword.js';
-
 import Navmenu from './navbar/Navmenu.js';
 import contentModal from './utils/contentModal.js';
 import contentPreview from './utils/contentPreview.js';
 import { classSelector } from './utils/Selectors.js';
 import Footer from './footer/Footer.js';
 import Logout from './Logout.js';
+import Notfound from './Notfound.js';
 
 const searchstring = new URLSearchParams(window.location.search);
 const page = searchstring.get('page');
@@ -42,7 +42,10 @@ const Pages = () => {
   pagess[page]() || '';
 };
 
-if (localStorage.getItem('zsdf')) {
+
+
+
+if (sessionStorage.getItem('lgn')) {
   classSelector('root').innerHTML = `
       <div class="display-navbar"></div>
       <div class="display-page"></div>
@@ -54,12 +57,13 @@ if (localStorage.getItem('zsdf')) {
 
   contentPreview();
 } else {
+
   if (page === 'forgotpswd') {
     classSelector('root').innerHTML = Forgotpassword();
   } else if (page === 'resetpassword') {
     classSelector('root').innerHTML = Resetpassword();
   } else {
-    classSelector('root').innerHTML = Login();
+    Logout()
   }
 }
 

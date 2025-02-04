@@ -6,7 +6,7 @@ import { formatDate } from '../utils/DateFormats.js';
 
 //ID
 const code = url.get('cde');
-const cust_id = url.get('cusd');
+const cust_id = atob(url.get('cusd'));
 
 //URL
 const settingsUrl = `settings&code=${code}`;

@@ -21,10 +21,10 @@ const Footer = (obj) => {
 
       <tr> 
       <td  style="width: 30rem; text-align: left;">  
-      <h4>${comp_name}</h4>
+      <h5>${comp_name}</h5>
       </td>
       <td  style="width: 300px; text-align: center;  text-align: left;">
-        <h4>${fullname}</h4>
+        <h5>${fullname}</h5>
       </td>
       </tr>
 

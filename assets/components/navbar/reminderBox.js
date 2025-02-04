@@ -9,7 +9,6 @@ const remondexbx = () => {
   const { role_id } = JSON.parse(localStorage.getItem('zsdf'));
 
   customersprofile((data) => {
-
     const obj = data.map((v) => v.expiries).flat(2);
     const count = obj.length;
 
@@ -64,9 +63,11 @@ const remondexbx = () => {
       })
       .join('');
 
-    if (industry === 'rentals' || industry === 'service provider') {
-      document.querySelector('.contarea').innerHTML = res;
-    } else [(document.querySelector('.contarea').innerHTML = '')];
+    if (document.querySelector('.contarea')) {
+      if (industry === 'rentals' || industry === 'service provider') {
+        document.querySelector('.contarea').innerHTML = res;
+      } else [(document.querySelector('.contarea').innerHTML = '')];
+    }
   });
 
   document.addEventListener('click', (e) => {

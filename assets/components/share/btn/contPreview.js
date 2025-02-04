@@ -1,5 +1,5 @@
 
-const contPreview = (tax_id,cust_id,user_id) => {
+const contPreview = (cust_id,tax_id,user_id) => {
   return `
   <button 
     data-tax_id="${tax_id}"

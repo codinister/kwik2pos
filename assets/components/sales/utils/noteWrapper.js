@@ -15,10 +15,10 @@ const noteWrapper = () => {
   });
 
   return `<div>
-    <div>
+    <div class="invoice-note-wrapper">
     <input type="radio" value="1" name="note" class="adnte add-inv-note"> Add Note
     </div>
-    <div>
+    <div class="contract-note-wrapper">
     <input type="radio" value="2"  name="note" class="adnte add-cont-note"> Add Contract
     </div>
     </div>

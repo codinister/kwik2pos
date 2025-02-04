@@ -3,7 +3,7 @@ const url = new URLSearchParams(window.location.search);
 import contactData from './data/contactData.js';
 
 //ID
-const user_id = url.get('usd');
+const user_id = atob(url.get('usd'));
 const code = url.get('cde');
 
 //URL

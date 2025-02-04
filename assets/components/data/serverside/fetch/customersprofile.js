@@ -11,9 +11,11 @@ const customersprofile = (callback) => {
     fetch(`${baseURL}=getReceipts`).then((resp) => resp.json()),
   ])
     .then((value) => {
+      if(value[0].status !== 'rejected'){
       /*
        * ALL CUSTOMERS 0
        */
+      
       const allcustomers = Object.values(value[0].value).reduce((a, b) => {
         a[b.cust_id] = b;
         return a;
@@ -290,7 +292,7 @@ const customersprofile = (callback) => {
       const data = accessControl(custprofile);
 
       callback(data);
-    })
+}})
     .catch((err) => console.log(err));
 };
 

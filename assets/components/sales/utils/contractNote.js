@@ -10,6 +10,10 @@ const contractNote = () => {
 
   const fullname = sls?.cust_name;
 
+
+
+
+
   const contractNumber = (fullname = '') => {
     const fn = fullname.split(' ');
     const cnumber = fn
@@ -148,19 +152,25 @@ const contractNote = () => {
       })
         .then((resp) => resp.text())
         .then((data) => {
+      
           if (data !== 'error') {
             localStorage.removeItem('sales');
             localStorage.removeItem('prozdlist');
             localStorage.removeItem('contract');
             displayToast('lightgreen', 'An error occured!');
-            classSelector('btn-wrapper').innerHTML = '';
+
+        
+
+            classSelector('contract-note-wrapper').innerHTML = ''
+            classSelector('note-container').innerHTML = ''
      
-          
+            localStorage.setItem('rend', '404')
+
           } else {
             displayToast('bgdanger', 'An error occured!');
           }
 
-          console.log(data)
+
         });
       }
       else{
@@ -173,6 +183,26 @@ const contractNote = () => {
   /*
    *END SAVE CONTRACT
    */
+
+
+
+   if (!localStorage.getItem('contract')) {
+    const us = JSON.parse(localStorage.getItem('zsdf'));
+    const start_date = new Date(us?.login_date);
+    localStorage.setItem(
+      'contract',
+      JSON.stringify({
+        cont_id: sls?.contract.cont_id,
+        title: 'OUT OF HOME ADVERTISING CONTRACT',
+        start_date,
+        refferedtoas: 'Agency',
+        contractnumber: contractNumber(fullname),
+        otherinfo: '',
+        tax_id: sls?.tax_id,
+        cust_id: sls?.cust_id,
+      })
+    );
+  }
 
   return `<div class="contract-form"> 
 

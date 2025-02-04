@@ -1,6 +1,7 @@
 import { textInput, Button } from './utils/InputFields.js';
 import { classSelector } from './utils/Selectors.js';
 import FormSubmitUtils from './utils/FormSubmitUtils.js';
+import { ymd } from './utils/DateFormats.js';
 
 const Login = () => {
   document.addEventListener('click', (e) => {
@@ -52,6 +53,13 @@ const Login = () => {
 
             delete data['settings'];
             localStorage.setItem('zsdf', JSON.stringify(data));
+
+            const curdate = ymd(data?.login_date);
+            const date = new Date(curdate);
+            date.setTime(date.getTime() * (1 * 1000 * 60 * 60 * 24));
+            const expires = date.toUTCString();
+
+            sessionStorage.setItem('lgn', '1')
 
             const sess = localStorage.getItem('zsdf');
             if (sess !== JSON.stringify(data)) {

@@ -3,10 +3,10 @@ const url = new URLSearchParams(window.location.search);
 import thermnalData from './data/thermnalData.js';
 
 //ID
-const tax_id = url.get('txd');
-const user_id = url.get('usd');
+const tax_id = atob(url.get('txd'));
+const user_id = atob(url.get('usd'));
 const code = url.get('cde');
-const cust_id = url.get('cusd');
+const cust_id = atob(url.get('cusd'));
 
 //URL
 const settingsUrl = `settings&code=${code}`;

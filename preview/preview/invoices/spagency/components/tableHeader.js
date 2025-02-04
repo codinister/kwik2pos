@@ -46,7 +46,7 @@ const tableHeader = ({ ...obj }) => {
                     ${invoice_desc}
                 </td>
                 <td style="width: 58rem;">
-                <h2>${comp_name.toUpperCase()}</h2>
+                <h5>${comp_name.toUpperCase()}</h5>
                 <table cellspacing="0" cellpadding="0">
                     <tr>
                         <td style="width: 29rem;">

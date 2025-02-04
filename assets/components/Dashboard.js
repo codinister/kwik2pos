@@ -11,9 +11,7 @@ import getIndustry from './utils/getIndustry.js';
 import { classSelector } from './utils/Selectors.js';
 
 const Dashboard = () => {
-
-
-
+  
   productsprofile((products) => {
     customersprofile((customers) => {
       usersprofile((users) => {

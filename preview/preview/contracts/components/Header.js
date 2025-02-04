@@ -14,7 +14,7 @@ const Header = (obj) => {
             ${logo}
             </td>
             <td style="width: 50rem;">
-            <h2>${comp_name.toUpperCase()}</h2>
+            <h5>${comp_name.toUpperCase()}</h5>
             <span>${comp_location}</span>
             <br />
             <span>${comp_email}</span>

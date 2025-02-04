@@ -19,7 +19,7 @@ const Header = ({ ...obj }) => {
 
         <td style="width: 8rem;">${logo}</td>
         <td style="width: 29rem; text-align: center;">
-        <h1 style="font-size: 2.4rem;">${comp_name.toUpperCase()}</h1>
+        <h5 style="font-size: 2.4rem;">${comp_name.toUpperCase()}</h5>
         <strong>Location:</strong>  ${comp_location}
         <br>
         <strong>Contact:</strong> ${comp_phone}
