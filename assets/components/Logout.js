@@ -1,18 +1,18 @@
 import Login from './Login.js';
-import { classSelector } from './utils/Selectors.js';
+import { classSelector } from '../utils/Selectors.js';
 
 const Logout = () => {
   [
     'sales',
-    'prodlocalstorage',
-    'userlocalstorage',
+    'prodsessionstorage',
+    'usersessionstorage',
     'prozdlist',
-    'zsdf',
     'nuser',
     'stocks',
     'qtys',
     'soldinv',
     'newrec',
+    'rend',
     'filterby',
     'contract',
     'custinp',
@@ -20,17 +20,20 @@ const Logout = () => {
     'deletedproformas',
     'deletedinvoices',
     'deletedreceipt',
-    'prodlocalstorage',
+    'prodsessionstorage',
     'userprofile',
     'usernote',
     'settingupdate',
     'smsinpt',
+    'nn',
+    'checkmark',
+    'prodType'
   ].forEach((v) => {
-    if (localStorage.getItem(v)) {
-      localStorage.removeItem(v);
+    if (sessionStorage.getItem(v)) {
+      sessionStorage.removeItem(v);
     }
   });
-  sessionStorage.removeItem('lgn');
+  sessionStorage.removeItem('zsdf');
   classSelector('root').innerHTML = Login();
 };
 

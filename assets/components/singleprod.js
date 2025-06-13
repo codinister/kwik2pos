@@ -1,5 +1,5 @@
-import getData from './utils/getData.js';
-import googlemap from './utils/googlemap.js';
+import getData from '../utils/getData.js';
+import googlemap from '../utils/googlemap.js';
 const page = new URLSearchParams(window.location.search);
 
 getData((data) => {

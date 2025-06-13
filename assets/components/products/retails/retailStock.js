@@ -1,13 +1,13 @@
-import { classSelector } from '../../utils/Selectors.js';
-import productSearchBox from '../utils/productSearchBox.js';
-import productTitle from '../utils/productTitle.js';
+import { classSelector } from '../../../utils/Selectors.js';
+import productSearchBox from '../../../utils/products/productSearchBox.js';
+import productTitle from '../../../utils/products/productTitle.js';
 import productForm from './productForm.js';
 import productsList from './productsList.js';
-import { textInput } from '../../utils/InputFields.js';
-import Buttons from '../../utils/Buttons.js';
-import googlemap from '../../utils/googlemap.js';
-import categoriesComponent from '../utils/categoriesComponent.js';
-import defaultProductsLocalstorage from '../../data/clientside/localstorage/default/defaultProductsLocalstorage.js';
+import { textInput } from '../../../utils/InputFields.js';
+import Buttons from '../../../utils/Buttons.js';
+import googlemap from '../../../utils/googlemap.js';
+import categoriesComponent from '../../../utils/products/categoriesComponent.js';
+import defaultProductsSessionStorage from '../../../state/statemanagement/sessionstorage/default/defaultProductsSessionStorage.js';
 import filterProductsByDates from './filterProductsByDates.js';
 
 const retailStock = (data) => {
@@ -114,11 +114,11 @@ const retailStock = (data) => {
     if (e.target.matches('.addProduct')) {
       //Spinner('add=product-wrapper');
 
-      if (localStorage.getItem('prodlocalstorage')) {
-        localStorage.removeItem('prodlocalstorage');
+      if (sessionStorage.getItem('prodsessionstorage')) {
+        sessionStorage.removeItem('prodsessionstorage');
       }
 
-      defaultProductsLocalstorage();
+      defaultProductsSessionStorage();
 
       classSelector('modalboxone').classList.add('show');
       document.body.style.overflow = 'hidden';
@@ -142,7 +142,7 @@ const retailStock = (data) => {
       }, {});
 
       filter.prod_qty_arr = trans;
-      localStorage.setItem('prodlocalstorage', JSON.stringify(filter));
+      sessionStorage.setItem('prodsessionstorage', JSON.stringify(filter));
 
       classSelector('modalboxone').classList.add('show');
       document.body.style.overflow = 'hidden';

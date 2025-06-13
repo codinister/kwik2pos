@@ -1,14 +1,14 @@
-import getUsersLocalstorage from '../data/clientside/localstorage/GET/getUsersLocalstorage.js';
-import setUsersLocalstorage from '../data/clientside/localstorage/SET/setUsersLocalstorage.js';
-import { classSelector } from '../utils/Selectors.js';
+import getUsersSessionStorage from '../../state/statemanagement/sessionstorage/GET/getUsersSessionStorage.js';
+import setUsersSessionStorage from '../../state/statemanagement/sessionstorage/SET/setUsersSessionStorage.js';
+import { classSelector } from '../../utils/Selectors.js';
 
 import showSaveuserbtn from './showSaveuserbtn.js';
 
 const inputValidation = (name, message,errorclass) => {
   classSelector(errorclass).textContent = message;
-  const ps = getUsersLocalstorage();
+  const ps = getUsersSessionStorage();
   ps[name] = '';
-  setUsersLocalstorage(ps);
+  setUsersSessionStorage(ps);
   showSaveuserbtn();
 };
 

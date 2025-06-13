@@ -1,12 +1,12 @@
-import Modalboxnoreload from './utils/Modalboxnoreload.js';
-import { classSelector } from './utils/Selectors.js';
-import Table from './utils/Table.js';
-import searchBox from './utils/searchBox.js';
-import displayToast from './utils/displayToast.js';
-import Spinner from './utils/Spinner.js';
-import customersprofile from './data/serverside/fetch/customersprofile.js';
-import smsBalance from './data/api/sms/smsBalance.js';
-import sendSMS from './data/api/sms/sendSMS.js';
+import Modalboxnoreload from '../utils/Modalboxnoreload.js';
+import { classSelector } from '../utils/Selectors.js';
+import Table from '../utils/Table.js';
+import searchBox from '../utils/searchBox.js';
+import displayToast from '../utils/displayToast.js';
+import Spinner from '../utils/Spinner.js';
+import customersprofile from '../state/serverside/read/customers/customersprofile.js';
+import smsBalance from '../sharing/sms/smsBalance.js';
+import sendSMS from '../sharing/sms/sendSMS.js';
 
 const Sms = () => {
   setTimeout(() => {
@@ -17,11 +17,11 @@ const Sms = () => {
     if (e.target.matches('.smsinpt')) {
       const { name, value } = e.target;
 
-      if (!localStorage.getItem('smsinpt')) {
-        localStorage.setItem('smsinpt', JSON.stringify({}));
+      if (!sessionStorage.getItem('smsinpt')) {
+        sessionStorage.setItem('smsinpt', JSON.stringify({}));
       }
 
-      const obj = JSON.parse(localStorage.getItem('smsinpt'));
+      const obj = JSON.parse(sessionStorage.getItem('smsinpt'));
 
       let res = {};
       if (name === 'contacts') {
@@ -48,7 +48,7 @@ const Sms = () => {
                 classSelector('sendsmswrapper').innerHTML = '';
                 obj.contacts = [];
 
-                localStorage.setItem('smsinpt', JSON.stringify(obj));
+                sessionStorage.setItem('smsinpt', JSON.stringify(obj));
 
                 return;
               }
@@ -87,7 +87,7 @@ const Sms = () => {
         classSelector('totalcharentered').textContent = value.length;
       }
 
-      localStorage.setItem('smsinpt', JSON.stringify(res));
+      sessionStorage.setItem('smsinpt', JSON.stringify(res));
 
       if (res.contacts.length > 0 && res.message.length > 0) {
         classSelector(
@@ -115,7 +115,7 @@ const Sms = () => {
 
     document.addEventListener('click', (e) => {
       if (e.target.matches('.sendsms')) {
-        const obj = JSON.parse(localStorage.getItem('smsinpt'));
+        const obj = JSON.parse(sessionStorage.getItem('smsinpt'));
 
         const msg = obj?.message;
         const cont = obj?.contacts.toString();
@@ -148,17 +148,17 @@ const Sms = () => {
 
         classSelector('contbx').value = selctall;
 
-        if (!localStorage.getItem('smsinpt')) {
-          localStorage.setItem('smsinpt', JSON.stringify({}));
+        if (!sessionStorage.getItem('smsinpt')) {
+          sessionStorage.setItem('smsinpt', JSON.stringify({}));
         }
 
-        const obj = JSON.parse(localStorage.getItem('smsinpt'));
+        const obj = JSON.parse(sessionStorage.getItem('smsinpt'));
 
         const bj = { ...obj, contacts: [selctall] };
 
-        localStorage.setItem('smsinpt', JSON.stringify(bj));
+        sessionStorage.setItem('smsinpt', JSON.stringify(bj));
 
-        const res = JSON.parse(localStorage.getItem('smsinpt'));
+        const res = JSON.parse(sessionStorage.getItem('smsinpt'));
 
         if (res?.contacts?.length > 0 && res?.message?.length > 0) {
           classSelector(
@@ -207,8 +207,8 @@ const Sms = () => {
     });
 
     setTimeout(() => {
-      if (localStorage.getItem('smsinpt')) {
-        const obj = JSON.parse(localStorage.getItem('smsinpt'));
+      if (sessionStorage.getItem('smsinpt')) {
+        const obj = JSON.parse(sessionStorage.getItem('smsinpt'));
 
         if (obj.contacts.length > 0) {
           classSelector('contbx').value = obj.contacts.toString();

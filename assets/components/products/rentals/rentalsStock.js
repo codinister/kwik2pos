@@ -1,20 +1,31 @@
-import { classSelector } from '../../utils/Selectors.js';
-import productSearchBox from '../utils/productSearchBox.js';
-import productTitle from '../utils/productTitle.js';
+import { classSelector } from '../../../utils/Selectors.js';
+import productSearchBox from '../../../utils/products/productSearchBox.js';
+import productTitle from '../../../utils/products/productTitle.js';
 import productsType from './productsType.js';
 import productForm from './productForm.js';
 import productsList from './productsList.js';
-import { textInput } from '../../utils/InputFields.js';
-import Buttons from '../../utils/Buttons.js';
-import googlemap from '../../utils/googlemap.js';
-import categoriesComponent from '../utils/categoriesComponent.js';
-import productsLocalstorage from '../../data/clientside/localstorage/default/defaultProductsLocalstorage.js';
+import Buttons from '../../../utils/Buttons.js';
+import googlemap from '../../../utils/googlemap.js';
+import categoriesComponent from '../../../utils/products/categoriesComponent.js';
+import productsSessionStorage from '../../../state/statemanagement/sessionstorage/default/defaultProductsSessionStorage.js';
+import { PaginationLogic, PaginationLinks } from '../../../utils/products/Pagination.js';
+import productCheckmark from '../../../state/statemanagement/sessionstorage/default/productCheckmark.js';
+import setSessionStorage from '../../../state/statemanagement/sessionstorage/SET/setSessionStorage.js';
 
-const rentalsStock = (data) => {
-  const stocks = data.rentals.stocks;
+const rentalsStock = (data, fulldata) => {
+  const items = [...data];
+
+  if (!sessionStorage.getItem('checkmark')) {
+    productCheckmark('stocks');
+  }
+  const stocks = PaginationLogic(items);
+  PaginationLinks({
+    data: items,
+    paginationCls: 'products-table-inner-pagination',
+  });
 
   const categories = Object.values(
-    stocks
+    fulldata
       .map((v) => ({ cat_id: v.cat_id, cat_name: v.cat_name }))
       .reduce((a, b) => {
         if (a[b.cat_id]) {
@@ -33,10 +44,8 @@ const rentalsStock = (data) => {
   document.addEventListener('click', (e) => {
     if (e.target.matches('.showprod')) {
       const { prod_id } = e.target.dataset;
-
-      if (stocks && prod_id) {
-        const prod = stocks.find((v) => v.prod_id === prod_id);
-
+      if (prod_id) {
+        const prod = items.find((v) => v.prod_id === prod_id);
         const prod_name = prod?.prod_name;
         const prod_size = prod?.prod_size;
         const prod_code = prod?.prod_code;
@@ -73,22 +82,6 @@ const rentalsStock = (data) => {
             </li>
           </ul>
 
-          <div>
-            ${textInput({
-              type: 'email',
-              classname: 'prod_name prod-inpt',
-              name: 'email',
-              required: true,
-              label: 'Enter email',
-            })}
-
-            ${Buttons([
-              {
-                btnclass: 'sendemail',
-                btnname: 'SEND EMAIL',
-              },
-            ])}
-          </div>
 
           <div>  
             ${showmap}
@@ -101,7 +94,9 @@ const rentalsStock = (data) => {
 
         <div>  
         <div>
+        <a href="assets/uploads/${prod_image}">
         <img src="assets/uploads/${prod_image}" alt="" />
+        </a>
         </div>
         </div>
       </div>
@@ -112,11 +107,11 @@ const rentalsStock = (data) => {
     if (e.target.matches('.addProduct')) {
       //Spinner('add=product-wrapper');
 
-      if (localStorage.getItem('prodlocalstorage')) {
-        localStorage.removeItem('prodlocalstorage');
+      if (sessionStorage.getItem('prodsessionstorage')) {
+        sessionStorage.removeItem('prodsessionstorage');
       }
 
-      productsLocalstorage();
+      productsSessionStorage();
 
       classSelector('modalboxone').classList.add('show');
       document.body.style.overflow = 'hidden';
@@ -125,12 +120,12 @@ const rentalsStock = (data) => {
     }
 
     if (e.target.matches('.edit-prod')) {
-      e.preventDefault()
+      e.preventDefault();
       const { prod_id } = e.target.dataset;
 
       if (stocks) {
         const filter = stocks.find((v) => v.prod_id === prod_id);
-        const arr = filter?.prod_qty_arr? filter?.prod_qty_arr : [];
+        const arr = filter?.prod_qty_arr ? filter?.prod_qty_arr : [];
         const trans = Object.values(arr).reduce((a, b) => {
           a['prod_qty' + b.qty_id] = {
             prod_qty: b.prod_qty,
@@ -141,14 +136,12 @@ const rentalsStock = (data) => {
           return a;
         }, {});
 
-        if(filter){
+        if (filter) {
           filter.prod_qty_arr = trans;
-          localStorage.setItem('prodlocalstorage', JSON.stringify(filter));
+          sessionStorage.setItem('prodsessionstorage', JSON.stringify(filter));
+        } else {
+          sessionStorage.setItem('prodsessionstorage', JSON.stringify([]));
         }
-        else{
-          localStorage.setItem('prodlocalstorage', JSON.stringify([]));
-        }
-
 
         classSelector('modalboxone').classList.add('show');
         document.body.style.overflow = 'hidden';
@@ -164,20 +157,43 @@ const rentalsStock = (data) => {
   document.addEventListener('keyup', (e) => {
     if (e.target.matches('.search-rental-products')) {
       const { value } = e.target;
-      classSelector('products-table-body-inner').innerHTML = productsList(
-        stocks.filter((v) =>
-          Object.values(v).join(' ').toLowerCase().includes(value.toLowerCase())
-        )
+
+      if(!value){
+        sessionStorage.setItem('rend', 2);
+      }
+      const items = [...data];
+
+      const searchres = items.filter((v) =>
+        Object.values(v).join(' ').toLowerCase().includes(value.toLowerCase())
       );
+      const res = PaginationLogic(searchres);
+
+
+      setSessionStorage({
+        key: 'checkmark',
+        data: [{ name: 'search', value }],
+      });
+
+
+      const chkdata = JSON.parse(sessionStorage.getItem('checkmark'));
+      classSelector('products-table-body-inner').innerHTML = productsList(
+        searchres,
+        chkdata
+      );
+
+      PaginationLinks({
+        data: searchres,
+        paginationCls: 'products-table-inner-pagination',
+      });
     }
   });
 
   /*
    * Categories Component
    */
-  categoriesComponent(categories, stocks);
+  categoriesComponent(categories);
 
-  const total_stocks = Object.values(stocks).reduce((a, b) => {
+  const total_stocks = Object.values(items).reduce((a, b) => {
     return Number(a) + Number(b.prod_qty);
   }, 0);
   const prod_title = `<span>ALL Products</span> <span>${total_stocks}</span>`;
@@ -190,19 +206,39 @@ const rentalsStock = (data) => {
     'search-rental-products'
   );
 
+  const chkm = JSON.parse(sessionStorage.getItem('checkmark'));
+
+  if (chkm?.checkall) {
+    classSelector('products-table-body-inner').innerHTML = productsList(
+      Object.values(stocks),
+      chkm
+    );
+  } else {
+    classSelector('products-table-body-inner').innerHTML = productsList(
+      Object.values(stocks),
+      chkm
+    );
+  }
+
   classSelector('products-table-header').innerHTML = `
       <tr class="products-table-top">
-      <td><input type="checkbox" class="checkall" /></td>
+      <td><input ${
+        chkm?.checkall ? 'checked' : ''
+      } type="checkbox" class="checkallbox" /></td>
       <td>Name</td>
       <td>Qty</td>
       <td>Size</td>
       <td class="action">Actions</td>
       </tr>
-      `;
+    `;
 
-  classSelector('products-table-body-inner').innerHTML = productsList(
-    Object.values(stocks)
-  );
+  if (chkm?.checkedids.length > 0) {
+    classSelector('generatepreview').classList.add('show');
+  }
+
+  if (chkm?.checkall) {
+    classSelector('generatepreview').classList.add('show');
+  }
 
   classSelector('add-product-wrapper').innerHTML = Buttons([
     {

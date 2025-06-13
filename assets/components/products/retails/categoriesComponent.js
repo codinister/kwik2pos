@@ -1,7 +1,7 @@
-import { classSelector } from '../../utils/Selectors.js';
+import { classSelector } from '../../../utils/Selectors.js';
 import productsList from './productsList.js';
-import categoryHTMLList from '../utils/categoryHTMLList.js';
-import productSearchBox from '../utils/productSearchBox.js';
+import categoryHTMLList from '../../../utils/products/categoryHTMLList.js';
+import productSearchBox from '../../../utils/products/productSearchBox.js';
 
 const categoriesComponent = (categories, stocks) => {
 

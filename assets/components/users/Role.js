@@ -1,12 +1,13 @@
-import getIndustry from '../utils/getIndustry.js';
-import getUsersLocalstorage from '../data/clientside/localstorage/GET/getUsersLocalstorage.js';
+
+import getUsersSessionStorage from '../../state/statemanagement/sessionstorage/GET/getUsersSessionStorage.js';
+import industryCheck from '../../utils/industryCheck.js';
 
 const Role = (radioButton) => {
-  const us = getUsersLocalstorage();
+  const us = getUsersSessionStorage();
 
-  const industry = getIndustry();
+
   let estimator = '';
-  if (industry === 'roofing company') {
+  if (industryCheck('roofing company')) {
     estimator = radioButton('Estimator', 'role', '', 3, 'estimator uf');
   }
 

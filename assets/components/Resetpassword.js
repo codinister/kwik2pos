@@ -1,6 +1,6 @@
-import { textInput, Button } from './utils/InputFields.js';
-import { classSelector } from './utils/Selectors.js';
-import FormSubmitUtils from './utils/FormSubmitUtils.js';
+import { textInput, Button } from '../utils/InputFields.js';
+import { classSelector } from '../utils/Selectors.js';
+import FormSubmitUtils from '../utils/FormSubmitUtils.js';
 const { Loader, ErrorResult, SuccessResult } = FormSubmitUtils();
 const Resetpassword = () => {
   document.addEventListener('keyup', (e) => {

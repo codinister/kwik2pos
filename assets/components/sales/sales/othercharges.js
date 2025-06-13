@@ -1,14 +1,14 @@
-import setInputValue from '../utils/setInputValue.js';
-import format_number from '../../utils/format_number.js';
-import { textInput } from '../../utils/InputFields.js';
-import getIndustry from '../../utils/getIndustry.js';
+import setInputValue from '../../../utils/sales/setInputValue.js';
+import format_number from '../../../utils/format_number.js';
+import { textInput } from '../../../utils/InputFields.js';
+import industryCheck from '../../../utils/industryCheck.js';
+
 
 const othercharges = (vv) => {
-  const industry = getIndustry();
 
   let invoice_desc = '';
 
-  if (industry === 'roofing company') {
+  if (industryCheck('roofing company')) {
     invoice_desc = `${textInput({
       type: 'text',
       classname: 'profile trans',

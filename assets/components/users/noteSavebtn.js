@@ -1,9 +1,9 @@
-import Buttons from '../utils/Buttons.js';
+import Buttons from '../../utils/Buttons.js';
 
 const noteSavebtn = () => {
-  if (localStorage.getItem('usernote')) {
+  if (sessionStorage.getItem('usernote')) {
     const length = Object.values(
-      JSON.parse(localStorage.getItem('usernote'))
+      JSON.parse(sessionStorage.getItem('usernote'))
     ).filter(Boolean).length;
 
     if (length > 1) {

@@ -1,18 +1,25 @@
-import { formatDate } from '../utils/DateFormats.js';
-import displayToast from '../utils/displayToast.js';
-import getIndustry from '../utils/getIndustry.js';
-import customersprofile from '../data/serverside/fetch/customersprofile.js';
+import { dmy, formatDate } from '../../utils/DateFormats.js';
+import displayToast from '../../utils/displayToast.js';
+import smsStatusCodes from '../sms/smsStatusCodes.js';
+import getInvoiceDetails from '../../utils/sales/getInvoiceDetails.js';
+import customersprofile from '../../state/serverside/read/customers/customersprofile.js';
+import roleAccess from '../../utils/roleAccess.js';
+import industryCheck from '../../utils/industryCheck.js';
 
 const remondexbx = () => {
-  const industry = getIndustry();
 
-  const { role_id } = JSON.parse(localStorage.getItem('zsdf'));
 
   customersprofile((data) => {
-    const obj = data.map((v) => v.expiries).flat(2);
+
+    const obj = data
+      .map((v) => v.expiries)
+      .filter((v) => Object.values(v).length)
+      .map(v => Object.values(v)).flat(2);
+
+
     const count = obj.length;
 
-    if (industry === 'rentals' || industry === 'service provider') {
+    if (industryCheck('rentals', 'service provider')) {
       if (count > 0) {
         document.querySelector('.alert-rounded').classList.add('show');
         setTimeout(() => {
@@ -25,11 +32,11 @@ const remondexbx = () => {
       .map((v) => {
         let smslink = '';
 
-        if (role_id === '5' || role_id === '1' || role_id === '111') {
+        if (roleAccess()) {
           smslink = `
             <a href="javascript:void(0)"
             class="sendsmsmess"
-            data-prod_id = "${v.tax_id}"
+            data-prod_id = "${v.ss_id}"
             data-phone = "${v.phone}"
             data-fullname = "${v.fullname}"
             data-exp_date = "${v.exp_date}"
@@ -49,25 +56,27 @@ const remondexbx = () => {
         <div class="expbtns">
         ${smslink}
         <a href="javascript:void(0)"
-        class="preview-invoice"
+        class="viewinv"
         data-cust_id = "${v.cust_id}"
-        data-tax_id = "${v.tax_id}"
+        data-ss_id = "${v.ss_id}"
         data-user_id = "${v.user_id}"
         >VIEW INVOICE</a>  
         </div>
 
-        <div class="sendsmsbx${v.tax_id}"></div>
+        <div class="sendsmsbx${v.ss_id}"></div>
         </div>
         </div>
     `;
       })
       .join('');
 
-    if (document.querySelector('.contarea')) {
-      if (industry === 'rentals' || industry === 'service provider') {
-        document.querySelector('.contarea').innerHTML = res;
-      } else [(document.querySelector('.contarea').innerHTML = '')];
-    }
+    if (industryCheck('rentals', 'service provider')) {
+      
+      if(document.querySelector('.contarea')){
+      document.querySelector('.contarea').innerHTML = res;
+      }
+
+    } else [(document.querySelector('.contarea').innerHTML = '')];
   });
 
   document.addEventListener('click', (e) => {
@@ -78,6 +87,12 @@ const remondexbx = () => {
     if (e.target.matches('.closemainexpbox')) {
       document.querySelector('.remondexbx').classList.remove('show');
     }
+
+
+
+
+
+
 
     if (e.target.matches('.sendsmstoclient')) {
       e.stopImmediatePropagation();
@@ -101,8 +116,40 @@ const remondexbx = () => {
         return displayToast('bgdanger', 'Message field required!!');
       }
 
-      sendSMS(mess, phone, 'sendsmstoclientwrapper', 'sent');
+      const fd = new FormData();
+      fd.append('contacts', phone);
+      fd.append('message', mess);
+
+      fetch('router.php?controller=widget&task=send_sms', {
+        method: 'Post',
+        body: fd,
+      })
+        .then((resp) => resp.json())
+        .then((data) => {
+          if (data?.code?.split(':')[1]?.length || data.code == 1000) {
+            const res = smsStatusCodes(data.code);
+            displayToast('lightgreen', res);
+          } else if (data.code != 1000) {
+            const res = smsStatusCodes(data.code);
+            displayToast('bgdanger', res);
+            e.target.innerHTML = 'SEND SMS';
+          }
+        });
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     if (e.target.matches('.closesmsbx')) {
       const { prod_id } = e.target.dataset;
@@ -110,7 +157,7 @@ const remondexbx = () => {
     }
 
     if (e.target.matches('.sendsmsmess')) {
-      const { phone, prod_id, fullname, exp_date, profile } = e.target.dataset;
+      const { phone, prod_id, fullname, exp_date,profile } = e.target.dataset;
 
       document.querySelector(`.sendsmsbx${prod_id}`).innerHTML = `
       <div class="smssbx">
@@ -122,12 +169,23 @@ const remondexbx = () => {
         exp_date
       )}  </textarea>
 
-      <div class="sendsmstoclientwrapper">
       <a href="javascript:void(0);" data-prod_id=${prod_id} class="sendsmstoclient">
        <span>SEND SMS  </span></a>
-       </div>
       </div>
       `;
+    }
+
+    if (e.target.matches('.viewinv')) {
+      e.stopImmediatePropagation();
+      const { cust_id, ss_id, user_id } = e.target.dataset;
+      getInvoiceDetails(cust_id, ss_id, user_id, '', (data) => {
+        const { products, taxes } = data;
+        localStorage.setItem('prozdlist', JSON.stringify(products));
+        localStorage.setItem('sales', JSON.stringify(taxes));
+        if (localStorage.getItem('prozdlist')) {
+          window.location = 'index.html?page=sell';
+        }
+      });
     }
   });
 

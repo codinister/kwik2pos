@@ -1,18 +1,28 @@
-import { classSelector } from '../../utils/Selectors.js';
-import productSearchBox from '../utils/productSearchBox.js';
-import productTitle from '../utils/productTitle.js';
+import { classSelector } from '../../../utils/Selectors.js';
+import productSearchBox from '../../../utils/products/productSearchBox.js';
+import productTitle from '../../../utils/products/productTitle.js';
 import productsType from './productsType.js';
-import { textInput } from '../../utils/InputFields.js';
-import Buttons from '../../utils/Buttons.js';
-import googlemap from '../../utils/googlemap.js';
+import googlemap from '../../../utils/googlemap.js';
 import availableList from './availableList.js';
-import categoriesComponent2 from '../utils/categoriesComponent2.js';
+import categoriesComponent2 from '../../../utils/products/categoriesComponent2.js';
+import { PaginationLinks, PaginationLogic } from '../../../utils/products/Pagination.js';
+import setSessionStorage from '../../../state/statemanagement/sessionstorage/SET/setSessionStorage.js';
 
-const available = (data) => {
-  const availables = data.rentals.availables;
+const available = (data, fulldata) => {
+  const items = [...data];
+
+  if (!sessionStorage.getItem('checkmark')) {
+    productCheckmark('available');
+  }
+
+  const stocks = PaginationLogic(items);
+  PaginationLinks({
+    data: items,
+    paginationCls: 'products-table-inner-pagination',
+  });
 
   const categories = Object.values(
-    availables
+    fulldata
       .map((v) => ({ cat_id: v.cat_id, cat_name: v.cat_name }))
       .reduce((a, b) => {
         if (a[b.cat_id]) {
@@ -40,7 +50,7 @@ const available = (data) => {
         prod_image,
         selling_price,
         prod_qty,
-      } = availables.find((v) => v.prod_id === prod_id);
+      } = items.find((v) => v.prod_id === prod_id);
 
       classSelector('modalboxone').classList.add('show');
       document.body.style.overflow = 'hidden';
@@ -71,22 +81,6 @@ const available = (data) => {
             </li>
           </ul>
 
-          <div>
-            ${textInput({
-              type: 'email',
-              classname: 'prod_name prod-inpt',
-              name: 'email',
-              required: true,
-              label: 'Enter email',
-            })}
-
-            ${Buttons([
-              {
-                btnclass: 'sendemail',
-                btnname: 'SEND EMAIL',
-              },
-            ])}
-          </div>
 
           <div>  
             ${showmap}
@@ -99,7 +93,9 @@ const available = (data) => {
 
         <div>  
         <div>
+        <a href="assets/uploads/${prod_image}">
         <img src="assets/uploads/${prod_image}" alt="" />
+        </a>
         </div>
         </div>
       </div>
@@ -110,11 +106,29 @@ const available = (data) => {
   document.addEventListener('keyup', (e) => {
     if (e.target.matches('.search-availables-products')) {
       const { value } = e.target;
-      classSelector('products-table-body-inner').innerHTML = availableList(
-        availables.filter((v) =>
-          Object.values(v).join(' ').toLowerCase().includes(value.toLowerCase())
-        )
+      const items = [...data];
+
+      const searchres = items.filter((v) =>
+        Object.values(v).join(' ').toLowerCase().includes(value.toLowerCase())
       );
+      const res = PaginationLogic(searchres);
+
+      setSessionStorage({
+        key: 'checkmark',
+        data: [{ name: 'search', value }],
+      });
+
+      const chkdata = JSON.parse(sessionStorage.getItem('checkmark'));
+
+      classSelector('products-table-body-inner').innerHTML = availableList(
+        searchres,
+        chkdata
+      );
+
+      PaginationLinks({
+        data: searchres,
+        paginationCls: 'products-table-inner-pagination',
+      });
     }
   });
 
@@ -123,10 +137,10 @@ const available = (data) => {
    */
   categoriesComponent2(categories);
 
-  const total_availables = Object.values(availables).reduce((a, b) => {
+  const total_items = Object.values(items).reduce((a, b) => {
     return Number(a) + Number(b.remaining);
   }, 0);
-  const prod_title = `<span>Availables</span> <span>${total_availables}</span>`;
+  const prod_title = `<span>Available</span> <span>${total_items}</span>`;
   classSelector('top-box-left').innerHTML = productTitle(prod_title);
 
   classSelector('top-box-right').innerHTML = productsType();
@@ -136,10 +150,34 @@ const available = (data) => {
     'search-availables-products'
   );
 
+  const chkm = JSON.parse(sessionStorage.getItem('checkmark'));
+
+  if (chkm?.checkall) {
+    classSelector('products-table-body-inner').innerHTML = availableList(
+      stocks,
+      chkm
+    );
+  } else {
+    classSelector('products-table-body-inner').innerHTML = availableList(
+      Object.values(stocks),
+      chkm
+    );
+  }
+
+  if (chkm?.checkedids.length > 0) {
+    classSelector('generatepreview').classList.add('show');
+  }
+
+  if (chkm?.checkall) {
+    classSelector('generatepreview').classList.add('show');
+  }
+
   classSelector('products-table-header').innerHTML = `
       <tr class="available-table-top">
       <td>      
-      <input type="checkbox" class="checkall" />
+      <input ${
+        chkm?.checkall ? 'checked' : ''
+      } type="checkbox" class="checkallavailable" />
       </td>
 
       <td>
@@ -151,9 +189,13 @@ const available = (data) => {
       </tr>
       `;
 
-  classSelector('products-table-body-inner').innerHTML = availableList(
-    Object.values(availables)
-  );
+  if (chkm?.checkedids.length > 0) {
+    classSelector('generatepreview').classList.add('show');
+  }
+
+  if (chkm?.checkall) {
+    classSelector('generatepreview').classList.add('show');
+  }
 
   classSelector('products-type').value = 'available';
   classSelector('add-product-wrapper').innerHTML = '';

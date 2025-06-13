@@ -1,25 +1,23 @@
-import { classSelector } from './utils/Selectors.js';
+import { classSelector } from '../utils/Selectors.js';
 import products from './sales/products/products.js';
 import sales from './sales/sales/sales.js';
-import Modalboxtwo from './utils/Modalboxtwo.js';
-import Modalboxnoreload from './utils/Modalboxnoreload.js';
-import Modalboxfour from './utils/Modalboxfour.js';
-import editingMode from './utils/editingMode.js';
-import Modalboxnoreload3 from './utils/Modalboxnoreload3.js';
-import rerender from './utils/rerender.js';
-import productsprofile from './data/serverside/fetch/productsprofile.js';
-import customersprofile from './data/serverside/fetch/customersprofile.js';
-import getIndustry from './utils/getIndustry.js';
-import { ymd } from './utils/DateFormats.js';
-import availableStockData from './products/utils/availableStockData.js';
-import format_number from './utils/format_number.js';
-import transactionfeedback from './sales/utils/transactionFeedback.js';
+import Modalboxtwo from '../utils/Modalboxtwo.js';
+import Modalboxnoreload from '../utils/Modalboxnoreload.js';
+import Modalboxfour from '../utils/Modalboxfour.js';
+import editingMode from '../utils/editingMode.js';
+import Modalboxnoreload3 from '../utils/Modalboxnoreload3.js';
+import rerender from '../utils/rerender.js';
+import productsprofile from '../state/serverside/read/products/productsprofile.js';
+import customersprofile from '../state/serverside/read/customers/customersprofile.js';
+import availableStockData from '../utils/products/availableStockData.js';
+import format_number from '../utils/format_number.js';
+import industryCheck from '../utils/industryCheck.js';
+
 
 const Pos = () => {
-  const industry = getIndustry();
 
   setTimeout(() => {
-    const set = JSON.parse(localStorage.getItem('sales'));
+    const set = JSON.parse(sessionStorage.getItem('sales'));
 
     if (classSelector('top_total')) {
       classSelector('top_total').textContent = set?.total
@@ -34,14 +32,14 @@ const Pos = () => {
 
     let availables = [];
 
-    if (industry === 'retails') {
+    if (industryCheck('retails')) {
       availables = prod.filter((v) => v.remaining > 0).map((v) => v);
-    } else if (industry === 'rentals') {
+    } else if (industryCheck('rentals')) {
       availables = prod.filter((v) => v.prod_qty > 0).map((v) => v);
     }
 
     let prods = [];
-    if (industry === 'service provider' || industry === 'roofing company') {
+    if (industryCheck('service provider') || industryCheck('roofing company')) {
       prods = prod;
     } else {
       prods = availables;
@@ -110,8 +108,8 @@ const Pos = () => {
     // );
   });
 
-  if (localStorage.getItem('sales')) {
-    const tax = JSON.parse(localStorage.getItem('sales'));
+  if (sessionStorage.getItem('sales')) {
+    const tax = JSON.parse(sessionStorage.getItem('sales'));
 
     if (tax?.cust_name) {
       if (classSelector('customerhiddeninpt')) {

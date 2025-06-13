@@ -1,17 +1,15 @@
-import displayToast from '../../utils/displayToast.js';
-import Spinner from '../../utils/Spinner.js';
-import { classSelector } from '../../utils/Selectors.js';
-import transactionfeedback from '../utils/transactionFeedback.js';
-import Buttons from '../../utils/Buttons.js';
-import getIndustry from '../../utils/getIndustry.js';
-import itemsValidation from '../utils/itemsValidation.js';
-import paymentValidation from '../utils/paymentValidation.js';
-import bankAccValidation from '../utils/bankAccValidation.js';
-import termnalReceipt from '../utils/termnalReceipt.js';
-import smsSuperAdmin from '../utils/smsSuperAdmin.js'
+import displayToast from '../../../utils/displayToast.js';
+import Spinner from '../../../utils/Spinner.js';
+import { classSelector } from '../../../utils/Selectors.js';
+import transactionfeedback from '../../../utils/sales/transactionFeedback.js';
+import Buttons from '../../../utils/Buttons.js';
+import itemsValidation from '../../../utils/sales/itemsValidation.js';
+import paymentValidation from '../../../utils/sales/paymentValidation.js';
+import bankAccValidation from '../../../utils/sales/bankAccValidation.js';
+import termnalReceipt from '../../../utils/sales/termnalReceipt.js';
+import smsSuperAdmin from '../../../utils/sales/smsSuperAdmin.js'
 
 const saveInvoice = () => {
-  const industry = getIndustry();
   const termnal = termnalReceipt();
 
   document.addEventListener('click', (e) => {
@@ -87,27 +85,27 @@ const saveInvoice = () => {
 
             const v = data.split('-');
 
-            const tx = JSON.parse(localStorage.getItem('sales'));
+            const tx = JSON.parse(sessionStorage.getItem('sales'));
             tx['pay_id'] = v[2] || '';
-            tx['tax_id'] = v[3] || '';
-            localStorage.setItem('sales', JSON.stringify(tx));
+            tx['ss_id'] = v[3] || '';
+            sessionStorage.setItem('sales', JSON.stringify(tx));
 
             const {
               cust_id,
-              tax_id,
+              ss_id,
               user_id,
               pay_id,
               cust_name,
               cust_phone,
               cust_email,
               code,
-            } = JSON.parse(localStorage.getItem('sales'));
+            } = JSON.parse(sessionStorage.getItem('sales'));
 
 
 
             classSelector('pos-sales').innerHTML = transactionfeedback(
               cust_id,
-              tax_id,
+              ss_id,
               user_id,
               pay_id,
               cust_name,
@@ -121,7 +119,7 @@ const saveInvoice = () => {
               classSelector('saveinvoicespin').innerHTML = '';
             }
 
-            smsSuperAdmin(tax_id, user_id,cust_id, pay_id)
+            smsSuperAdmin(ss_id, user_id,cust_id, pay_id)
           }
         });
     }

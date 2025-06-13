@@ -4,21 +4,18 @@ import {
   emailInput,
   phoneInput,
   radioButton,
-} from './utils/InputFields.js';
-import { classSelector } from './utils/Selectors.js';
-import displayToast from './utils/displayToast.js';
-import getIndustry from './utils/getIndustry.js';
-import Spinner from './utils/Spinner.js';
-import settingsReducer from './data/clientside/reducers/settingsReducer.js';
+} from '../utils/InputFields.js';
+import { classSelector } from '../utils/Selectors.js';
+import displayToast from '../utils/displayToast.js';
+import settingsReducer from '../state/statemanagement/reducers/settingsReducer.js';
+import industryCheck from '../utils/industryCheck.js';
 
 const Settings = () => {
-  const sett = JSON.parse(localStorage.getItem('sinpt'));
-  const industry = getIndustry();
+  const sett = JSON.parse(sessionStorage.getItem('sinpt'));
 
   document.addEventListener('click', (e) => {
-
     if (e.target.matches('.save_setting')) {
-      const obj = JSON.parse(localStorage.getItem('settingupdate'));
+      const obj = JSON.parse(sessionStorage.getItem('settingupdate'));
 
       obj['comp_terms'] = CKEDITOR.instances.comp_terms.getData();
 
@@ -46,14 +43,12 @@ const Settings = () => {
           if (data.indexOf('errors') != -1) {
             return displayToast('bgdanger', data);
           } else {
-            localStorage.setItem('sinpt', JSON.stringify(obj));
+            sessionStorage.setItem('sinpt', JSON.stringify(obj));
             return displayToast('lightgreen', data);
           }
         })
         .catch((err) => console.log(err));
     }
-
-    
   });
 
   document.addEventListener('input', (e) => {
@@ -69,10 +64,6 @@ const Settings = () => {
       classSelector('duration').value = dur;
     }
 
-    if (classSelector('showinstock')) {
-      const shoin = sett ? sett?.showinstock : '';
-      classSelector('showinstock').value = shoin;
-    }
 
     if (classSelector('currency')) {
       const cur = sett ? sett?.currency : '';
@@ -81,35 +72,22 @@ const Settings = () => {
   });
 
   let duration = '';
-  let showinstock = ''
-  if (industry === 'service provider' || industry === 'rentals') {
-
-
+  let showinstock = '';
+  if (industryCheck('rentals')) {
     showinstock = `
     <div class="select-inpt" value= id="ss">	
-    <label> Show in stock </label>
-    <br>
-    <select class="showinstock sinpt"  name="showinstock">
-      <option hidden>Select days</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-      <option value="11">11</option>
-      <option value="12">12</option>
-      <option value="13">13</option>
-      <option value="14">14</option>
-    </select>
+
+     ${textInput({
+       type: 'number',
+       classname: 'showinstock sinpt',
+       name: 'showinstock',
+       required: true,
+       placeholder: 'Enter number of days',
+       label: 'Show expiring items in available list',
+       value: sett ? sett?.showinstock : '',
+     })}
     </div>
     `;
-
-
 
     duration = `
     <div class="select-inpt" value= id="zz">	
@@ -123,8 +101,6 @@ const Settings = () => {
     </select>
     </div>
     `;
-
-
   }
 
   classSelector('display-page').innerHTML = `
@@ -446,8 +422,6 @@ const Settings = () => {
 </div>
 
 `;
-
-
 
   //CKEDITOR INSTANCE
   CKEDITOR.replace('comp_terms', {

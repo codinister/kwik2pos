@@ -1,6 +1,6 @@
-import { classSelector } from '../utils/Selectors.js';
-import Table from '../utils/Table.js';
-import { formatDate } from '../utils/DateFormats.js';
+import { classSelector } from '../../utils/Selectors.js';
+import Table from '../../utils/Table.js';
+import { formatDate } from '../../utils/DateFormats.js';
 
 const noteTabs = (details) => {
   const data = details ? details : [];

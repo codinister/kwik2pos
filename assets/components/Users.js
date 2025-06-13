@@ -1,35 +1,33 @@
-import { classSelector } from './utils/Selectors.js';
-import DetailsBox from './utils/DetailsBox.js';
-import Buttons from './utils/Buttons.js';
-import Modalboxone from './utils/Modalboxone.js';
-import { Tabs, tabContent, tabMenu } from './utils/Tabs.js';
-import rerender from './utils/rerender.js';
-import getCode from './utils/getCode.js';
+import { classSelector } from '../utils/Selectors.js';
+import DetailsBox from '../utils/DetailsBox.js';
+import Buttons from '../utils/Buttons.js';
+import Modalboxone from '../utils/Modalboxone.js';
+import { Tabs, tabContent, tabMenu } from '../utils/Tabs.js';
+import rerender from '../utils/rerender.js';
+import getCode from '../utils/getCode.js';
 import userForm from './users/userForm.js';
 import userNote from './users/userNote.js';
-import userReducer from './data/clientside/reducers/userReducer.js';
-import Sidebar from './utils/Sidebar.js';
-import searchBox from './utils/searchBox.js';
+import userReducer from '../state/statemanagement/reducers/userReducer.js';
+import Sidebar from '../utils/Sidebar.js';
+import searchBox from '../utils/searchBox.js';
 import divcolmFunc from './users/divcolmFunc.js';
-
 
 import divcolmFuncMobile from './users/divcolmFuncMobile.js';
 
-
-import usersprofile from './data/serverside/fetch/usersprofile.js';
+import usersprofile from '../state/serverside/read/users/usersprofile.js';
 import onclickDisplayAsingleUser from './users/onclickDisplayAsingleUser.js';
-import setUsersLocalstorage from './data/clientside/localstorage/SET/setUsersLocalstorage.js';
-import getUsersLocalstorage from './data/clientside/localstorage/GET/getUsersLocalstorage.js';
+import setUsersSessionStorage from '../state/statemanagement/sessionstorage/SET/setUsersSessionStorage.js';
+import getUsersSessionStorage from '../state/statemanagement/sessionstorage/GET/getUsersSessionStorage.js';
 import noteTabs from './users/noteTabs.js';
-import { ymd } from './utils/DateFormats.js';
-import { textInput } from './utils/InputFields.js';
-import dataListDropdown from './utils/dataListDropdown.js';
+import { ymd } from '../utils/DateFormats.js';
+import { textInput } from '../utils/InputFields.js';
+import dataListDropdown from '../utils/dataListDropdown.js';
 
 //CREATE USERS PAGE
 const Users = () => {
   const code = getCode();
 
-   usersprofile((users) => {
+  usersprofile((users) => {
     function userdata() {
       return users;
     }
@@ -54,25 +52,26 @@ const Users = () => {
       if (e.target.matches('.searchuser')) {
         const { value } = e.target;
 
-        classSelector('usersidebarclass').innerHTML = `
+        classSelector('usersidebarclass').innerHTML =
+          `
         
 <table cellspacing="0">
-<tbody>`+
-        
-        Object.values(users)
-          .filter((v) =>
-            Object.values(v)
-              .join(' ')
-              .toLowerCase()
-              .includes(value.toLowerCase())
-          )
-          .map((v) => {
-            return divcolmFunc(v);
-          })
-          .join('')+`
+<tbody>` +
+          Object.values(users)
+            .filter((v) =>
+              Object.values(v)
+                .join(' ')
+                .toLowerCase()
+                .includes(value.toLowerCase())
+            )
+            .map((v) => {
+              return divcolmFunc(v);
+            })
+            .join('') +
+          `
           </tbody>
           </table>
-          `
+          `;
       }
     });
 
@@ -102,7 +101,7 @@ const Users = () => {
             `router.php?controller=note&task=delete_note&note_id=${note_id}`
           )
             .then((resp) => resp.text())
-            .then((data) => localStorage.setItem('rend', 1))
+            .then((data) => sessionStorage.setItem('rend', 1))
             .catch((err) => console.log(err));
         }
       }
@@ -123,7 +122,7 @@ const Users = () => {
               if (notes) {
                 const { title, message } = notes;
 
-                localStorage.setItem(
+                sessionStorage.setItem(
                   'usernote',
                   JSON.stringify({
                     note_id: note_id,
@@ -183,7 +182,7 @@ const Users = () => {
 
           e.target.parentElement.parentElement.remove();
 
-          localStorage.setItem('rend', 1);
+          sessionStorage.setItem('rend', 1);
         } else {
         }
       }
@@ -191,7 +190,7 @@ const Users = () => {
       if (e.target.matches('.edituser')) {
         e.stopImmediatePropagation();
 
-        const obj = getUsersLocalstorage();
+        const obj = getUsersSessionStorage();
 
         const { id } = e.target.dataset;
 
@@ -201,7 +200,7 @@ const Users = () => {
         } else {
           us = users.find((v) => v.user_id === id);
           if (us) {
-            setUsersLocalstorage(us);
+            setUsersSessionStorage(us);
           }
         }
 
@@ -223,7 +222,7 @@ const Users = () => {
             classSelector('singleuserdetailsbx1').innerHTML =
               onclickDisplayAsingleUser(filteruser);
 
-            localStorage.setItem(
+            sessionStorage.setItem(
               'usernote',
               JSON.stringify({
                 note_id: '',
@@ -256,12 +255,12 @@ const Users = () => {
       if (e.target.matches('.addUser')) {
         e.stopImmediatePropagation();
 
-        const user = getUsersLocalstorage();
+        const user = getUsersSessionStorage();
 
         if (user?.user_id > 0) {
           const date = new Date();
-          localStorage.setItem(
-            'userlocalstorage',
+          sessionStorage.setItem(
+            'usersessionstorage',
             JSON.stringify({
               user_id: '',
               firstname: '',
@@ -321,8 +320,8 @@ const Users = () => {
     // END TABS
 
     setTimeout(() => {
-      const usid1 = JSON.parse(localStorage.getItem('zsdf'));
-      const usid2 = JSON.parse(localStorage.getItem('usernote'));
+      const usid1 = JSON.parse(sessionStorage.getItem('zsdf'));
+      const usid2 = JSON.parse(sessionStorage.getItem('usernote'));
 
       const user_id = usid2 ? usid2?.user_id : usid1?.user_id;
 
@@ -352,10 +351,8 @@ const Users = () => {
                   ${listOfUsers}
                   </tbody>
                   </table>
-                  `
-                  
-                  
-                  ,
+                  `,
+
                   'usersidebarclass'
                 )}
                 </div>
@@ -401,7 +398,6 @@ const Users = () => {
 
       ${Modalboxone('', '')}
     `;
-
   });
 };
 

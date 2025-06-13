@@ -1,36 +1,64 @@
-import productsprofile from './data/serverside/fetch/productsprofile.js';
-import Modalboxone from './utils/Modalboxone.js';
-import { classSelector } from './utils/Selectors.js';
-import rerender from './utils/rerender.js';
-import getIndustry from './utils/getIndustry.js';
+import productsprofile from '../state/serverside/read/products/productsprofile.js';
+import Modalboxone from '../utils/Modalboxone.js';
+import { classSelector } from '../utils/Selectors.js';
+import rerender from '../utils/rerender.js';
 import rentalsStock from './products/rentals/rentalsStock.js';
 import availableProduct from './products/rentals/available.js';
 import rentedProducts from './products/rentals/rented.js';
 import retailsStock from './products/retails/retailStock.js';
 import serviceStock from './products/services/serviceStock.js';
-import Buttons from './utils/Buttons.js';
-import productsLocalstorage from './data/clientside/localstorage/default/defaultProductsLocalstorage.js';
-import editCatForm from './products/utils/editCatForm.js';
+import Buttons from '../utils/Buttons.js';
+import productsSessionStorage from '../state/statemanagement/sessionstorage/default/defaultProductsSessionStorage.js';
+import editCatForm from '../utils/products/editCatForm.js';
 import roofingStock from './products/roofing/roofingStock.js';
-import dataListDropdown from './utils/dataListDropdown.js';
-
-import { textInput } from './utils/InputFields.js';
+import dataListDropdown from '../utils/dataListDropdown.js';
+import { textInput } from '../utils/InputFields.js';
+import productCheckmark from '../state/statemanagement/sessionstorage/default/productCheckmark.js';
+import productCheckmarkSet from '../state/statemanagement/sessionstorage/SET/productCheckmarkSet.js';
+import {
+  PaginationLinks,
+  PaginationLogic,
+} from '../utils/products/Pagination.js';
+import typeOfProduct from '../utils/typeOfProduct.js';
+import getUrlSearchParam from '../utils/products/getUrlSearchParam.js';
+import productsList from './products/rentals/productsList.js';
+import availableList from './products/rentals/availableList.js';
+import rentedList from './products/rentals/rentedList.js';
+import industryCheck from '../utils/industryCheck.js';
 
 const Products = () => {
-  const industry = getIndustry();
+  if (!sessionStorage.getItem('prodType')) {
+    sessionStorage.setItem('prodType', 'stocks');
+  }
+
+  if (!sessionStorage.getItem('checkmark')) {
+    productCheckmark('stocks');
+  }
 
   document.addEventListener('click', (e) => {
+    if (e.target.matches('.show-all-prod')) {
+      const url = 'index.html?page=products&p=1';
+      history.pushState({}, null, url);
+      productCheckmarkSet({
+        checkall: false,
+        cat_id: '',
+        checkedids: [],
+        uncheckedIds: [],
+        prod_size: '',
+      });
+      sessionStorage.setItem('rend', 2);
+    }
     if (e.target.matches('.edit-prod-cat')) {
-      if (!localStorage.getItem('prodlocalstorage')) {
-        productsLocalstorage();
+      if (!sessionStorage.getItem('prodsessionstorage')) {
+        productsSessionStorage();
       }
 
       const { cat_name, cat_id } = e.target.dataset;
 
-      const obj = JSON.parse(localStorage.getItem('prodlocalstorage'));
+      const obj = JSON.parse(sessionStorage.getItem('prodsessionstorage'));
       obj['cat_name'] = cat_name;
       obj['cat_id'] = cat_id;
-      localStorage.setItem('prodlocalstorage', JSON.stringify(obj));
+      sessionStorage.setItem('prodsessionstorage', JSON.stringify(obj));
 
       classSelector('modalboxone').classList.add('show');
       document.body.style.overflow = 'hidden';
@@ -50,151 +78,298 @@ const Products = () => {
         )
           .then((resp) => resp.text())
           .then((data) => {
-            localStorage.setItem('rend', 2);
+            sessionStorage.setItem('rend', 2);
           });
       } else {
       }
     }
-
-    if (e.target.matches('.generatepreview')) {
-      let arr = [];
-      document.querySelectorAll('.checkmark').forEach((v) => {
-
-        if (v.checked) {
-          arr.push({
-            prod_id: v.dataset.prod_id,
-            prod_name: v.dataset.prod_name,
-            prod_size: v.dataset.prod_size,
-            prod_qty: v.dataset.prod_qty,
-            cat_name: v.dataset.cat_name,
-            type: v.dataset?.type,
-            rented: v.dataset?.rented ? v.dataset?.rented : '',
-            sold: v.dataset?.sold ? v.dataset?.sold : '',
-            available: v.dataset?.available ? v.dataset?.available : '',
-       
-            exp_date: v.dataset?.exp_date ? v.dataset?.exp_date : '',
-            createdAt: v.dataset?.createdat ? v.dataset?.createdat : '',
-
-            selling_price: v.dataset?.selling_price
-              ? v.dataset?.selling_price
-              : '',
-            selling_price: v.dataset?.selling_price
-              ? v.dataset?.selling_price
-              : '',
-          });
-        }
-      });
-
-      const fd = new FormData();
-      fd.append('stocks', JSON.stringify(arr));
-
-      let baseUrl =
-        arr[0].type === 'Stock List'
-          ? 'stocks.php'
-          : arr[0].type === 'Available List'
-          ? 'stocks.php'
-          : arr[0].type === 'Services'
-          ? 'service.php'
-          : arr[0].type === 'Rented List'
-          ? 'rented.php'
-          : arr[0].type === 'Stocks'
-          ? 'retail.php'
-          : arr[0].type === 'Stocksreport'
-          ? 'stocksreport.php'
-          : arr[0].type === 'Roofing'
-          ? 'roofing.php'
-          : '';
-
-      fetch(`router.php?controller=products&task=stocks`, {
-        method: 'Post',
-        body: fd,
-      })
-        .then((resp) => resp.text())
-        .then((data) => {
-          window.location = `assets/pdf/stocks/${baseUrl}`;
-        });
-    }
   });
 
+  productsprofile((proddata) => {
+    const { output, fulldata } = typeOfProduct(proddata);
 
-  
-
-  productsprofile((output) => {
     document.addEventListener('change', (e) => {
-      if (e.target.matches('.checkall')) {
+      if (e.target.matches('.prodsizefilter')) {
+        e.stopImmediatePropagation();
+        const { value } = e.target;
+
+        const obj = JSON.parse(sessionStorage.getItem('checkmark'));
+
+        productCheckmarkSet({
+          checkall: false,
+          cat_id: obj?.cat_id,
+          checkedids: [...obj?.checkedids],
+          uncheckedIds: [...obj?.uncheckedIds],
+          prod_size: value,
+        });
+
+        const url = getUrlSearchParam({
+          cat: '',
+          page: '',
+          prodsize: value,
+        });
+        history.pushState({}, null, url);
+        sessionStorage.setItem('rend', 2);
+      }
+
+      if (e.target.matches('.checkallavailable')) {
+        e.stopImmediatePropagation();
+        const obj = JSON.parse(sessionStorage.getItem('checkmark'));
         if (e.target.checked) {
+          const { output } = typeOfProduct(proddata);
+          const stocks = PaginationLogic(output);
+          const obj = JSON.parse(sessionStorage.getItem('checkmark'));
+          PaginationLinks({
+            data: output,
+            paginationCls: 'products-table-inner-pagination',
+          });
+
+          productCheckmarkSet({
+            checkall: true,
+            cat_id: obj?.cat_id,
+            checkedids: [],
+            uncheckedIds: [],
+            prod_size: obj?.prod_size,
+          });
+
+          const data = JSON.parse(sessionStorage.getItem('checkmark'));
+
+          classSelector('products-table-body-inner').innerHTML = availableList(
+            Object.values(stocks),
+            data
+          );
+
           classSelector('generatepreview').classList.add('show');
-          Array.from(document.querySelectorAll('.checkmark')).forEach((v) => {
-            v.checked = true;
-          });
         } else {
-          classSelector('generatepreview').classList.remove('show');
-          Array.from(document.querySelectorAll('.checkmark')).forEach((v) => {
-            v.checked = false;
+          productCheckmarkSet({
+            checkall: false,
+            cat_id: '',
+            checkedids: [],
+            uncheckedIds: [],
+            prod_size: obj?.prod_size,
           });
+
+          sessionStorage.setItem('rend', 2);
+        }
+      }
+
+      if (e.target.matches('.checkallrented')) {
+        e.stopImmediatePropagation();
+        const obj = JSON.parse(sessionStorage.getItem('checkmark'));
+        if (e.target.checked) {
+          const { output } = typeOfProduct(proddata);
+          const stocks = PaginationLogic(output);
+          const obj = JSON.parse(sessionStorage.getItem('checkmark'));
+
+          PaginationLinks({
+            data: output,
+            paginationCls: 'products-table-inner-pagination',
+          });
+
+          productCheckmarkSet({
+            checkall: true,
+            cat_id: obj?.cat_id,
+            checkedids: [],
+            uncheckedIds: [],
+            prod_size: obj?.prod_size,
+          });
+          const data = JSON.parse(sessionStorage.getItem('checkmark'));
+
+          classSelector('products-table-body-inner').innerHTML = rentedList(
+            Object.values(stocks),
+            data
+          );
+
+          classSelector('generatepreview').classList.add('show');
+        } else {
+          productCheckmarkSet({
+            checkall: false,
+            cat_id: '',
+            checkedids: [],
+            uncheckedIds: [],
+            prod_size: obj?.prod_size,
+          });
+
+          sessionStorage.setItem('rend', 2);
+        }
+      }
+
+      if (e.target.matches('.checkallbox')) {
+        e.stopImmediatePropagation();
+        const obj = JSON.parse(sessionStorage.getItem('checkmark'));
+        if (e.target.checked) {
+          const { output } = typeOfProduct(proddata);
+          const stocks = PaginationLogic(output);
+
+          PaginationLinks({
+            data: output,
+            paginationCls: 'products-table-inner-pagination',
+          });
+
+          productCheckmarkSet({
+            checkall: true,
+            cat_id: obj?.cat_id,
+            checkedids: [],
+            uncheckedIds: [],
+            prod_size: obj?.prod_size,
+          });
+
+          const data = JSON.parse(sessionStorage.getItem('checkmark'));
+          classSelector('products-table-body-inner').innerHTML = productsList(
+            Object.values(stocks),
+            data
+          );
+
+          classSelector('generatepreview').classList.add('show');
+
+          //sessionStorage.setItem('rend', 2);
+        } else {
+          productCheckmarkSet({
+            checkall: false,
+            cat_id: obj?.cat_id,
+            checkedids: [],
+            uncheckedIds: [],
+            prod_size: obj?.prod_size,
+          });
+
+          sessionStorage.setItem('rend', 2);
         }
       }
 
       if (e.target.matches('.checkmark')) {
-        let arr = [];
-        const somechecked = document
-          .querySelectorAll('.checkmark')
-          .forEach((v) => {
-            if (v.checked) {
-              arr.push(1);
-            }
-          });
+        e.stopImmediatePropagation();
 
-        if (arr.length > 0) {
-          classSelector('generatepreview').classList.add('show');
+        const data = JSON.parse(sessionStorage.getItem('checkmark'));
+
+        const { prod_id } = e.target.dataset;
+        if (e.target.checked) {
+          if (data?.checkall) {
+            const res = data?.uncheckedIds.filter((v) => v !== prod_id);
+            data['uncheckedIds'] = res;
+            data['checkedids'] = [];
+          } else {
+            data['uncheckedIds'] = [];
+            data['checkedids'] = [...data?.checkedids, prod_id];
+            classSelector('generatepreview').classList.add('show');
+          }
         } else {
-          classSelector('generatepreview').classList.remove('show');
+          if (data?.checkall) {
+            data['uncheckedIds'] = [...data?.uncheckedIds, prod_id];
+            data['checkedids'] = [];
+          } else {
+            const arr = data?.checkedids.filter((v) => v !== prod_id);
+            data['uncheckedIds'] = [];
+            data['checkedids'] = arr;
+
+            if (data?.checkedids.length < 1) {
+              classSelector('generatepreview').classList.remove('show');
+            }
+          }
         }
+        sessionStorage.setItem('checkmark', JSON.stringify(data));
       }
 
       if (e.target.matches('.products-type')) {
         const { value } = e.target;
 
         if (value === 'available') {
-          availableProduct(output);
+          const url = 'index.html?page=products&p=1';
+          history.pushState({}, null, url);
+          sessionStorage.setItem('prodType', 'available');
+          if (sessionStorage.getItem('checkmark')) {
+            productCheckmark('available');
+          }
+          const { output, fulldata } = typeOfProduct(proddata);
+          availableProduct(output, fulldata);
+          productCheckmark('available');
+          sessionStorage.setItem('rend', 2);
         } else if (value === 'rented') {
-          rentedProducts(output);
+          const url = 'index.html?page=products&p=1';
+          history.pushState({}, null, url);
+          sessionStorage.setItem('prodType', 'rented');
+          if (sessionStorage.getItem('checkmark')) {
+            productCheckmark('rented');
+          }
+          const { output, fulldata } = typeOfProduct(proddata);
+          rentedProducts(output, fulldata);
+          productCheckmark('rented');
+          sessionStorage.setItem('rend', 2);
         } else {
-          rentalsStock(output);
+          const url = 'index.html?page=products&p=1';
+          history.pushState({}, null, url);
+          sessionStorage.setItem('prodType', 'stocks');
+          if (sessionStorage.getItem('checkmark')) {
+            productCheckmark('stocks');
+          }
+          const { output, fulldata } = typeOfProduct(proddata);
+          rentalsStock(output, fulldata);
+          productCheckmark('stocks');
+          sessionStorage.setItem('rend', 2);
         }
       }
     });
 
-    if (industry === 'rentals') {
+    if (industryCheck('rentals')) {
       setTimeout(() => {
-        rentalsStock(output);
+        const value = sessionStorage.getItem('prodType');
+        if (value === 'available') {
+          availableProduct(output, fulldata);
+        } else if (value === 'rented') {
+          rentedProducts(output, fulldata);
+        } else {
+          rentalsStock(output, fulldata);
+        }
       }, 0);
     }
 
-    if (industry === 'retails') {
+    if (industryCheck('retails')) {
       setTimeout(() => {
-        retailsStock(output);
+        retailsStock(output, fulldata);
       }, 0);
     }
 
-    if (industry === 'service provider') {
+    if (industryCheck('service provider')) {
       setTimeout(() => {
-        serviceStock(output);
+        serviceStock(output, fulldata);
       }, 0);
     }
 
-    if (industry === 'roofing company') {
+    if (industryCheck('roofing company')) {
       setTimeout(() => {
-        roofingStock(output);
+        roofingStock(output, fulldata);
       }, 0);
     }
+    let n = 1;
+
+    classSelector('prodsizesfilter').innerHTML =
+      '<select class="prodsizefilter"><option hidden>Filter by product size</option>' +
+      Object.values(
+        output.reduce((a, b) => {
+          const size = b.prod_size.split(' ').join('').toLowerCase();
+          if (size) {
+            a[size] = size;
+          } else {
+            a[size] = size;
+          }
+
+          return a;
+        }, {})
+      )
+        .filter(Boolean)
+        .map((v) => {
+          return `
+      <option>${v}</option>
+      `;
+        })
+        .join(' ') +
+      '</select>';
   });
 
   classSelector('display-page').innerHTML = `
       <div class="dash-container mb-2">
 
       <div class="dash-row gap-3">
-<br /> <br />
+     
       <div class="hideondesktop mobile-cat-dropdown">
       
       ${dataListDropdown(
@@ -202,7 +377,7 @@ const Products = () => {
         'categorylistinpt',
         'Select category',
         '',
-        'hyy67f', 
+        'hyy67f',
         'categwrapper'
       )}
       
@@ -210,13 +385,23 @@ const Products = () => {
 
       
       <div class="sidebar bgwhite prod-side-bar hideonmobile">
-      
         <div class="scroll-wrapper">
         <div class="categories-searchbox"></div>
+        <div>
+          <button class="show-all-prod">Display all products</button>
+        </div>
+
+        <div class="prodsizesfilter"></div>
+        <div>
+   
+        </div>
+        <br />
         <div class="scroll-inner">
         
         <table cellspacing="0">
-        <tbody class="products-categories"></tbody>
+        <tbody class="products-categories">
+        
+        </tbody>
         </table>
         
         </div>
@@ -235,8 +420,6 @@ const Products = () => {
    
       <div class="secondbox-wrapper">
           <div class="produsts-btns">
-          
-
           <div class="generate-preview-wrapper">
             ${Buttons([
               {
@@ -253,12 +436,9 @@ const Products = () => {
           
           </div>
           <div class="other-box"></div>
-      </div>
-
-
+        </div>
         <div class="products-table-wrapper">
             <div class="products-table-inner">
-
             <table cellspacing="0">
             <thead class="products-table-header"></thead>
             </table>
@@ -268,14 +448,15 @@ const Products = () => {
             </table>
             
             </div>
+               <div class="products-table-inner-pagination">
+            
+               </div>
         </div>
-
       </div>
       </div>
       </div>
       ${Modalboxone('', '')}
       `;
-
 };
 rerender(Products, 2);
 export default Products;

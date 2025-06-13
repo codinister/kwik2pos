@@ -1,10 +1,10 @@
-import { ymd } from '../utils/DateFormats.js';
-import displayToast from '../utils/displayToast.js';
-import { textInput } from '../utils/InputFields.js';
+import { ymd } from '../../utils/DateFormats.js';
+import displayToast from '../../utils/displayToast.js';
+import { textInput } from '../../utils/InputFields.js';
 import noteSavebtn from './noteSavebtn.js';
 
 const userNote = () => {
-  const note = JSON.parse(localStorage.getItem('usernote'));
+  const note = JSON.parse(sessionStorage.getItem('usernote'));
 
   const message = note ? note?.message : '';
 
@@ -14,7 +14,7 @@ const userNote = () => {
 
       const date = new Date()
 
-      const data = JSON.parse(localStorage.getItem('usernote'));
+      const data = JSON.parse(sessionStorage.getItem('usernote'));
       delete data['fullname']
       data['createdAt'] = ymd(date)
 
@@ -32,7 +32,7 @@ const userNote = () => {
         }
         else{
           displayToast('lightgreen', result);
-          localStorage.setItem('rend', 1);
+          sessionStorage.setItem('rend', 1);
         }
       })
 

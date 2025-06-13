@@ -1,16 +1,14 @@
-import dataListDropdown from '../../utils/dataListDropdown.js';
-import imageUpload from '../../utils/imageUpload.js';
-import getIndustry from '../../utils/getIndustry.js';
-import getCurrency from '../../utils/getCurrency.js';
-import Buttons from '../../utils/Buttons.js';
-import { classSelector } from '../../utils/Selectors.js';
-import { textInput } from '../../utils/InputFields.js';
-import displayToast from '../../utils/displayToast.js';
-import { dmy, formatDate, ymd } from '../../utils/DateFormats.js';
-import productReducer from '../../data/clientside/reducers/productReducer.js';
+import dataListDropdown from '../../../utils/dataListDropdown.js';
+import imageUpload from '../../../utils/imageUpload.js';
+import getCurrency from '../../../utils/getCurrency.js';
+import Buttons from '../../../utils/Buttons.js';
+import { classSelector } from '../../../utils/Selectors.js';
+import { textInput } from '../../../utils/InputFields.js';
+import displayToast from '../../../utils/displayToast.js';
+import { dmy, formatDate, ymd } from '../../../utils/DateFormats.js';
+import productReducer from '../../../state/statemanagement/reducers/productReducer.js';
 
 const productForm = (categories) => {
-  const industry = getIndustry();
   const currency = getCurrency();
 
   const categoryHTMLList = (v) => {
@@ -33,11 +31,11 @@ const productForm = (categories) => {
         .map((v) => categoryHTMLList(v))
         .join(' ');
 
-      const obj = JSON.parse(localStorage.getItem('prodlocalstorage'));
+      const obj = JSON.parse(sessionStorage.getItem('prodsessionstorage'));
       obj['cat_id'] = '';
       obj['cat_name'] = value;
 
-      localStorage.setItem('prodlocalstorage', JSON.stringify(obj));
+      sessionStorage.setItem('prodsessionstorage', JSON.stringify(obj));
     }
   });
 
@@ -50,7 +48,7 @@ const productForm = (categories) => {
       e.stopImmediatePropagation();
       const { qty_id } = e.target.dataset;
 
-      const obj = JSON.parse(localStorage.getItem('prodlocalstorage'));
+      const obj = JSON.parse(sessionStorage.getItem('prodsessionstorage'));
 
       if (Object.values(obj?.prod_qty_arr).length < 2) {
         return displayToast('bgdanger', "You can't delee this item!");
@@ -60,7 +58,7 @@ const productForm = (categories) => {
         fetch(`router.php?controller=products&task=delete_qty&id=${qty_id}`)
           .then((resp) => resp.text())
           .then((data) => {
-            localStorage.setItem('rend', 2);
+            sessionStorage.setItem('rend', 2);
           });
       } else {
       }
@@ -75,16 +73,16 @@ const productForm = (categories) => {
     if (e.target.matches('.pro-cat')) {
       const { name, id } = e.target.dataset;
 
-      const obj = JSON.parse(localStorage.getItem('prodlocalstorage'));
+      const obj = JSON.parse(sessionStorage.getItem('prodsessionstorage'));
       obj['cat_id'] = id;
       obj['cat_name'] = name;
 
-      localStorage.setItem('prodlocalstorage', JSON.stringify(obj));
+      sessionStorage.setItem('prodsessionstorage', JSON.stringify(obj));
     }
 
     if (e.target.matches('.saveProduct')) {
       e.stopImmediatePropagation();
-      const obj = JSON.parse(localStorage.getItem('prodlocalstorage'));
+      const obj = JSON.parse(sessionStorage.getItem('prodsessionstorage'));
 
       if (obj?.cat_name.length < 1) {
         return displayToast('bgdanger', 'Category field required!');
@@ -157,7 +155,7 @@ const productForm = (categories) => {
             return displayToast('bgdanger', data);
           } else {
             displayToast('lightgreen', data);
-            localStorage.removeItem('prodlocalstorage');
+            sessionStorage.removeItem('prodsessionstorage');
             if (
               classSelector('prod-img-inpt').files &&
               classSelector('prod-img-inpt').files[0]
@@ -165,18 +163,18 @@ const productForm = (categories) => {
               classSelector('prod-img-inpt').files = null;
             }
             document.body.style.overflow = 'scroll';
-            localStorage.setItem('rend', 2);
+            sessionStorage.setItem('rend', 2);
           }
         });
     }
   });
 
   window.addEventListener('load', (e) => {
-    const obj = JSON.parse(localStorage.getItem('prodlocalstorage'));
+    const obj = JSON.parse(sessionStorage.getItem('prodsessionstorage'));
     classSelector('category-inpt').value = obj?.cat_name;
   });
 
-  const obj = JSON.parse(localStorage.getItem('prodlocalstorage'));
+  const obj = JSON.parse(sessionStorage.getItem('prodsessionstorage'));
 
   let qty_list = '<h6>Quantity List</h5>';
   let prodimg = '<h6>Image Preview</h5>';

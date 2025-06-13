@@ -1,53 +1,73 @@
 import Chartbox from './widgets/Chartbox.js';
 import Totalbox from './widgets/Totalbox.js';
-import productsprofile from './data/serverside/fetch/productsprofile.js';
-import customersprofile from './data/serverside/fetch/customersprofile.js';
-import usersprofile from './data/serverside/fetch/usersprofile.js';
-import { formatMonth, month, year } from './utils/DateFormats.js';
+import productsprofile from '../state/serverside/read/products/productsprofile.js';
+import customersprofile from '../state/serverside/read/customers/customersprofile.js';
+import usersprofile from '../state/serverside/read/users/usersprofile.js';
+import { formatMonth, month, year, ymd } from '../utils/DateFormats.js';
 import Customerswhowe from './widgets/Customerswhowe.js';
-import format_number from './utils/format_number.js';
-import { textInput } from './utils/InputFields.js';
-import getIndustry from './utils/getIndustry.js';
-import { classSelector } from './utils/Selectors.js';
+import format_number from '../utils/format_number.js';
+import { textInput } from '../utils/InputFields.js';
 
 const Dashboard = () => {
-  
+  document.addEventListener('click', (e) => {
+    if (e.target.matches('.accstatement')) {
+      const { cust_id } = e.target.dataset;
+
+      window.location = `assets/pdf/accstatement.php?t=${cust_id}`;
+    }
+  });
+
   productsprofile((products) => {
     customersprofile((customers) => {
       usersprofile((users) => {
-        const customers_total = customers.filter(
+        const us = JSON.parse(localStorage.getItem('zsdf'));
+
+        const sales = [...customers]
+          .map((v) => v.receipt_list)
+          .flat(2)
+          .filter((v) => ymd(v.createdAt) === ymd(us?.login_date));
+
+        const profo = customers.map((v) => v?.proforma_list).flat(2);
+
+        const customerstotal = customers.filter(
           (v) => v.fullname !== 'Anonymous'
-        ).length;
-        const total_users = users.length;
+        );
+        const customers_total =
+          us?.role_id === '111'
+            ? customerstotal.length
+            : us?.role_id === '1'
+            ? customerstotal.length
+            : us?.role_id === '5'
+            ? customerstotal.length
+            : customerstotal.filter((v) => v.user_id === us?.user_id).length;
 
-        const industry = getIndustry();
+        const total_daily_sales = format_number(
+          [...sales].reduce((a, b) => {
+            return a + Number(b.payment);
+          }, 0)
+        );
+        const daily_sales =
+          us?.role_id === '111'
+            ? total_daily_sales
+            : us?.role_id === '1'
+            ? total_daily_sales
+            : us?.role_id === '5'
+            ? total_daily_sales
+            : [...sales]
+                .filter((v) => v.user_id === us?.user_id)
+                .reduce((a, b) => {
+                  return a + Number(b.payment);
+                }, 0);
 
-        let Available = [];
-        let prod_desc = '';
-
-        if (industry === 'rentals') {
-          prod_desc = 'Available Products';
-          Available = products?.rentals.availables.reduce((a, b) => {
-            return Number(b.remaining) + a;
-          }, 0);
-        }
-
-        if (industry === 'retails') {
-          prod_desc = 'Total Products';
-          Available = products?.retails.stocks.reduce((a, b) => {
-            return Number(b.remaining) + a;
-          }, 0);
-        }
-
-        if (industry === 'service provider') {
-          prod_desc = 'Total Services';
-          Available = products?.service.length;
-        }
-
-        if (industry === 'roofing company') {
-          prod_desc = 'Total products';
-          Available = products?.roofing.length;
-        }
+        const prod_desc = 'Total Proforma';
+        const Proforma =
+          us?.role_id === '111'
+            ? profo.length
+            : us?.role_id === '1'
+            ? profo.length
+            : us?.role_id === '5'
+            ? profo.length
+            : profo.filter((v) => v.user_id === us?.user_id).length;
 
         const dt = new Date();
         const receipts = customers
@@ -141,7 +161,7 @@ const Dashboard = () => {
         ];
 
         const owings = customers
-          .filter((v) => v.total_debt > 0)
+          .filter((v) => v.total_debt > 1)
           .map((v) => ({
             cust_id: v.cust_id,
             fullname: v.fullname,
@@ -168,7 +188,7 @@ const Dashboard = () => {
                   <tr  class="arrears-table-row">
                     <td>
                     <a href="javascript:void(0);" class="accstatement" data-cust_id="${
-                    v.cust_id
+                      v.cust_id
                     }">
                     ${v.fullname}
                     </a>
@@ -184,13 +204,13 @@ const Dashboard = () => {
           }
         });
 
-        classSelector('display-page').innerHTML =  `
+        const page = `
           <section class="dashboard-section">
             <div class="dashboard-container">
               <div class="total-wrapper">
                 ${Totalbox('Total Customers', customers_total)}
-                ${Totalbox('Total Users', total_users)}
-                ${Totalbox(prod_desc, Available)}
+                ${Totalbox('Daily Sales', 'GHs ' + daily_sales)}
+                ${Totalbox(prod_desc, Proforma)}
               </div>
             </div>
             <div class="dashboard-container">
@@ -254,12 +274,9 @@ const Dashboard = () => {
             </div>
             </section>
             `;
-
-  
       });
     });
   });
-
 };
 
 export default Dashboard;

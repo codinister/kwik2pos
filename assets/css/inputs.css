@@ -60,13 +60,14 @@ Animate input field
   font-weight: bold;
 }
 
+
+
 .button-rounded {
   border-radius: 2rem;
   font-size: 1.4rem;
   width: 100% !important;
   background-color: #222;
   padding: 0.6rem;
-  display: none;
   border: none;
   color: var(--muted);
   cursor: pointer;

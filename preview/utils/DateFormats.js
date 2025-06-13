@@ -1,3 +1,7 @@
+import getIndustry from '../../assets/utils/getIndustry.js'
+
+const industry = getIndustry();
+
 /*############################# 
     * Y-m-d Date Format
 #############################*/
@@ -6,18 +10,48 @@ function ymd(date) {
   const year = d.getFullYear();
   const month = d.getMonth() + 1;
   const day = d.getDate();
-  const mnt = month < 10 ? '0' + month : month;
-  const dy = day < 10 ? '0' + day : day;
+  const mnt = Number(month) < 10 ? '0' + month : month;
+  const dy = Number(day) < 10 ? '0' + day : day;
   return `${year}-${mnt}-${dy}`;
 }
+
+const durationInMonths = (createdAt, duration) => {
+  if (createdAt) {
+    let date = new Date(ymd(createdAt));
+    date.setMonth(date.getMonth() + Number(duration));
+    return ymd(date);
+  } else {
+    return '1993-03-11';
+  }
+};
+
+const durationInDays = (createdAt, duration) => {
+  if (createdAt) {
+    let date = new Date(createdAt);
+    date.setDate(date.getDate() + Number(duration));
+    return ymd(date);
+  } else {
+    return '1993-03-11';
+  }
+};
+
+const durationInYears = (createdAt, duration) => {
+  if (createdAt) {
+    let date = new Date(createdAt);
+    date.setFullYear(date.getFullYear() + Number(duration));
+    return ymd(date);
+  } else {
+    return '1993-03-11';
+  }
+};
 
 function dmy(date) {
   const d = new Date(date);
   const year = d.getFullYear();
   const month = d.getMonth() + 1;
   const day = d.getDate();
-  const mnt = month < 10 ? '0' + month : month;
-  const dy = day < 10 ? '0' + day : day;
+  const mnt = Number(month) < 10 ? '0' + month : month;
+  const dy = Number(day) < 10 ? '0' + day : day;
   return `${dy}-${mnt}-${year}`;
 }
 
@@ -26,8 +60,8 @@ function ymdslash(date) {
   const year = d.getFullYear();
   const month = d.getMonth() + 1;
   const day = d.getDate();
-  const mnt = month < 10 ? '0' + month : month;
-  const dy = day < 10 ? '0' + day : day;
+  const mnt = Number(month) < 10 ? '0' + month : month;
+  const dy = Number(day) < 10 ? '0' + day : day;
   return `${mnt}/${dy}/${year}`;
 }
 
@@ -35,7 +69,7 @@ function ym(date) {
   const d = new Date(date);
   const year = d.getFullYear();
   const month = d.getMonth() + 1;
-  const mnt = month < 10 ? '0' + month : month;
+  const mnt = Number(month) < 10 ? '0' + month : month;
   return `${year}-${mnt}`;
 }
 
@@ -99,26 +133,60 @@ function formatMonth(m) {
 function daysleft(cdate, fdate) {
   const curdate = new Date(cdate);
   const futuredate = new Date(fdate);
-
   const newdate = futuredate.getTime() - curdate.getTime();
-  const days = Math.floor(newdate / (1000 * 60 * 60 * 24));
+  const days = Math.floor(Number(newdate) / (1000 * 60 * 60 * 24));
   return days;
 }
 
 const daytodate = (date, day) => {
   const days = 1000 * 60 * 60 * 24;
   const calc = day * days;
-  const calcdate = new Date(date).getTime() + calc;
+  const calcdate = new Date(date).getTime() + Number(calc);
   const newdate = new Date(calcdate);
   return newdate;
 };
 
-const expdate_left = (exp_date) => {
-  const cur_date = new Date().getTime();
-  const expdate = new Date(exp_date).getTime();
-  const remain = expdate - cur_date;
-  const days = Math.floor(remain / (1000 * 60 * 60 * 24));
-  return days;
+const expdate_left = (duration, createdAt) => {
+  if (industry === 'rentals') {
+    const user = JSON.parse(sessionStorage.getItem('zsdf'));
+    const cur_date = new Date(user?.login_date);
+    const sett = JSON.parse(localStorage.getItem('sinpt'));
+    const durations = sett?.duration;
+    const dur = {
+      Month: durationInMonths(createdAt, duration),
+      Day: durationInDays(createdAt, duration),
+      Year: durationInYears(createdAt, duration),
+    };
+
+    const expdate = dur[durations];
+    const exp_date = expdate === 'NaN-NaN-NaN' ? '1993-03-11' : expdate;
+
+    const newdate = new Date(exp_date).getTime() - cur_date.getTime();
+    const days = Math.floor(Number(newdate) / (1000 * 60 * 60 * 24));
+    const calcdays = Number(days);
+    return calcdays;
+  } else {
+    return 0;
+  }
+};
+
+const expiry_date = (duration, createdAt) => {
+  if (industry === 'rentals') {
+    const sett = JSON.parse(localStorage.getItem('sinpt'));
+    const durations = sett?.duration;
+    const dur = {
+      Month: durationInMonths(ymd(createdAt), duration),
+      Day: durationInDays(ymd(createdAt), duration),
+      Year: durationInYears(ymd(createdAt), duration),
+    };
+
+    const expdate = dur[durations];
+    const expd = expdate === 'NaN-NaN-NaN' ? '1993-03-11' : expdate;
+
+    return expd;
+  } else {
+    return '';
+  }
 };
 
 const dateValidator = (d) => {
@@ -130,24 +198,6 @@ const dateValidator = (d) => {
 const datetoms = (date) => {
   const dt = new Date(date).getTime();
   return dt;
-};
-
-const durationInMonths = (createdAt, duration) => {
-  let date = new Date(createdAt);
-  date.setMonth(date.getMonth() + duration);
-  return date;
-};
-
-const durationInDays = (createdAt, duration) => {
-  let date = new Date(createdAt);
-  date.setDate(date.getDate() + duration);
-  return date;
-};
-
-const durationInYears = (createdAt, duration) => {
-  let date = new Date(createdAt);
-  date.setFullYear(date.getFullYear() + duration);
-  return date;
 };
 
 export {
@@ -162,6 +212,7 @@ export {
   formatMonth,
   daytodate,
   expdate_left,
+  expiry_date,
   dateValidator,
   datetoms,
   durationInMonths,

@@ -1,11 +1,9 @@
-import { textInput } from '../../utils/InputFields.js';
-import Buttons from '../../utils/Buttons.js';
-import { dmy } from '../../utils/DateFormats.js';
-import { classSelector } from '../../utils/Selectors.js';
-import displayToast from '../../utils/displayToast.js';
-import Spinner from '../../utils/Spinner.js';
+import { textInput } from '../../../utils/InputFields.js';
+import Buttons from '../../../utils/Buttons.js';
+import { dmy } from '../../../utils/DateFormats.js';
+import { classSelector } from '../../../utils/Selectors.js';
 
-const Contract = (fullname, tax_id, cust_id, fullpayment) => {
+const Contract = (fullname, ss_id, cust_id, fullpayment) => {
   const fn = fullname.split(' ');
 
   const one = fn[0]?.slice(0, 1);
@@ -13,7 +11,7 @@ const Contract = (fullname, tax_id, cust_id, fullpayment) => {
   const three = fn[2]?.slice(0, 1);
   const four = fn[3]?.slice(0, 1);
 
-  const sales = JSON.parse(localStorage.getItem('sales'));
+  const sales = JSON.parse(sessionStorage.getItem('sales'));
 
   if (sales?.contract) {
 
@@ -24,11 +22,11 @@ const Contract = (fullname, tax_id, cust_id, fullpayment) => {
       refferedtoas,
       contractnumber,
       otherinfo,
-      tax_id,
+      ss_id,
       cust_id,
     } = sales?.contract;
 
-    localStorage.setItem(
+    sessionStorage.setItem(
       'contract',
       JSON.stringify({
         cont_id,
@@ -37,7 +35,7 @@ const Contract = (fullname, tax_id, cust_id, fullpayment) => {
         refferedtoas,
         contractnumber,
         otherinfo,
-        tax_id,
+        ss_id,
         cust_id,
       })
     );
@@ -65,8 +63,8 @@ const Contract = (fullname, tax_id, cust_id, fullpayment) => {
 
 
 
-  if (!localStorage.getItem('contract')) {
-    localStorage.setItem(
+  if (!sessionStorage.getItem('contract')) {
+    sessionStorage.setItem(
       'contract',
       JSON.stringify({
         cont_id: '',
@@ -75,7 +73,7 @@ const Contract = (fullname, tax_id, cust_id, fullpayment) => {
         refferedtoas: 'Agency',
         contractnumber: contnumber,
         otherinfo: '',
-        tax_id,
+        ss_id,
         cust_id,
       })
     );
@@ -86,8 +84,8 @@ const Contract = (fullname, tax_id, cust_id, fullpayment) => {
     if (e.target.matches('.contr')) {
       const { name, value } = e.target;
 
-      if (!localStorage.getItem('contract')) {
-        localStorage.setItem(
+      if (!sessionStorage.getItem('contract')) {
+        sessionStorage.setItem(
           'contract',
           JSON.stringify({
             cont_id: '',
@@ -96,16 +94,16 @@ const Contract = (fullname, tax_id, cust_id, fullpayment) => {
             refferedtoas: 'Agency',
             contractnumber: contnumber,
             otherinfo: '',
-            tax_id: '',
+            ss_id: '',
             cust_id: '',
           })
         );
       }
 
-      const obj = JSON.parse(localStorage.getItem('contract'));
+      const obj = JSON.parse(sessionStorage.getItem('contract'));
       const newobj = { ...obj, [name]: value };
       const update = {...newobj, touched: true}
-      localStorage.setItem('contract', JSON.stringify(update));
+      sessionStorage.setItem('contract', JSON.stringify(update));
 
     }
   });

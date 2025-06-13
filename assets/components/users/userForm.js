@@ -6,15 +6,15 @@ import {
   passwordInput,
   phoneInput,
   emailInput,
-} from '../utils/InputFields.js';
-import Title from '../utils/Title.js';
+} from '../../utils/InputFields.js';
+import Title from '../../utils/Title.js';
 import Role from './Role.js';
-import getUsersLocalstorage from '../data/clientside/localstorage/GET/getUsersLocalstorage.js';
+import getUsersSessionStorage from '../../state/statemanagement/sessionstorage/GET/getUsersSessionStorage.js';
 import saveUser from './saveUser.js';
 import userSavebtn from './userSavebtn.js';
 
 const userForm = () => {
-  const us = getUsersLocalstorage();
+  const us = getUsersSessionStorage();
 
 
   document.addEventListener('click', (e) => {
@@ -23,7 +23,7 @@ const userForm = () => {
 
     if (e.target.matches('.saveuserbtn')) {
       e.stopImmediatePropagation()
-      const obj = getUsersLocalstorage();
+      const obj = getUsersSessionStorage();
       const menus = Object.values(obj?.menus).filter(
         (v) => v.menu_id || v.usermenu_id
       );

@@ -1,16 +1,16 @@
-import userReducer from '../data/clientside/reducers/userReducer.js';
+import userReducer from '../../state/statemanagement/reducers/userReducer.js';
 import {
   textInput,
   dateInput,
   passwordInput,
   phoneInput,
   emailInput,
-} from '../utils/InputFields.js';
-import { ymd } from '../utils/DateFormats.js';
-import Buttons from '../utils/Buttons.js';
-import getLoginuser from '../data/clientside/localstorage/GET/getLoginuser.js';
-import displayToast from '../utils/displayToast.js';
-import { classSelector } from '../utils/Selectors.js';
+} from '../../utils/InputFields.js';
+import { ymd } from '../../utils/DateFormats.js';
+import Buttons from '../../utils/Buttons.js';
+import getLoginuser from '../../state/statemanagement/sessionstorage/GET/getLoginuser.js';
+import displayToast from '../../utils/displayToast.js';
+import { classSelector } from '../../utils/Selectors.js';
 
 const userProfile = () => {
   const user = getLoginuser();
@@ -21,7 +21,7 @@ const userProfile = () => {
 
   document.addEventListener('click', (e) => {
     if (e.target.matches('.saveprofile')) {
-      const obj = JSON.parse(localStorage.getItem('userprofile'));
+      const obj = JSON.parse(sessionStorage.getItem('userprofile'));
 
       if (!obj) {
         return displayToast('bgdanger', 'No changes made');
@@ -54,7 +54,7 @@ const userProfile = () => {
           if (data.indexOf('errors') != -1) {
             displayToast('bgdanger', data);
           } else {
-            const user = JSON.parse(localStorage.getItem('zsdf'));
+            const user = JSON.parse(sessionStorage.getItem('zsdf'));
 
             const res = data.split('-');
             const photo = res[1];
@@ -69,10 +69,10 @@ const userProfile = () => {
             user['photo'] = photo;
             user['signature'] = signature;
 
-            localStorage.setItem('zsdf', JSON.stringify(user));
+            sessionStorage.setItem('zsdf', JSON.stringify(user));
 
             displayToast('lightgreen', res[0]);
-            localStorage.removeItem('userprofile');
+            sessionStorage.removeItem('userprofile');
           }
         })
         .catch((err) => console.log(err));

@@ -1,6 +1,6 @@
-import { ymd } from '../../utils/DateFormats.js';
-import { textInput } from '../../utils/InputFields.js';
-import { classSelector } from '../../utils/Selectors.js';
+import { ymd } from '../../../utils/DateFormats.js';
+import { textInput } from '../../../utils/InputFields.js';
+import { classSelector } from '../../../utils/Selectors.js';
 import stocksList from './productsList2.js';
 
 const filterProductsByDates = (stocks,sales) => {
@@ -12,8 +12,8 @@ const filterProductsByDates = (stocks,sales) => {
     if (e.target.matches('.filtdt')) {
       const { name, value } = e.target;
 
-      if (!localStorage.getItem('filterbydates')) {
-        localStorage.setItem(
+      if (!sessionStorage.getItem('filterbydates')) {
+        sessionStorage.setItem(
           'filterbydates',
           JSON.stringify({
             start_date: '',
@@ -22,16 +22,16 @@ const filterProductsByDates = (stocks,sales) => {
         );
       }
 
-      const obj = JSON.parse(localStorage.getItem('filterbydates'));
+      const obj = JSON.parse(sessionStorage.getItem('filterbydates'));
 
       const newobj = {
         ...obj,
         [name]: value,
       };
 
-      localStorage.setItem('filterbydates', JSON.stringify(newobj));
+      sessionStorage.setItem('filterbydates', JSON.stringify(newobj));
 
-      const ob = JSON.parse(localStorage.getItem('filterbydates'));
+      const ob = JSON.parse(sessionStorage.getItem('filterbydates'));
 
       if (ob?.start_date.length > 0 && ob?.end_date.length > 0) {
         const { start_date, end_date } = ob;

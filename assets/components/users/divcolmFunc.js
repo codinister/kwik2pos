@@ -1,4 +1,4 @@
-import Lists from "../utils/Lists.js";
+import Lists from "../../utils/Lists.js";
 
 const divcolmFunc = (v) => {
   return Lists({

@@ -1,11 +1,11 @@
-import salesLocalstorage from '../../data/clientside/localstorage/default/defaultSalesLocalstorage.js';
-import Buttons from '../../utils/Buttons.js';
-import { classSelector } from '../../utils/Selectors.js';
-import { textInput } from '../../utils/InputFields.js';
-import dataListDropdown from '../../utils/dataListDropdown.js';
-import getIndustry from '../../utils/getIndustry.js';
-import Spinner from '../../utils/Spinner.js';
-import displayToast from '../../utils/displayToast.js';
+import salesSessionStorage from '../../../state/statemanagement/sessionstorage/default/defaultSalesSessionStorage.js';
+import Buttons from '../../../utils/Buttons.js';
+import { classSelector } from '../../../utils/Selectors.js';
+import { textInput } from '../../../utils/InputFields.js';
+import dataListDropdown from '../../../utils/dataListDropdown.js';
+import Spinner from '../../../utils/Spinner.js';
+import displayToast from '../../../utils/displayToast.js';
+import industryCheck from '../../../utils/industryCheck.js';
 
 const addCustomer = (customersData) => {
   const referrerIteratorFunc = (v) => {
@@ -34,8 +34,8 @@ const addCustomer = (customersData) => {
     if (e.target.matches('.custinp')) {
       const { name, value } = e.target;
 
-      if (!localStorage.getItem('custinp'))
-        localStorage.setItem(
+      if (!sessionStorage.getItem('custinp'))
+        sessionStorage.setItem(
           'custinp',
           JSON.stringify({
             cemail: '',
@@ -48,7 +48,7 @@ const addCustomer = (customersData) => {
             ref_type: '',
           })
         );
-      const getobj = JSON.parse(localStorage.getItem('custinp'));
+      const getobj = JSON.parse(sessionStorage.getItem('custinp'));
       const newobj = { ...getobj, [name]: value };
 
       if (name === 'custname') {
@@ -59,7 +59,7 @@ const addCustomer = (customersData) => {
         classSelector('rphone').value = '';
       }
 
-      localStorage.setItem('custinp', JSON.stringify(newobj));
+      sessionStorage.setItem('custinp', JSON.stringify(newobj));
     }
   });
 
@@ -99,8 +99,8 @@ const addCustomer = (customersData) => {
     if (e.target.matches('.refererlink')) {
       const { cust_id, ref_type, ref } = e.target.dataset;
 
-      if (!localStorage.getItem('custinp'))
-        localStorage.setItem(
+      if (!sessionStorage.getItem('custinp'))
+        sessionStorage.setItem(
           'custinp',
           JSON.stringify({
             cemail: '',
@@ -114,15 +114,15 @@ const addCustomer = (customersData) => {
             ref: '',
           })
         );
-      const getobj = JSON.parse(localStorage.getItem('custinp'));
+      const getobj = JSON.parse(sessionStorage.getItem('custinp'));
       const newobj = {
         ...getobj,
         ref_id: cust_id,
         ref_type,
         ref,
       };
-      localStorage.setItem('custinp', JSON.stringify(newobj));
-      const obj = JSON.parse(localStorage.getItem('custinp'));
+      sessionStorage.setItem('custinp', JSON.stringify(newobj));
+      const obj = JSON.parse(sessionStorage.getItem('custinp'));
 
       classSelector('ref_type').value = obj?.ref_type;
     }
@@ -137,13 +137,13 @@ const addCustomer = (customersData) => {
 
     if (e.target.matches('.savecustomer')) {
       e.stopImmediatePropagation();
-      salesLocalstorage();
+      salesSessionStorage();
 
-      if (!localStorage.getItem('custinp')) {
+      if (!sessionStorage.getItem('custinp')) {
         return displayToast('bgdanger', 'Valid fullname field required!');
       }
 
-      const data = JSON.parse(localStorage.getItem('custinp'));
+      const data = JSON.parse(sessionStorage.getItem('custinp'));
 
       const obj = data ? data : {};
 
@@ -183,13 +183,13 @@ const addCustomer = (customersData) => {
             const info = res[0];
             const cust_id = res[1];
 
-            const txx = JSON.parse(localStorage.getItem('sales'));
+            const txx = JSON.parse(sessionStorage.getItem('sales'));
             txx['cust_id'] = cust_id;
             txx['cust_name'] = obj?.cfullname;
             txx['cust_phone'] = obj?.cphone;
             txx['cust_email'] = obj?.cemail;
             // txx['cust_location'] = obj?.clocation;
-            localStorage.setItem('sales', JSON.stringify(txx));
+            sessionStorage.setItem('sales', JSON.stringify(txx));
 
             displayToast('lightgreen', info);
             classSelector('modalboxtwo').classList.remove('show');
@@ -197,8 +197,8 @@ const addCustomer = (customersData) => {
             classSelector('customerinptclass').value = obj?.cfullname;
             classSelector('savecustomerspin').innerHTML = '';
 
-            localStorage.setItem('rend', 3);
-            localStorage.removeItem('custinp');
+            sessionStorage.setItem('rend', 3);
+            sessionStorage.removeItem('custinp');
           }
         });
     }
@@ -206,7 +206,6 @@ const addCustomer = (customersData) => {
     if (e.target.matches('.addcustomers')) {
       e.stopImmediatePropagation();
 
-      const industry = getIndustry();
 
       Spinner('addcustomersspin');
 
@@ -228,9 +227,9 @@ const addCustomer = (customersData) => {
       `;
 
       const referrer_options =
-        industry === 'roofing company' ? refoptRoofing : refoptOther;
+        industry === industryCheck('roofing company') ? refoptRoofing : refoptOther;
 
-      const obj = JSON.parse(localStorage.getItem('custinp'));
+      const obj = JSON.parse(sessionStorage.getItem('custinp'));
 
       setTimeout(() => {
         classSelector('ref_type').value = obj?.ref_type;

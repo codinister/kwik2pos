@@ -1,4 +1,4 @@
-import format_number from '../utils/format_number.js';
+import format_number from '../../utils/format_number.js';
 
 const Customerswhowe = (data) => {
   return `
@@ -21,10 +21,7 @@ const Customerswhowe = (data) => {
    
       <tr class="arrears-table-row">
         <td>
-        <a href="javascript:void(0);" class="accstatement" data-cust_id="${v.cust_id}"
-        
-        
-        >
+           <a href="javascript:void(0);" class="accstatement" data-cust_id="${v.cust_id}">
         ${v.fullname}
         </a>
         

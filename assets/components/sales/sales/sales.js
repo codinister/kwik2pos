@@ -1,28 +1,27 @@
-import calculateTransactions from '../utils/calculateTransactions.js';
+import calculateTransactions from '../../../utils/sales/calculateTransactions.js';
 import transactionInputs from './transactionInputs.js';
-import salesLocalstorage from '../../data/clientside/localstorage/default/defaultSalesLocalstorage.js';
+import salesSessionStorage from '../../../state/statemanagement/sessionstorage/default/defaultSalesSessionStorage.js';
 import salesTopbar from './salesTopbar.js';
-import { classSelector } from '../../utils/Selectors.js';
-import Table from '../../utils/Table.js';
-import setSubtotalValue from '../utils/setSubtotalValue.js';
-import displayProductList from '../utils/displayProductList.js';
-import format_number from '../../utils/format_number.js';
-import clearSales from '../utils/clearSales.js';
-import getIndustry from '../../utils/getIndustry.js';
-import getPrevilleges from '../utils/getPrevilleges.js';
-import posTableclasses from '../../utils/posTableclasses.js';
-import dataListMobile from '../../utils/dataListMobile.js';
+import { classSelector } from '../../../utils/Selectors.js';
+import Table from '../../../utils/Table.js';
+import setSubtotalValue from '../../../utils/sales/setSubtotalValue.js';
+import displayProductList from '../../../utils/sales/displayProductList.js';
+import format_number from '../../../utils/format_number.js';
+import clearSales from '../../../utils/sales/clearSales.js';
+import getPrevilleges from '../../../utils/sales/getPrevilleges.js';
+import posTableclasses from '../../../utils/posTableclasses.js';
+import dataListMobile from '../../../utils/dataListMobile.js';
 import paymentUtil from './paymentUtil.js';
+import industryCheck from '../../../utils/industryCheck.js';
 
 const sales = (customersdata, receipts, proforma, invoice) => {
-  const industry = getIndustry();
-  const taxx = JSON.parse(localStorage.getItem('sales'));
-  const sett = JSON.parse(localStorage.getItem('sinpt'));
+  const taxx = JSON.parse(sessionStorage.getItem('sales'));
+  const sett = JSON.parse(sessionStorage.getItem('sinpt'));
 
-  const tx = JSON.parse(localStorage.getItem('sales'));
+  const tx = JSON.parse(sessionStorage.getItem('sales'));
 
   const sumItems = (e) => {
-    const obj = JSON.parse(localStorage.getItem('prozdlist'));
+    const obj = JSON.parse(sessionStorage.getItem('prozdlist'));
 
     const { key } = e.target.dataset;
     const { name, value } = e.target;
@@ -32,8 +31,6 @@ const sales = (customersdata, receipts, proforma, invoice) => {
         obj[key].qty = value;
       }
 
-
-
       if (name === 'prod_price') {
         obj[key].prod_price = value;
       }
@@ -42,10 +39,10 @@ const sales = (customersdata, receipts, proforma, invoice) => {
         obj[key].prod_name = value;
       }
 
-      localStorage.setItem('prozdlist', JSON.stringify(obj));
+      sessionStorage.setItem('prozdlist', JSON.stringify(obj));
 
       //EDITING MODE
-      const nt = JSON.parse(localStorage.getItem('prozdlist'));
+      const nt = JSON.parse(sessionStorage.getItem('prozdlist'));
       const newItem = nt[key];
       const quantity = newItem?.qty > 0 ? Number(newItem?.qty) : 1;
       const length = newItem?.duration > 0 ? Number(newItem?.duration) : 1;
@@ -57,7 +54,7 @@ const sales = (customersdata, receipts, proforma, invoice) => {
 
       nt[key].total = total;
 
-      localStorage.setItem('prozdlist', JSON.stringify(nt));
+      sessionStorage.setItem('prozdlist', JSON.stringify(nt));
 
       classSelector(`total${key}`).textContent = format_number(total);
 
@@ -67,40 +64,37 @@ const sales = (customersdata, receipts, proforma, invoice) => {
     }
   };
 
-
-
   document.addEventListener('change', (e) => {
     if (e.target.matches('.setsalesinvoice')) {
-      const taxx = JSON.parse(localStorage.getItem('sales'));
+      const taxx = JSON.parse(sessionStorage.getItem('sales'));
       if (e.target.checked) {
         taxx['trans_type'] = 'invoice';
         taxx['newpayment'] = 0;
 
-        if(classSelector('payment')){
+        if (classSelector('payment')) {
           classSelector('payment').value = null;
           calculateTransactions(e);
         }
 
-
         classSelector('invoicestatus').innerHTML = 'SALES INVOICE';
-     
-        classSelector('receipt-fields-container').innerHTML =  paymentUtil()
+
+        classSelector('receipt-fields-container').innerHTML = paymentUtil();
       } else {
         taxx['trans_type'] = 'proforma';
         classSelector('invoicestatus').innerHTML = 'PROFORMA INVOICE';
-        classSelector('receipt-fields-container').innerHTML =  ''
+        classSelector('receipt-fields-container').innerHTML = '';
       }
-      localStorage.setItem('sales', JSON.stringify(taxx));
+      sessionStorage.setItem('sales', JSON.stringify(taxx));
     }
 
     if (e.target.matches('.enablebankdetails')) {
-      const taxx = JSON.parse(localStorage.getItem('sales'));
+      const taxx = JSON.parse(sessionStorage.getItem('sales'));
       if (e.target.checked) {
         taxx['addbank'] = 1;
       } else {
         taxx['addbank'] = 0;
       }
-      localStorage.setItem('sales', JSON.stringify(taxx));
+      sessionStorage.setItem('sales', JSON.stringify(taxx));
     }
 
     if (e.target.matches('.sumitems')) {
@@ -110,29 +104,29 @@ const sales = (customersdata, receipts, proforma, invoice) => {
 
     if (e.target.matches('.tax-inpt')) {
       e.stopImmediatePropagation();
-      const taxObj = JSON.parse(localStorage.getItem('sales'));
+      const taxObj = JSON.parse(sessionStorage.getItem('sales'));
 
       if (e.target.checked) {
         taxObj['taxchecked'] = true;
-        localStorage.setItem('sales', JSON.stringify(taxObj));
+        sessionStorage.setItem('sales', JSON.stringify(taxObj));
         calculateTransactions(e);
       } else {
         taxObj['taxchecked'] = false;
-        localStorage.setItem('sales', JSON.stringify(taxObj));
+        sessionStorage.setItem('sales', JSON.stringify(taxObj));
         calculateTransactions(e);
       }
     }
 
     if (e.target.matches('.with-tax-inpt')) {
       e.stopImmediatePropagation();
-      const taxObj = JSON.parse(localStorage.getItem('sales'));
+      const taxObj = JSON.parse(sessionStorage.getItem('sales'));
       if (e.target.checked) {
         taxObj['withholdingchecked'] = true;
-        localStorage.setItem('sales', JSON.stringify(taxObj));
+        sessionStorage.setItem('sales', JSON.stringify(taxObj));
         calculateTransactions(e);
       } else {
         taxObj['withholdingchecked'] = false;
-        localStorage.setItem('sales', JSON.stringify(taxObj));
+        sessionStorage.setItem('sales', JSON.stringify(taxObj));
         calculateTransactions(e);
       }
     }
@@ -158,16 +152,16 @@ const sales = (customersdata, receipts, proforma, invoice) => {
 
   const salesSummaryBar = () => {
     document.addEventListener('click', (e) => {
-      salesLocalstorage();
-      const txx = JSON.parse(localStorage.getItem('sales'));
+      salesSessionStorage();
+      const txx = JSON.parse(sessionStorage.getItem('sales'));
 
       if (e.target.matches('.userlink')) {
-        if (localStorage.getItem('sales')) {
+        if (sessionStorage.getItem('sales')) {
           const { user_id } = e.target.dataset;
-          const obj = JSON.parse(localStorage.getItem('sales'));
+          const obj = JSON.parse(sessionStorage.getItem('sales'));
           obj['prepared_by'] = obj?.user_id;
           obj['user_id'] = user_id;
-          localStorage.setItem('sales', JSON.stringify(obj));
+          sessionStorage.setItem('sales', JSON.stringify(obj));
         }
       }
 
@@ -180,7 +174,7 @@ const sales = (customersdata, receipts, proforma, invoice) => {
           txx['cust_name'] = name;
           txx['cust_phone'] = phone;
           txx['cust_email'] = email;
-          localStorage.setItem('sales', JSON.stringify(txx));
+          sessionStorage.setItem('sales', JSON.stringify(txx));
         }
       }
 
@@ -189,13 +183,10 @@ const sales = (customersdata, receipts, proforma, invoice) => {
         clearSales();
       }
 
-
-
       if (e.target.matches('.cancelsales')) {
         e.stopImmediatePropagation();
         clearSales();
-        localStorage.setItem('rend', 3);
-
+        sessionStorage.setItem('rend', 3);
       }
 
       if (e.target.matches('.clearal')) {
@@ -209,7 +200,7 @@ const sales = (customersdata, receipts, proforma, invoice) => {
         if (confirm('Are you sure you want to delete!')) {
           const { trash, s_id } = e.target.dataset;
 
-          const obj = JSON.parse(localStorage.getItem('prozdlist'));
+          const obj = JSON.parse(sessionStorage.getItem('prozdlist'));
 
           if (obj[trash]?.s_id.length > 0) {
             const sid = obj[trash].s_id;
@@ -227,7 +218,7 @@ const sales = (customersdata, receipts, proforma, invoice) => {
             };
           } else [delete obj[trash]];
 
-          localStorage.setItem('prozdlist', JSON.stringify(obj));
+          sessionStorage.setItem('prozdlist', JSON.stringify(obj));
 
           classSelector('pos-sales-output').innerHTML = displayProductList();
 
@@ -239,7 +230,7 @@ const sales = (customersdata, receipts, proforma, invoice) => {
       }
     });
 
-    const vv = JSON.parse(localStorage.getItem('sales'));
+    const vv = JSON.parse(sessionStorage.getItem('sales'));
 
     return transactionInputs(vv, privilege);
   };
@@ -255,14 +246,14 @@ const sales = (customersdata, receipts, proforma, invoice) => {
       }, 0);
     } else {
       taxx['trans_type'] = 'proforma';
-      localStorage.setItem('sales', JSON.stringify(taxx));
+      sessionStorage.setItem('sales', JSON.stringify(taxx));
     }
   }
 
   if (taxx) {
     if (!taxx?.trans_type) {
       taxx['trans_type'] = 'proforma';
-      localStorage.setItem('sales', JSON.stringify(taxx));
+      sessionStorage.setItem('sales', JSON.stringify(taxx));
     }
   }
 
@@ -274,22 +265,20 @@ const sales = (customersdata, receipts, proforma, invoice) => {
   let displaysalesinchkbx = '';
   let enablebankdetails = '';
 
-  const showinvcheckbx = taxx?.tax_id > 0 && taxx?.trans_type === 'proforma' ? 'hide' : 'show'
+  const showinvcheckbx =
+    taxx?.ss_id > 0 && taxx?.trans_type === 'proforma' ? 'hide' : 'show';
 
-
-
-
-    displaysalesinchkbx = `
+  displaysalesinchkbx = `
     <div class="showinvcheckbx ${showinvcheckbx}">
     <input type="checkbox" ${checkinvoice} class="setsalesinvoice" /> CREATE SALES INVOICE </div>`;
 
-  if (industry !== 'retails') {
+  if (industryCheck('rentals', 'service provider', 'roofing company')) {
     enablebankdetails = `
     <input type="checkbox"  class="enablebankdetails" /> INCLUDE BANK DETAILS`;
   }
 
   setTimeout(() => {
-    const sales = JSON.parse(localStorage.getItem('sales'));
+    const sales = JSON.parse(sessionStorage.getItem('sales'));
 
     if (sales?.addbank > 0) {
       classSelector('enablebankdetails').checked = true;
@@ -334,7 +323,7 @@ const sales = (customersdata, receipts, proforma, invoice) => {
             <td></td>
             </tr>
             `,
-            displayProductList(),
+          displayProductList(),
           'pos-sales-output'
         )}
 

@@ -1,11 +1,11 @@
-import { classSelector } from '../../utils/Selectors.js';
-import productSearchBox from '../utils/productSearchBox.js';
-import productTitle from '../utils/productTitle.js';
+import { classSelector } from '../../../utils/Selectors.js';
+import productSearchBox from '../../../utils/products/productSearchBox.js';
+import productTitle from '../../../utils/products/productTitle.js';
 import roofingForm from './roofingForm.js';
-import productsLocalstorage from '../../data/clientside/localstorage/default/defaultProductsLocalstorage.js';
+import productsSessionStorage from '../../../state/statemanagement/sessionstorage/default/defaultProductsSessionStorage.js';
 import roofingList from './roofingList.js';
-import Buttons from '../../utils/Buttons.js';
-import categoriesComponent3 from '../utils/categoriesComponent3.js';
+import Buttons from '../../../utils/Buttons.js';
+import categoriesComponent3 from '../../../utils/products/categoriesComponent3.js';
 
 const roofingStock = (prod) => {
   const products = prod.roofing;
@@ -72,11 +72,11 @@ const roofingStock = (prod) => {
     if (e.target.matches('.addProduct')) {
       //Spinner('add=product-wrapper');
 
-      if (localStorage.getItem('prodlocalstorage')) {
-        localStorage.removeItem('prodlocalstorage');
+      if (sessionStorage.getItem('prodsessionstorage')) {
+        sessionStorage.removeItem('prodsessionstorage');
       }
 
-      productsLocalstorage();
+      productsSessionStorage();
 
       classSelector('modalboxone').classList.add('show');
       document.body.style.overflow = 'hidden';
@@ -90,7 +90,7 @@ const roofingStock = (prod) => {
       const filter = products.find((v) => v.prod_id === prod_id);
 
       // filter.prod_qty_arr = trans;
-      localStorage.setItem('prodlocalstorage', JSON.stringify(filter));
+      sessionStorage.setItem('prodsessionstorage', JSON.stringify(filter));
 
       classSelector('modalboxone').classList.add('show');
       document.body.style.overflow = 'hidden';

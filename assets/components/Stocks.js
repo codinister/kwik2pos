@@ -1,4 +1,4 @@
-import inv_num from './utils/inv_num';
+import inv_num from '../utils/inv_num';
 
 const Stocks = (products, sale) => {
   return products.map((v, i) => {
@@ -31,7 +31,7 @@ const Stocks = (products, sale) => {
         const day = Math.floor(sub / (1000 * 60 * 60 * 24));
         if (day > 0 && day < 7) {
           return {
-            invoice_no: inv_num(vss.tax_id),
+            invoice_no: inv_num(vss.ss_id),
             fullname: vss.fullname,
             phone: vss.phone,
             email: vss.email,

@@ -1,25 +1,24 @@
 const Chartbox = (id, arrlabels, arrdata) => {
   setTimeout(() => {
+    if (document.getElementById(id)) {
+      const getcanvas = document.getElementById(id).getContext('2d');
 
-    if(document.getElementById(id)){
-    const getcanvas = document.getElementById(id).getContext('2d');
+      const chart = new Chart(getcanvas, {
+        type: 'bar',
+        data: {
+          labels: [...arrlabels],
+          datasets: [...arrdata],
+        },
+      });
 
-    const chart = new Chart(getcanvas, {
-      type: 'bar',
-      data: {
-        labels: [...arrlabels],
-        datasets: [...arrdata],
-      },
-    });
-
-    document.addEventListener('change', (e) => {
-      if (e.target.matches(`.chart${id}`)) {
-        e.preventDefault();
-        chart.config.type = e.target.value;
-        chart.update();
-      }
-    });
-  }
+      document.addEventListener('change', (e) => {
+        if (e.target.matches(`.chart${id}`)) {
+          e.preventDefault();
+          chart.config.type = e.target.value;
+          chart.update();
+        }
+      });
+    }
   }, 1000);
 
   return `

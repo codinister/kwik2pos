@@ -1,17 +1,16 @@
 import viewcustomers from './viewCustomers.js';
 import addCustomer from './addCustomer.js';
-import { textInput } from '../../utils/InputFields.js';
-import { classSelector } from '../../utils/Selectors.js';
-import dataListDropdown from '../../utils/dataListDropdown.js';
-import salesLocalstorage from '../../data/clientside/localstorage/default/defaultSalesLocalstorage.js';
-import displayProductList from '../utils/displayProductList.js';
-import getIndustry from '../../utils/getIndustry.js';
-import { ymd } from '../../utils/DateFormats.js';
-import updateTaxlocalstorage from '../utils/updateTaxlocalstorage.js';
-import getPrevilleges from '../utils/getPrevilleges.js';
-import usersprofile from '../../data/serverside/fetch/usersprofile.js';
-import customerlistFunc from '../utils/customers/customerlistFunc.js';
-import deleteAccessControl from '../utils/deleteAccessControl.js';
+import { textInput } from '../../../utils/InputFields.js';
+import { classSelector } from '../../../utils/Selectors.js';
+import dataListDropdown from '../../../utils/dataListDropdown.js';
+import salesSessionStorage from '../../../state/statemanagement/sessionstorage/default/defaultSalesSessionStorage.js';
+import displayProductList from '../../../utils/sales/displayProductList.js';
+import { ymd } from '../../../utils/DateFormats.js';
+import updateTaxsessionstorage from '../../../utils/sales/updateTaxsessionstorage.js';
+import getPrevilleges from '../../../utils/sales/getPrevilleges.js';
+import usersprofile from '../../../state/serverside/read/users/usersprofile.js';
+import deleteAccessControl from '../../../utils/sales/deleteAccessControl.js';
+import roleAccess from '../../../utils/roleAccess.js';
 
 const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
   usersprofile((data) => {
@@ -54,12 +53,12 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
     });
   });
 
-  const industry = getIndustry();
-  const { role_id, user_id } = JSON.parse(localStorage.getItem('zsdf'));
+
+  const { user_id } = JSON.parse(sessionStorage.getItem('zsdf'));
 
   let customersData = [];
 
-  if (role_id === '111' || role_id === '1' || role_id === '5') {
+  if (roleAccess()) {
     customersData = customersDatas;
   } else {
     customersData = customersDatas.filter((v) => v.user_id === user_id);
@@ -71,7 +70,7 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
 
       if (classSelector('invoice_date')) {
         const value = classSelector('invoice_date').value;
-        updateTaxlocalstorage('invoice_date', value);
+        updateTaxsessionstorage('invoice_date', value);
       }
     }
   });
@@ -224,11 +223,11 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
 
     if (e.target.matches('.addrows')) {
       e.stopImmediatePropagation();
-      salesLocalstorage();
+      salesSessionStorage();
 
       let getItem;
-      if (localStorage.getItem('prozdlist')) {
-        getItem = JSON.parse(localStorage.getItem('prozdlist'));
+      if (sessionStorage.getItem('prozdlist')) {
+        getItem = JSON.parse(sessionStorage.getItem('prozdlist'));
       } else {
         getItem = [{}];
       }
@@ -249,19 +248,19 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
       ];
 
       if (classSelector('pos-sales-output')) {
-        localStorage.setItem('prozdlist', JSON.stringify(listItems));
+        sessionStorage.setItem('prozdlist', JSON.stringify(listItems));
         classSelector('pos-sales-output').innerHTML = displayProductList();
       }
 
-      if (localStorage.getItem('sales')) {
-        const tx = JSON.parse(localStorage.getItem('sales'));
+      if (sessionStorage.getItem('sales')) {
+        const tx = JSON.parse(sessionStorage.getItem('sales'));
 
         if (tx['invoice_date'].length < 1) {
           const date = new Date();
           const value = ymd(date);
           tx['invoice_date'] = value;
           tx['receipt_date'] = value;
-          localStorage.setItem('sales', JSON.stringify(tx));
+          sessionStorage.setItem('sales', JSON.stringify(tx));
         }
       }
     }

@@ -1,20 +1,19 @@
 import saveInvoice from './saveInvoice.js';
-import checkTax from '../utils/checkTax.js';
-import setInputValue from '../utils/setInputValue.js';
-import format_number from '../../utils/format_number.js';
-import { textInput } from '../../utils/InputFields.js';
-import getIndustry from '../../utils/getIndustry.js';
-import checkWithholdingtax from '../utils/checkWithholdingtax.js';
-import getPrevilleges from '../utils/getPrevilleges.js';
-import termnalReceipt from '../utils/termnalReceipt.js';
+import checkTax from '../../../utils/sales/checkTax.js';
+import setInputValue from '../../../utils/sales/setInputValue.js';
+import format_number from '../../../utils/format_number.js';
+import { textInput } from '../../../utils/InputFields.js';
+import checkWithholdingtax from '../../../utils/sales/checkWithholdingtax.js';
+import getPrevilleges from '../../../utils/sales/getPrevilleges.js';
+import termnalReceipt from '../../../utils/sales/termnalReceipt.js';
+import industryCheck from '../../../utils/industryCheck.js';
 
 const subtotal = (vv) => {
-  const industry = getIndustry();
   const termnal = termnalReceipt();
 
   let invoice_desc = '';
 
-  if (industry !== 'roofing company') {
+  if (industryCheck('rentals','retails', 'service provider')) {
     if (!termnal) {
       invoice_desc = `${textInput({
         type: 'text',
@@ -27,8 +26,8 @@ const subtotal = (vv) => {
     }
   }
 
-  const { user_id } = JSON.parse(localStorage.getItem('zsdf'));
-  const tx = JSON.parse(localStorage.getItem('sales'));
+  const { user_id } = JSON.parse(sessionStorage.getItem('zsdf'));
+  const tx = JSON.parse(sessionStorage.getItem('sales'));
 
   const trans_type = tx?.trans_type;
   const usid = tx?.user_id;

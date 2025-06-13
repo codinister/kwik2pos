@@ -1,22 +1,20 @@
-import Buttons from '../../utils/Buttons.js';
-import { classSelector } from '../../utils/Selectors.js';
-import dataListDropdown from '../../utils/dataListDropdown.js';
-import displayToast from '../../utils/displayToast.js';
-import getIndustry from '../../utils/getIndustry.js';
-import roleAccess from '../../utils/roleAccess.js';
-import searchBox from '../../utils/searchBox.js';
-import TabsSections from '../utils/TabsSections.js';
-import customerData from '../utils/customers/customerData.js';
-import customerProfile from '../utils/customers/customerProfile.js';
-import displayCustomerProfile from '../utils/customers/displayCustomerProfile.js';
-import listOfallcustomers from '../utils/customers/listOfallcustomers.js';
-import getProformas from '../utils/getProformas.js';
-import getReceipts from '../utils/getReceips.js';
-import getSalesinvoice from '../utils/getSalesinvoice.js';
-import { textInput } from '../../utils/InputFields.js';
+import Buttons from '../../../utils/Buttons.js';
+import { classSelector } from '../../../utils/Selectors.js';
+import dataListDropdown from '../../../utils/dataListDropdown.js';
+import displayToast from '../../../utils/displayToast.js';
+import roleAccess from '../../../utils/roleAccess.js';
+import searchBox from '../../../utils/searchBox.js';
+import TabsSections from '../../../utils/sales/TabsSections.js';
+import customerData from '../../../utils/sales/customers/customerData.js';
+import customerProfile from '../../../utils/sales/customers/customerProfile.js';
+import displayCustomerProfile from '../../../utils/sales/customers/displayCustomerProfile.js';
+import listOfallcustomers from '../../../utils/sales/customers/listOfallcustomers.js';
+import getProformas from '../../../utils/sales/getProformas.js';
+import getReceipts from '../../../utils/sales/getReceips.js';
+import getSalesinvoice from '../../../utils/sales/getSalesinvoice.js';
+import { textInput } from '../../../utils/InputFields.js';
 
 const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
-  const industry = getIndustry();
 
   const customers = customerData(customer);
 
@@ -38,12 +36,12 @@ const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
     }
 
     if (e.target.matches('.viewcustomers')) {
-      if (localStorage.getItem('editreceipts')) {
-        localStorage.removeItem('editreceipts');
+      if (sessionStorage.getItem('editreceipts')) {
+        sessionStorage.removeItem('editreceipts');
       }
 
       if (customers) {
-        const { user_id, code } = JSON.parse(localStorage.getItem('zsdf'));
+        const { user_id, code } = JSON.parse(sessionStorage.getItem('zsdf'));
 
         classSelector('viewcustomerwrapper').innerHTML = `
 
@@ -105,12 +103,12 @@ const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
     }
 
     if (e.target.matches('.cust-rep-btn')) {
-      const { role_id } = JSON.parse(localStorage.getItem('zsdf'));
+
       const { user_id, code } = e.target.dataset;
 
-      const roleaccess = roleAccess(role_id);
+  
 
-      if (roleaccess) {
+      if (roleAccess()) {
         window.location = `assets/pdf/customers.php?c=${code}`;
       } else {
         window.location = `assets/pdf/customers.php?u=${user_id}`;
@@ -125,7 +123,7 @@ const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
 
       const { cust_id, user_id, desc } = e.target.dataset;
 
-      const usid = JSON.parse(localStorage.getItem('zsdf')).user_id;
+      const usid = JSON.parse(sessionStorage.getItem('zsdf')).user_id;
 
       //To display or hide account statement button
       const invoice_exist = allinvoices.some((v) => v.cust_id === cust_id);
@@ -157,7 +155,7 @@ const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
     if (e.target.matches('.displaycustdetails')) {
       const { cust_id, user_id, desc } = e.target.dataset;
 
-      const usid = JSON.parse(localStorage.getItem('zsdf')).user_id;
+      const usid = JSON.parse(sessionStorage.getItem('zsdf')).user_id;
 
       //To display or hide account statement button
       const invoice_exist = allinvoices.some((v) => v.cust_id === cust_id);
@@ -196,7 +194,7 @@ const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
         editing: true,
       });
       delete obj['debt'];
-      localStorage.setItem('custinfo', JSON.stringify(obj));
+      sessionStorage.setItem('custinfo', JSON.stringify(obj));
     }
 
     if (e.target.matches('.acc-statement')) {
@@ -225,7 +223,7 @@ const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
               e.target.parentElement.parentElement.parentElement.remove();
 
               setTimeout(() => {
-                localStorage.setItem('rend', 3);
+                sessionStorage.setItem('rend', 3);
               }, 2000);
             }
           });
@@ -234,7 +232,7 @@ const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
     }
 
     if (e.target.matches('.save-customer')) {
-      const data = JSON.parse(localStorage.getItem('custinfo'));
+      const data = JSON.parse(sessionStorage.getItem('custinfo'));
 
       if (data?.fullname.length < 1) {
         return displayToast('bgdanger', 'Fullname field required!');
@@ -255,7 +253,7 @@ const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
             displayToast('bgdanger', data);
           } else {
             displayToast('lightgreen', data);
-            const details = JSON.parse(localStorage.getItem('custinfo'));
+            const details = JSON.parse(sessionStorage.getItem('custinfo'));
             const invoice_exist = allinvoices.some(
               (v) => v.cust_id === details?.cust_id
             );
@@ -266,7 +264,7 @@ const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
             });
 
             setTimeout(() => {
-              localStorage.setItem('rend', 3);
+              sessionStorage.setItem('rend', 3);
             }, 2000);
           }
         });

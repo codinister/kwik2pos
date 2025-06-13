@@ -1,7 +1,0 @@
-
-Date: 06 Sep 2024
-Time: 15:48:49
-SQLSTATE[42S22]: Column not found: 1054 Unknown column 'appreciation_sms' in 'field list'
- SQL ERROR:
-SELECT appreciation_sms FROM settings WHERE code = ?
-

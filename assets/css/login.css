@@ -58,8 +58,17 @@
 
   .login-btn {
     text-align: center !important;
-    color: white!important;
+    color: white !important;
+    display: none;
   }
+
+  .login-btn.show {
+    display: block;
+  }
+  .login-btn.hide {
+    display: none;
+  }
+
 
   .login-inner input {
     background-color: transparent !important;
@@ -248,3 +257,12 @@
   margin-bottom: 0;
   margin-bottom: 2em;
 }
+
+
+
+  .error-warning {
+    background-color: hsl(var(--danger));
+    padding: 0.8rem;
+    color: white;
+    text-align: center;
+  }

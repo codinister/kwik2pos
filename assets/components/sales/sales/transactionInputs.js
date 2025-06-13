@@ -1,13 +1,13 @@
 import othercharges from './othercharges.js';
 import payment from './payment.js';
 import subtotal from './subtotal.js';
-import getIndustry from '../../utils/getIndustry.js';
 import paymentsMobile from './paymentsMobile.js';
+import industryCheck from '../../../utils/industryCheck.js';
 
 const transactionInputs = (vv, privilege) => {
-  const industry = getIndustry();
+
   let othercharge = '';
-  if (industry === 'roofing company') {
+  if (industryCheck('roofing company')) {
     othercharge = `
   <div class="payment-box">
   ${othercharges(vv)}

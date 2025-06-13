@@ -1,24 +1,23 @@
-import searchBox from '../../utils/searchBox.js';
-import Table from '../../utils/Table.js';
-import Modalboxnoreload2 from '../../utils/Modalboxnoreload2.js';
-import { classSelector } from '../../utils/Selectors.js';
-import setSubtotalValue from '../utils/setSubtotalValue.js';
-import displayProductList from '../utils/displayProductList.js';
-import calculateTransactions from '../utils/calculateTransactions.js';
-import salesLocalstorage from '../../data/clientside/localstorage/default/defaultSalesLocalstorage.js';
-import displayToast from '../../utils/displayToast.js';
-import getIndustry from '../../utils/getIndustry.js';
-import { ymd } from '../../utils/DateFormats.js';
+import searchBox from '../../../utils/searchBox.js';
+import Table from '../../../utils/Table.js';
+import Modalboxnoreload2 from '../../../utils/Modalboxnoreload2.js';
+import { classSelector } from '../../../utils/Selectors.js';
+import setSubtotalValue from '../../../utils/sales/setSubtotalValue.js';
+import displayProductList from '../../../utils/sales/displayProductList.js';
+import calculateTransactions from '../../../utils/sales/calculateTransactions.js';
+import salesSessionStorage from '../../../state/statemanagement/sessionstorage/default/defaultSalesSessionStorage.js';
+import displayToast from '../../../utils/displayToast.js';
+import { ymd } from '../../../utils/DateFormats.js';
+import industryCheck from '../../../utils/industryCheck.js';
 
 const products = (product) => {
   const removenulls = product.filter((v) => v.prod_name !== null);
-  const industry = getIndustry();
 
   const products = Object.values(removenulls).map((v) => {
     const pqty =
-      industry === 'retails'
+      industryCheck('retails')
         ? v.remaining
-        : industry === 'rentals'
+        : industryCheck('rentals')
         ? v.remaining
         : v.prod_qty;
 
@@ -39,21 +38,21 @@ const products = (product) => {
   const productListFunc = (v) => {
     let rows = '';
 
-    if (industry === 'rentals' || industry === 'retails') {
+    if (industryCheck('rentals','retails')) {
       if (v.prod_qty > 0) {
         rows = v.prod_qty;
       } else {
         rows = '---';
       }
     } else if (
-      industry === 'service provider' ||
-      industry === 'roofing company'
+      industryCheck('service provider') ||
+    industryCheck('roofing company')
     ) {
       rows = '<input type="number" class="row-inpt" value="1" />';
     }
 
     let proddesc = v.prod_name;
-    if (industry === 'retails' || industry === 'rentals') {
+    if (industryCheck('retails') || industryCheck('rentals')) {
       proddesc = v.prodsize + ' ' + v.prod_name;
     }
 
@@ -152,7 +151,7 @@ const products = (product) => {
         productsData || productsData2;
 
       //If prod_name matches products
-      const getItem = JSON.parse(localStorage.getItem('prozdlist'));
+      const getItem = JSON.parse(sessionStorage.getItem('prozdlist'));
 
       if (price) {
         const parent = e.target.parentElement.parentElement;
@@ -182,7 +181,7 @@ const products = (product) => {
         getItem[key].prod_name = e.target.value;
       }
 
-      localStorage.setItem('prozdlist', JSON.stringify(getItem));
+      sessionStorage.setItem('prozdlist', JSON.stringify(getItem));
     }
   });
 
@@ -218,11 +217,11 @@ const products = (product) => {
         })
         .filter(Boolean);
 
-      salesLocalstorage();
+      salesSessionStorage();
 
       let getItem;
-      if (localStorage.getItem('prozdlist')) {
-        getItem = JSON.parse(localStorage.getItem('prozdlist'));
+      if (sessionStorage.getItem('prozdlist')) {
+        getItem = JSON.parse(sessionStorage.getItem('prozdlist'));
       } else {
         getItem = [{}];
       }
@@ -264,29 +263,29 @@ const products = (product) => {
         e.target.dataset;
 
       displayToast('lightgreen', `You added <br> ${prod_name}`);
-      salesLocalstorage();
+      salesSessionStorage();
 
-      if (localStorage.getItem('sales')) {
-        const tx = JSON.parse(localStorage.getItem('sales'));
+      if (sessionStorage.getItem('sales')) {
+        const tx = JSON.parse(sessionStorage.getItem('sales'));
         if (tx['invoice_date'].length < 1) {
           const date = new Date();
           const value = ymd(date);
           tx['invoice_date'] = value;
           tx['receipt_date'] = value;
-          localStorage.setItem('sales', JSON.stringify(tx));
+          sessionStorage.setItem('sales', JSON.stringify(tx));
         }
       }
 
       let listItems = [];
 
       if (
-        industry === 'service provider' ||
-        industry === 'rentals' ||
-        industry === 'retails'
+        industryCheck('service provider') ||
+        industryCheck('rentals') ||
+      industryCheck('retails')
       ) {
         let getItem;
-        if (localStorage.getItem('prozdlist')) {
-          getItem = JSON.parse(localStorage.getItem('prozdlist'));
+        if (sessionStorage.getItem('prozdlist')) {
+          getItem = JSON.parse(sessionStorage.getItem('prozdlist'));
         } else {
           getItem = [{}];
         }
@@ -325,8 +324,8 @@ const products = (product) => {
         }
 
         let getItem;
-        if (localStorage.getItem('prozdlist')) {
-          getItem = JSON.parse(localStorage.getItem('prozdlist'));
+        if (sessionStorage.getItem('prozdlist')) {
+          getItem = JSON.parse(sessionStorage.getItem('prozdlist'));
         } else {
           getItem = [{}];
         }
@@ -335,7 +334,7 @@ const products = (product) => {
       }
 
       if (classSelector('pos-sales-output')) {
-        localStorage.setItem('prozdlist', JSON.stringify(listItems));
+        sessionStorage.setItem('prozdlist', JSON.stringify(listItems));
         classSelector('pos-sales-output').innerHTML = displayProductList();
         setSubtotalValue();
         calculateTransactions(e);
@@ -386,14 +385,14 @@ const products = (product) => {
     .join('');
 
   let rows = '';
-  if (industry === 'service provider') {
+  if (industryCheck('service provider')) {
     rows = '<td>Rows</td>';
   }
-  if (industry === 'rentals') {
+  if (industryCheck('rentals')) {
     rows = '<td>Available</td>';
-  } else if (industry === 'retails') {
+  } else if (industryCheck('retails')) {
     rows = '<td>Stock</td>';
-  } else if (industry === 'roofing company') {
+  } else if (industryCheck('roofing company')) {
     rows = '<td>Rows</td>';
   }
 

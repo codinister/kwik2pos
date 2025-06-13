@@ -1,20 +1,19 @@
 import saveInvoice from './saveInvoice.js';
-import checkTax from '../utils/checkTax.js';
-import checkWithholdingtax from '../utils/checkWithholdingtax.js';
-import setInputValue from '../utils/setInputValue.js';
-import { textInput } from '../../utils/InputFields.js';
-import format_number from '../../utils/format_number.js';
-import getIndustry from '../../utils/getIndustry.js';
+import checkTax from '../../../utils/sales/checkTax.js';
+import checkWithholdingtax from '../../../utils/sales/checkWithholdingtax.js';
+import setInputValue from '../../../utils/sales/setInputValue.js';
+import { textInput } from '../../../utils/InputFields.js';
+import format_number from '../../../utils/format_number.js';
 import othercharges from './othercharges.js';
-import updateTaxlocalstorage from '../utils/updateTaxlocalstorage.js';
-import termnalReceipt from '../utils/termnalReceipt.js';
-import getPrevilleges from '../utils/getPrevilleges.js';
+import updateTaxsessionstorage from '../../../utils/sales/updateTaxsessionstorage.js';
+import termnalReceipt from '../../../utils/sales/termnalReceipt.js';
+import getPrevilleges from '../../../utils/sales/getPrevilleges.js';
 import paymentUtil from './paymentUtil.js';
+import industryCheck from '../../../utils/industryCheck.js';
 
 const paymentsMobile = (vv, privilege) => {
-  const industry = getIndustry();
   const termnal = termnalReceipt();
-  const tx = JSON.parse(localStorage.getItem('sales'));
+  const tx = JSON.parse(sessionStorage.getItem('sales'));
   const trans_type = tx?.trans_type;
   const showpayment = trans_type === 'invoice' ? 'show' : 'hide';
 
@@ -22,7 +21,7 @@ const paymentsMobile = (vv, privilege) => {
 
   let othercharge = '';
 
-  if (industry === 'roofing company') {
+  if (industryCheck('roofing company')) {
     othercharge = othercharges();
   }
 
