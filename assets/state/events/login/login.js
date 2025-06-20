@@ -35,11 +35,10 @@ const loginEvent = () => {
       e.preventDefault();
 
       const obj = sessionStorage.getItem('loginvalues');
-
       const fd = new FormData();
       fd.append('data', obj);
 
-      Spinner('output1');
+  
 
       fetch(fetchApiUrl('login', 'signin'), {
         method: 'Post',
@@ -47,6 +46,7 @@ const loginEvent = () => {
       })
         .then((resp) => resp.text())
         .then((data) => {
+          
           if (data.indexOf('error') != -1) {
             const output1 = classSelector('output1');
             output1.innerHTML = `<div class="error-warning">Invalid credentials!</div>`;
@@ -54,16 +54,18 @@ const loginEvent = () => {
               output1.textContent = '';
             }, 2000);
           } else {
+            Spinner('spinnerbox');
+              
             const obj = JSON.parse(data);
 
             sessionStorage.setItem('zsdf', JSON.stringify(obj));
 
-            sessionStorage.removeItem('loginvalues')
+            sessionStorage.removeItem('loginvalues');
 
-            window.location.href = 'index.html?page=dashboard'
-
-          
+            window.location.href = 'index.html?page=dashboard';
           }
+
+
         });
     }
   });

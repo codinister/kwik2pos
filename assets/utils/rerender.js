@@ -3,7 +3,7 @@ const rerender = (fn, num) => {
 
   if (rend == num) {
     fn();
-    sessionStorage.setItem('rend', num);
+    sessionStorage.setItem('rend', 0);
   }
 
   setTimeout(() => {

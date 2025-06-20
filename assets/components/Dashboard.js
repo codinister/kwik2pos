@@ -7,6 +7,7 @@ import { formatMonth, month, year, ymd } from '../utils/DateFormats.js';
 import Customerswhowe from './widgets/Customerswhowe.js';
 import format_number from '../utils/format_number.js';
 import { textInput } from '../utils/InputFields.js';
+import getLoginuser from '../state/statemanagement/sessionstorage/GET/getLoginuser.js';
 
 const Dashboard = () => {
   document.addEventListener('click', (e) => {
@@ -20,7 +21,7 @@ const Dashboard = () => {
   productsprofile((products) => {
     customersprofile((customers) => {
       usersprofile((users) => {
-        const us = JSON.parse(localStorage.getItem('zsdf'));
+        const us = getLoginuser('user')
 
         const sales = [...customers]
           .map((v) => v.receipt_list)

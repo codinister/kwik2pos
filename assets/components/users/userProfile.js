@@ -1,189 +1,130 @@
-import userReducer from '../../state/statemanagement/reducers/userReducer.js';
 import {
-  textInput,
-  dateInput,
-  passwordInput,
-  phoneInput,
-  emailInput,
+  Input,
+  TextArea,
+  Buttonx,
+  FileUpload,
 } from '../../utils/InputFields.js';
-import { ymd } from '../../utils/DateFormats.js';
-import Buttons from '../../utils/Buttons.js';
 import getLoginuser from '../../state/statemanagement/sessionstorage/GET/getLoginuser.js';
-import displayToast from '../../utils/displayToast.js';
-import { classSelector } from '../../utils/Selectors.js';
+import setPageState from '../../utils/setPageState.js';
+import setButton from '../../utils/setButton.js';
 
 const userProfile = () => {
-  const user = getLoginuser();
+  //Get user data
+  const user = getLoginuser('user');
 
-  document.addEventListener('input', (e) => {
-    userReducer(e);
-  });
+  //Define required fields
+  const reqfields = ['firstname', 'lastname', 'phone', 'residence', 'email'];
 
-  document.addEventListener('click', (e) => {
-    if (e.target.matches('.saveprofile')) {
-      const obj = JSON.parse(sessionStorage.getItem('userprofile'));
+  //Get required fields length
+  const datalength = reqfields.length;
 
-      if (!obj) {
-        return displayToast('bgdanger', 'No changes made');
-      }
+  //Populate the userprofile state
+  setPageState('userprofile', user, reqfields);
 
-      const uploadprofimg = classSelector('uploadprofimg');
-      const uploadsig = classSelector('uploadsig');
-
-      let photo = [];
-      if (uploadprofimg.files && uploadprofimg.files[0]) {
-        photo = uploadprofimg.files[0];
-      }
-
-      let signature = [];
-      if (uploadsig.files && uploadsig.files[0]) {
-        signature = uploadsig.files[0];
-      }
-
-      const fd = new FormData();
-      fd.append('user', JSON.stringify(obj));
-      fd.append('photo', photo);
-      fd.append('signature', signature);
-
-      fetch('router.php?controller=user&task=update_profile', {
-        method: 'Post',
-        body: fd,
-      })
-        .then((resp) => resp.text())
-        .then((data) => {
-          if (data.indexOf('errors') != -1) {
-            displayToast('bgdanger', data);
-          } else {
-            const user = JSON.parse(sessionStorage.getItem('zsdf'));
-
-            const res = data.split('-');
-            const photo = res[1];
-            const signature = res[2];
-
-            user['firstname'] = obj?.firstname;
-            user['lastname'] = obj?.lastname;
-            user['email'] = obj?.email;
-            user['phone'] = obj?.phone;
-            user['birthdate'] = obj?.birthdate;
-            user['residence'] = obj?.residence;
-            user['photo'] = photo;
-            user['signature'] = signature;
-
-            sessionStorage.setItem('zsdf', JSON.stringify(user));
-
-            displayToast('lightgreen', res[0]);
-            sessionStorage.removeItem('userprofile');
-          }
-        })
-        .catch((err) => console.log(err));
-    }
-  });
+  //Show button if userprofilerequired state is valid
+  setTimeout(() => {
+    setButton('userprofile', datalength);
+  }, 1000);
 
   return `
       <div class="profileformbox">
-
-      <div class="close-profile">
-        <a href="javascript:void(0)" title="Close" class="close-profile-box">X</a>
-      </div>
-      <div>
-
-          <div>  
-            ${textInput({
-              type: 'text',
-              classname: 'userprof',
-              required: true,
-              label: 'First Name',
-              name: 'firstname',
+          <div>
+            ${Input({
+              inputName: reqfields[0],
+              labelName: 'First Name',
+              required: 1,
+              min: 1,
+              stateName: 'userprofile',
+              stateFields: datalength,
               value: user?.firstname,
             })}
 
-            ${phoneInput({
-              classname: 'userprof',
-              name: 'phone',
-              value: user ? user?.phone : '',
-              errorclass: 'phoneerr1',
+
+            ${Input({
+              inputName: reqfields[1],
+              labelName: 'Last Name',
+              required: 1,
+              min: 1,
+              stateName: 'userprofile',
+              stateFields: datalength,
+              value: user?.lastname,
             })}
 
-            ${textInput({
-              type: 'text',
-              classname: 'userprof',
-              required: true,
-              label: 'Residence',
-              name: 'residence',
+            ${Input({
+              inputName: reqfields[2],
+              labelName: 'Phone',
+              type: 'tel',
+              required: 1,
+              min: 10,
+              stateName: 'userprofile',
+              stateFields: datalength,
+              value: user ? user?.phone : '',
+            })}
+
+            ${Input({
+              inputName: reqfields[3],
+              labelName: 'Residence',
+              required: 1,
+              min: 1,
+              stateName: 'userprofile',
+              stateFields: datalength,
               value: user?.residence,
             })}
-            ${passwordInput({
-              classname: 'passwordn userprof',
-              name: 'password',
-              errorclass: 'passworderr1',
+
+            ${Input({
+              inputName: reqfields[4],
+              labelName: 'Email',
+              type: 'email',
+              required: 1,
+              min: 1,
+              stateName: 'userprofile',
+              stateFields: datalength,
+              value: user?.email,
             })}
-
-          </div>
-          <div>
-
-          ${textInput({
-            type: 'text',
-            classname: 'userprof',
-            required: true,
-            label: 'Last Name',
-            name: 'lastname',
-            value: user?.lastname,
-          })}
-
-        ${emailInput({
-          classname: 'userprof',
-          name: 'email',
-          value: user?.email,
-          errorclass: 'emailerr1',
-        })}
 
   
-            ${dateInput({
-              classname: 'userprof',
-              required: true,
-              label: 'Birth Date',
-              name: 'birthdate',
-              value: ymd(user?.birthdate),
-            })}
-
+             ${Input({
+               inputName: 'password',
+               labelName: 'Password',
+               type: 'password',
+               min: 6,
+               stateName: 'userprofile',
+               stateFields: datalength,
+             })}
 
             <div class="profile-upload-bx">
+              ${FileUpload({
+                inputName: 'pimg',
+                labelName: 'Avatar',
+                stateName: 'userprofile',
+                stateFields: datalength,
+                classname: "photo"
+              })}
+              ${FileUpload({
+                inputName: 'simg',
+                labelName: 'Signature',
+                stateName: 'userprofile',
+                stateFields: datalength,
+                classname: 'signature'
+              })}
+          </div>
 
-            <label>
-              <div class="upload-div-box">
-                <div>Profile</div>
-                <div>
-                <img src="assets/uploads/${
-                  user ? user?.photo : ''
-                }" alt="" class="pimg" />
-                </div>
-              </div>
-              <input type="file" class="uploadprofimg" />
-            </label>
-
-            <label title="80px x 30px">
-            <div class="upload-div-box">
-              <div>Signature</div>
-              <div>
+          <div class="img-preview">
+          <div>
+              <img src="assets/uploads/${
+                user ? user?.photo : ''
+              }" alt="" class="pimg" />
+          </div>
+          <div>
               <img src="assets/uploads/${
                 user ? user?.signature : ''
               }" alt="" class="simg" />
-              </div>
-              </div>
-              <input type="file" class="uploadsig" />
-
-            </label>
-            </div>
           </div>
           </div>
-          <div>
-          ${Buttons([
-            {
-              btnclass: 'saveprofile',
-              btnname: 'SAVE PROFILE',
-            },
-          ])}
+          <div class="userprofile"></div>
           </div>
+          </div>
+  
       </div>`;
 };
 export default userProfile;

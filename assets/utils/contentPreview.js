@@ -12,6 +12,7 @@ import {
 } from '../state/serverside/read/products/productFilter.js';
 import checkmarkFn2 from './products/checkmarkFn2.js';
 import industryCheck from './industryCheck.js';
+import getLoginuser from '../state/statemanagement/sessionstorage/GET/getLoginuser.js';
 
 const contentPreview = () => {
   document.addEventListener('click', (e) => {
@@ -28,7 +29,7 @@ const contentPreview = () => {
         fetch(apiBaseUrl(userUrl)).then((data) => data.json()),
         fetch(apiBaseUrl(paymentUrl)).then((data) => data.json()),
       ]).then((data) => {
-        const sett = JSON.parse(sessionStorage.getItem('sinpt'));
+        const sett = getLoginuser('settings')
         const cust = data[0].value[0];
         const user = data[1].value[0];
         const payments = data[2].value;
@@ -57,7 +58,7 @@ const contentPreview = () => {
         fetch(apiBaseUrl(salesUrl)).then((data) => data.json()),
         fetch(apiBaseUrl(contractUrl)).then((data) => data.json()),
       ]).then((data) => {
-        const sett = JSON.parse(sessionStorage.getItem('sinpt'));
+        const sett = JSON.parse(sessionStorage.getItem('zsdf'))?.settings;
         const cust = data[0].value[0];
         const user = data[1].value[0];
         const tax = data[2].value[0];
@@ -83,7 +84,7 @@ const contentPreview = () => {
         fetch(`${baseURL}=getStocks`).then((resp) => resp.json()),
         fetch(`${baseURL}=getSoldProducts`).then((resp) => resp.json()),
       ]).then((value) => {
-        const sett = JSON.parse(sessionStorage.getItem('sinpt'));
+        const sett = JSON.parse(sessionStorage.getItem('zsdf'))?.settings;
 
 
         const products = value[0].value;
@@ -147,7 +148,7 @@ const contentPreview = () => {
         fetch(apiBaseUrl(taxUrl)).then((data) => data.json()),
         fetch(apiBaseUrl(salesUrl)).then((data) => data.json()),
       ]).then((data) => {
-        const sett = JSON.parse(sessionStorage.getItem('sinpt'));
+        const sett = JSON.parse(sessionStorage.getItem('zsdf'))?.settings;
         const cust = data[0].value[0];
         const user = data[1].value[0];
         const tax = data[2].value[0];

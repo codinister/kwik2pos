@@ -1,5 +1,13 @@
 import { classSelector } from './Selectors.js';
 
+const inputvalue = (stateName, inputName, value) => {
+  const fieldValue = JSON.parse(sessionStorage.getItem(stateName));
+  if (fieldValue) {
+    return fieldValue[inputName];
+  }
+  return value;
+};
+
 const textInput = (obj) => {
   const {
     type = '',
@@ -11,7 +19,6 @@ const textInput = (obj) => {
     name = '',
     disabled = '',
     checked = '',
-
   } = obj;
 
   let req = '';
@@ -27,7 +34,13 @@ const textInput = (obj) => {
 };
 
 const emailInput = ({ ...obj }) => {
-  const { classname = '', name = '', id = classname, value = '', errorclass='' } = obj;
+  const {
+    classname = '',
+    name = '',
+    id = classname,
+    value = '',
+    errorclass = '',
+  } = obj;
   return `
       <div class="form-group  pt-0 input-animate">	
         <input type="email" placeholder="" value="${value}"  class="fminpt form-control ${classname}" required readonly  name="${name}">
@@ -37,7 +50,7 @@ const emailInput = ({ ...obj }) => {
 };
 
 const phoneInput = ({ ...obj }) => {
-  const { classname = '', name = '',  value = '', errorclass='' } = obj;
+  const { classname = '', name = '', value = '', errorclass = '' } = obj;
   return `
       <div class="form-group  pt-0 input-animate">	
         <input type="number" placeholder="" value="${value}"  class="fminpt form-control ${classname}" required readonly  name="${name}">
@@ -48,7 +61,7 @@ const phoneInput = ({ ...obj }) => {
 
 const passwordInput = ({ ...obj }) => {
   const cls = obj?.classname.split(' ')[0];
-  const { classname = '', name = '', id = cls , errorclass=''} = obj;
+  const { classname = '', name = '', id = cls, errorclass = '' } = obj;
 
   document.addEventListener('click', (e) => {
     if (e.target.matches(`.${cls}ps`)) {
@@ -126,12 +139,6 @@ const Titlebar = (title) => {
 		`;
 };
 
-
-
-
-
-
-
 const checkBox = ({ ...obj }) => {
   const { classname = '', labelname = '', name = '', check = '' } = obj;
 
@@ -160,6 +167,129 @@ const radioButton = ({ ...obj }) => {
 		`;
 };
 
+const Input = ({ ...obj }) => {
+  const {
+    inputName = '',
+    labelName = '',
+    required = 0,
+    type = 'text',
+    id = '',
+    checked = '',
+    className = 'input-control',
+    min = 0,
+    max = 0,
+    stateName = '',
+    stateFields = 0,
+    value = '',
+  } = obj;
+
+  const inptvalue = inputvalue(stateName, inputName, value);
+
+  if (type === 'date') {
+    setTimeout(() => {
+      classSelector(inputName).valueAsDate = new Date();
+    }, 1000);
+  }
+
+  return `
+		<div class=${className}>	
+			<input 
+      type="${type}" 
+      placeholder="" 
+      class="fminpt ${inputName}"
+      readonly 
+      name=${inputName}
+      value="${inptvalue}"  
+       ${checked}
+      data-required = ${required}
+      data-min = ${min}
+      data-max = ${max}
+      data-statename = ${stateName}
+      data-statefields = ${stateFields}
+      data-id = ${id}
+      >
+			<label>
+      ${labelName} 
+      ${required ? '<div class="required-box">!</div>' : ''}
+      </label>
+
+      ${
+        type === 'password'
+          ? `<i class="fa showpass fa-eye fa-lg" data-name=${inputName}></i>`
+          : ''
+      }
+      <div class="error-result error-${inputName}"></div>
+		</div>`;
+};
+
+const FileUpload = ({ ...obj }) => {
+  const {
+    inputName = '',
+    labelName = '',
+    required = 0,
+    stateName = '',
+    stateFields = 0,
+    classname=''
+  } = obj;
+
+  return `
+      <div class="file-upload-btn">
+      <label>
+      <div>${labelName} ${
+       required ? '<div class="required-box">!</div>' : ''
+      }</div>
+      <input 
+      type="file" 
+      name=${inputName} 
+      data-statename = ${stateName}
+      data-statefields = ${stateFields}
+      class="fminpt ${classname}"
+      />
+      </label>
+      <div class="error-result error-${inputName}"></div>
+      </div>
+
+`;
+};
+
+const TextArea = ({ ...obj }) => {
+  const {
+    inputName = '',
+    placeholder = '',
+    max = '',
+    stateName = '',
+    stateFields = '',
+    required = 0,
+    value = '',
+  } = obj;
+
+  const inptvalue = inputvalue(stateName, inputName, value);
+
+  return `
+		<div class="texarea-control">	
+			<textarea 
+      name=${inputName}  
+      class="fminpt"
+      placeholder="${placeholder}"
+      data-statename = ${stateName}
+      data-statefields = ${stateFields}
+      data-required = ${required}
+      >${inptvalue}</textarea>
+		</div>`;
+};
+
+const Buttonx = ({ ...obj }) => {
+  //classname must be the same as your state name
+  const { classname = '', buttonname = '' } = obj;
+
+  return `
+		<button  
+    class="btn-rounded
+		${classname}">
+    ${buttonname.toUpperCase()}
+    </button>`;
+};
+
 export {
   textInput,
   textArea,
@@ -171,4 +301,8 @@ export {
   passwordInput,
   phoneInput,
   emailInput,
+  Input,
+  TextArea,
+  Buttonx,
+  FileUpload,
 };

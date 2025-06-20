@@ -26,7 +26,7 @@ class customersprofile{
 		$code = $_GET['code'];
 		$qry = DB::query("SELECT 
 		t.*, 
-		s.exp_date,
+		s.duration,
 		t.createdAt as sales_date
 		FROM sales_summary as t JOIN sales as s ON t.ss_id = s.ss_id WHERE t.trans_type = 'invoice' AND t.code = ?", array($code)); 
 		$this->response($qry);

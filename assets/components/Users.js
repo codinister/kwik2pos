@@ -22,6 +22,7 @@ import noteTabs from './users/noteTabs.js';
 import { ymd } from '../utils/DateFormats.js';
 import { textInput } from '../utils/InputFields.js';
 import dataListDropdown from '../utils/dataListDropdown.js';
+import getLoginuser from '../state/statemanagement/sessionstorage/GET/getLoginuser.js';
 
 //CREATE USERS PAGE
 const Users = () => {
@@ -320,7 +321,7 @@ const Users = () => {
     // END TABS
 
     setTimeout(() => {
-      const usid1 = JSON.parse(sessionStorage.getItem('zsdf'));
+      const usid1 = getLoginuser('user')
       const usid2 = JSON.parse(sessionStorage.getItem('usernote'));
 
       const user_id = usid2 ? usid2?.user_id : usid1?.user_id;

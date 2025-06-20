@@ -4,6 +4,7 @@ import { classSelector } from '../Selectors.js';
 import { dmy } from '../DateFormats.js';
 import displayToast from '../displayToast.js';
 import Spinner from '../Spinner.js';
+import getLoginuser from '../../state/statemanagement/sessionstorage/GET/getLoginuser.js';
 
 const contractNote = () => {
   const sls = JSON.parse(sessionStorage.getItem('sales'));
@@ -21,8 +22,8 @@ const contractNote = () => {
         return v.slice(0, 1);
       })
       .join('');
-    const us = JSON.parse(sessionStorage.getItem('zsdf'));
-    const sett = JSON.parse(sessionStorage.getItem('sinpt'));
+    const us = getLoginuser('user')
+    const sett = getLoginuser('settings')
     const contnumber = `${sett?.comp_name.toUpperCase()}/${cnumber}/${dmy(
       new Date(us?.login_date)
     )}`;

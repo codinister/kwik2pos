@@ -1,10 +1,12 @@
+
+import getLoginuser from '../state/statemanagement/sessionstorage/GET/getLoginuser.js'
 const getCurrency = () => {
-  const cur = JSON.parse(sessionStorage.getItem('sinpt'));
+  const cur = getLoginuser('settings')
 
   if (cur?.currency) {
     return cur?.currency;
   } else {
-    return 'GHs';
+    return 'GHS';
   }
 };
 

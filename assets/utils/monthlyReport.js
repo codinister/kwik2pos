@@ -1,10 +1,11 @@
+import getLoginuser from '../state/statemanagement/sessionstorage/GET/getLoginuser.js';
 import { salesdate } from '../widgets/logic/Logic.js';
 import roleAccess from './roleAccess.js';
 
 const monthlyReport = () => {
   const getMonthlyMiniReport = async () => {
-    const sess = JSON.parse(sessionStorage.getItem('zsdf'));
-    const { user_id } = sess;
+ 
+    const { user_id } = getLoginuser('user');
 
     const fch = await fetch(
       'router.php?controller=widget&task=get_mini_report'

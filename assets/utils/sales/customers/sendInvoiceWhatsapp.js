@@ -1,6 +1,8 @@
+import getLoginuser from '../../../state/statemanagement/sessionstorage/GET/getLoginuser.js'
+
 const sendInvoiceWhatsapp = (e) => {
-  const { firstname } = JSON.parse(sessionStorage.getItem('zsdf'));
-  const { comp_name } = JSON.parse(sessionStorage.getItem('sinpt'));
+  const { firstname } = getLoginuser('user')
+  const { comp_name } = getLoginuser('settings')
   const { ss_id, cust_name, phone } = e.target.dataset;
   const url = `https://www.kwik2pos.com`;
   //const url = `http://localhost/kwikpos`;

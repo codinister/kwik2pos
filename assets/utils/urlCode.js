@@ -1,5 +1,7 @@
+import getLoginuser from '../state/statemanagement/sessionstorage/GET/getLoginuser.js'
+
 const urlCode = () => {
-  const code = JSON.parse(sessionStorage.getItem('zsdf'))?.user.code;
+  const {code} = getLoginuser('user')
 
   return `&code=${code}`;
 };

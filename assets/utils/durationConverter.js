@@ -1,5 +1,7 @@
+import getLoginuser from "../state/statemanagement/sessionstorage/GET/getLoginuser.js";
+
 const durationConverter = (date, period) => {
-  const { duration } = JSON.parse(sessionStorage.getItem('sinpt'));
+  const { duration } = getLoginuser('user')
 
   let day =
     duration === 'Month'

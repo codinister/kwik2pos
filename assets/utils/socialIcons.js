@@ -1,5 +1,7 @@
+import getLoginuser from '../state/statemanagement/sessionstorage/GET/getLoginuser.js';
+
 const socialicons = () => {
-  const sess = JSON.parse(sessionStorage.getItem('zsdf'));
+  const sess = getLoginuser('settings');
   return `
     <div class="socialicons">
         <div>

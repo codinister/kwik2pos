@@ -1,6 +1,7 @@
+import getLoginuser from '../state/statemanagement/sessionstorage/GET/getLoginuser.js';
+
 const getSettings = (callback) => {
-  const settings = JSON.parse(sessionStorage.getItem('sinpt'));
-  callback(settings);
+  callback(getLoginuser('settings'));
 };
 
 export default getSettings;

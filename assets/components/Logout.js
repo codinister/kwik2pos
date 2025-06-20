@@ -27,7 +27,9 @@ const Logout = () => {
     'smsinpt',
     'nn',
     'checkmark',
-    'prodType'
+    'prodType', 
+    'userprofile',
+    'userprofilerequired'
   ].forEach((v) => {
     if (sessionStorage.getItem(v)) {
       sessionStorage.removeItem(v);

@@ -1,8 +1,8 @@
-
+import getLoginuser from '../../state/statemanagement/sessionstorage/GET/getLoginuser.js'
 
 const smsSuperAdmin = (ss_id, user_id, cust_id, pay_id) => {
   if (pay_id.length > 0) {
-    const sett = JSON.parse(sessionStorage.getItem('sinpt'));
+    const sett = getLoginuser('settings')
     const code = sett?.code
     // const url = genURL(ss_id, user_id, code, cust_id, pay_id);
 

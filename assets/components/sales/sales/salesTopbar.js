@@ -11,6 +11,7 @@ import getPrevilleges from '../../../utils/sales/getPrevilleges.js';
 import usersprofile from '../../../state/serverside/read/users/usersprofile.js';
 import deleteAccessControl from '../../../utils/sales/deleteAccessControl.js';
 import roleAccess from '../../../utils/roleAccess.js';
+import getLoginuser from '../../../state/statemanagement/sessionstorage/GET/getLoginuser.js';
 
 const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
   usersprofile((data) => {
@@ -54,7 +55,7 @@ const salesTopbar = (customersDatas, receipts, proforma, invoice) => {
   });
 
 
-  const { user_id } = JSON.parse(sessionStorage.getItem('zsdf'));
+  const { user_id } = getLoginuser('user')
 
   let customersData = [];
 

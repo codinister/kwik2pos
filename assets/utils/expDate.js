@@ -1,3 +1,4 @@
+import getLoginuser from '../state/statemanagement/sessionstorage/GET/getLoginuser.js';
 import {
   durationInDays,
   durationInMonths,
@@ -5,7 +6,11 @@ import {
   ymd,
 } from './DateFormats.js';
 
-const expDate = (durationType, durations, createdAt) => {
+const expDate = (durations, createdAt) => {
+  const settings = getLoginuser('settings');
+
+  const durationType = settings?.duration;
+
   let st = {
     Month: durationInMonths(createdAt, durations),
     Day: durationInDays(createdAt, durations),

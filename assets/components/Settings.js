@@ -9,9 +9,10 @@ import { classSelector } from '../utils/Selectors.js';
 import displayToast from '../utils/displayToast.js';
 import settingsReducer from '../state/statemanagement/reducers/settingsReducer.js';
 import industryCheck from '../utils/industryCheck.js';
+import getLoginuser from '../state/statemanagement/sessionstorage/GET/getLoginuser.js';
 
 const Settings = () => {
-  const sett = JSON.parse(sessionStorage.getItem('sinpt'));
+  const sett = getLoginuser('settings')
 
   document.addEventListener('click', (e) => {
     if (e.target.matches('.save_setting')) {

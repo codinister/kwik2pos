@@ -1,5 +1,5 @@
-import industryCheck from "./industryCheck.js";
-
+import getLoginuser from '../state/statemanagement/sessionstorage/GET/getLoginuser.js';
+import industryCheck from './industryCheck.js';
 
 /*############################# 
     * Y-m-d Date Format
@@ -15,7 +15,7 @@ function ymd(date) {
 }
 
 const durationInMonths = (createdAt, duration) => {
-  if (createdAt) {
+  if (duration > 0) {
     let date = new Date(ymd(createdAt));
     date.setMonth(date.getMonth() + Number(duration));
     return ymd(date);
@@ -25,7 +25,7 @@ const durationInMonths = (createdAt, duration) => {
 };
 
 const durationInDays = (createdAt, duration) => {
-  if (createdAt) {
+  if (duration > 0) {
     let date = new Date(createdAt);
     date.setDate(date.getDate() + Number(duration));
     return ymd(date);
@@ -35,7 +35,7 @@ const durationInDays = (createdAt, duration) => {
 };
 
 const durationInYears = (createdAt, duration) => {
-  if (createdAt) {
+  if (duration > 0) {
     let date = new Date(createdAt);
     date.setFullYear(date.getFullYear() + Number(duration));
     return ymd(date);
@@ -146,11 +146,13 @@ const daytodate = (date, day) => {
 };
 
 const expdate_left = (duration, createdAt) => {
-  if (industryCheck('rentals')) {
-    const user = JSON.parse(sessionStorage.getItem('zsdf'));
+  if (industryCheck('rentals', 'service provider')) {
+    const { user, settings } = JSON.parse(sessionStorage.getItem('zsdf'));
+
     const cur_date = new Date(user?.login_date);
-    const sett = JSON.parse(sessionStorage.getItem('sinpt'));
-    const durations = sett?.duration;
+
+    const durations = settings?.duration;
+
     const dur = {
       Month: durationInMonths(createdAt, duration),
       Day: durationInDays(createdAt, duration),
@@ -158,12 +160,19 @@ const expdate_left = (duration, createdAt) => {
     };
 
     const expdate = dur[durations];
+
     const exp_date = expdate === 'NaN-NaN-NaN' ? '1993-03-11' : expdate;
 
     const newdate = new Date(exp_date).getTime() - cur_date.getTime();
     const days = Math.floor(Number(newdate) / (1000 * 60 * 60 * 24));
     const calcdays = Number(days);
-    return calcdays;
+
+    if (calcdays > 0) {
+      return calcdays;
+    }
+    else{
+      return 0
+    }
   } else {
     return 0;
   }
@@ -171,7 +180,7 @@ const expdate_left = (duration, createdAt) => {
 
 const expiry_date = (duration, createdAt) => {
   if (industryCheck('rentals')) {
-    const sett = JSON.parse(sessionStorage.getItem('sinpt'));
+    const sett = getLoginuser('user')
     const durations = sett?.duration;
     const dur = {
       Month: durationInMonths(ymd(createdAt), duration),

@@ -2,23 +2,24 @@ import getLoginuser from '../state/statemanagement/sessionstorage/GET/getLoginus
 import roleAccess from './roleAccess.js';
 
 const accessControl = (arr) => {
+  if (sessionStorage.getItem('zsdf')) {
+    const user = getLoginuser('user');
 
-  console.log(arr)
+    if (Object.values(arr).length > 0) {
 
-  if (getLoginuser().length > 0) {
-    const user = getLoginuser();
 
-    if (roleAccess()) {
-      return arr;
-    } else {
-      if (arr[0]?.user_id) {
-        return arr.filter((v) => v.user_id === user?.user_id);
+      if (roleAccess()) {
+        return arr;
       } else {
-        console.error('[' + arr[0] + ']' + ' does not contain a user_id');
+        if (arr[0]?.user_id) {
+          return arr.filter((v) => v.user_id === user?.user_id);
+        } else {
+          console.error('An error occured!');
+        }
       }
+    } else {
+      console.error('Valid array required!');
     }
-  } else {
-    console.error(arr + ' is not a valid array');
   }
 };
 

@@ -6,6 +6,7 @@ import getInvoiceDetails from './getInvoiceDetails.js';
 import sendInvoiceWhatsapp from './customers/sendInvoiceWhatsapp.js';
 import roleAccess from '../roleAccess.js';
 import inv_num from '../inv_num.js';
+import getLoginuser from '../../state/statemanagement/sessionstorage/GET/getLoginuser.js';
 
 const getSalesinvoice = async (allinvoicess) => {
   if (allinvoicess) {
@@ -69,9 +70,7 @@ const getSalesinvoice = async (allinvoicess) => {
     );
 
     const invoiceHTMLList = (v) => {
-      const { user_id} = JSON.parse(sessionStorage.getItem('zsdf'));
-
-    
+      const { user_id} = getLoginuser('user')
 
       let hide_if_balance_is_zero = '';
       if (v.balance <= 0) {

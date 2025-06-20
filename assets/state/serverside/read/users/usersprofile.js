@@ -33,9 +33,12 @@ const usersprofile = (callback) => {
         }))
         .reduce((a, b) => {
           if (a[b.user_id]) {
-            delete b.arrs;
             a[b.user_id].arrs.push({
-              ...b,
+              note_id: b.note_id,
+              title: b.title,
+              message: b.message,
+              user_id: b.user_id,
+              createdAt: b.createdAt,
             });
           } else {
             a[b.user_id] = b;
@@ -47,36 +50,35 @@ const usersprofile = (callback) => {
       const menu = Object.values(value[2].value)
         .map((v) => {
           return {
-            user_id: v.user_id,
             usermenu_id: v.usermenu_id,
             menu_name: v.menu_name,
-            menu_parent: v.menu_parent,
-            menu_id: v.menu_id,
-
-            menus: {
-              [v.menu_name]: {
-                usermenu_id: v.usermenu_id,
-                menu_name: v.menu_name,
-                menu_parent: v.menu_parent,
                 menu_id: v.menu_id,
+            menus: [
+              {
+                [v.menu_name]: {
+                  usermenu_id: v.usermenu_id,
+                  menu_name: v.menu_name,
+                  menu_id: v.menu_id,
+                },
               },
-            },
+            ],
           };
         })
         .reduce((a, b) => {
           if (a[b.user_id]) {
-            delete b.menus;
-            a[b.user_id].menus[b.menu_name] = {
-              usermenu_id: b.usermenu_id,
-              menu_name: b.menu_name,
-              menu_parent: b.menu_parent,
-              menu_id: b.menu_id,
-            };
+            a[b.user_id].menus.push({
+              [b.menu_name]: {
+                usermenu_id: b.usermenu_id,
+                menu_name: b.menu_name,
+                menu_id: b.menu_id,
+              },
+            });
           } else {
             a[b.user_id] = b;
           }
           return a;
         }, {});
+
 
       const users = Object.values(value[0].value).map((v) => {
         return {
@@ -88,9 +90,7 @@ const usersprofile = (callback) => {
           residence: v.residence,
           email: v.email,
           hire_date: v.hire_date,
-          birthdate: v.birthdate,
           username: v.username,
-          password: v.password,
           role_id: v.role_id,
           status: v.status,
           signature: v.signature,
@@ -99,7 +99,6 @@ const usersprofile = (callback) => {
           note: note ? note[v.user_id]?.arrs : '',
         };
       });
-
       callback(users);
     })
     .catch((err) => console.log(err));

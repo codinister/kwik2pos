@@ -1,7 +1,8 @@
+import getLoginuser from '../../../state/statemanagement/sessionstorage/GET/getLoginuser.js';
 import { formatDate } from '../../../utils/DateFormats.js';
 
 const rentedList = (obj,data) => {
-  const set = JSON.parse(sessionStorage.getItem('sinpt'));
+  const set = getLoginuser('settings')
   const dur = set?.duration;
 
   const arr = data?.checkedids;

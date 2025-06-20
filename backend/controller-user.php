@@ -1,7 +1,5 @@
 <?php
 class user{
-	
-
 
 	private function save_user(
 		$user_id,
@@ -204,26 +202,33 @@ class user{
 	
 	}
 
-	private function fileupload($file_name,$file_type,$tmp_name,$prod_image){
+	private function fileupload($file_name,$file_type,$tmp_name,$existing_image){
         if(!empty($file_name) || !empty($file_type) || !empty($tmp_name)){
-            validation::file_type_validation($file_type);
-            $fileupload =   file_upload($tmp_name, $file_type);
-            return $fileupload;
+		$path = dirname(__DIR__).'/assets/uploads';
+		$fext = explode('/', $file_type);
+		$ext = $fext[1];
+		$fname = mt_rand(100, 999);
+		$picname = 'img'.$fname.'.'.$ext;
+		$filepath = $path.'/'.$picname;
+				
+		move_uploaded_file($tmp_name, $filepath);
+				
+		return $picname;
+
         }
         else{
-            return $prod_image;
+            return $existing_image;
         }
     }
 
 	public function update_profile(){
-		extract(json_decode($_POST['user'], TRUE));
 
-		$user_id = $_SESSION['edfghl'];
-
+		extract(json_decode($_POST['data'], TRUE));
+		
 		if(isset($_FILES['signature'])){
-			$signature_name = $_FILES['signature']['name'];
-			$signature_tmp_name = $_FILES['signature']['tmp_name'];
-			$signature_type = $_FILES['signature']['type'];
+			$signature_name = $_FILES['signatureupld']['name'];
+			$signature_tmp_name = $_FILES['signatureupld']['tmp_name'];
+			$signature_type = $_FILES['signatureupld']['type'];
 		}
 		else{
 			$signature_name = '';
@@ -232,10 +237,10 @@ class user{
 		}
 
 
-		if(isset($_FILES['photo'])){
-			$photo_name = $_FILES['photo']['name'];
-			$photo_type = $_FILES['photo']['type'];
-			$photo_tmp_name = $_FILES['photo']['tmp_name'];
+		if(isset($_FILES['photoupld'])){
+			$photo_name = $_FILES['photoupld']['name'];
+			$photo_type = $_FILES['photoupld']['type'];
+			$photo_tmp_name = $_FILES['photoupld']['tmp_name'];
 		}
 		else{
 			$photo_name = '';
@@ -256,8 +261,7 @@ class user{
 				'Last Name' => $lastname,  
 				'Phone'  => $phone, 
 				'Email' => $email,  
-				'Residence' => $residence,  
-				'Birthdate'  => $birthdate
+				'Residence' => $residence
 			)
 		);
 
@@ -271,30 +275,19 @@ class user{
 
 		validation::email_validation($email); 
 
-		validation::date_validation($birthdate, 'Birthdate field required!');
 
 
-		if($password){
+		if(isset($password)){
+
+			if(!empty($password)){
 			validation::password_validation($password); 
 			DB::query("UPDATE users SET password = ? WHERE user_id = ?" ,array(password_hash($password, PASSWORD_BCRYPT),$user_id));
+			}
 		}
 
 		validation::phone_validation(array('Phone'=>$phone));
 
 
-		//Check if email already exists
-		$userExists = DB::query("SELECT email FROM users WHERE email = ? AND user_id != ?", array($email,$user_id));
-		if($userExists) {
-			output('Email is already in use!');
-		}
-
-		//Check if phone already exists
-		$userExists = DB::query("SELECT phone FROM users WHERE phone = ? AND user_id != ?", array($phone,$user_id));
-		if($userExists) {
-			output('Phone is already in use!');
-		}
-
-	
 
 		DB::query("
 			UPDATE users SET 
@@ -303,10 +296,8 @@ class user{
 			phone = ?,
 			residence = ?,
 			email = ?,
-			birthdate = ?,
 			signature = ?,
-			photo = ?,
-			updatedAt = ?
+			photo = ?
 			WHERE user_id = ?
 		", array(
 			$firstname,
@@ -314,14 +305,33 @@ class user{
 			$phone,
 			$residence,
 			$email,
-			$birthdate,
 			$signature_file, 
-			$photo_file, 
-			$createdAt,
+			$photo_file,
 			$user_id
 		));
 
-		echo " Profile updated successfully!-".$photo_file.'-'.$signature_file;
+
+		$users_data = DB::get_row("SELECT 
+			code,
+			createdAt,
+			email,
+			firstname,
+			hire_date,
+			lastname,
+			login_date,
+			phone,
+			photo,
+			residence,
+			role_id,
+			signature,
+			status,
+			user_id
+		
+		 FROM users WHERE user_id = ?",array($user_id));
+
+		echo json_encode($users_data);
+
+	
 	}
 
 

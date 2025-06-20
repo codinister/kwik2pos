@@ -1,5 +1,8 @@
+import getLoginuser from '../../state/statemanagement/sessionstorage/GET/getLoginuser.js'
+
+
 const checkWithholdingtax = () => {
-  const sess = JSON.parse(sessionStorage.getItem('sinpt'));
+  const sess = getLoginuser('settings')
   const obj = JSON.parse(sessionStorage.getItem('sales'));
 
   if (sess?.withholdingtax) {

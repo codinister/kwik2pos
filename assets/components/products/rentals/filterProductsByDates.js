@@ -10,9 +10,10 @@ import { classSelector } from '../../../utils/Selectors.js';
 import rentedList from './rentedList.js';
 import { PaginationLinks, PaginationLogic } from '../../../utils/products/Pagination.js';
 import setSessionStorage from '../../../state/statemanagement/sessionstorage/SET/setSessionStorage.js';
+import getLoginuser from '../../../state/statemanagement/sessionstorage/GET/getLoginuser.js';
 
 const filterProductsByDates = (rented) => {
-  const us = JSON.parse(sessionStorage.getItem('zsdf'));
+  const us = getLoginuser('user')
   const cur_date = ym(us?.login_date);
 
   const items = Object.values(

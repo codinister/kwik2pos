@@ -1,6 +1,8 @@
+import getLoginuser from '../state/statemanagement/sessionstorage/GET/getLoginuser.js'
+
 const getIndustry = () => {
-  const sett = JSON.parse(sessionStorage.getItem('zsdf'))?.settings
-  if (sett?.industry) return sett?.industry;
+  const sett = getLoginuser('settings')
+  return sett?.industry;
 };
 
 export default getIndustry;

@@ -1,24 +1,8 @@
-
-
-
-.addcustomers .fa-spinner,
-.savecustomer .fa-spinner,
-.settings-spinner .fa-spinner,
-.viewcustomers .fa-spinner,
-.viewcustomers-mobile .fa-spinner,
-.custprofspin .fa-spinner,
-.saveinvoice .fa-spinner,
-.addUser .fa-spinner,
-.addUserModalClass .fa-spinner,
-.addNoteModalClass .fa-spinner,
-.sendsmsspin .fa-spinner,
-.addsmscontsspin .fa-spinner,
-.whatsappspin .fa-spinner,
-.smsspin .fa-spinner,
-.addProductspin .fa-spinner,
-.saveProductspin .fa-spinner,
-.addCategoryBtnspin .fa-spinner,
-.save-profile-btnspin .fa-spinner
+ .fa-spinner
 {
-  font-size: 1.2rem;
+  font-size: 3.2rem;
+}
+
+.spinner-wrapper{
+  text-align: center;
 }

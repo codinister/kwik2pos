@@ -13,10 +13,11 @@ import posTableclasses from '../../../utils/posTableclasses.js';
 import dataListMobile from '../../../utils/dataListMobile.js';
 import paymentUtil from './paymentUtil.js';
 import industryCheck from '../../../utils/industryCheck.js';
+import getLoginuser from '../../../state/statemanagement/sessionstorage/GET/getLoginuser.js';
 
 const sales = (customersdata, receipts, proforma, invoice) => {
   const taxx = JSON.parse(sessionStorage.getItem('sales'));
-  const sett = JSON.parse(sessionStorage.getItem('sinpt'));
+  const sett = getLoginuser('settings')
 
   const tx = JSON.parse(sessionStorage.getItem('sales'));
 

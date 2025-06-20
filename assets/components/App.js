@@ -13,6 +13,9 @@ import contentPreview from '../utils/contentPreview.js';
 import { classSelector } from '../utils/Selectors.js';
 import Footer from './footer/Footer.js';
 import Logout from './Logout.js';
+import onload from '../state/serverside/onload.js';
+import getLoginuser from '../state/statemanagement/sessionstorage/GET/getLoginuser.js';
+
 
 const searchstring = new URLSearchParams(window.location.search);
 const page = searchstring.get('page');
@@ -22,9 +25,10 @@ const Pages = () => {
   const page = searchstring.get('page');
 
 
-  const user = JSON.parse(sessionStorage.getItem('zsdf'));
+  const user = getLoginuser('user')
+    const menu = getLoginuser('menu')
 
-  const menu_names = user?.menu
+  const menu_names = menu
     .filter((v) => v.menu_parent === 'null')
     .map((v) => v.menu_name.toLowerCase());
 
@@ -39,15 +43,18 @@ const Pages = () => {
     logout: Logout,
   };
 
-  Navmenu(page);
+  classSelector('display-navbar').innerHTML = Navmenu(page);
 
-  pagess[page]() || '';
+  classSelector('display-page').innerHTML = pagess[page]() || '';
 };
 
 if (sessionStorage.getItem('zsdf')) {
   classSelector('root').innerHTML = `
       <div class="display-navbar"></div>
-      <div class="display-page"></div>
+      <div>
+          <div class="marginTop"></div>
+          <div class="display-page"></div>
+      </div>
       ${Footer()}
       ${contentModal('', ``)}
   `;
@@ -83,3 +90,8 @@ document.addEventListener('click', (e) => {
     e.target.removeAttribute('readonly');
   }
 });
+
+
+window.addEventListener('load', e => {
+  onload()
+})

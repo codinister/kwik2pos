@@ -1,5 +1,6 @@
+
+import getLoginuser from '../state/statemanagement/sessionstorage/GET/getLoginuser.js'
 const getMenu = (callback) => {
-  const { menus } = JSON.parse(sessionStorage.getItem('zsdf'));
-  callback(menus);
+  callback(getLoginuser('menu'));
 };
 export default getMenu;

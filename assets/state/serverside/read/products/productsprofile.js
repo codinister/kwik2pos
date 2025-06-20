@@ -20,7 +20,6 @@ const productsprofile = (callback) => {
     .then((value) => {
       const products = value[0].value;
       const sales = value[1].value;
-
       const rentals = rentalsFilter(products, sales);
       const retails = retailsFilter(products, sales);
 

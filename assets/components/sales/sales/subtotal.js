@@ -7,6 +7,7 @@ import checkWithholdingtax from '../../../utils/sales/checkWithholdingtax.js';
 import getPrevilleges from '../../../utils/sales/getPrevilleges.js';
 import termnalReceipt from '../../../utils/sales/termnalReceipt.js';
 import industryCheck from '../../../utils/industryCheck.js';
+import getLoginuser from '../../../state/statemanagement/sessionstorage/GET/getLoginuser.js';
 
 const subtotal = (vv) => {
   const termnal = termnalReceipt();
@@ -26,7 +27,7 @@ const subtotal = (vv) => {
     }
   }
 
-  const { user_id } = JSON.parse(sessionStorage.getItem('zsdf'));
+  const { user_id } = getLoginuser('user')
   const tx = JSON.parse(sessionStorage.getItem('sales'));
 
   const trans_type = tx?.trans_type;

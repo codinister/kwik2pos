@@ -1,5 +1,7 @@
+
+import getLoginuser from '../state/statemanagement/sessionstorage/GET/getLoginuser.js'
 export default function inv_num(tax_id) {
-  const comp = JSON.parse(sessionStorage.getItem('sinpt'));
+  const comp = getLoginuser('settings')
   if (comp) {
     const get_max_tax_id = 1000000 + Number(tax_id);
     const get_max_tax_id_tostring = String(get_max_tax_id).split('');

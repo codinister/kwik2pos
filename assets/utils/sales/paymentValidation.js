@@ -1,11 +1,12 @@
 
 import getCode from '../getCode.js';
+import getLoginuser from '../../state/statemanagement/sessionstorage/GET/getLoginuser.js'
 
 const paymentValidation = () => {
   const tx = JSON.parse(sessionStorage.getItem('sales'));
 
   if (tx) {
-    const { user_id } = JSON.parse(sessionStorage.getItem('zsdf'));
+    const { user_id } = getLoginuser('user')
     const code = getCode();
 
     return {

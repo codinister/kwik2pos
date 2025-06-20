@@ -13,6 +13,7 @@ import getProformas from '../../../utils/sales/getProformas.js';
 import getReceipts from '../../../utils/sales/getReceips.js';
 import getSalesinvoice from '../../../utils/sales/getSalesinvoice.js';
 import { textInput } from '../../../utils/InputFields.js';
+import getLoginuser from '../../../state/statemanagement/sessionstorage/GET/getLoginuser.js';
 
 const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
 
@@ -41,7 +42,7 @@ const viewCustomers = (customer, receipts, allproforma, allinvoices) => {
       }
 
       if (customers) {
-        const { user_id, code } = JSON.parse(sessionStorage.getItem('zsdf'));
+        const { user_id, code } = getLoginuser('user')
 
         classSelector('viewcustomerwrapper').innerHTML = `
 

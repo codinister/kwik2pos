@@ -1,430 +1,290 @@
+.navbar {
+  background-color: white;
+  padding-block: 1.6rem;
+  padding-inline: 5.6rem;
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
 
-
-.actv{  
-  background-color: #425c59;
-  color: white!important;
-  padding-block: .8rem;
-  padding-inline: 1.2rem;
-  border-radius: 2.4rem;
-}
-
-
-  .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 1rem;
-    background-color: red;
-
-    z-index: 7;
-    box-shadow: 0 0.5rem 0 1rem rgba(0, 0, 0, 0.2);
-  }
-
-  /*------------------------
-  BEGIN PROFIE
-  --------------------------*/
-
-  .saveprofile{
-    margin-top: 2rem;
-  }
-
-  .save-profile-btn {
-    display: block;
-    background-color: hsl(var(--success));
-    color: white;
-    padding-block: 0.2em;
-    padding-inline: 0.6em;
-    border-radius: 3rem;
-    text-align: center;
-    font-size: 1rem;
-    position: absolute;
-    top: 2rem;
-    right: 3rem;
-  }
-
-  .save-profile-btn:hover {
-    background-color: white;
-    border: solid 0.1rem var(--muted);
-    color: var(--muted);
-  }
-
-  .nav-bar-icons > .other-nav-details > .profile-img,
-  .bell-icon,
-  .logout {
-    margin-right: 4rem;
-  }
-
-  .nav-bar-icons > .other-nav-details > .profile-img {
-    height: 3.5rem;
-    width: 3.5rem;
-    border-radius: 50%;
-    overflow: hidden;
-    background-color: var(--muted);
-  }
-
-  .profileformbox {
-    width: 30rem;
-    padding: 2.4rem;
-    border-radius: 1.6rem;
-    background-color: white;
-    position: fixed;
-    top: 4rem;
-    right: -100%;
-    z-index: 999;
-    box-shadow: -1.6rem -1.6rem 2.4rem rgba(0, 0, 0, 0.1);
-    transition: 0.2s;
-  }
-
-  .profileformbox.show {
-    position: fixed;
-    right: 1rem;
-  }
-
-
-
-
-  .close-profile {
-    margin-bottom: 2.4rem;
-  }
-
-  .close-profile > a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--muted);
-    color: white;
-    font-size: 1.2rem;
-
-    width: 3rem;
-    height: 3rem;
-    border-radius: 3rem;
-    padding: 0.4rem;
-  }
-
-  .profile-upload-bx {
-    display: flex;
-
-    gap: 1.6rem;
-  }
-
-  .profile-upload-bx label {
-    background-color: var(--muted);
-    color: white;
-    width: 12rem;
-    height: 3.2rem;
-    font-size: 1.2rem;
-    cursor: pointer;
-    border-radius: 0.8rem;
-  }
-
-  .profile-upload-bx label > input {
-    visibility: hidden;
-  }
-
-  /*------------------------
-  END PROFIE
-  --------------------------*/
-
-  .upload-div-box {
-    display: flex;
-  }
-  .upload-div-box div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .upload-div-box div {
-    flex-grow: 1;
-    flex-shrink: 1;
-  }
-  .upload-div-box div:nth-of-type(1) {
-    flex-basis: 6rem;
-  }
-
-  .upload-div-box div:nth-of-type(2) {
-    flex-basis: 4rem;
-    height: 3rem;
-    overflow: hidden;
-  }
-  .close-box {
+  .nav-bar-wrapper {
     display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+
+  .nav-bar-icons {
+    display: flex;
+    justify-content: space-between;
+
+    & > div:nth-of-type(1) {
+      display: flex;
+      align-items: center;
+      gap: 3.2rem;
+      .hamburger {
+        height: 3rem;
+        cursor: pointer;
+      }
+      h4 {
+        color: hsl(var(--muted));
+      }
+    }
   }
 
   .other-nav-details {
     display: flex;
-    justify-content: flex-end;
-  }
-
-  .nav-bar-icons > .appexpiration {
-    color: red;
-  }
-
-  .nav-bar-icons > .other-nav-details > .logout {
-    font-size: 1rem;
-    display: flex;
+    gap: 5.6rem;
     align-items: center;
-    justify-content: center;
-    background-color: var(--muted);
-    color: white;
-    padding: 0.8rem;
-    border-radius: 0.8rem;
-    width: 10rem;
-  }
-
-  .upload-div-box {
-    display: flex;
-  }
-
-  .upload-div-box > div {
-    flex: 5rem 1 1;
-  }
-
-  .expiriesbx {
-    padding: 1.2rem;
-    margin-bottom: 1rem;
-    box-shadow: 0 0.1rem 0.4rem hsl(var(--muted), 0.3);
-    align-items: center;
-    line-height: 1.5rem;
-    position: relative;
-    width: 100%;
-  }
-
-  .smssbx {
-    margin-top: 1.2rem;
-  }
-
-  .smssbx span {
-    background-color: #444;
-    color: white;
-    font-size: 1rem;
-    padding: 0.2rem;
-    border-radius: 1rem;
-    display: block;
-    width: 4rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
-  .smssbx input {
-    margin-block: 0.7em;
-    width: 100%;
-    padding: 0.5em;
-    outline: none;
-    border: solid 0.1rem #ccc;
-  }
-
-  .smssbx a {
-    display: block;
-    width: 100%;
-    padding: 0.4em;
-    margin-top: 1em;
-    background-color: #444;
-    color: white;
-    text-align: center;
-    font-size: 1rem;
-  }
-
-  .smssbx textarea {
-    width: 100%;
-    height: 7rem;
-  }
-
-  .expbtns {
-    display: flex;
-    gap: 2rem;
-    margin-top: 1.2rem;
-  }
-
-  .sendsmstoclient span {
-    display: block;
-    width: max-content;
-    flex: 2rem 1 1;
-    margin-inline: auto;
-    color: white !important;
-  }
-
-  .expbtns a {
-    display: block;
-    font-size: 1rem;
-    width: 10rem;
-    text-align: center;
-  }
-
-  .explabel span {
-    display: inline-block;
-    background-color: #47bf7f;
-    padding: 0.2em;
-    color: white;
-  }
-
-  .expbtns a:nth-of-type(1) {
-    border: solid 0.1rem #333;
-    padding: 0.5em;
-    color: #333;
-  }
-  .expbtns a:nth-of-type(1):hover {
-    background-color: #333;
-    padding: 0.5em;
-    color: white;
-  }
-
-  .expbtns a:nth-of-type(2) {
-    background-color: #47bf7f;
-    padding: 0.5em;
-    color: white;
-  }
-  .expbtns a:nth-of-type(2):hover {
-    border: solid 0.1rem #333;
-    background-color: white;
-    color: #333;
-    padding: 0.5em;
-  }
-
-  .contarea {
-    padding: 1.5em;
-    height: 25rem;
-    overflow-y: scroll;
-    width: 30rem;
-  }
-  .expiriesbx-details h3 {
-    font-size: 1.2rem;
-    text-transform: uppercase;
-  }
-  .expiriesbx-details small {
-    font-size: 1.1rem;
-    display: block;
-  }
-  .expiriesbx-details strong {
-    font-size: 1rem;
+    .logout {
+      background-color: #444;
+      color: white;
+      display: block;
+      padding-inline: 1.2rem;
+      padding-block: 0.8rem;
+      border-radius: 2.4rem;
+      display: flex;
+      gap: 0.8rem;
+      align-items: center;
+    }
   }
 
   .bellicon {
-    margin-right: 2em;
     position: relative;
-  }
 
-  .remondexbx {
-    display: none !important;
-    position: absolute;
-    width: 30rem;
-    height: 30rem;
-    box-shadow: 0.6rem 0.6rem 0.8rem rgba(0, 0, 0, 0.2);
-    background-color: white;
-    left: 0;
-  }
+    .alert-rounded {
+      cursor: pointer;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      background-color: hsl(var(--danger));
+      color: white;
+      position: absolute;
+      z-index: 2;
+      top: 0.8rem;
+      left: 0.4rem;
+    }
 
-  .closemainexpbox {
-    margin-left: 1.2em;
-    width: 4rem;
-    text-align: center;
-    background-color: #444;
-    color: white;
-    display: block;
-    padding: 0.2em;
-    border-radius: 2rem;
-    border: solid 0.1rem #ccc;
-    font-size: 1.1rem;
-  }
+    .expiries-wrapper {
+      width: 30rem;
+      position: absolute;
+      right: 0;
+      top: 2rem;
+      display: none;
+      & > div:nth-of-type(1) {
+        display: flex;
+        justify-content: flex-start;
 
-  .remondexbx.show {
-    display: block !important;
-  }
+        .close-expiry-wrapper {
+          width: 3rem;
+          height: 3rem;
+          border: solid 0.1rem #777;
+          color: #777;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          &:hover {
+            background-color: #777;
+            color: white;
+          }
+        }
+      }
 
-  .alert-rounded {
-    width: 3rem;
-    cursor: pointer;
-    height: 3rem;
-    padding: 0.2rem;
-    border-radius: 50%;
-    background-color: red;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    right: 0;
-    top: 1rem;
-    display: none;
-    text-align: center;
+      .expiries-box {
+        height: 30rem;
+        overflow-y: scroll;
+        width: 100%;
+
+        border-radius: 1.6rem;
+        background-color: white;
+        border: solid 0.1rem #777;
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+
+        .expiriesbx {
+          margin: 1.6rem;
+          padding: 1.6rem;
+          box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+          .expiriesbx-details {
+            h5 {
+              line-height: 2.4rem;
+              color: #777;
+            }
+            .expbtns {
+              display: flex;
+              gap: 1.6rem;
+              & > a {
+                display: block;
+                color: hsl(var(--muted));
+                border-radius: 1.6rem;
+                font-size: 1.2rem;
+                padding-inline: 1.2rem;
+                padding-block: 0.4rem;
+                margin-top: 1.6rem;
+              }
+
+              & > a:nth-of-type(1) {
+                border: solid 0.1rem #555;
+
+                &:hover {
+                  background-color: #555;
+                  color: white;
+                }
+              }
+
+              & > a:nth-of-type(2) {
+                border: solid 0.1rem hsl(var(--success));
+                &:hover {
+                  background-color: hsl(var(--success));
+                  color: white;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   .alert-rounded.show {
+    display: flex;
+  }
+  .expiries-wrapper.show {
     display: block;
   }
 
-  .activelink {
-    background-color: var(--muted);
-    color: white;
-    padding-block: 0.3em;
-    padding-inline: 1em;
-    border-radius: 2rem;
-  }
-
-  .nav-bar-wrapper {
-    position: fixed;
-    left: -199%;
-    top: 0;
-    z-index: 9999;
-    height: 100vh;
-    width: 80%;
-    padding: 2.4rem;
-    background-color: white;
-    transition: 0.2s;
-  }
-
-  .nav-bar-wrapper.show {
-    left: 0;
-  }
-
-  .nav-overlay.show {
-    left: 0;
-  }
-
-  .nav-overlay {
-    transition: 0.2s;
-    position: fixed;
-    left: -100%;
-    top: 0;
-    height: 100vh;
-    width: 100%;
-    z-index: 999;
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-
-  .navbaritems ul li {
-    padding-block: 0.8rem;
-  }
-
-  .navbaritems ul li a {
-    font-size: 1.8rem;
-    color: #666;
-    text-transform: uppercase;
-  }
-
-  .hamburger {
-    position: absolute;
-    top: 0;
-    z-index: 999;
-    height: 3rem;
-    margin-top: 0.9rem;
-  }
-
-  footer {
-    background-color: hsl(var(--white));
+  .smssbx {
     padding: 1.6rem;
-    font-size: 1.4rem;
+    border-radius: 1.2rem;
+    border: solid 0.1rem #555;
+    font-size: 1.2rem;
+    margin-top: 0.8rem;
+    & > button {
+      cursor: pointer;
+      display: block;
+      color: white;
+      width: max-content;
+      border-radius: 1.2rem;
+      padding-inline: 0.8rem;
+      padding-block: 0.4rem;
+      background-color: #555;
+      margin-bottom: 1.2rem;
+    }
+
+    & > input {
+      width: 100%;
+      padding: 0.4rem;
+      outline: none;
+      border: solid 0.1rem #777;
+      margin-bottom: 1.2rem;
+    }
+
+    & > textarea {
+      width: 100%;
+      margin-bottom: 1.2rem;
+      padding: 0.4rem;
+    }
+
+    & > a {
+      display: block;
+      background-color: hsl(var(--success));
+      border-radius: 1.6rem;
+      padding: 0.4rem;
+      color: white;
+      text-align: center;
+    }
+  }
+  .profile-img {
+    display: block;
+    position: relative;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: solid 0.1rem #777;
+    padding: 0.4rem;
+    & > img:nth-of-type(1) {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+    }
+  }
+
+  .profileformbox {
+    padding: 2.4rem;
     position: fixed;
-    bottom: 0;
-    width: 100%;
-    color: hsl(--muted);
-    text-align: center;
-    z-index: 10;
+    top: 7rem;
+    height: 100vh;
+
+    right: -100%;
+    background-color: white;
+    transition: 0.4s;
+
+    .profile-upload-bx {
+      display: flex;
+      gap: 2.4rem;
+
+      & > div {
+        & > label {
+          background-color: #555;
+          padding-block: 0.4rem;
+          padding-inline: 2.4rem;
+          color: white;
+          width: 10rem;
+          display: block;
+          border-radius: 1.6rem;
+          border: solid 0.1rem #555;
+          cursor: pointer;
+          &:hover {
+            background-color: white;
+            color: #555;
+          }
+          & > input {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .saveprofile {
+      border: none;
+      padding-block: 0.8rem;
+      border-radius: 2.4rem;
+      color: white;
+      width: 100%;
+      background-color: hsl(var(--success));
+      cursor: pointer;
+      border: solid 0.1rem hsl(var(--success));
+      &:hover {
+        background-color: white;
+        color: hsl(var(--success));
+      }
+    }
   }
 
-  .mob-logo{
-    height: 7rem;
-    margin-bottom: 4rem;
+  .img-preview {
+    display: flex;
+    gap: 2.4rem;
+    max-height: 5rem;
+    margin-block: 1.6rem;
+    & > div {
+      width: 10rem;
+      overflow: hidden;
+    }
   }
+  .profileformbox.show {
+    right: 0;
+  }
+  .profileformbox.hide {
+    right: -100%;
+  }
+}
 
+@media (min-width: 35em) {
+}
+
+@media (max-width: 35em) {
+}

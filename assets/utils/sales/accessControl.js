@@ -3,7 +3,7 @@ import roleAccess from '../roleAccess.js';
 
 const accessControl = (arr) => {
   if (Array.isArray(arr)) {
-    const user = getLoginuser();
+    const user = getLoginuser('user');
 
 
     if (roleAccess()) {

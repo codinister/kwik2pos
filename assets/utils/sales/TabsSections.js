@@ -2,9 +2,9 @@
 import industryCheck from '../industryCheck.js';
 import { classSelector } from '../Selectors.js';
 import { Tabs, tabContent, tabMenu } from '../Tabs.js';
-
+import getLoginuser from '../../state/statemanagement/sessionstorage/GET/getLoginuser.js'
 const TabsSections = () => {
-  const set = JSON.parse(sessionStorage.getItem('sinpt'));
+  const set = getLoginuser('settings')
   let proforma = industryCheck('retails') ? 'Estimates' : 'Proforma';
 
   let tabMenuObj;
