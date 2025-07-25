@@ -1,5 +1,7 @@
 import Login from './Login.js';
-import { classSelector } from '../utils/Selectors.js';
+import innerHTML from '../utils/innerHTML.js';
+import sessionRemove from '../state/sessionstorage/REMOVE/sessionRemove.js';
+import sessionGet from '../state/sessionstorage/GET/sessionGet.js';
 
 const Logout = () => {
   [
@@ -27,16 +29,20 @@ const Logout = () => {
     'smsinpt',
     'nn',
     'checkmark',
-    'prodType', 
+    'prodType',
     'userprofile',
-    'userprofilerequired'
+    'userprofilerequired',
   ].forEach((v) => {
-    if (sessionStorage.getItem(v)) {
-      sessionStorage.removeItem(v);
+    if (sessionGet(v)) {
+      sessionRemove(v);
     }
   });
-  sessionStorage.removeItem('zsdf');
-  classSelector('root').innerHTML = Login();
+  sessionRemove('zsdf');
+
+  innerHTML({
+    classname: 'root',
+    content: Login(),
+  });
 };
 
 export default Logout;

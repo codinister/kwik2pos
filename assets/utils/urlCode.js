@@ -1,9 +1,8 @@
-import getLoginuser from '../state/statemanagement/sessionstorage/GET/getLoginuser.js'
+import getLoginuser from '../state/sessionstorage/GET/getLoginuser.js'
 
 const urlCode = () => {
-  const {code} = getLoginuser('user')
-
-  return `&code=${code}`;
+  const us = getLoginuser('user')
+  return `&code=${us?.code}`;
 };
 
 export default urlCode;

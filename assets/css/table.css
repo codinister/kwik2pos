@@ -1,60 +1,166 @@
-.div-table {
-  background-color: white;
-  padding-bottom: 1.2rem;
-}
-
-.div-table-head {
-  background-color: #dedede;
-  margin-top: 0.4rem;
-}
-
-.div-table-head tr td {
-  text-transform: uppercase;
-  padding: 1rem;
-  font-size: 1.2rem;
-}
-
-.div-table-body {
-  font-size: 1.2rem;
-}
-
-.div-table-body tr tr {
-  margin: 0;
-}
-
-.div-table-body tr {
-  border-bottom: solid #ccc 0.1rem;
-}
-
-.div-table-body tr td {
-  text-transform: uppercase;
-  color: hsl(var(--black));
-  padding-inline: 1rem;
-}
-
-.div-table-body tr td input {
-  padding-block: 1rem;
-  border: 0;
-  width: 100%;
-}
-
 @media (min-width: 35em) {
-  .div-table-inner {
-    margin-top: 0;
-    margin-inline: 0.8rem;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    height: 50rem;
-    position: relative;
+  .table-search-box {
+    display: flex;
+    gap: 3.2rem;
+    & > div {
+      flex: 1 1 10rem;
+    }
+    & > div:nth-of-type(2) {
+      display: flex;
+      align-items: center;
+      height: 4rem;
+    }
+  }
+
+  .table-wrapper {
+    table {
+      width: 100%;
+      font-size: 1.2rem;
+      td {
+        padding: 0.8rem;
+      }
+      thead {
+        background-color: #e2e2e2;
+      }
+      tbody {
+        tr:nth-of-type(even) {
+          background-color: #eee;
+        }
+      }
+    }
+  }
+
+  .pagination-btns {
+    display: flex;
+
+    margin-top: 1.6rem;
+    align-items: center;
+    justify-content: center;
+    gap: 3.2rem;
+    div {
+      display: flex;
+      gap: 0.4rem;
+
+      a.pgn-btn-active {
+        background-color: #555;
+        color: white;
+      }
+      a {
+        display: block;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        font-size: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        color: #555;
+        border: solid 0.1rem #555;
+        &:hover {
+          background-color: #555;
+          color: white;
+        }
+      }
+    }
+    button {
+      outline: none;
+      background-color: transparent;
+      border: solid 0.1rem #555;
+      padding-inline: 0.8rem;
+      height: 2.2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1rem;
+      color: #555;
+      border-radius: 2.4rem;
+      &:hover {
+        background-color: #555;
+        color: white;
+        cursor: pointer;
+      }
+    }
   }
 }
 
 @media (max-width: 35em) {
-  .div-table-inner {
-    margin-top: 0;
-    margin-inline: 0.8rem;
-    height: 25rem;
-    overflow-y: scroll;
-    overflow-x: hidden;
+  .table-search-box {
+    & > div:nth-of-type(2) {
+      display: flex;
+      align-items: center;
+      height: 4rem;
+    }
+  }
+
+  .table-wrapper {
+    table {
+      width: 100%;
+      font-size: 1.2rem;
+      td {
+        padding: 0.8rem;
+      }
+      thead {
+        background-color: #e2e2e2;
+      }
+      tbody {
+        tr:nth-of-type(even) {
+          background-color: #eee;
+        }
+      }
+    }
+  }
+
+  .pagination-btns {
+    display: flex;
+
+    margin-top: 1.6rem;
+    align-items: center;
+    justify-content: center;
+    gap: 3.2rem;
+    div {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      a.pgn-btn-active {
+        background-color: #555;
+        color: white;
+      }
+      a {
+        display: block;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+        font-size: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        color: #555;
+        border: solid 0.1rem #555;
+        &:hover {
+          background-color: #555;
+          color: white;
+        }
+      }
+    }
+    button {
+      outline: none;
+      background-color: transparent;
+      border: solid 0.1rem #555;
+      padding-inline: 0.8rem;
+      height: 2.2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1rem;
+      color: #555;
+      border-radius: 2.4rem;
+      &:hover {
+        background-color: #555;
+        color: white;
+        cursor: pointer;
+      }
+    }
   }
 }

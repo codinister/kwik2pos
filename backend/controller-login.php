@@ -55,7 +55,7 @@
 				DB::query("UPDATE users SET  login_date = ? WHERE user_id = ?",array($this->getCurrentDateTime(), $user['user_id']));	
 
 				$settings = DB::get_row("SELECT * FROM settings WHERE code =?", array($code));
-				$menu = DB::query("SELECT * FROM user_menu WHERE user_id = ?",array($user_id));
+				$menu = DB::query("SELECT um.usermenu_id, m.menu_name,m.slug, m.menu_id FROM user_menu as um JOIN menu as m ON um.menu_id = m.menu_id WHERE um.user_id = ?",array($user_id));
 					echo json_encode(array(
 						'user' => $user, 
 						'settings' => $settings, 

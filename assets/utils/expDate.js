@@ -1,4 +1,4 @@
-import getLoginuser from '../state/statemanagement/sessionstorage/GET/getLoginuser.js';
+import getLoginuser from '../state/sessionstorage/GET/getLoginuser.js';
 import {
   durationInDays,
   durationInMonths,

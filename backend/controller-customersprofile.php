@@ -17,8 +17,8 @@ class customersprofile{
 	}
 
 	public function getReceipts(){
-			$code = $_GET['code'];
-		$qry = DB::query("SELECT p.*, t.cust_id,t.profile, t.total FROM payments AS p JOIN sales_summary AS t ON p.ss_id = t.ss_id WHERE p.code = ?", array($code)); 
+		$code = $_GET['code'];
+		$qry = DB::query("SELECT p.*, t.profile, t.total FROM payments AS p JOIN sales_summary AS t ON p.ss_id = t.ss_id WHERE p.code = ?", array($code)); 
 		$this->response($qry);
 	}
 

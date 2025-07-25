@@ -1,21 +1,30 @@
-import Products from './Products.js';
 import Dashboard from './Dashboard.js';
-import Pos from './Pos.js';
-import Settings from './Settings.js';
-import Sms from './Sms.js';
+import Analytics from './Analytics.js';
+import Salesreport from './Salesreport.js';
+import Profitandloss from './Profitandloss.js';
+import Products from './Products.js';
+import Rawmaterials from './Rawmaterials.js';
+import Manufacturingorders from './Manufacturingorders.js';
+import Damagesandloss from './Damagesandloss.js';
+import Expenses from './Expenses.js';
+import Suppliers from './Suppliers.js';
+import Businessprofile from './Businessprofile.js';
+import Smssendername from './Smssendername.js';
+import Apikey from './Apikey.js';
+import Inventorysettings from './Inventorysettings.js';
+import Taxprofile from './Taxprofile.js';
+import Sales from './Sales.js';
 import Users from './Users.js';
+import Bulksms from './Bulksms.js';
+import Services from './Services.js';
 import Login from './Login.js';
-import Forgotpassword from './Forgotpassword.js';
-import Resetpassword from './Resetpassword.js';
 import Navmenu from './navbar/Navmenu.js';
-import contentModal from '../utils/contentModal.js';
-import contentPreview from '../utils/contentPreview.js';
-import { classSelector } from '../utils/Selectors.js';
 import Footer from './footer/Footer.js';
 import Logout from './Logout.js';
-import onload from '../state/serverside/onload.js';
-import getLoginuser from '../state/statemanagement/sessionstorage/GET/getLoginuser.js';
-
+import domupdate from '../state/datasource/domupdate/domupdate.js';
+import getLoginuser from '../state/sessionstorage/GET/getLoginuser.js';
+import sessionGet from '../state/sessionstorage/GET/sessionGet.js';
+import innerHTML from '../utils/innerHTML.js';
 
 const searchstring = new URLSearchParams(window.location.search);
 const page = searchstring.get('page');
@@ -24,59 +33,84 @@ const Pages = () => {
   const searchstring = new URLSearchParams(window.location.search);
   const page = searchstring.get('page');
 
-
-  const user = getLoginuser('user')
-    const menu = getLoginuser('menu')
-
-  const menu_names = menu
-    .filter((v) => v.menu_parent === 'null')
-    .map((v) => v.menu_name.toLowerCase());
-
+  const menu = getLoginuser('menu');
+  const slugs = [
+    ...menu.map((v) => v.slug),
+    'businessprofile',
+    'smssendername',
+    'apikey',
+    'inventorysettings',
+    'taxprofile',
+  ];
 
   const pagess = {
-    dashboard: menu_names.includes('dashboard') ? Dashboard : Dashboard,
-    products: menu_names.includes('products') ? Products : Dashboard,
-    sell: menu_names.includes('sell') ? Pos : Dashboard,
-    settings: menu_names.includes('settings') ? Settings : Dashboard,
-    sms: menu_names.includes('sms') ? Sms : Dashboard,
-    users: menu_names.includes('users') ? Users : Dashboard,
+    dashboard: slugs.includes('dashboard') ? Dashboard : Dashboard,
+    services: slugs.includes('services') ? Services : Dashboard,
+    sales: slugs.includes('sales') ? Sales : Dashboard,
+    users: slugs.includes('users') ? Users : Dashboard,
+    analytics: slugs.includes('analytics') ? Analytics : Dashboard,
+    salesreport: slugs.includes('salesreport') ? Salesreport : Dashboard,
+    profitandloss: slugs.includes('profitandloss') ? Profitandloss : Dashboard,
+    products: slugs.includes('products') ? Products : Dashboard,
+    rawmaterials: slugs.includes('rawmaterials') ? Rawmaterials : Dashboard,
+    manufacturingorders: slugs.includes('manufacturingorders')
+      ? Manufacturingorders
+      : Dashboard,
+    damagesandloss: slugs.includes('damagesandloss')
+      ? Damagesandloss
+      : Dashboard,
+    expenses: slugs.includes('expenses') ? Expenses : Dashboard,
+    suppliers: slugs.includes('suppliers') ? Suppliers : Dashboard,
+    businessprofile: slugs.includes('businessprofile')
+      ? Businessprofile
+      : Dashboard,
+    smssendername: slugs.includes('smssendername') ? Smssendername : Dashboard,
+    apikey: slugs.includes('apikey') ? Apikey : Dashboard,
+    inventorysettings: slugs.includes('inventorysettings')
+      ? Inventorysettings
+      : Dashboard,
+    taxprofile: slugs.includes('taxprofile') ? Taxprofile : Dashboard,
+    bulksms: slugs.includes('bulksms') ? Bulksms : Dashboard,
     logout: Logout,
   };
 
-  classSelector('display-navbar').innerHTML = Navmenu(page);
+  innerHTML({
+    classname: 'display-navbar',
+    content: Navmenu(page),
+  });
 
-  classSelector('display-page').innerHTML = pagess[page]() || '';
+  innerHTML({
+    classname: 'display-page',
+    content: pagess[page]() || '',
+  });
 };
 
-if (sessionStorage.getItem('zsdf')) {
-  classSelector('root').innerHTML = `
+if (sessionGet('zsdf')) {
+  innerHTML({
+    classname: 'root',
+    content: `
       <div class="display-navbar"></div>
       <div>
           <div class="marginTop"></div>
           <div class="display-page"></div>
       </div>
       ${Footer()}
-      ${contentModal('', ``)}
-  `;
+  `,
+  });
 
   Pages();
-
-  contentPreview();
 } else {
-  if (page === 'forgotpswd') {
-    classSelector('root').innerHTML = Forgotpassword();
-  } else if (page === 'resetpassword') {
-    classSelector('root').innerHTML = Resetpassword();
-  } else {
-    Logout();
-  }
+  Logout();
 }
 
 window.onpopstate = function (e) {
-  if (sessionStorage.getItem('zsdf')) {
+  if (sessionGet('zsdf')) {
     Pages();
   } else {
-    classSelector('root').innerHTML = Login();
+    innerHTML({
+      classname: 'root',
+      content: Login(),
+    });
   }
 };
 
@@ -85,13 +119,13 @@ document.addEventListener('click', (e) => {
     const { navlinks } = e.target.dataset;
     history.pushState(null, '', navlinks);
     Pages(page);
+    sessionStorage.setItem('rend', '246');
   }
   if (e.target.matches('.fminpt')) {
     e.target.removeAttribute('readonly');
   }
 });
 
-
-window.addEventListener('load', e => {
-  onload()
-})
+window.addEventListener('load', (e) => {
+  domupdate();
+});

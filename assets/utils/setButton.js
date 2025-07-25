@@ -1,33 +1,46 @@
-import { Buttonx } from './InputFields.js';
+import { Button } from './InputFields.js';
 import { classSelector } from './Selectors.js';
-import disabledButton from '../utils/disabledButton.js'
+import disabledButton from '../utils/disabledButton.js';
+import innerHTML from './innerHTML.js'
+import sessionGet from '../state/sessionstorage/GET/sessionGet.js';
 
 const setButton = (statename, statefields) => {
   const state_name = statename + 'required';
-  if (sessionStorage.getItem(state_name)) {
-    const getstate = Object.values(
-      JSON.parse(sessionStorage.getItem(state_name))
-    ).filter(Boolean).length;
+  if (sessionGet(state_name)) {
+    const getstate = Object.values(sessionGet(state_name)).filter(
+      Boolean
+    ).length;
 
-    const error = JSON.parse(sessionStorage.getItem(state_name))?.error;
+    const error = sessionGet(state_name)?.error;
+    
     const fields = Number(getstate) === Number(statefields);
+
 
     if (error) {
       if (classSelector(statename)) {
-        classSelector(statename).innerHTML = disabledButton();
+        innerHTML({
+          classname: statename, 
+          content: disabledButton()
+        })
+
       }
     } else if (fields) {
       if (classSelector(statename)) {
-        classSelector(statename).innerHTML = Buttonx({
+        innerHTML({
+          classname: statename, 
+          content: Button({
           classname: statename,
           buttonname: 'Save',
-        });
+        })
+        })
+ 
       }
     } else {
-    
-      if (classSelector(statename)) {
-        classSelector(statename).innerHTML = disabledButton();
-      }
+        innerHTML({
+          classname: statename,
+          content: disabledButton(),
+        });
+      
     }
   }
 };

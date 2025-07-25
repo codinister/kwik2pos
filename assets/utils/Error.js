@@ -1,11 +1,18 @@
 
+import innerHTML from '../utils/innerHTML.js'
 const Error = (outputClass, message, buttonText) => {
   setTimeout(() => {
-    document.querySelector(`.${outputClass}`).innerHTML = buttonText;
+    innerHTML({
+      classname: outputClass,
+      content: buttonText,
+    });
   }, 4000);
-  return (document.querySelector(`.${outputClass}`).innerHTML = `
+  return innerHTML({
+    classname: outputClass,
+    content: `
 	ERROR: ${message}
-	`);
+	`,
+  });
 };
 
 export default Error;

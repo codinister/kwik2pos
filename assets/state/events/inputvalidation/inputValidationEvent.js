@@ -1,39 +1,53 @@
-import { Buttonx } from '../../../utils/InputFields.js';
 import { classSelector } from '../../../utils/Selectors.js';
 import setButton from '../../../utils/setButton.js';
+import sessionGet from '../../sessionstorage/GET/sessionGet.js';
+import sessionSet from '../../sessionstorage/SET/sessionSet.js';
 const errors = (statename, name, value, statefields) => {
   if (classSelector(`error-${name}`)) {
     const required = statename + 'required';
     classSelector(`error-${name}`).textContent = value;
-    const obj = JSON.parse(sessionStorage.getItem(required));
+    const obj = sessionGet(required);
     obj['error'] = value;
-    sessionStorage.setItem(required, JSON.stringify(obj));
+
+    sessionSet({
+      statename: required,
+      content: obj,
+    });
 
     setButton(statename, statefields);
   }
 };
 
 const setState = (statename, name, value) => {
-  if (!sessionStorage.getItem(statename)) {
-    sessionStorage.setItem(statename, JSON.stringify({}));
+  if (!sessionGet(statename)) {
+    sessionSet({
+      statename: statename,
+      content: {},
+    });
 
-    const data = JSON.parse(sessionStorage.getItem(statename));
+    const data = sessionGet(statename);
 
     const obj = {
       ...data,
       [name]: value,
     };
 
-    sessionStorage.setItem(statename, JSON.stringify(obj));
+    sessionSet({
+      statename: statename,
+      content: obj,
+    });
   } else {
-    const data = JSON.parse(sessionStorage.getItem(statename));
+    const data = sessionGet(statename);
 
     const obj = {
       ...data,
       [name]: value,
     };
 
-    sessionStorage.setItem(statename, JSON.stringify(obj));
+    sessionSet({
+      statename: statename,
+      content: obj,
+    });
   }
 };
 
@@ -44,9 +58,13 @@ const isRequired = (required, statename, name, value, statefields) => {
   }
   setButton(statename, statefields);
 };
+
+
+
+
 const inputValidationEvent = (data) => {
-  const emails = data.map((v) => v.email);
-  const phones = data.map((v) => v.phone);
+  const emails = data?.map((v) => v.email);
+  const phones = data?.map((v) => v.phone);
 
   document.addEventListener('input', (e) => {
     if (e.target.matches('.fminpt')) {
@@ -136,15 +154,13 @@ const inputValidationEvent = (data) => {
             reader.readAsDataURL(files[0]);
           }
         }
-
       } else {
-         errors(statename, name, ``, statefields);
+        errors(statename, name, ``, statefields);
       }
 
       isRequired(required, statename, name, value, statefields);
-      setState(statename, name, value);
 
-   
+      setState(statename, name, value);
     }
   });
 

@@ -1,13 +1,8 @@
+import getLoginuser from '../state/sessionstorage/GET/getLoginuser.js';
 
-import getLoginuser from '../state/statemanagement/sessionstorage/GET/getLoginuser.js'
 const getCurrency = () => {
-  const cur = getLoginuser('settings')
-
-  if (cur?.currency) {
-    return cur?.currency;
-  } else {
-    return 'GHS';
-  }
+  const sett = getLoginuser('settings');
+  return sett?.currency;
 };
 
 export default getCurrency;

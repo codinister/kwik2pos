@@ -53,6 +53,19 @@
   font-size: 1.2rem !important;
 }
 
+
+.lightgreen {
+  background-color: hsl(var(--lightgreen));
+}
+
+.bgsuccess {
+  background-color: hsl(var(--success));
+}
+
+.bgdanger {
+  background-color: hsl(var(--danger));
+}
+
 @keyframes toast {
   0% {
     position: fixed;

@@ -1,13 +1,34 @@
-const arr = [
-  {},
-  {},
-  {},
-  '',
-  '',
-  { [23]: { name: 'Daniel', age: 23 } },
-  {},
-  { [33]: { name: 'Edna', age: 33 } },
-].filter(v => Object.values(v).length)
-.map(v => Object.values(v)).flat(2)
+const obj = [
+  {
+    name: 'Jessica',
+    age: 12,
+  },
+  {
+    name: 'Emmanuel',
+    age: 23,
+  },
+  {
+    name: 'Emmanuel',
+    age: 27,
+  },
+  {
+    name: 'Jaquelin',
+    age: 45,
+  },
+];
 
-console.log(arr)
+
+const calcBirthdate = function (v) {
+return v?.name
+    }
+
+const arr = obj.map((v) => {
+  const obj = {
+    ...v,
+    birthdate: calcBirthdate(v),
+  };
+
+  return obj
+});
+
+console.log(JSON.stringify(arr,null,2));

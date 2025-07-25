@@ -1,5 +1,5 @@
 
-import getLoginuser from '../state/statemanagement/sessionstorage/GET/getLoginuser.js'
+import getLoginuser from '../state/sessionstorage/GET/getLoginuser.js'
 export default function inv_num(tax_id) {
   const comp = getLoginuser('settings')
   if (comp) {

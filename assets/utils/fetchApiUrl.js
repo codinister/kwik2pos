@@ -1,6 +1,5 @@
+const fetchApiUrl = (controller, task) => {
+  return `router.php?controller=${controller}&task=${task}`;
+};
 
-const fetchApiUrl = (controller,task) => {
-  return `router.php?controller=${controller}&task=${task}`
-}
-
-export default fetchApiUrl
+export default fetchApiUrl;

@@ -225,7 +225,7 @@ class user{
 
 		extract(json_decode($_POST['data'], TRUE));
 		
-		if(isset($_FILES['signature'])){
+		if(isset($_FILES['signatureupld'])){
 			$signature_name = $_FILES['signatureupld']['name'];
 			$signature_tmp_name = $_FILES['signatureupld']['tmp_name'];
 			$signature_type = $_FILES['signatureupld']['type'];

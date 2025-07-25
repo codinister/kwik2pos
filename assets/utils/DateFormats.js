@@ -1,4 +1,5 @@
-import getLoginuser from '../state/statemanagement/sessionstorage/GET/getLoginuser.js';
+import getLoginuser from '../state/sessionstorage/GET/getLoginuser.js';
+import sessionGet from '../state/sessionstorage/GET/sessionGet.js';
 import industryCheck from './industryCheck.js';
 
 /*############################# 
@@ -147,11 +148,11 @@ const daytodate = (date, day) => {
 
 const expdate_left = (duration, createdAt) => {
   if (industryCheck('rentals', 'service provider')) {
-    const { user, settings } = JSON.parse(sessionStorage.getItem('zsdf'));
+    const res = sessionGet('zsdf')
 
-    const cur_date = new Date(user?.login_date);
+    const cur_date = new Date(res?.user.login_date);
 
-    const durations = settings?.duration;
+    const durations = res?.settings.duration;
 
     const dur = {
       Month: durationInMonths(createdAt, duration),

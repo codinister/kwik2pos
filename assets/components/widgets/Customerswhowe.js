@@ -1,43 +1,14 @@
-import format_number from '../../utils/format_number.js';
+import table from '../../utils/table/table.js';
 
-const Customerswhowe = (data) => {
-  return `
-
-  <table cellspacing="0">
-
-  <thead class="arrears-table-head">
-  <tr class="arrears-table-row">
-  <td>Name</td>
-  <td>Phone</td>
-  <td>Amount</td>
-  </tr>  
-  </thead>
-
-
-  <tbody class="tr-bg">
-    ${data
-    .map(
-      (v) => `
-   
-      <tr class="arrears-table-row">
-        <td>
-           <a href="javascript:void(0);" class="accstatement" data-cust_id="${v.cust_id}">
-        ${v.fullname}
-        </a>
-        
-        </td>
-        <td>${v.phone}</td>
-        <td>${format_number(v.debt)}</td>
-      </tr>
-    
-      `
-    )
-    .join(' ')}
-  </tbody>
-
-
-  </table>
-  `;
+const Customerswhowe = () => {
+  return table({
+    thClass: 'arrears-table-head',
+    tbClass: 'arrears-table-body',
+    pagClass: 'arrears-table-pagination',
+    searchClass: 'arrears-search-box', 
+    otherdetails:'Customers who owe', 
+    custWrapperClass:'customer-who-owe-wrapper'
+  });
 };
 
 export default Customerswhowe;

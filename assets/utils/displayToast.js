@@ -1,3 +1,5 @@
+
+import innerHTML from './innerHTML.js'
 const displayToast = (classname, text) => {
   let result = '';
   let icon = '';
@@ -18,12 +20,18 @@ const displayToast = (classname, text) => {
   }
 
   document.querySelector('.toastnotification').classList.add('show');
-  document.querySelector('.toastnotification').innerHTML = `
+
+innerHTML({
+  classname: 'toastnotification', 
+  content: `
     <div class="toast-inner">
         <div class="${classname}"></div> 
         <div>${icon}</div>
         <div>${result}</div>
-    </div>`;
+    </div>`
+})
+
+
 
   setTimeout(() => {
     document.querySelector('.toastnotification').classList.remove('show');

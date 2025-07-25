@@ -1,9 +1,14 @@
+
+import innerHTML from './innerHTML.js'
 const Spinner = (outputClass) => {
-  return (document.querySelector(`.${outputClass}`).innerHTML = `
+  return innerHTML({
+    classname: outputClass,
+    content: `
   <div class="spinner-wrapper">
 	<i class="fa fa-spinner fa-spin"></i>
 </div>
-	`);
+	`,
+  });
 };
 
 export default Spinner;

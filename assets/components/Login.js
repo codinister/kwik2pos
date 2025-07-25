@@ -1,5 +1,5 @@
-import { textInput, Button } from '../utils/InputFields.js';
-import loginEvent from '../state/events/login/login.js';
+
+import loginEvent from '../state/events/login/loginEvent.js';
 
 const Login = () => {
   loginEvent();
@@ -20,13 +20,13 @@ const Login = () => {
   </div>
 
   <div class="login-form-group">	
-  <input type="text" placeholder="" class="fminpt username lgn" readonly   name="username">
+  <input type="text" placeholder="" class="username lgn" readonly   name="username">
   <label>Username</label>
   </div>
 
     
   <div class="login-form-group">	
-  <input type="password" placeholder="" class="fminpt password lgn" readonly   name="password">
+  <input type="password" placeholder="" class=" password lgn" readonly   name="password">
   <label>Password</label>
   <i class="fa fa-eye showppass"></i>
   </div>

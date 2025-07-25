@@ -1,0 +1,9 @@
+footer{
+  padding-block: 1.6rem;
+  bottom: 0; 
+  position: absolute;
+  text-align: center;
+  margin-top: 1.6rem;
+  bottom: 0;
+  width: 100%;
+}

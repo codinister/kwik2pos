@@ -1,7 +1,6 @@
 
 const disabledButton = () => {
-		return `<div 
-    class="disabled-btn">
+		return `<div class="disabled-btn">
     Save
     </div>`;
 }

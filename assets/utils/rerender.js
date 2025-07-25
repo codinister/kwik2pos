@@ -1,9 +1,16 @@
+import sessionSet from '../state/sessionstorage/SET/sessionSet.js';
+import sessionGet from '../state/sessionstorage/GET/sessionGet.js';
+
 const rerender = (fn, num) => {
-  const rend = sessionStorage.getItem('rend');
+  const rend = sessionGet('rend');
 
   if (rend == num) {
     fn();
-    sessionStorage.setItem('rend', 0);
+
+    sessionSet({
+      statename: 'rend',
+      content: 0,
+    });
   }
 
   setTimeout(() => {

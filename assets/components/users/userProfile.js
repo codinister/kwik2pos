@@ -1,10 +1,5 @@
-import {
-  Input,
-  TextArea,
-  Buttonx,
-  FileUpload,
-} from '../../utils/InputFields.js';
-import getLoginuser from '../../state/statemanagement/sessionstorage/GET/getLoginuser.js';
+import { Input, FileUpload } from '../../utils/InputFields.js';
+import getLoginuser from '../../state//sessionstorage/GET/getLoginuser.js';
 import setPageState from '../../utils/setPageState.js';
 import setButton from '../../utils/setButton.js';
 
@@ -88,24 +83,27 @@ const userProfile = () => {
                labelName: 'Password',
                type: 'password',
                min: 6,
+               value: user?.password,
                stateName: 'userprofile',
                stateFields: datalength,
              })}
+
+          
 
             <div class="profile-upload-bx">
               ${FileUpload({
                 inputName: 'pimg',
                 labelName: 'Avatar',
-                stateName: 'userprofile',
+                stateName: `userprofile`,
                 stateFields: datalength,
-                classname: "photo"
+                classname: 'photo',
               })}
               ${FileUpload({
                 inputName: 'simg',
                 labelName: 'Signature',
                 stateName: 'userprofile',
                 stateFields: datalength,
-                classname: 'signature'
+                classname: 'signature',
               })}
           </div>
 
