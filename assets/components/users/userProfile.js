@@ -34,7 +34,6 @@ const userProfile = () => {
               value: user?.firstname,
             })}
 
-
             ${Input({
               inputName: reqfields[1],
               labelName: 'Last Name',
@@ -77,8 +76,7 @@ const userProfile = () => {
               value: user?.email,
             })}
 
-  
-             ${Input({
+            ${Input({
                inputName: 'password',
                labelName: 'Password',
                type: 'password',
@@ -87,8 +85,6 @@ const userProfile = () => {
                stateName: 'userprofile',
                stateFields: datalength,
              })}
-
-          
 
             <div class="profile-upload-bx">
               ${FileUpload({

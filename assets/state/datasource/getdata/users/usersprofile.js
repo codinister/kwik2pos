@@ -53,6 +53,7 @@ const usersprofile = (callback) => {
             usermenu_id: v.usermenu_id,
             menu_name: v.menu_name,
             menu_id: v.menu_id,
+            user_id: v.user_id,
             menus: [
               {
                 [v.menu_name]: {

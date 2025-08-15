@@ -1,0 +1,33 @@
+.datalist {
+  position: relative;
+  margin-top: 2.4rem;
+
+  .input-control {
+    background-color: white;
+    z-index: 9;
+  }
+
+  .item-dropdown {
+    padding: 1.6rem;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 7;
+    list-style-type: none;
+    background-color: white;
+    box-shadow: 0.2rem 0.2rem 1.6rem rgba(0, 0, 0, 0.3);
+    transition: 0.1s;
+    opacity: 0;
+    display: none;
+    li{
+      cursor: pointer;
+    }
+  }
+
+  .item-dropdown.active {
+    opacity: 1;
+    display: block;
+    top: 4rem;
+  }
+}

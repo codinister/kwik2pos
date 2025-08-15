@@ -10,13 +10,11 @@ import menuLinkDropdown from './menuLinkDropdown.js';
 import menuLink from './menuLink.js';
 import getMenu from '../../utils/getMenu.js';
 
-
 const Navmenu = (page) => {
   navbarEvent();
   const user = getLoginuser('user');
   const sett = getLoginuser('settings');
-  const actual_menu = getMenu()
-
+  const actual_menu = getMenu();
 
   return ` 
     <nav class="navbar">
@@ -44,26 +42,33 @@ const Navmenu = (page) => {
         })}
        
         ${menuLinkDropdown({
-         name: 'Inventory',
-         icon: 'cube',
-         expected_menu: [
-           'products',
-           'rawmaterials',
-           'manufacturingorders',
-           'damagesandloss',
-         ],
-         actual_menu,
-       })}
+          name: 'Inventory',
+          icon: 'cube',
+          expected_menu: [
+            'products',
+            'rawmaterials',
+            'manufacturingorders',
+            'damagesandloss',
+          ],
+          actual_menu,
+        })}
 
-       ${menuLinkDropdown({
-        name: 'Expenses',
-        icon: 'pie-chart',
-        expected_menu: ['expenses', 'suppliers'],
-        actual_menu,
-       })}
-       
-          ${menuSettingsLink()}
-          ${menuLink(actual_menu)}
+        ${menuLinkDropdown({
+          name: 'Expenses',
+          icon: 'pie-chart',
+          expected_menu: ['expenses', 'suppliers'],
+          actual_menu,
+        })}
+
+        ${menuLinkDropdown({
+          name: 'User Management',
+          icon: 'users',
+          expected_menu: ['users', 'activitylogs'],
+          actual_menu,
+        })}
+        
+        ${menuSettingsLink()}
+        ${menuLink(actual_menu)}
         </ul>
       </div>
       </div>
@@ -74,7 +79,13 @@ const Navmenu = (page) => {
           <img src="assets/images/hamburger.jpg" alt="" class="hamburger" />
           </div>
           <div>
-          <h4>${sett?.comp_name}</h4>
+          <h4>
+          <a class="navlinks"  
+          href="javascript:void(0);"   
+          data-navlinks = "?page=dashboard" style="color: #888;">
+          ${sett?.comp_name}
+          </a>
+          </h4>
           </div>
           </div>
           <div class="other-nav-details">

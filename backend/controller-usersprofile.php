@@ -37,7 +37,7 @@ class usersprofile{
 
 	public function usersPrivilleges(){
 		$code = $_GET['code'];
-		$qry = DB::query("SELECT um.usermenu_id, m.menu_name, m.menu_id FROM user_menu as um JOIN menu as m ON um.menu_id = m.menu_id WHERE um.code = ?",array($code));
+		$qry = DB::query("SELECT um.usermenu_id, m.menu_name, m.menu_id, um.user_id FROM user_menu as um JOIN menu as m ON um.menu_id = m.menu_id WHERE um.code = ?",array($code));
 		$this->response($qry);
 	}
 

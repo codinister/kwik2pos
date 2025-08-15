@@ -14,18 +14,18 @@ const ChartWidget = ({ ...options }) => {
     const getcanvas = document.getElementById(idname).getContext('2d');
 
     const colors = [
+      'rgb(68,1,84)',
+      'rgb(71,45,123)',
+      'rgb(59,82,139)',
+      'rgb(44,114,142)',
+      'rgb(33,144,140)',
+      'rgb(39,173,129)',
+      'rgb(93, 200, 99)',
+      'rgb(170,220,50)',
+      'rgb(253,231,50)',
       'rgb(241,197,229)',
       'rgb(241,173,246)',
       'rgb(245,198,182)',
-      'rgb(248,125,67)',
-      'rgb(67,186,127)',
-      'rgb(255,212,60)',
-      'rgb(255,190,52)',
-      'rgb(204,101,248)',
-      'rgb(132,30,255)',
-      'rgb(160,230,116)',
-      'rgb(254,102,133)',
-      'rgb(97,106,251)',
     ];
 
     const chart = new Chart(getcanvas, {

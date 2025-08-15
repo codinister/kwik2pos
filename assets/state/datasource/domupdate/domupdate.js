@@ -9,8 +9,8 @@ import userProfileOnload from './userProfileOnload.js';
 import currentData from './currentData.js';
 import innerHTML from '../../../utils/innerHTML.js';
 import textContent from '../../../utils/textContent.js';
-
 import dashboardOnload from './dashboardOnload.js';
+import usersOnload from './usersOnload.js';
 
 const domupdate = () => {
   customersprofile((customers) => {
@@ -22,6 +22,7 @@ const domupdate = () => {
         userProfileOnload(users, us?.user_id, innerHTML);
         inputValidationEvent(data);
         dashboardOnload(customers)
+        usersOnload(users)
       });
     });
   });

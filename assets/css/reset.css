@@ -1,3 +1,8 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 :root {
   scroll-behavior: smooth;
   font-size: 62.5%;
@@ -13,7 +18,10 @@ body {
   min-height: 100vh;
   font-size: 1.6rem;
   line-height: 2.6rem;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
   position: relative;
   -webkit-print-color-adjust: exact !important;
   print-color-adjust: exact !important;
@@ -126,7 +134,7 @@ h6 {
 
 p {
   color: var(--black);
-  opacity: 60%;
+  opacity: 0.9;
 }
 
 .marginTop {

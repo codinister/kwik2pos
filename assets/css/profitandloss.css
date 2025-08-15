@@ -1,0 +1,100 @@
+.profitandloss {
+  background-color: white;
+  padding-block: 5.6rem;
+  min-height: 100vh;
+  & > div:nth-of-type(1) {
+    width: 80rem;
+    margin-inline: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    & > div:nth-of-type(1) {
+      .companydetails {
+        text-align: left !important;
+      }
+    }
+
+    & > div:nth-of-type(2) {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3.2rem;
+      button {
+        padding-inline: 1.2rem;
+        padding-block: 0.4rem;
+        border-radius: 0.8rem;
+        cursor: pointer;
+        display: flex;
+        gap: 1.2rem;
+        align-items: center;
+      }
+      & > button:nth-of-type(1) {
+        background-color: var(--black);
+        color: white;
+      }
+      & > button:nth-of-type(2) {
+      }
+      & > button:nth-of-type(3) {
+      }
+    }
+  }
+
+  .tabs-container {
+    width: 80rem;
+    margin-inline: auto;
+  }
+}
+
+.filterreport {
+  width: 50rem;
+  h5 {
+    border-bottom: solid 0.1rem #ccc;
+    padding-bottom: 1.2rem;
+  }
+}
+
+.reportdescription {
+  width: 50rem;
+
+  & > div {
+    margin-bottom: 4rem;
+  }
+
+  h4 {
+    color: var(--black);
+    margin-bottom: 1.6rem;
+  }
+  div {
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  i {
+    display: block;
+    font-size: 5.6rem;
+    color: var(--black);
+    margin-bottom: 4rem;
+  }
+}
+
+.report-title {
+  margin-block: 4rem;
+  text-align: center;
+}
+
+.simplereport {
+  table {
+    width: 100%;
+    border: solid 0.1rem #ccc;
+    padding: 4rem;
+    tbody {
+      td {
+        border: 0.1rem solid #ccc;
+        padding: 1.2rem;
+      }
+      .td-margin{
+                border: 0.1rem solid white;
+        padding: 2rem;
+      }
+    }
+  }
+}

@@ -7,7 +7,9 @@ const Dashboard = () => {
   dashboardEvent();
 
   return `
-    <section class="container">
+    <section class="dashboard-wrapper">
+
+    <div class="container">
       <div>
         ${Totalbox('totalcustomers', 'Customers')}
         ${Totalbox('totalsales', 'Sales')}
@@ -23,6 +25,7 @@ const Dashboard = () => {
         </div>
         <div>
           ${Customerswhowe()}
+      </div>
       </div>
     </section>
     `;

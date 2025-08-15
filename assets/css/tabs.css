@@ -1,0 +1,57 @@
+.tabs-wrapper {
+  margin-block: 5.6rem;
+  width: 100%;
+  .tab-header {
+    border-bottom: solid 0.1rem #ccc;
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.4rem;
+      li {
+        padding-inline: 1.6rem;
+        padding-block: 1.2rem;
+
+        border-top-left-radius: 1.2rem;
+        border-top-right-radius: 1.2rem;
+        border-left: solid 0.1rem white;
+        border-right: solid 0.1rem white;
+        border-top: solid 0.1rem white;
+    
+
+        &:hover {
+          color: var(--black);
+          cursor: pointer;
+          border-top-left-radius: 1.2rem;
+          border-top-right-radius: 1.2rem;
+          border-left: solid 0.1rem #ccc;
+          border-right: solid 0.1rem #ccc;
+          border-top: solid 0.1rem #ccc;
+          border-bottom: solid 0.1rem white;
+          margin-bottom: -0.1rem;
+        }
+        &.active {
+          border-top-left-radius: 1.2rem;
+          border-top-right-radius: 1.2rem;
+          border-left: solid 0.1rem #ccc;
+          border-right: solid 0.1rem #ccc;
+          border-top: solid 0.1rem #ccc;
+          border-bottom: solid 0.1rem white;
+          margin-bottom: -0.1rem;
+        }
+      }
+    }
+  }
+
+  .tab-body{
+    margin-top: 1.6rem;
+    ul{
+        li{
+            display: none;
+            width: 100%;
+            &.active{
+                display: block;
+            }
+        }
+    }
+  }
+}

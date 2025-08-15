@@ -1,0 +1,132 @@
+.settings-wrapper {
+  background-color: white;
+  padding-block: 5.6rem;
+  min-height: 100vh;
+}
+
+.fullcompanydetails {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.businessprofile {
+  & > .businessprofbx {
+    width: 80rem;
+    margin-inline: auto;
+    margin-top: 4rem;
+    border: solid 0.1rem #ccc;
+    padding: 4rem;
+    & > div:nth-of-type(1) {
+      .file-upload-wrapper {
+        margin-bottom: 5.6rem;
+        & > p {
+          margin-bottom: 2.4rem;
+        }
+        & > div {
+          display: flex;
+          gap: 4rem;
+          align-items: center;
+          & > div:nth-of-type(1) {
+            width: 7rem;
+            height: 7rem;
+            border-radius: 50%;
+            border: solid 0.1rem #ccc;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          & > div:nth-of-type(2) {
+            label {
+              background-color: var(--black);
+              padding-block: 0.4rem;
+              padding-inline: 1.2rem;
+              color: white;
+              border-radius: 1.2rem;
+              border: solid 0.1rem var(--black);
+              cursor: pointer;
+              &:hover {
+                background-color: white;
+                color: var(--black);
+              }
+              input {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    & > div:nth-of-type(2) {
+      & > div:nth-of-type(2) {
+        display: flex;
+        gap: 4rem;
+
+        & > div {
+          flex: 1 1 10rem;
+          margin-block: 4rem;
+        }
+      }
+    }
+  }
+}
+
+.smssendername {
+  & > div:nth-of-type(2) {
+    width: 80rem;
+    margin-top: 5.6rem;
+    padding: 5.6rem;
+    margin-inline: auto;
+    border: solid 0.1rem #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & > div {
+      width: 30rem;
+    }
+  }
+}
+
+
+.inventorysettings{
+  & > div:nth-of-type(2){
+    width: 50rem;
+    border: solid .1rem #ccc;
+    padding: 5.6rem;
+    margin-inline: auto;
+    margin-block: 5.6rem;
+  
+    & > div:nth-of-type(2){
+ 
+      margin-top: 5.6rem;
+      
+      & > div:nth-of-type(2){
+        display: flex;
+
+        margin-block: 2.4rem;
+        & > div{
+          flex: 1 1 10rem;
+        }
+      }
+    }
+  }
+}
+
+
+.taxes{
+
+  & > div:nth-of-type(2){
+    display: flex;
+    padding: 4rem; 
+    border: solid .1rem #ccc;
+    width: 80rem;
+    margin-inline: auto;
+    gap: 4rem;
+    margin-block: 5.6rem;
+    & > div{
+      flex: 1 1 10rem;
+    }
+  }
+}

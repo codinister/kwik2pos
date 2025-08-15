@@ -1,83 +1,85 @@
 @media (min-width: 35em) {
-  .container {
-    & > div {
-      display: flex;
-      gap: 3.2rem;
+  .dashboard-wrapper {
+    & > .container {
       & > div {
-        flex: 10rem 1 1;
-        background-color: white;
-        padding: 2.4rem;
-        border-radius: 1.2rem;
-        margin-bottom: 3.2rem;
-        box-shadow: 0.2rem 0.2rem 1.6rem 0 rgba(0, 0, 0, 0.2);
-      }
-
-      .total-box {
-        background-color: var(--black);
-        border: solid 1.2rem white;
-        border-radius: 2.4rem;
-        position: relative;
-        cursor: pointer;
-        overflow: hidden;
-        height: 15rem;
-
-        &:hover > .hover-effect {
-          scale: 20;
-          transform-origin: center;
+        display: flex;
+        gap: 3.2rem;
+        & > div {
+          flex: 10rem 1 1;
+          background-color: white;
+          padding: 2.4rem;
+          border-radius: 1.2rem;
+          margin-bottom: 3.2rem;
+          box-shadow: 0.2rem 0.2rem 1.6rem 0 rgba(0, 0, 0, 0.2);
         }
 
-        .total-date {
-          color: white;
-          font-size: 1.2rem;
-          position: absolute;
-          bottom: -100%;
-          left: 2.4rem;
-          transition: 0.5s;
-        }
+        .total-box {
+          background-color: var(--black);
+          border: solid 1.2rem white;
+          border-radius: 2.4rem;
+          position: relative;
+          cursor: pointer;
+          overflow: hidden;
+          height: 15rem;
 
-        &:hover > .total-date {
-          bottom: 0;
-          transform: translateX(-0.6rem) translateY(-0.7rem);
-        }
+          &:hover > .hover-effect {
+            scale: 20;
+            transform-origin: center;
+          }
 
-        .hover-effect {
-          transition: 0.5s;
-          position: absolute;
-          right: 1.2rem;
-          top: 1.2rem;
-          width: 2rem;
-          height: 2rem;
-          background-color: var(--yellow);
-          border-radius: 50%;
-          border: solid 0.5rem var(--black);
-          box-shadow: 0.1rem 0.1rem 0 0 var(--yellow);
-        }
+          .total-date {
+            color: white;
+            font-size: 1.2rem;
+            position: absolute;
+            bottom: -100%;
+            left: 2.4rem;
+            transition: 0.5s;
+          }
 
-        &:hover > h5 {
-          left: 1.6rem;
-          transform: translateX(0) translateY(-1.2rem);
-        }
+          &:hover > .total-date {
+            bottom: 0;
+            transform: translateX(-0.6rem) translateY(-0.7rem);
+          }
 
-        &:hover > h2 {
-          font-size: 3rem;
-          left: 1.6rem;
-          transform: translateX(0) translateY(-3rem);
-        }
+          .hover-effect {
+            transition: 0.5s;
+            position: absolute;
+            right: 1.2rem;
+            top: 1.2rem;
+            width: 2rem;
+            height: 2rem;
+            background-color: var(--yellow);
+            border-radius: 50%;
+            border: solid 0.5rem var(--black);
+            box-shadow: 0.1rem 0.1rem 0 0 var(--yellow);
+          }
 
-        h2 {
-          font-size: 2.4rem;
-          bottom: 2.4rem;
-          width: max-content;
-        }
-        h5,
-        h2 {
-          color: white;
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-          transition: 0.5s;
-          z-index: 9;
-          text-shadow: 0 0 0 1rem #000;
+          &:hover > h5 {
+            left: 1.6rem;
+            transform: translateX(0) translateY(-1.2rem);
+          }
+
+          &:hover > h2 {
+            font-size: 3rem;
+            left: 1.6rem;
+            transform: translateX(0) translateY(-3rem);
+          }
+
+          h2 {
+            font-size: 2.4rem;
+            bottom: 2.4rem;
+            width: max-content;
+          }
+          h5,
+          h2 {
+            color: white;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: 0.5s;
+            z-index: 9;
+            text-shadow: 0 0 0 1rem #000;
+          }
         }
       }
     }
@@ -90,89 +92,90 @@
 }
 
 @media (max-width: 35em) {
-  .container {
-    & > div {
-    padding: 2.4rem;
+  .dashboard-wrapper {
+    & > .container {
       & > div {
-        flex: 10rem 1 1;
-        background-color: white;
         padding: 2.4rem;
-        border-radius: 1.2rem;
-        margin-bottom: 1.6rem;
-        box-shadow: 0.2rem 0.2rem 1.6rem 0 rgba(0, 0, 0, 0.2);
-      }
-
-      .total-box {
-        background-color: var(--black);
-        border: solid 1.2rem white;
-        border-radius: 2.4rem;
-        position: relative;
-        cursor: pointer;
-        overflow: hidden;
-        height: 15rem;
-
-        &:hover > .hover-effect {
-          scale: 20;
-          transform-origin: center;
+        & > div {
+          flex: 10rem 1 1;
+          background-color: white;
+          padding: 2.4rem;
+          border-radius: 1.2rem;
+          margin-bottom: 1.6rem;
+          box-shadow: 0.2rem 0.2rem 1.6rem 0 rgba(0, 0, 0, 0.2);
         }
 
-        .total-date {
-          color: white;
-          font-size: 1.2rem;
-          position: absolute;
-          bottom: -100%;
-          left: 2.4rem;
-          transition: 0.5s;
-        }
+        .total-box {
+          background-color: var(--black);
+          border: solid 1.2rem white;
+          border-radius: 2.4rem;
+          position: relative;
+          cursor: pointer;
+          overflow: hidden;
+          height: 15rem;
 
-        &:hover > .total-date {
-          bottom: 0;
-          transform: translateX(-0.6rem) translateY(-0.7rem);
-        }
+          &:hover > .hover-effect {
+            scale: 20;
+            transform-origin: center;
+          }
 
-        .hover-effect {
-          transition: 0.5s;
-          position: absolute;
-          right: 1.2rem;
-          top: 1.2rem;
-          width: 2rem;
-          height: 2rem;
-          background-color: var(--yellow);
-          border-radius: 50%;
-          border: solid 0.5rem var(--black);
-          box-shadow: 0.1rem 0.1rem 0 0 var(--yellow);
-        }
+          .total-date {
+            color: white;
+            font-size: 1.2rem;
+            position: absolute;
+            bottom: -100%;
+            left: 2.4rem;
+            transition: 0.5s;
+          }
 
-        &:hover > h5 {
-          left: 1.6rem;
-          transform: translateX(0) translateY(-1.2rem);
-        }
+          &:hover > .total-date {
+            bottom: 0;
+            transform: translateX(-0.6rem) translateY(-0.7rem);
+          }
 
-        &:hover > h2 {
-          font-size: 3rem;
-          left: 1.6rem;
-          transform: translateX(0) translateY(-3rem);
-        }
+          .hover-effect {
+            transition: 0.5s;
+            position: absolute;
+            right: 1.2rem;
+            top: 1.2rem;
+            width: 2rem;
+            height: 2rem;
+            background-color: var(--yellow);
+            border-radius: 50%;
+            border: solid 0.5rem var(--black);
+            box-shadow: 0.1rem 0.1rem 0 0 var(--yellow);
+          }
 
-        h2 {
-          font-size: 2.4rem;
-          bottom: 2.4rem;
-          width: max-content;
-        }
-        h5,
-        h2 {
-          color: white;
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-          transition: 0.5s;
-          z-index: 9;
-          text-shadow: 0 0 0 1rem #000;
+          &:hover > h5 {
+            left: 1.6rem;
+            transform: translateX(0) translateY(-1.2rem);
+          }
+
+          &:hover > h2 {
+            font-size: 3rem;
+            left: 1.6rem;
+            transform: translateX(0) translateY(-3rem);
+          }
+
+          h2 {
+            font-size: 2.4rem;
+            bottom: 2.4rem;
+            width: max-content;
+          }
+          h5,
+          h2 {
+            color: white;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: 0.5s;
+            z-index: 9;
+            text-shadow: 0 0 0 1rem #000;
+          }
         }
       }
     }
   }
-
   .customer-who-owe-wrapper {
     height: 20rem;
     overflow-y: scroll;

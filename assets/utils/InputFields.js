@@ -6,6 +6,7 @@ const Input = ({ ...obj }) => {
     inputName = '',
     labelName = '',
     required = 0,
+    question = '',
     type = 'text',
     id = '',
     checked = '',
@@ -21,7 +22,9 @@ const Input = ({ ...obj }) => {
 
   if (type === 'date') {
     setTimeout(() => {
-      classSelector(inputName).valueAsDate = new Date();
+      if (classSelector(inputName)) {
+        classSelector(inputName).valueAsDate = new Date();
+      }
     }, 1000);
   }
 
@@ -44,8 +47,18 @@ const Input = ({ ...obj }) => {
       >
 			<label>
       ${labelName} 
-      ${required ? '<div class="required-box">!</div>' : ''}
+      ${required ? '<div class="required-box"><i class="fa fa-asterisk" title="Field required!"></i></div>' : ''}
       </label>
+
+
+      ${question ? `
+        <i class="fa fa-question-circle-o question-box">
+          <div>
+            ${question}
+          </div>
+        </i>
+      ` : ''}
+
 
       ${
         type === 'password'
@@ -57,7 +70,7 @@ const Input = ({ ...obj }) => {
 };
 
 const searchInput = ({ ...obj }) => {
-  const { inputName = '', value='' } = obj;
+  const { inputName = '', value = '' } = obj;
 
   return `
 		<div class="input-control">	
@@ -140,10 +153,4 @@ const Button = ({ ...obj }) => {
     </button>`;
 };
 
-export {
-  Button,
-  Input,
-  TextArea,
-  FileUpload,
-  searchInput,
-};
+export { Button, Input, TextArea, FileUpload, searchInput };

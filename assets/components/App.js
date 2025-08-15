@@ -1,5 +1,6 @@
 import Dashboard from './Dashboard.js';
 import Analytics from './Analytics.js';
+import Activitylogs from './Activitylogs.js';
 import Salesreport from './Salesreport.js';
 import Profitandloss from './Profitandloss.js';
 import Products from './Products.js';
@@ -25,7 +26,8 @@ import domupdate from '../state/datasource/domupdate/domupdate.js';
 import getLoginuser from '../state/sessionstorage/GET/getLoginuser.js';
 import sessionGet from '../state/sessionstorage/GET/sessionGet.js';
 import innerHTML from '../utils/innerHTML.js';
-
+import Modal from '../utils/Modal.js';
+import Userpermissions from './Userpermissions.js';
 const searchstring = new URLSearchParams(window.location.search);
 const page = searchstring.get('page');
 
@@ -41,6 +43,7 @@ const Pages = () => {
     'apikey',
     'inventorysettings',
     'taxprofile',
+    'userpermissions',
   ];
 
   const pagess = {
@@ -48,7 +51,11 @@ const Pages = () => {
     services: slugs.includes('services') ? Services : Dashboard,
     sales: slugs.includes('sales') ? Sales : Dashboard,
     users: slugs.includes('users') ? Users : Dashboard,
+    activitylogs: slugs.includes('activitylogs') ? Activitylogs : Dashboard,
     analytics: slugs.includes('analytics') ? Analytics : Dashboard,
+    userpermissions: slugs.includes('userpermissions')
+      ? Userpermissions
+      : Dashboard,
     salesreport: slugs.includes('salesreport') ? Salesreport : Dashboard,
     profitandloss: slugs.includes('profitandloss') ? Profitandloss : Dashboard,
     products: slugs.includes('products') ? Products : Dashboard,
@@ -95,6 +102,7 @@ if (sessionGet('zsdf')) {
           <div class="display-page"></div>
       </div>
       ${Footer()}
+      ${Modal()}
   `,
   });
 

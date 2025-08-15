@@ -11,6 +11,9 @@ import innerHTML from '../../../utils/innerHTML.js';
 
 const navbarEvent = () => {
   document.addEventListener('click', (e) => {
+    if(e.target.matches('.go-back')){
+      history.back()
+    }
     if (e.target.matches('.dropdownitem')) {
       e.stopImmediatePropagation();
       e.target.classList.toggle('show-menu');
