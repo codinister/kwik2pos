@@ -28,6 +28,8 @@ import sessionGet from '../state/sessionstorage/GET/sessionGet.js';
 import innerHTML from '../utils/innerHTML.js';
 import Modal from '../utils/Modal.js';
 import Userpermissions from './Userpermissions.js';
+import Recordexpenses from './Recordexpenses.js';
+
 const searchstring = new URLSearchParams(window.location.search);
 const page = searchstring.get('page');
 
@@ -44,12 +46,16 @@ const Pages = () => {
     'inventorysettings',
     'taxprofile',
     'userpermissions',
+    'recordexpenses',
   ];
 
   const pagess = {
     dashboard: slugs.includes('dashboard') ? Dashboard : Dashboard,
     services: slugs.includes('services') ? Services : Dashboard,
     sales: slugs.includes('sales') ? Sales : Dashboard,
+    recordexpenses: slugs.includes('recordexpenses')
+      ? Recordexpenses
+      : Dashboard,
     users: slugs.includes('users') ? Users : Dashboard,
     activitylogs: slugs.includes('activitylogs') ? Activitylogs : Dashboard,
     analytics: slugs.includes('analytics') ? Analytics : Dashboard,
@@ -123,6 +129,11 @@ window.onpopstate = function (e) {
 };
 
 document.addEventListener('click', (e) => {
+
+if(e.target.matches('.logout')){
+   history.pushState(null, '', "?page=logout");
+}
+
   if (e.target.matches('.navlinks')) {
     const { navlinks } = e.target.dataset;
     history.pushState(null, '', navlinks);

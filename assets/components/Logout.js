@@ -5,6 +5,7 @@ import sessionGet from '../state/sessionstorage/GET/sessionGet.js';
 
 const Logout = () => {
   [
+    'zsdf',
     'sales',
     'prodsessionstorage',
     'usersessionstorage',
@@ -25,6 +26,7 @@ const Logout = () => {
     'prodsessionstorage',
     'userprofile',
     'usernote',
+    'loginrequired',
     'settingupdate',
     'smsinpt',
     'nn',
@@ -37,7 +39,7 @@ const Logout = () => {
       sessionRemove(v);
     }
   });
-  sessionRemove('zsdf');
+
 
   innerHTML({
     classname: 'root',

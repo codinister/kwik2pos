@@ -10,6 +10,9 @@ const setInputValue = (stateName, inputName, value) => {
       return value;
     }
   }
+  else{
+    return ''
+  }
 
 
 };

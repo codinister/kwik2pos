@@ -1,48 +1,59 @@
-
 import loginEvent from '../state/events/login/loginEvent.js';
+import { Button, Input } from '../utils/InputFields.js';
 
 const Login = () => {
   loginEvent();
 
   return `
-  <div class="login-wrapper" 
-  style="
-  background-size: cover; 
-  background-position: center;
-  background-image: url('assets/images/cover.jpg');
-  ">
+  <div class="login-wrapper">
 
-  <div class="login-inner">
-  <form autocomplet="off" class="login-form">
-  <div class="comp_name">
-  <h4 class="compnamex">KWIK POS</h4>
-  <p>Sign in with your valid username and password</p>
+    <div>
+      <div>
+        <div>
+          <h4>Kwiktul</h4>
+          <p>Fast and easy invoicing system</p>
+        </div>
+        <div>
+         <form autocomplet="off" class="login-form">
+            ${Input({
+              inputName: 'username',
+              labelName: 'Username',
+              required: 1,
+              min: 1,
+              stateName: 'login',
+              stateFields: '',
+            })}
+
+            ${Input({
+              inputName: 'password',
+              labelName: 'Password',
+              type: 'password',
+              min: 6,
+              stateName: 'login',
+              stateFields: '',
+            })}
+
+            <a href="javascript:void(0)" class="forgot-pass">Reset password ?</a>
+            
+            <div class="err-res">
+            ${Button({
+              classname: 'login-btn',
+              buttonname: 'Log in',
+            })}
+            </div>
+         </form>
+        </div>
+      </div>
+    </div>
+    <div
+      style="
+      background-size: cover; 
+      background-position: center;
+      background-image: url('assets/images/cover.jpg');
+      "
+    >
+    </div>
   </div>
-
-  <div class="login-form-group">	
-  <input type="text" placeholder="" class="username lgn" readonly   name="username">
-  <label>Username</label>
-  </div>
-
-    
-  <div class="login-form-group">	
-  <input type="password" placeholder="" class=" password lgn" readonly   name="password">
-  <label>Password</label>
-  <i class="fa fa-eye showppass"></i>
-  </div>
-
-  <a href="javascript:void(0)" class="forgot-pass">Reset password ?</a>
-
-  <div class="output1"></div>
-
-  <div class="spinnerbox">
-  <button class="login-btn">LOG IN</button>
-  </div>
-
-  </form>
-  </div>
-  </div>
-
     `;
 };
 

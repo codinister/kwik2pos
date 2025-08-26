@@ -11,8 +11,28 @@ import innerHTML from '../../../utils/innerHTML.js';
 
 const navbarEvent = () => {
   document.addEventListener('click', (e) => {
-    if(e.target.matches('.go-back')){
-      history.back()
+
+
+if(e.target.matches('.logout')){
+  //history.pushState(null,'', "?page=logout")
+
+window.location.href="?page=logout"
+}
+
+    if (e.target.matches('.button-dropdown')) {
+      e.target.classList.add('show');
+    }
+
+    if (!e.target.matches('.button-dropdown')) {
+      if (classSelector('button-dropdown')) {
+        document.querySelectorAll('.button-dropdown').forEach((v) => {
+          v.classList.remove('show');
+        });
+      }
+    }
+
+    if (e.target.matches('.go-back')) {
+      history.back();
     }
     if (e.target.matches('.dropdownitem')) {
       e.stopImmediatePropagation();

@@ -91,7 +91,7 @@ const Navmenu = (page) => {
           <div class="other-nav-details">
             ${industryCheck('rentals', 'service provider') ? bellIcon() : ''}
     
-            <a class="logout" href="?page=logout">
+            <a class="logout" href="javascript:void(0)">
             <i class="fa fa-arrow-left fa-lg"></i> Logout
             </a>     
 
